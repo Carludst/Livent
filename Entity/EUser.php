@@ -2,8 +2,6 @@
 
 class EUser
 {
-    private string $nome;
-    private string $cognome;
     private string $email;
     public string $username;
     private string $password;
@@ -17,46 +15,12 @@ class EUser
      * @param string $password
      * @param bool $admin
      */
-    public function __construct(string $nome, string $cognome, string $email, string $username, string $password, bool $admin)
+    public function __construct(string $email, string $username, string $password, bool $admin)
     {
-        $this->nome = $nome;
-        $this->cognome = $cognome;
         $this->email = $email;
         $this->username = $username;
         $this->password = $password;
         $this->admin = $admin;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNome(): string
-    {
-        return $this->nome;
-    }
-
-    /**
-     * @param string $nome
-     */
-    public function setNome(string $nome): void
-    {
-        $this->nome = $nome;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCognome(): string
-    {
-        return $this->cognome;
-    }
-
-    /**
-     * @param string $cognome
-     */
-    public function setCognome(string $cognome): void
-    {
-        $this->cognome = $cognome;
     }
 
     /**
