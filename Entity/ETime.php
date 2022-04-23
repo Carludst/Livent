@@ -3,6 +3,10 @@ class ETime
 {
     private float $value;
 
+    /**
+     * @param float|String $value number of seconds
+     * @throws Exception return an exception when it is passed a negative parameter
+     */
     function __construct(float|String $value){
         if(gettype($value)=="double"){
             if($value<0)throw new Exception("time can't be negative");
@@ -51,6 +55,9 @@ class ETime
         else $this->value=$this->stringToFloat($value);
     }
 
+    /**
+     * @return string
+     */
     public function toString(){
         $minutes=intdiv($this->value,60);
         $seconds=number_format($this->value%60,2);
