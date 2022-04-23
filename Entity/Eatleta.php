@@ -7,6 +7,7 @@ class Eatleta {
   private string $sport;
   private string $id;
 
+
     /**
      * @param string $name
      * @param string $surname

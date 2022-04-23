@@ -9,6 +9,7 @@ class Ecompetition{
     private string $sport;
     private EDistance $distance;
 
+
     /**
      * @return string
      */
