@@ -8,8 +8,6 @@ class EUser
     private bool $admin;
 
     /**
-     * @param string $nome
-     * @param string $cognome
      * @param string $email
      * @param string $username
      * @param string $password
