@@ -1,5 +1,7 @@
 <?php
 
+require "EUser.php";
+
 class EComment
 {
     private EUser $user;
