@@ -1,153 +1,67 @@
 <?php
-class Ecompetition{
-    private string $name;
-    private string $date;
-    private string $time;
-    private string $description;
-    private string $genere;
-    //private string $competitors;
-    private string $sport;
-    private EDistance $distance;
-
-
-    /**
-     * @return string
-     */
-    public function getName() : string
-    {
-      return $this->name;
+class Competizione{
+    private $name;
+    private $date;
+    private $time;
+    private $description;
+    private $genere;
+    private $competitors;
+    private $sport;
+    private $distance;
+    
+    public function getName(){
+      return 'name';
     }
-
-    /**
-     * @param string $newname
-     */
-    public function setName(string $newname) : void
-    {
-      $this->name = $newname;
+    public function setName($newname){
+      $this->$name = $newname;
     }
-
-    /**
-     * @return string
-     */
-    public function getDate() : string
-    {
-      return $this->date;
+    public function getDate(){
+      return 'date';
     }
-
-    /**
-     * @param string $newdate
-     */
-    public function setDate(string $newdate) : void
-    {
-      $this->date = $newdate;
+    public function setDate($newdate){
+      $this->$date = $newdate;
     }
-
-    /**
-     * @return string
-     */
-     public function getTime() : string
-     {
-      return $this->time;
+     public function getTime(){
+      return 'time';
     }
-
-    /**
-     * @param string $newtime
-     */
-    public function setTime(string $newtime) : void
-    {
-      $this->time = $newtime;
+    public function setTime($newtime){
+      $this->$time = $newtime;
     }
-
-    /**
-     * @return string
-     */
-     public function getDescription() : string
-     {
-      return $this->description;
+     public function getDescription(){
+      return 'description';
     }
-
-    /**
-     * @param string $newdescription
-     */
-    public function setDescription(string $newdescription) : void
-    {
-      $this->description = $newdescription;
+    public function setDescription($newdescription){
+      $this->$description = $newdescription;
     }
-
-    /**
-     * @return string
-     */
-     public function getGenere() : string
-     {
-      return $this->genere;
-     }
-
-    /**
-     * @param string $newgenere
-     */
-    public function setGenere(string $newgenere) : void
-    {
-      $this->genere = $newgenere;
+     public function getGenere(){
+      return 'genere';
     }
-
-    /**
-     * @return string
-     */
-     public function getCompetitors() : string
-     {
-      return $this->competitors;
-     }
-
-    /**
-     * @param string $newcompetitors
-     */
-    public function setConpetitors(string $newcompetitors) : void
-    {
-      $this->competitors = $newcompetitors;
+    public function setGenere($newgenere){
+      $this->$genere = $newgeneres;
     }
-
-    /**
-     * @return string
-     */
-     public function getSport() : string
-     {
-      return $this->sport;
-     }
-
-    /**
-     * @param string $newsport
-     */
-    public function setSport(string $newsport) : void
-    {
-      $this->sport = $newsport;
+     public function getCompetitors(){
+      return 'competitors';
     }
-
-    /**
-     * @return string
-     */
-     public function getDistance() : string
-     {
-      return $this->distance;
-     }
-
-    /**
-     * @param string $newdistance
-     */
-    public function setDistance(string $newdistance) : void
-    {
-      $this->distance = $newdistance;
+    public function setConpetitors($newcompetitors){
+      $this->$competitors = $newcompetitors;
     }
-
-    /**
-    public function addCompetitors(Eatleta $atleta, Eatleta $atleti) : Eatleta
-    {
+     public function getSport(){
+      return 'sport';
+    }
+    public function setSport($newsport){
+      $this->$sport = $newsport;
+    }
+     public function getDistance(){
+      return 'distance';
+    }
+    public function setDistance($newdistance){
+      $this->$distance = $newdistance;
+    }
+    public function addCompetitors($atleta,$atleti){
         array_push($atleti, $atleta);
     }
-
-    public function popCompetitors(Eatleta $atleta, Eatleta $atleti) : void
-    {
+    public function popCompetitors($atleta, $atleti){
         unset($atleti[$atleta->getId()]);
     }
-    */
 }
 ?>

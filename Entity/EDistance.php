@@ -3,6 +3,10 @@ class EDistance
 {
     private float $value;
 
+    /**
+     * @param float|String $value
+     * @throws Exception return an exception when it is passed a negative parameter
+     */
     function __construct(float|String $value){
         if(gettype($value)=="double"){
             if($value<0)throw new Exception("distance can't be negative");
@@ -10,6 +14,7 @@ class EDistance
         }
         else $this->value=$this->stringToFloat($value);
     }
+
 
     private function stringToFloat(String $stringValue):float{
         if(str_ends_with($stringValue,"km")){
@@ -54,7 +59,12 @@ class EDistance
         else $this->value=$this->stringToFloat($value);
     }
 
-
+    /**
+     * @param String|null $unit unit of the distance
+     * @param int|null $precision number of digits after comma
+     * @return String
+     * @throws Exception return an expetion if the unit passed is invalid
+     */
     public function toString(?String $unit=null,?int $precision=null):String
     {
         if(is_null($unit)){

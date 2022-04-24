@@ -12,9 +12,11 @@ class EUser
      * @param string $username
      * @param string $password
      * @param bool $admin
+     * @throws Exception
      */
     public function __construct(string $email, string $username, string $password, bool $admin)
     {
+        if(count(explode("@",$email))!=2)throw new Exception("the email passed is invalid");
         $this->email = $email;
         $this->username = $username;
         $this->password = $password;
@@ -31,9 +33,11 @@ class EUser
 
     /**
      * @param string $email
+     * @throws Exception
      */
     public function setEmail(string $email): void
     {
+        if(count(explode("@",$email))!=2)throw new Exception("the email passed is invalid");
         $this->email = $email;
     }
 
