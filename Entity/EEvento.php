@@ -9,65 +9,80 @@ class Evento{
     private $comments;
     private $organizer;
     
-    public __construct($name, $description, $place, $competitions, $contacts, $audience, $comments, $organizer)
+    public __construct(String $name, String $place, Contatto[] $contacts, Commento[] $comments, Utente $organizer, String $description="",Competizione[] $competitions=[], bool $audience=false)
     {
         $this->name = $name;
         $this->description = $description;
         $this->place = $place;
-        $this->cometitions = $competitions;
+        $this->competitions = $competitions;
         $this->contacts = $contacts;
         $this->audience = $audience;
         $this->comments = $comments;
         $this->organizer = $organizer;
     }
     
-    public function getName(){
-      return 'name';
+    public function getName(): string
+    {
+      return $this->name;
     }
-    public function setName($newname){
+    public function setName($newname): void
+    {
       $this->name = $newname;
     }
-    public function getDescription(){
-      return 'description';
+    public function getDescription(): string
+    {
+      return $this->description;
     }
-    public function setDescription($newdescr){
+    public function setDescription($newdescr): void
+    {
       $this->description = $newdescr;
     }
-    public function getPlace(){
-      return 'place';
+    public function getPlace(): string
+    {
+      return $this->place;
     }
-    public function setPlace($newplace){
+    public function setPlace($newplace): void
+    {
       $this->place = $place;
     }
-    public function getCompetitions(){
-      return 'competition';
+    public function getCompetitions(): string
+    {
+      return $this->competition;
     }
-    public function setCompetitions($newcompetition){
+    public function setCompetitions($newcompetition): void
+    {
       $this->competition = $newcompetition;
     }
-    public function getContact(){
-      return 'contact';
+    public function getContact(): Contatto
+    {
+      return $this->contact;
     }
-    public function setContact($newcontact){
+    public function setContact($newcontact): void{
       $this->contact = $newcontact;
     }
-    public function getAudience(){
-      return 'audience';
+    public function getAudience(): bool
+    {
+      return $this->audience;
     }
-    public function setAudience($newaudience){
+    public function setAudience($newaudience): void
+    {
       $this->audience = $newaudience;
     }
     
-    public function getComments(){
-      return 'comments';
+    public function getComments(): Commento
+    {
+      return $this->comments;
     }
-    public function setComments($newcomments){
+    public function setComments($newcomments): void
+    {
       $this->comments = $newcomments;
     }
-    public function getOrganizer(){
-      return 'organizer';
+    public function getOrganizer(): Utente
+    {
+      return $this->organizer;
     }
-    public function setOrganizer($neworganizer){
+    public function setOrganizer($neworganizer): void
+    {
       $this->organizer = $neworganizer;
     }
     public function addCompetition($competition){
