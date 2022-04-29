@@ -13,6 +13,17 @@ class Ecompetition{
     /**
      * @return string
      */
+    public __construct(String $name, String $date, String $time, String $genere; String $sport; EDistance $distance; String $description=" ")
+    {
+        $this->name = $name;
+        $this->date = $date;
+        $this->time = $time;
+        $this->description = $description;
+        $this->genere = $genere;
+        $this->sport = $sport;
+        $this->distance = $distance;
+    }
+        
     public function getName() : string
     {
       return $this->name;
