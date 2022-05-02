@@ -9,7 +9,7 @@ class Evento{
     private $comments;
     private $organizer;
     
-    public __construct(String $name, String $place, Contatto[] $contacts, Commento[] $comments, Utente $organizer, String $description="",Competizione[] $competitions=[], bool $audience=false)
+    public __construct(String $name, String $place, Contatto $contacts(), Commento $comments(), Utente $organizer, String $description="",Competizione $competitions=(), bool $audience=false)
     {
         $this->name = $name;
         $this->description = $description;
@@ -25,7 +25,7 @@ class Evento{
     {
       return $this->name;
     }
-    public function setName($newname): void
+    public function setName(String $newname): void
     {
       $this->name = $newname;
     }
@@ -33,7 +33,7 @@ class Evento{
     {
       return $this->description;
     }
-    public function setDescription($newdescr): void
+    public function setDescription(String $newdescr): void
     {
       $this->description = $newdescr;
     }
@@ -41,7 +41,7 @@ class Evento{
     {
       return $this->place;
     }
-    public function setPlace($newplace): void
+    public function setPlace(String $newplace): void
     {
       $this->place = $place;
     }
@@ -49,7 +49,7 @@ class Evento{
     {
       return $this->competition;
     }
-    public function setCompetitions($newcompetition): void
+    public function setCompetitions(String $newcompetition): void
     {
       $this->competition = $newcompetition;
     }
@@ -57,14 +57,14 @@ class Evento{
     {
       return $this->contact;
     }
-    public function setContact($newcontact): void{
+    public function setContact(Contatto $newcontact): void{
       $this->contact = $newcontact;
     }
     public function getAudience(): bool
     {
       return $this->audience;
     }
-    public function setAudience($newaudience): void
+    public function setAudience(bool $newaudience): void
     {
       $this->audience = $newaudience;
     }
@@ -73,7 +73,7 @@ class Evento{
     {
       return $this->comments;
     }
-    public function setComments($newcomments): void
+    public function setComments(Commento $newcomments): void
     {
       $this->comments = $newcomments;
     }
@@ -81,26 +81,32 @@ class Evento{
     {
       return $this->organizer;
     }
-    public function setOrganizer($neworganizer): void
+    public function setOrganizer(Utente $neworganizer): void
     {
       $this->organizer = $neworganizer;
     }
-    public function addCompetition($competition){
+    public function addCompetition(Competizione $competition): void
+    {
         array_push($this->competitions, $competition);
     }
-    public function popCompetition($competition){
+    public function popCompetition(Competizione $competition): void
+    {
         unset($this->competitions[$competition->getId()]);
     }
-    public function addCompetition($contact){
+    public function addContact(Contatto $contact): void
+    {
         array_push($this->contacts, $contact);
     }
-    public function popCompetition($contacts){
+    public function popContact(Contatto $contacts): void
+    {
         unset($this->contacts[$contact->getId()]);
     }
-    public function addComment($comment){
+    public function addComment(Commento $comment): void
+    {
         array_push($this->comments, $comment);
     }
-    public function popCompetition($comment){
+    public function popComment(Commento $comment): void
+    {
         unset($this->comments[$comment->getId()]);
     }   
 }
