@@ -9,7 +9,7 @@ class Evento{
     private $comments;
     private $organizer;
     
-    public __construct(String $name, String $place, Contatto $contacts(), Commento $comments(), Utente $organizer, String $description="",Competizione $competitions=(), bool $audience=false)
+    public function __construct(String $name, String $place, EContact $array(), EComment $array(), EUser $organizer, String $description="", ECompetition $array() = $array[], bool $audience=false)
     {
         $this->name = $name;
         $this->description = $description;
@@ -53,11 +53,11 @@ class Evento{
     {
       $this->competition = $newcompetition;
     }
-    public function getContact(): Contatto
+    public function getContact(): EContact
     {
       return $this->contact;
     }
-    public function setContact(Contatto $newcontact): void{
+    public function setContact(EContact $newcontact): void{
       $this->contact = $newcontact;
     }
     public function getAudience(): bool
@@ -69,43 +69,43 @@ class Evento{
       $this->audience = $newaudience;
     }
     
-    public function getComments(): Commento
+    public function getComments(): EComment
     {
       return $this->comments;
     }
-    public function setComments(Commento $newcomments): void
+    public function setComments(EComment $newcomments): void
     {
       $this->comments = $newcomments;
     }
-    public function getOrganizer(): Utente
+    public function getOrganizer(): EUser
     {
       return $this->organizer;
     }
-    public function setOrganizer(Utente $neworganizer): void
+    public function setOrganizer(EUser $neworganizer): void
     {
       $this->organizer = $neworganizer;
     }
-    public function addCompetition(Competizione $competition): void
+    public function addCompetition(ECompetition $competition): void
     {
         array_push($this->competitions, $competition);
     }
-    public function popCompetition(Competizione $competition): void
+    public function popCompetition(ECompetition $competition): void
     {
         unset($this->competitions[$competition->getId()]);
     }
-    public function addContact(Contatto $contact): void
+    public function addContact(EContact $contact): void
     {
         array_push($this->contacts, $contact);
     }
-    public function popContact(Contatto $contacts): void
+    public function popContact(EContact $contacts): void
     {
         unset($this->contacts[$contact->getId()]);
     }
-    public function addComment(Commento $comment): void
+    public function addComment(EComment $comment): void
     {
         array_push($this->comments, $comment);
     }
-    public function popComment(Commento $comment): void
+    public function popComment(EComment $comment): void
     {
         unset($this->comments[$comment->getId()]);
     }   
