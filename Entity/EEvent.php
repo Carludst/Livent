@@ -1,5 +1,5 @@
 <?php
-class Evento{
+class EEvent{
     private $name;
     private $description;
     private $place;

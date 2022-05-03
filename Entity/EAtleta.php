@@ -1,5 +1,5 @@
 <?php
-class Eatleta {
+class EAtleta {
   private string $name;
   private string $surname;
   private string $birthdate;
