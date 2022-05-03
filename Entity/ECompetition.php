@@ -1,5 +1,6 @@
 <?php
-class Ecompetition{
+require_once "EDistance.php";
+class ECompetition{
     private string $name;
     private string $date;
     private string $time;
@@ -13,7 +14,7 @@ class Ecompetition{
     /**
      * @return string
      */
-    public __construct(String $name, String $date, String $time, String $genere; String $sport; EDistance $distance; String $description=" ")
+    public function __construct(String $name, String $date, String $time, String $genere, String $sport, EDistance $distance, String $description=" ")
     {
         $this->name = $name;
         $this->date = $date;
@@ -150,12 +151,12 @@ class Ecompetition{
     }
 
     /**
-    public function addCompetitors(Eatleta $atleta, Eatleta $atleti) : Eatleta
+    public function addCompetitors(EAthlete $atleta, EAthlete $atleti) : EAthlete
     {
         array_push($atleti, $atleta);
     }
 
-    public function popCompetitors(Eatleta $atleta, Eatleta $atleti) : void
+    public function popCompetitors(EAthlete $atleta, EAthlete $atleti) : void
     {
         unset($atleti[$atleta->getId()]);
     }
