@@ -30,18 +30,20 @@ class FDb{
      * @param String $table database table where insert the values
      * @param array $values values to insert order by attributes definiction
      * @return bool return false if is occurred an error
-     * @throws Exception if array values is empty
      */
-    public static function store(String $table,Array $values):bool
+    public static function store(String $table,Array $fieldValue):bool
     {
         try{
-            if(count($values)==0)throw new Exception("the values array is empty");
             self::$pdoV->beginTransaction();
+            $fields=array_keys($fieldValue);
+            $values=array_values($fieldValue);
             $valStr=$values[0];
+            $fieldStr=$fields[0];
             for($i=1;$i<count($values);$i++){
                 $valStr=$valStr.",".$values[$i];
+                $fieldStr=$fieldStr.",".$fields[$i];
             }
-            $query = "INSERT INTO " . $table . " VALUES " ."(".$valStr.")";
+            $query = "INSERT INTO " . $table ."(".$fieldStr.")". "  VALUES  " ."(".$valStr.")";
             $stmt=self::$pdoV->prepare($query);
             $stmt->execute();
             self::closeConnection();
@@ -88,7 +90,7 @@ class FDb{
      * @param String $fieldValue array with field to change as key and new value as element of the array
      * @return bool|null true if the operation completed successfuly
      */
-    public static function update(String $table,String $where,String $fieldValue):?bool
+    public static function update(String $table,String $where,Array $fieldValue):?bool
     {
         try {
             if(self::exist(self::load($table,$where))){
