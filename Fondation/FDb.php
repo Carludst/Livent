@@ -28,7 +28,7 @@ class FDb{
     /**
      * -Method : insert into a database table an element
      * @param String $table database table where insert the values
-     * @param array $values values to insert order by attributes definiction
+     * @param array $fieldValue array with field  as key and value as element of the array
      * @return bool return false if is occurred an error
      */
     public static function store(String $table,Array $fieldValue):bool
