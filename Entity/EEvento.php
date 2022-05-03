@@ -9,7 +9,7 @@ class Evento{
     private $comments;
     private $organizer;
     
-    public function __construct(String $name, String $place, EContact $array(), EComment $array(), EUser $organizer, String $description="", ECompetition $array() = $array[], bool $audience=false)
+    public function __construct(String $name, String $place, EContact $array(), EUser $organizer, String $description="", ECompetition $array() = $array[], bool $audience=false)
     {
         $this->name = $name;
         $this->description = $description;
@@ -47,7 +47,11 @@ class Evento{
     }
     public function getCompetitions(): string
     {
-      return $this->competition;
+      return $this->competitions;
+    }
+    public function getCompetition(index): string
+    {
+      return $this->competitions[index];
     }
     public function setCompetitions(String $newcompetition): void
     {
@@ -71,11 +75,7 @@ class Evento{
     
     public function getComments(): EComment
     {
-      return $this->comments;
-    }
-    public function setComments(EComment $newcomments): void
-    {
-      $this->comments = $newcomments;
+      //prenderlo dal db
     }
     public function getOrganizer(): EUser
     {
@@ -101,13 +101,6 @@ class Evento{
     {
         unset($this->contacts[$contact->getId()]);
     }
-    public function addComment(EComment $comment): void
-    {
-        array_push($this->comments, $comment);
-    }
-    public function popComment(EComment $comment): void
-    {
-        unset($this->comments[$comment->getId()]);
-    }   
+    
 }
 ?>
