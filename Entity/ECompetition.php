@@ -15,7 +15,7 @@ class Ecompetition{
      */
     public function getName() : string
     {
-        return $this->name;
+      return $this->name;
     }
 
     /**
@@ -23,7 +23,7 @@ class Ecompetition{
      */
     public function setName(string $newname) : void
     {
-        $this->name = $newname;
+      $this->name = $newname;
     }
 
     /**
@@ -31,7 +31,7 @@ class Ecompetition{
      */
     public function getDate() : string
     {
-        return $this->date;
+      return $this->date;
     }
 
     /**
@@ -39,15 +39,15 @@ class Ecompetition{
      */
     public function setDate(string $newdate) : void
     {
-        $this->date = $newdate;
+      $this->date = $newdate;
     }
 
     /**
      * @return string
      */
-    public function getTime() : string
-    {
-        return $this->time;
+     public function getTime() : string
+     {
+      return $this->time;
     }
 
     /**
@@ -55,15 +55,15 @@ class Ecompetition{
      */
     public function setTime(string $newtime) : void
     {
-        $this->time = $newtime;
+      $this->time = $newtime;
     }
 
     /**
      * @return string
      */
-    public function getDescription() : string
-    {
-        return $this->description;
+     public function getDescription() : string
+     {
+      return $this->description;
     }
 
     /**
@@ -71,82 +71,83 @@ class Ecompetition{
      */
     public function setDescription(string $newdescription) : void
     {
-        $this->description = $newdescription;
+      $this->description = $newdescription;
     }
 
     /**
      * @return string
      */
-    public function getGenere() : string
-    {
-        return $this->genere;
-    }
+     public function getGenere() : string
+     {
+      return $this->genere;
+     }
 
     /**
      * @param string $newgenere
      */
     public function setGenere(string $newgenere) : void
     {
-        $this->genere = $newgenere;
+      $this->genere = $newgenere;
     }
 
     /**
      * @return string
      */
-    public function getCompetitors() : string
-    {
-        return $this->competitors;
-    }
+     public function getCompetitors() : string
+     {
+      return $this->competitors;
+     }
 
     /**
      * @param string $newcompetitors
      */
     public function setConpetitors(string $newcompetitors) : void
     {
-        $this->competitors = $newcompetitors;
+      $this->competitors = $newcompetitors;
     }
 
     /**
      * @return string
      */
-    public function getSport() : string
-    {
-        return $this->sport;
-    }
+     public function getSport() : string
+     {
+      return $this->sport;
+     }
 
     /**
      * @param string $newsport
      */
     public function setSport(string $newsport) : void
     {
-        $this->sport = $newsport;
+      $this->sport = $newsport;
     }
 
     /**
      * @return string
      */
-    public function getDistance() : string
-    {
-        return $this->distance;
-    }
+     public function getDistance() : string
+     {
+      return $this->distance;
+     }
 
     /**
      * @param string $newdistance
      */
     public function setDistance(string $newdistance) : void
     {
-        $this->distance = $newdistance;
+      $this->distance = $newdistance;
     }
 
     /**
     public function addCompetitors(Eatleta $atleta, Eatleta $atleti) : Eatleta
     {
-    array_push($atleti, $atleta);
+        array_push($atleti, $atleta);
     }
+
     public function popCompetitors(Eatleta $atleta, Eatleta $atleti) : void
     {
-    unset($atleti[$atleta->getId()]);
+        unset($atleti[$atleta->getId()]);
     }
-     */
+    */
 }
 ?>
