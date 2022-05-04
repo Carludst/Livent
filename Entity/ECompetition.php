@@ -1,10 +1,12 @@
 <?php
+require_once "EDistance.php";
+
 class ECompetition{
     private string $name;
     private string $date;
     private string $time;
     private string $description;
-    private string $genere;
+    private string $gender;
     //private string $competitors;
     private string $sport;
     private EDistance $distance;
@@ -13,13 +15,13 @@ class ECompetition{
     /**
      * @return string
      */
-    public function  __construct(String $name, String $date, String $time, String $genere, String $sport, EDistance $distance, String $description=" ")
+    public function  __construct(String $name, String $date, String $time, String $gender, String $sport, EDistance $distance, String $description=" ")
     {
         $this->name = $name;
         $this->date = $date;
         $this->time = $time;
         $this->description = $description;
-        $this->genere = $genere;
+        $this->gender = $gender;
         $this->sport = $sport;
         $this->distance = $distance;
     }
@@ -88,34 +90,32 @@ class ECompetition{
     /**
      * @return string
      */
-     public function getGenere() : string
+     public function getGender() : string
      {
-      return $this->genere;
+      return $this->gender;
      }
 
     /**
      * @param string $newgenere
      */
-    public function setGenere(string $newgenere) : void
+    public function setGender(string $newgender) : void
     {
-      $this->genere = $newgenere;
+      $this->gender = $newgender;
     }
 
-    /**
-     * @return string
-     */
+    /*
      public function getCompetitors() : string
      {
       return $this->competitors;
      }
+    */
 
-    /**
-     * @param string $newcompetitors
-     */
+    /*
     public function setConpetitors(string $newcompetitors) : void
     {
       $this->competitors = $newcompetitors;
     }
+    */
 
     /**
      * @return string

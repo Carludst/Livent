@@ -1,23 +1,22 @@
 <?php
 class EEvent{
-    private $name;
-    private $description;
-    private $place;
-    private $competitions;
-    private $contacts;
-    private $audience;
-    private $comments;
-    private $organizer;
+    private String $name;
+    private String $description;
+    private String $place;
+    private Array $competitions;
+    private Array $contacts;
+    private bool $public;
+    private EUser $organizer;
+    //comments
     
-    public function __construct(String $name, String $place, EContact $array(), EUser $organizer, String $description="", ECompetition $array() = $array[], bool $audience=false)
+    public function __construct(String $name, String $place, EUser $organizer, bool $public=false, String $description="",Array $competitions =array(), Array $contacts=array())
     {
         $this->name = $name;
         $this->description = $description;
         $this->place = $place;
         $this->competitions = $competitions;
         $this->contacts = $contacts;
-        $this->audience = $audience;
-        $this->comments = $comments;
+        $this->public = $public;
         $this->organizer = $organizer;
     }
     
@@ -25,82 +24,125 @@ class EEvent{
     {
       return $this->name;
     }
+
+
     public function setName(String $newname): void
     {
       $this->name = $newname;
     }
+
+
     public function getDescription(): string
     {
       return $this->description;
     }
+
+
     public function setDescription(String $newdescr): void
     {
       $this->description = $newdescr;
     }
+
+
     public function getPlace(): string
     {
       return $this->place;
     }
+
+
     public function setPlace(String $newplace): void
     {
-      $this->place = $place;
+      $this->place = $newplace;
     }
-    public function getCompetitions(): string
+
+
+    public function getCompetitions(): Array
     {
       return $this->competitions;
     }
-    public function getCompetition(index): string
+
+    public function setCompetitions(Array $newcompetition): void
     {
-      return $this->competitions[index];
+        $this->competition = $newcompetition;
     }
-    public function setCompetitions(String $newcompetition): void
+
+
+    public function getCompetition(int $index): string
     {
-      $this->competition = $newcompetition;
+      return $this->competitions[$index];
     }
-    public function getContact(): EContact
-    {
-      return $this->contact;
-    }
-    public function setContact(EContact $newcontact): void{
-      $this->contact = $newcontact;
-    }
-    public function getAudience(): bool
-    {
-      return $this->audience;
-    }
-    public function setAudience(bool $newaudience): void
-    {
-      $this->audience = $newaudience;
-    }
-    
-    public function getComments(): EComment
-    {
-      //prenderlo dal db
-    }
-    public function getOrganizer(): EUser
-    {
-      return $this->organizer;
-    }
-    public function setOrganizer(EUser $neworganizer): void
-    {
-      $this->organizer = $neworganizer;
-    }
+
+
     public function addCompetition(ECompetition $competition): void
     {
         array_push($this->competitions, $competition);
     }
-    public function popCompetition(ECompetition $competition): void
+
+
+    public function popCompetition(ECompetition|int $competition): void
     {
-        unset($this->competitions[$competition->getId()]);
+        if(is_int($competition)==false)$index=array_search($competition,$this->competitions);
+        else $index=$competition;
+        array_slice($this->competitions,$index,1);
     }
+
+
+
+    public function getContacts(): Array
+    {
+      return $this->contacts;
+    }
+
+
+    public function setContacts(Array $newcontact): void{
+      $this->contacts = $newcontact;
+    }
+
+
     public function addContact(EContact $contact): void
     {
         array_push($this->contacts, $contact);
     }
+
+
+
     public function popContact(EContact $contacts): void
     {
-        unset($this->contacts[$contact->getId()]);
+        if(is_int($contacts)==false)$index=array_search($contacts,$this->contacts);
+        else $index=$contacts;
+        array_slice($this->contacts,$index,1);
     }
+
+
+
+    public function getPublic(): bool
+    {
+      return $this->public;
+    }
+
+
+    public function setPublic(bool $newpublic): void
+    {
+      $this->public = $newpublic;
+    }
+
+    /*
+    public function getComments(): EComment
+    {
+      //prenderlo dal db
+    }
+    */
+    public function getOrganizer(): EUser
+    {
+      return $this->organizer;
+    }
+
+    public function setOrganizer(EUser $neworganizer): void
+    {
+      $this->organizer =  $neworganizer;
+    }
+
+
     
 }
 ?>
