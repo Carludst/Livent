@@ -114,7 +114,7 @@ class EEvent{
     {
         if(is_int($competition)==false)$index=array_search($competition,$this->competitions);
         else $index=$competition;
-        array_slice($this->competitions,$index,1);
+        unset($this->competitions[$index]);
     }
 
 
@@ -152,7 +152,7 @@ class EEvent{
     {
         if(is_int($contacts)==false)$index=array_search($contacts,$this->contacts);
         else $index=$contacts;
-        array_slice($this->contacts,$index,1);
+        unset($this->contacts[$index]);
     }
 
 
