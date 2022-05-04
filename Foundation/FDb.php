@@ -1,6 +1,6 @@
 <?php
 require_once "DbDefoultConfiguration.php";
-
+//roberto rompe
 class FDb{
 
     private static PDO $pdoV;
