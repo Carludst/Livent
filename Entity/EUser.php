@@ -8,8 +8,6 @@ class EUser
     private string $type;
 
     /**
-     * @param string $nome
-     * @param string $cognome
      * @param string $email
      * @param string $username
      * @param string $password

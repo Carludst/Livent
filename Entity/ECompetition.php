@@ -150,12 +150,12 @@ class ECompetition{
     }
 
     /**
-    public function addCompetitors(EAthlete $atleta, EAthlete $atleti) : EAthlete
+    public function addCompetitors(EAtleta $atleta, EAtleta $atleti) : EAtleta
     {
         array_push($atleti, $atleta);
     }
 
-    public function popCompetitors(EAthlete $atleta, EAthlete $atleti) : void
+    public function popCompetitors(EAtleta $atleta, EAtleta $atleti) : void
     {
         unset($atleti[$atleta->getId()]);
     }
