@@ -115,10 +115,16 @@ class FAthlete {
         return FDb::update(self::$table[0],self::whereKey((String)$athlete->getId()),self::getArrayByObject($athlete));
     }
 
+    /**
+     * -Method : return an array (name copetition key) of array (idevent , time) with the result order by time
+     * @param EAthlete $athlete athlete who want the result
+     * @return array|null return an array (name copetition key) of array (idevent , time) with the result order by time
+     * @throws Exception FDb exInterrogation exception
+     */
     public static function getResults(EAthlete $athlete):?array
     {
         $query=FDb::load(self::$table[1],self::whereKey((String)$athlete->getId()));
-        $resultQ=FDb::exInterrogation($query);
+        $resultQ=FDb::exInterrogation($query,"time");
         $result=array();
         foreach ($resultQ as $c=>$v){
             $result[$v["namecompetition"]][]=array($v["idevent"],new ETime((float)$v["time"]));
