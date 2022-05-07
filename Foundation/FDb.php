@@ -161,7 +161,7 @@ class FDb{
     /**
      * -Method : execute a query and return true if the query result is not empty
      * @param String $query query to execute
-     * @param array|null $valParametres parametres not just expess into the query (useful for login)
+     * @param array|null $valParametres parametres not just express into the query (useful for login)
      * @return bool|null return true if the query result is not empty , null if is occurred an error
      */
     public static function exist(String $query,?Array $valParametres=null):?bool

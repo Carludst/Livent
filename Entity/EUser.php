@@ -5,7 +5,7 @@ class EUser
     private string $email;
     public string $username;
     private string $password;
-    private bool $admin;
+    private string $type;
 
     /**
      * @param string $nome
@@ -13,16 +13,16 @@ class EUser
      * @param string $email
      * @param string $username
      * @param string $password
-     * @param bool $admin
+     * @param string $type
      * @throws Exception
      */
-    public function __construct(string $email, string $username, string $password, bool $admin)
+    public function __construct(string $email, string $username, string $password, string $type)
     {
         if(count(explode("@",$email))!=2)throw new Exception("the email passed is invalid");
         $this->email = $email;
         $this->username = $username;
         $this->password = $password;
-        $this->admin = $admin;
+        $this->type = $type;
     }
 
     /**
@@ -76,19 +76,19 @@ class EUser
     }
 
     /**
-     * @return bool
+     * @return String
      */
-    public function getAdmin(): bool
+    public function getType(): String
     {
-        return $this->admin;
+        return $this->type;
     }
 
     /**
-     * @param bool $admin
+     * @param String $type
      */
-    public function setAdmin(bool $admin): void
+    public function setType(bool $type): void
     {
-        $this->admin = $admin;
+        $this->admin = $type;
     }
 
 }
