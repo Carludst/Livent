@@ -52,8 +52,5 @@ class FContact{
         FDb::store(self::$table[0], $fieldValue);
     }
 
-
-    
-
 }
 ?>
