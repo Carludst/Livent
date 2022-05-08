@@ -1,11 +1,11 @@
 <?php
 class EContact
 {
-    private String $nome;
+    private String $name;
     private String $phoneNumber;
     private String $email;
 
-    function __construct(String $nome,String $phoneNumber , String $prefixPhoneNumber="+39" , String $email){
+    function __construct(String $name,String $phoneNumber , String $prefixPhoneNumber="+39" , String $email){
         if(is_numeric($phoneNumber)==false || strlen($phoneNumber)!=10)throw new Exception("phone number must be long 10 digits");
         if(count(explode("@",$email))!=2)throw new Exception("the email passed is invalid");
         if(is_numeric($prefixPhoneNumber)==false )throw new Exception("the prefix passed is invalid");
@@ -13,7 +13,7 @@ class EContact
         elseif(str_starts_with("+",$prefixPhoneNumber)==false)$prefixPhoneNumber="+".$prefixPhoneNumber;
         $this->email=$email;
         $this->phoneNumber=$prefixPhoneNumber.$phoneNumber;
-        $this->nome=$nome;
+        $this->name=$name;
     }
 
     /**
@@ -27,9 +27,9 @@ class EContact
     /**
      * @return String
      */
-    public function getNome(): string
+    public function getName(): string
     {
-        return $this->nome;
+        return $this->name;
     }
 
     /**
@@ -52,11 +52,11 @@ class EContact
     }
 
     /**
-     * @param String $nome
+     * @param String $name
      */
-    public function setNome(string $nome): void
+    public function setNome(string $name): void
     {
-        $this->nome = $nome;
+        $this->name = $name;
     }
 
     /**

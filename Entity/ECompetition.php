@@ -3,8 +3,7 @@ require_once "EDistance.php";
 
 class ECompetition{
     private string $name;
-    private string $date;
-    private string $time;
+    private DateTime $dateTime;
     private string $description;
     private string $gender;
     //private string $competitors;
@@ -15,11 +14,10 @@ class ECompetition{
     /**
      * @return string
      */
-    public function  __construct(String $name, String $date, String $time, String $gender, String $sport, EDistance $distance, String $description=" ")
+    public function  __construct(String $name, DateTime $dateTime, String $gender, String $sport, EDistance $distance, String $description="")
     {
         $this->name = $name;
-        $this->date = $date;
-        $this->time = $time;
+        $this->dateTime = $dateTime;
         $this->description = $description;
         $this->gender = $gender;
         $this->sport = $sport;
@@ -40,35 +38,19 @@ class ECompetition{
     }
 
     /**
-     * @return string
+     * @return DateTime
      */
-    public function getDate() : string
+    public function getDateTime() : DateTime
     {
-      return $this->date;
+      return $this->dateTime;
     }
 
     /**
-     * @param string $newdate
+     * @param DateTime $newDateTime
      */
-    public function setDate(string $newdate) : void
+    public function setDate(DateTime $newDateTime) : void
     {
-      $this->date = $newdate;
-    }
-
-    /**
-     * @return string
-     */
-     public function getTime() : string
-     {
-      return $this->time;
-    }
-
-    /**
-     * @param string $newtime
-     */
-    public function setTime(string $newtime) : void
-    {
-      $this->time = $newtime;
+      $this->dateTime = $newDateTime;
     }
 
     /**
@@ -134,17 +116,17 @@ class ECompetition{
     }
 
     /**
-     * @return string
+     * @return EDistance
      */
-     public function getDistance() : string
+     public function getDistance() : EDistance
      {
       return $this->distance;
      }
 
     /**
-     * @param string $newdistance
+     * @param EDistance $newdistance
      */
-    public function setDistance(string $newdistance) : void
+    public function setDistance(EDistance $newdistance) : void
     {
       $this->distance = $newdistance;
     }

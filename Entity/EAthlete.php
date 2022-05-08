@@ -2,7 +2,7 @@
 class EAthlete {
   private string $name;
   private string $surname;
-  private string $birthdate;
+  private DateTime $birthdate;
   private boll $famale;
   private string $team;
   private string $sport;
@@ -17,12 +17,12 @@ class EAthlete {
      * @param string $sport
      * @param int $id
      */
-    public function __construct(string $name, string $surname, string $birthdate, string $famale ,string $team, string $sport, int $id)
+    public function __construct(string $name, string $surname, DateTime $birthdate, string $famale ,string $team="", string $sport="", int $id=-1)
     {
         $this->name = $name;
         $this->surname = $surname;
         $this->birthdate = $birthdate;
-        $this->gender=$famale;
+        $this->famale=$famale;
         $this->team = $team;
         $this->sport = $sport;
         $this->id = $id;
@@ -61,17 +61,17 @@ class EAthlete {
       }
 
     /**
-     * @return string
+     * @return DateTime
      */
-      public function getBirthdate() : string
+      public function getBirthdate() : DateTime
       {
           return $this->birthdate;
       }
 
     /**
-     * @param string $birthdate
+     * @param DateTime $birthdate
      */
-      public function setBirthdata($birthdate) : void
+      public function setBirthdata(DateTime $birthdate) : void
       {
           $this->birthdate = $birthdate;
       }
@@ -103,7 +103,7 @@ class EAthlete {
     /**
      * @param string $newteam
      */
-      public function setAssociation($newteam) : void
+      public function setTeam(String $newteam) : void
       {
           $this->team = $newteam;
       }
@@ -119,13 +119,13 @@ class EAthlete {
     /**
      * @param string $newsport
      */
-      public function setSport($newsport) : void
+      public function setSport(String $newsport) : void
       {
           $this->sport = $newsport;
       }
 
     /**
-     * @return string
+     * @return int
      */
       public function getId() : int
       {

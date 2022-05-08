@@ -6,8 +6,8 @@ class EComment
 {
     private EUser $user;
     private string $text;
-    private string $date;
-    private string $time;
+    private DateTime $dateTime;
+
 
     /**
      * @param EUser $user
@@ -15,12 +15,12 @@ class EComment
      * @param string $date
      * @param string $time
      */
-    public function __construct(EUser $user, string $text, string $date, string $time)
+    public function __construct(EUser $user, string $text, DateTime $dateTime)
     {
         $this->user = $user;
         $this->text = $text;
-        $this->date = $date;
-        $this->time = $time;
+        $this->dateTime = $dateTime;
+
     }
 
     /**
@@ -56,34 +56,19 @@ class EComment
     }
 
     /**
-     * @return string
+     * @return DateTime
      */
-    public function getDate(): string
+    public function getDateTime(): DateTime
     {
-        return $this->date;
+        return $this->dateTime;
     }
 
     /**
-     * @param string $date
+     * @param DateTime $dateTime
      */
-    public function setDate(string $date): void
+    public function setDateTime(DateTime $dateTime): void
     {
-        $this->date = $date;
+        $this->dateTime = $dateTime;
     }
 
-    /**
-     * @return string
-     */
-    public function getTime(): string
-    {
-        return $this->time;
-    }
-
-    /**
-     * @param string $time
-     */
-    public function setTime(string $time): void
-    {
-        $this->time = $time;
-    }
 }

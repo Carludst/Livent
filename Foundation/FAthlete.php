@@ -11,7 +11,7 @@ class FAthlete {
         $dateTime=new DateTime();
         $name=$athlete->getName();
         $surname=$athlete->getSurname();
-        $birthdate=$athlete->getBirthdate();
+        $birthdate=$athlete->getBirthdate()->format("y-m-d");
         $team=$athlete->getTeam();
         $sport=$athlete->getSport();
         if($created_atPut)$created_at=$dateTime->format("Y-m-d h:i:s");
@@ -32,7 +32,8 @@ class FAthlete {
 
     private static function getObjectByArray(Array $athlete):EAthlete
     {
-        $object=new EAthlete($athlete["name"],$athlete["surname"],$athlete["birthdate"],$athlete["team"],$athlete["sport"],(int)$athlete["idathlete"]);
+        $birthdate=new DateTime($athlete["birthdate"]);
+        $object=new EAthlete($athlete["name"],$athlete["surname"],$birthdate,$athlete["team"],$athlete["sport"],(int)$athlete["idathlete"]);
         return $object;
     }
 
