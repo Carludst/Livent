@@ -23,9 +23,9 @@ class FAthlete {
             'birthdate'=>$birthdate,
             'team'=>$team,
             'sport'=>$sport,
-            'created_at'=>$created_at,
             'update_at'=>$update_at
         );
+        if($created_atPut)$fieldValue['created_at']=$created_at;
         return $fieldValue;
 
     }
@@ -124,12 +124,24 @@ class FAthlete {
      */
     public static function getResults(EAthlete $athlete):?array
     {
-        $query=FDb::load(self::$table[1],self::whereKey((String)$athlete->getId()));
+        $where=FDb::multiWhere(array("idathlete"=>$athlete->getId(),"time"=>"NULL","time"=>0),"AND",array("=","<>",">"));
+        $query=FDb::load(self::$table[1],$where);
         $resultQ=FDb::exInterrogation($query,"time");
         $result=array();
         foreach ($resultQ as $c=>$v){
-            $result[$v["namecompetition"]][]=array($v["idevent"],new ETime((float)$v["time"]));
+            //righa successiva da modificare
+            $competition=FCompetition::loadOne($v["idcompetition"]);
+            $result[$competition->getSport()][$competition->getName()][]=array($competition,new ETime((float)$v["time"]));
         }
+        $where1=FDb::multiWhere(array("idathlete"=>$athlete->getId(),"time"=>"NULL"),"AND",array("=","<>"));
+        $query1=FDb::load(self::$table[1],$where);
+        $resultQ1=FDb::exInterrogation($query);
+        foreach ($resultQ1 as $c=>$v){
+            //righa successiva da modificare
+            $competition=FCompetition::loadOne($v["idcompetition"]);
+            $result[$competition->getSport()][$competition->getName()][]=array($competition,new ETime((float)$v["time"]));
+        }
+
         return $result;
     }
 

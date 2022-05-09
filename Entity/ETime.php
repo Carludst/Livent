@@ -5,13 +5,11 @@ class ETime
 
     /**
      * @param float|String $value number of seconds
-     * @throws Exception return an exception when it is passed a negative parameter
      */
     function __construct(float|String $value){
-        if(gettype($value)=="double"){
-            if($value<0)throw new Exception("time can't be negative");
-            $this->value=$value;
-        }
+        if(gettype($value)=="double") $this->value=$value;
+        elseif(strtoupper($value)=="DNF")$this->value=-1;
+        elseif (strtoupper($value)=="DNS")$this->value=0;
         else $this->value=$this->stringToFloat($value);
     }
 
@@ -48,10 +46,9 @@ class ETime
      */
     public function setValue(float|string $value): void
     {
-        if(gettype($value)=="double"){
-            if($value<0)throw new Exception("time can't be negative");
-            $this->value=$value;
-        }
+        if(gettype($value)=="double")$this->value=$value;
+        elseif(strtoupper($value)=="DNF")$this->value=-1;
+        elseif (strtoupper($value)=="DNS")$this->value=0;
         else $this->value=$this->stringToFloat($value);
     }
 
@@ -59,6 +56,8 @@ class ETime
      * @return string
      */
     public function toString(){
+        if($this->value==0)return "DNS";
+        elseif ($this->value<0)return "DNF";
         $minutes=intdiv($this->value,60);
         $seconds=number_format($this->value%60,2);
         $hours=intdiv($minutes,60);

@@ -1,5 +1,6 @@
 <?php
 class EEvent{
+    private int $id;
     private String $name;
     private String $description;
     private String $place;
@@ -9,7 +10,7 @@ class EEvent{
     private EUser $organizer;
     //comments
 
-    public function __construct(String $name, String $place, EUser $organizer, bool $public=false, String $description="",Array $competitions =array(), Array $contacts=array())
+    public function __construct(String $name, String $place, EUser $organizer, bool $public=false, String $description="",Array $competitions =array(), Array $contacts=array(),int $id=-1)
     {
         $this->name = $name;
         $this->description = $description;
@@ -18,6 +19,15 @@ class EEvent{
         $this->contacts = $contacts;
         $this->public = $public;
         $this->organizer = $organizer;
+        $this->id=$id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     /**

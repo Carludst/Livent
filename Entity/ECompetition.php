@@ -2,6 +2,7 @@
 require_once "EDistance.php";
 
 class ECompetition{
+    private int $id;
     private string $name;
     private DateTime $dateTime;
     private string $description;
@@ -14,7 +15,7 @@ class ECompetition{
     /**
      * @return string
      */
-    public function  __construct(String $name, DateTime $dateTime, String $gender, String $sport, EDistance $distance, String $description="")
+    public function  __construct(String $name, DateTime $dateTime, String $gender, String $sport, EDistance $distance, String $description="",int $id=-1)
     {
         $this->name = $name;
         $this->dateTime = $dateTime;
@@ -22,6 +23,15 @@ class ECompetition{
         $this->gender = $gender;
         $this->sport = $sport;
         $this->distance = $distance;
+        $this->id=$id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
         
     public function getName() : string

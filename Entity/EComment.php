@@ -4,6 +4,7 @@ require "EUser.php";
 
 class EComment
 {
+    private int $id;
     private EUser $user;
     private string $text;
     private DateTime $dateTime;
@@ -15,12 +16,20 @@ class EComment
      * @param string $date
      * @param string $time
      */
-    public function __construct(EUser $user, string $text, DateTime $dateTime)
+    public function __construct(EUser $user, string $text, DateTime $dateTime, int $id=-1)
     {
         $this->user = $user;
         $this->text = $text;
         $this->dateTime = $dateTime;
 
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     /**
