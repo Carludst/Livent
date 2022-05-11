@@ -5,17 +5,20 @@ require_once "FDb.php";
 
 class FUser
 {
+    private static array $table=array("user","result");
 
     private static function getArrayByObject(EUser $user,bool $created_atPut= false):Array
     {
         $username=$user->getUsername();
         $email=$user->getEmail();
         $password=$user->getPassword();
+        $type=$user->getType();
 
         $fieldValue=array(
             'username'=>$username,
             'email'=>$email,
             'password'=>$password,
+            'type'=>$type
         );
         return $fieldValue;
 
@@ -24,11 +27,11 @@ class FUser
     //resturn where clause for take a tuple by primarykey
     private static function whereKey($valueKey):String
     {
-        return FDb::where("idathlete",$valueKey);
+        return FDb::where("email",$valueKey);
     }
 
     /**
-     * -Method : store into database the data of EAthlete object
+     * -Method : store into database the data of EUser object
      * @param EUser $user EUser object to store data
      * @return void
      */
@@ -40,11 +43,11 @@ class FUser
 
     /**
      * -Method : return the frist object of the result of the query
-     * @param int $key key of the table
+     * @param string $key key of the table
      * @return EUser|null null if not found
      * @throws Exception FDb exInterrogation exception
      */
-    public static function loadOne(int $key):?EUser{
+    public static function loadOne(string $key):?EUser{
         $query=FDb::load(self::$table[0],self::whereKey($key));
         $result=FDb::exInterrogation($query);
         if(count($result)==0)  return null;
@@ -69,6 +72,43 @@ class FUser
         }
         return $result;
     }
+
+    /**
+     * -Method : search in database by primarykey
+     * @param string $key primarykey value
+     * @return bool|null return true if find correspondence , null if occurs an exception
+     */
+    public static function existOne(string $key):?bool
+    {
+        return FDb::exist(FDb::load(self::$table[0],self::whereKey($key)));
+    }
+
+    /**
+     * -Method : delate by primarykey
+     * @param string $key primarykey value
+     * @return bool|null return true if find correspondence , null if occurs an exception , false if not found corrispondence
+     */
+    public static function deleteOne(string $key):?bool
+    {
+        return FDb::delate(self::$table[0],self::whereKey($key));
+    }
+
+    /**
+     * -Method : update EAthlete data by primarykey saved into object passed
+     * @param EUser $user  EAthlete data to update
+     * @return bool|null return true if find correspondence , null if occurs an exception , false if not found corrispondence
+     */
+    public static function updateOne(EUser $user):?bool
+    {
+        return FDb::update(self::$table[0],self::whereKey((String)$user->getEmail()),self::getArrayByObject($user));
+    }
+
+    public static function login(string $email, string $password):?bool
+    {
+        $where = "WHERE email = :em AND password = :pw";
+        return FDb::exist(FDb::load(self::$table[0], $where), array(':em'=>$email,':pw'=>$password));
+    }
+
 
 
 }
