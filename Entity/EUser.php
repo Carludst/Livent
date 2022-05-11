@@ -19,7 +19,7 @@ class EUser
         if(count(explode("@",$email))!=2)throw new Exception("the email passed is invalid");
         $this->email = $email;
         $this->username = $username;
-        $this->password = $password;
+        $this->password = hash("sha3-256", $password);
         $this->type = $type;
     }
 
