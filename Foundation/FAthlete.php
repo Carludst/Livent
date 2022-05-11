@@ -1,7 +1,7 @@
 <?php
-require_once "Entity/EAthlete.php";
+require_once "../Entity/EAthlete.php";
 require_once "FDb.php";
-require_once "Entity/ETime.php";
+require_once "../Entity/ETime.php";
 class FAthlete {
     private static array $table=array("athlete","result");
 
@@ -133,7 +133,7 @@ class FAthlete {
             $competition=FCompetition::loadOne($v["idcompetition"]);
             $result[$competition->getSport()][$competition->getName()][]=array($competition,new ETime((float)$v["time"]));
         }
-        $where1=FDb::multiWhere(array("idathlete"=>$athlete->getId(),"time"=>"NULL"),"AND",array("=","<>"));
+        $where1=FDb::multiWhere(array("idathlete"=>(String)$athlete->getId(),"time"=>"NULL"),"AND",array("=","<>"));
         $query1=FDb::load(self::$table[1],$where);
         $resultQ1=FDb::exInterrogation($query);
         foreach ($resultQ1 as $c=>$v){
