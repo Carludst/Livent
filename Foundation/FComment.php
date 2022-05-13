@@ -7,25 +7,35 @@ class FComment
 {
     private static string $table = "comment";
 
-    private static function getArrayByObject(EComment $comment, bool $created_atPut = false): array
+    private static function getArrayByObject(EComment $comment): array
     {
-        $id = $comment->getId();
-        $user = $comment->getUser();
+        $dateTime=new DateTime();
+
+        $user = $comment->getUser()->getEmail();
         $text = $comment->getText();
-        $dataTime = $comment->getDateTime();
+        $updated_at = $dateTime->format("y-m-d h-i-s");
 
         $fieldValue = array(
-            'id' => $id,
-            'user' => $user,
+            'emailorganizer' => $user,
             'text' => $text,
-            'dataTime' => $dataTime
+            'updated_at' => $updated_at
         );
         return $fieldValue;
 
     }
 
+    private static function getObjectByArray(Array $comment):EComment
+    {
+        $id=(int)$comment['idcomment'];
+        $user=FUser::loadOne($comment['emailorganizer']);
+        $text=$comment['text'];
+        return new EComment($user,$text,$id);
+
+    }
+
+
     //resturn where clause for take a tuple by primarykey
-    private static function whereKey($valueKey): string
+    private static function whereKey(int $valueKey): string
     {
         return FDb::where("idcomment",(String) $valueKey);
     }
@@ -37,7 +47,9 @@ class FComment
      */
     public static function store(EComment $comment): void
     {
-        $fieldValue = self::getArrayByObject($comment, true);
+        $dateTime=new DateTime();
+        $fieldValue = self::getArrayByObject($comment);
+        $fieldValue['created_at']=$dateTime->format("y-m-d h-i-s");
         FDb::store(self::$table, $fieldValue);
     }
 
@@ -102,7 +114,16 @@ class FComment
      */
     public static function updateOne(EComment $comment): ?bool
     {
-        return FDb::update(self::$table, self::whereKey((string)$comment->getEmail()), self::getArrayByObject($comment));
+        return FDb::update(self::$table, self::whereKey($comment->getUser()->getEmail()), self::getArrayByObject($comment));
+    }
+
+    public static function getDateTime(EComment $comment):?DateTime
+    {
+        $query = FDb::load(self::$table, self::whereKey($comment->getId()));
+        $result = FDb::exInterrogation($query);
+        if (count($result) == 0) return null;
+        $arrayObject = $result[0];
+        return new DateTime($arrayObject['updated_at']);
     }
 
 

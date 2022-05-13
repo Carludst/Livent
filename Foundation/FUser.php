@@ -7,21 +7,30 @@ class FUser
 {
     private static array $table=array("user","result");
 
-    private static function getArrayByObject(EUser $user,bool $created_atPut= false):Array
+    private static function getArrayByObject(EUser $user):Array
     {
         $username=$user->getUsername();
         $email=$user->getEmail();
         $password=$user->getPassword();
         $type=$user->getType();
 
+        $now=new DateTime();
+        $update_at=$now->format("Y-m-d h:i:s");
+
         $fieldValue=array(
             'username'=>$username,
             'email'=>$email,
             'password'=>$password,
-            'type'=>$type
+            'type'=>$type,
+            'update_at'=>$update_at
         );
         return $fieldValue;
 
+    }
+
+    private static function getObjectByArray(Array $user):EUser
+    {
+       return new EUser($user['email'],$user['username'],$user['password'],$user['type']);
     }
 
     //resturn where clause for take a tuple by primarykey
@@ -37,7 +46,11 @@ class FUser
      */
     public static function store(EUser $user):void
     {
-        $fieldValue=self::getArrayByObject($user,true);
+        $now=new DateTime();
+        $created_at=$now->format("Y-m-d h:i:s");
+
+        $fieldValue=self::getArrayByObject($user);
+        $fieldValue['created_at']=$created_at;
         FDb::store(self::$table[0],$fieldValue);
     }
 

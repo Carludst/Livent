@@ -7,20 +7,18 @@ class EComment
     private int $id;
     private EUser $user;
     private string $text;
-    private DateTime $dateTime;
 
 
     /**
      * @param EUser $user
      * @param string $text
-     * @param string $date
      * @param string $time
      */
-    public function __construct(EUser $user, string $text, DateTime $dateTime, int $id=-1)
+    public function __construct(EUser $user, string $text, int $id=-1)
     {
         $this->user = $user;
         $this->text = $text;
-        $this->dateTime = $dateTime;
+        $this->id=$id;
 
     }
 
@@ -41,9 +39,9 @@ class EComment
     }
 
     /**
-     * @param string $user
+     * @param EUser $user
      */
-    public function setUser(string $user): void
+    public function setUser(EUser $user): void
     {
         $this->user = $user;
     }
@@ -69,15 +67,7 @@ class EComment
      */
     public function getDateTime(): DateTime
     {
-        return $this->dateTime;
-    }
-
-    /**
-     * @param DateTime $dateTime
-     */
-    public function setDateTime(DateTime $dateTime): void
-    {
-        $this->dateTime = $dateTime;
+        return FComment::getDateTime($this);
     }
 
 }
