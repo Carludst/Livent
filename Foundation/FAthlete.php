@@ -6,7 +6,7 @@ class FAthlete {
     private static array $table=array("athlete","result");
 
 
-    private static function getArrayByObject(EAthlete $athlete,bool $created_atPut= false):Array
+    private static function getArrayByObject(EAthlete $athlete):Array
     {
         $dateTime=new DateTime();
         $name=$athlete->getName();
@@ -14,7 +14,6 @@ class FAthlete {
         $birthdate=$athlete->getBirthdate()->format("y-m-d");
         $team=$athlete->getTeam();
         $sport=$athlete->getSport();
-        if($created_atPut)$created_at=$dateTime->format("Y-m-d h:i:s");
         $update_at=$dateTime->format("Y-m-d h:i:s");
 
         $fieldValue=array(
@@ -25,7 +24,6 @@ class FAthlete {
             'sport'=>$sport,
             'update_at'=>$update_at
         );
-        if($created_atPut)$fieldValue['created_at']=$created_at;
         return $fieldValue;
 
     }
@@ -50,7 +48,10 @@ class FAthlete {
      */
     public static function store(EAthlete $athlete):void
     {
+        $dateTime=new DateTime();
+        $created_at=$dateTime->format("Y-m-d h:i:s");
         $fieldValue=self::getArrayByObject($athlete,true);
+        $fieldValue['created_at']=$created_at;
         FDb::store(self::$table[0],$fieldValue);
     }
 
@@ -124,7 +125,7 @@ class FAthlete {
      */
     public static function getResults(EAthlete $athlete):?array
     {
-        $where=FDb::multiWhere(array("idathlete"=>$athlete->getId(),"time"=>"NULL","time"=>0),"AND",array("=","<>",">"));
+        $where=FDb::multiWhere(array("idathlete","time","time"),array($athlete->getId(),'NULL',0),"AND",array("=","<>",">"));
         $query=FDb::load(self::$table[1],$where);
         $resultQ=FDb::exInterrogation($query,"time");
         $result=array();
@@ -133,7 +134,7 @@ class FAthlete {
             $competition=FCompetition::loadOne($v["idcompetition"]);
             $result[$competition->getSport()][$competition->getName()][]=array($competition,new ETime((float)$v["time"]));
         }
-        $where1=FDb::multiWhere(array("idathlete"=>(String)$athlete->getId(),"time"=>"NULL"),"AND",array("=","<>"));
+        $where1=FDb::multiWhere(array('idathlete','time'),array((String)$athlete->getId(),'NULL'),"AND",array("=","<>"));
         $query1=FDb::load(self::$table[1],$where);
         $resultQ1=FDb::exInterrogation($query);
         foreach ($resultQ1 as $c=>$v){

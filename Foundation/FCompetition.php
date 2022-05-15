@@ -42,7 +42,7 @@ class FCompetition {
         return $object;
     }
 
-    //resturn where clause for take a tuple by primarykey
+    //return where clause for take a tuple by primarykey
     private static function whereKey(int $key ):String
     {
         return FDb::where("idcompetition",$key);
@@ -68,14 +68,14 @@ class FCompetition {
 
     private static function whereResult(ECompetition $competition,EAthlete $athlete):String
     {
-        return FDb::multiWhere(array("idcompetition"=>(string)$competition->getId(),"idathlete"=>(string)$athlete->getId()));
+        return FDb::multiWhere(array('idcompetition','idathlete'),array((string)$competition->getId(),(string)$athlete->getId()));
     }
 
     public static function store(ECompetition $competition,int $idEvent):void
     {
         $now=new DateTime();
         $created_at=$now->format("Y-m-d h:i:s");
-        $fieldValue=self::getArrayByObject($competition,true);
+        $fieldValue=self::getArrayByObject($competition);
 
         $fieldValue['created_at']=$created_at;
         $fieldValue['idevent']=$idEvent;
@@ -111,7 +111,7 @@ class FCompetition {
         return FDb::delate(self::$table[0],self::whereKey($key));
     }
 
-    public static function updateOne(ECompetition $competition,String $idEvent):?bool
+    public static function updateOne(ECompetition $competition):?bool
     {
         return FDb::update(self::$table[0],self::whereKey($competition->getId()),self::getArrayByObject($competition));
     }
@@ -138,7 +138,7 @@ class FCompetition {
 
     public static function getResult(ECompetition $competition,EAthlete $athlete): ?ETime
     {
-        $resultQ=FDb::exInterrogation(FDb::load(self::$table,self::whereResult($competition,$athlete)));
+        $resultQ=FDb::exInterrogation(FDb::load(self::$table[1],self::whereResult($competition,$athlete)));
         if($resultQ[0]["time"]=="NULL")return null;
         else return new ETime($resultQ[0]["time"]);
     }
@@ -153,7 +153,7 @@ class FCompetition {
 
     public static function getClassification(ECompetition $competition): Array
     {
-        $where=FDb::multiWhere(array("idcompetition"=>(String)$competition->getId(),"time"=>"NULL","time"=>"0"),"AND",array("=","<>",">"));
+        $where=FDb::multiWhere(array('idcompetition','time','time'),array((String)$competition->getId(),'NULL','0'),"AND",array("=","<>",">"));
         $query=FDb::load(self::$table[1],$where);
         $resultQ=FDb::exInterrogation($query,"time");
         $result=array();
@@ -162,7 +162,7 @@ class FCompetition {
             $time=new ETime((float)$v["time"]);
             $result[]=array($athlete,$time);
         }
-        $where1=FDb::multiWhere(array("idcompetition"=>(String)$competition->getId(),"time"=>"NULL"),"AND",array("=","<>"));
+        $where1=FDb::multiWhere(array('idcompetition','NULL'),array((String)$competition->getId(),'NULL'),"AND",array("=","<>"));
         $query1=FDb::load(self::$table[1],$where);
         $resultQ1=FDb::exInterrogation($query);
         foreach ($resultQ1 as $c=>$v){

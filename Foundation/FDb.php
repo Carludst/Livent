@@ -210,11 +210,9 @@ class FDb{
      * @return String clause where
      * @throws Exception paramatres invalid
      */
-    public static function multiWhere(Array $fieldValue , String $logicOp="AND",Array|String $operation="="):String
+    public static function multiWhere(Array $field,Array $value , String $logicOp="AND",Array|String $operation="="):String
     {
-        if((is_array($operation) && count($fieldValue)!=count($operation) ))throw new Exception("parametres multiWhere invalid");
-        $field=array_keys($fieldValue);
-        $value=array_values($fieldValue);
+        if((is_array($operation) && count($field)!=count($value) && count($field)!=count($operation) ))throw new Exception("parametres multiWhere invalid");
         if(is_string($operation)){
             $result=" WHERE ".$field[0].$operation."'".$value[0]."'";
             for($i=1;$i<count($field);$i++){
