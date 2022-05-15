@@ -63,7 +63,7 @@ class FDbH {
      * @param $password
      * @return array|EUser|null
      */
-    public static function login($user, $password) {
+    public static function login($user, $password) :?bool{
         return FUser::login($user, $password);
     }
 

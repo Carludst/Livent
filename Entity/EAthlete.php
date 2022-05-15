@@ -3,7 +3,7 @@ class EAthlete {
   private string $name;
   private string $surname;
   private DateTime $birthdate;
-  private boll $famale;
+  private bool $famale;
   private string $team;
   private string $sport;
   private int $id;
@@ -85,9 +85,9 @@ class EAthlete {
     }
 
     /**
-     * @param boll $famle
+     * @param bool $famle
      */
-    public function setFamale(boll $famale): void
+    public function setFamale(bool $famale): void
     {
         $this->famle = $famale;
     }
