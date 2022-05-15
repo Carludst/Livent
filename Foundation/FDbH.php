@@ -19,24 +19,42 @@ class FDbH {
         $Fclass::store($obj);
     }
 
-    /** Metodo che permette di cancellare il valore di un campo passato come parametro
-     * @param $field
-     * @param $val
+    /** Method : return the frist object of the result of the query
+     * @param $key
      * @param $Fclass
      * @return mixed
      */
-    public static function deleteOne($field, $val, $Fclass) {
-        return $Fclass::delete($field, $val);
+    public static function loadOne($key, $Fclass) {
+        return $Fclass::loadOne($key);
     }
 
-    /**  Metodo che accerta l'esistenza di un valore di un campo passato come parametro
-     * @param $field
-     * @param $val
+    /** -Method : return an array of object according with the query result
+     * @param $where
+     * @param $orderBy
+     * @param $ascending
      * @param $Fclass
      * @return mixed
      */
-    public static function existOne($field, $val, $Fclass) {
-        return $Fclass::exist($field, $val);
+    public static function load($where, $orderBy, $ascending, $Fclass) {
+        return $Fclass::load($where, $orderBy, $ascending);
+    }
+
+    /** -Method : delate by primarykey
+     * @param $key
+     * @param $Fclass
+     * @return mixed
+     */
+    public static function deleteOne($key, $Fclass) {
+        return $Fclass::deleteOne($key);
+    }
+
+    /**  Method : search in database by primarykey
+     * @param $key
+     * @param $Fclass
+     * @return mixed
+     */
+    public static function existOne($key, $Fclass) {
+        return $Fclass::existOne($key);
     }
 
 
@@ -45,19 +63,61 @@ class FDbH {
      * @param $password
      * @return array|EUser|null
      */
-    public static function loadLogin($user, $password) {
-        return FUser::loadLogin($user, $password);
+    public static function login($user, $password) {
+        return FUser::login($user, $password);
     }
 
-    /** Metodo che permette l'aggiornamento del valore di un campo passato per parametro
-     * @param $field
-     * @param $newvalue
-     * @param $pk
-     * @param $val
+    /** -Method : update EAthlete data by primarykey saved into object passed
+     * @param $Eclass
      * @param $Fclass
      * @return mixed
      */
-    public static function update($field, $newvalue, $pk, $val, $Fclass) {
-        return $Fclass::update($field, $newvalue, $pk, $val);
+    public static function updateOne($Eclass, $Fclass) {
+        return $Fclass::updateOne($Eclass);
+    }
+
+    /** -Method : return an array (name copetition key) of array (idevent , time) with the result order by time
+     * @param $atleta
+     * @return mixed
+     */
+    public static function getResults($atleta) {
+        return FAthlete::getResults($atleta);
+    }
+
+    /** -Method
+     * @param $competizione
+     * @param $atleta
+     * @param $time
+     * @return mixed
+     */
+    public static function addResult($competizione, $atleta, $time) {
+        return FCompetition::addResult($competizione, $atleta, $time);
+    }
+
+    /** -Method
+     * @param $competizione
+     * @param $atleta
+     * @param $EUser
+     * @return mixed
+     */
+    public static function addRegistration($competizione, $atleta, $EUser) {
+        return FCompetition::addRegistration($competizione, $atleta, $EUser);
+    }
+
+    /** -Method
+     * @param $competizione
+     * @param $atleta
+     * @return mixed
+     */
+    public static function deleteRegistration($competizione, $atleta) {
+        return FCompetition::deleteRegistration($competizione, $atleta);
+    }
+
+    /** -Method
+     * @param $competizione
+     * @return mixed
+     */
+    public static function getClassification($competizione) {
+        return FCompetition::getClassification($competizione);
     }
 }
