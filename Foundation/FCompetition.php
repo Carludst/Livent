@@ -121,7 +121,7 @@ class FCompetition {
         return FDb::update(self::$table[0],self::whereResult($competition,$athlete),self::getArrByObjResult($competition,$athlete,$time));
     }
 
-    public static function addRegistration(ECompetition $competition,EAthlete $athlete,EUser $user): bool
+    public static function addRegistration(ECompetition $competition,EAthlete $athlete,EUser $user): ?bool
     {
         $now=new DateTime();
         $created_at=$now->format("Y-m-d h:i:s");

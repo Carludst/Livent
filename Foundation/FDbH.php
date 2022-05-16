@@ -1,30 +1,35 @@
 <?php
 
-require_once ('Foundation/FAthlete.php');
-require_once ('Foundation/FUser.php');
-require_once ('Foundation/FComment.php');
-require_once ('Foundation/FCompetition.php');
-require_once ('Foundation/FContact.php');
-require_once ('Foundation/FEvent.php');
+require_once ('../Foundation/FAthlete.php');
+require_once ('../Foundation/FUser.php');
+require_once ('../Foundation/FComment.php');
+require_once ('../Foundation/FCompetition.php');
+require_once ('../Foundation/FContact.php');
+require_once ('../Foundation/FEvent.php');
+
+
 
 
 class FDbH {
 
-    /** Metodo che permette di salvare un oggetto sul db
+    /** Method : save an object of Entity class into db
      * @param $obj
      */
-    public static function store($obj) {
+    public static function store(EAthlete|EUser|EComment|ECompetition|EContact|EEvent $obj) {
         $Eclass = get_class($obj);
         $Fclass = str_replace("E", "F", $Eclass);
         $Fclass::store($obj);
     }
 
-    /** Method : return the frist object of the result of the query
+
+    /**
+     * Method : return the frist object of the result of the query
      * @param $key
-     * @param $Fclass
-     * @return mixed
+     * @param String $Eclass
+     * @return EAthlete|EUser|EComment|ECompetition|EContact|EEvent
      */
-    public static function loadOne($key, $Fclass) {
+    public static function loadOne($key,String $Eclass):EAthlete|EUser|EComment|ECompetition|EContact|EEvent {
+        $Fclass = str_replace("E", "F", $Eclass);
         return $Fclass::loadOne($key);
     }
 
@@ -35,7 +40,8 @@ class FDbH {
      * @param $Fclass
      * @return mixed
      */
-    public static function load($where, $orderBy, $ascending, $Fclass) {
+    public static function load($where, $orderBy, $ascending, String $Eclass):Array {
+        $Fclass = str_replace("E", "F", $Eclass);
         return $Fclass::load($where, $orderBy, $ascending);
     }
 
@@ -44,7 +50,8 @@ class FDbH {
      * @param $Fclass
      * @return mixed
      */
-    public static function deleteOne($key, $Fclass) {
+    public static function deleteOne($key, String $Eclass):?bool {
+        $Fclass = str_replace("E", "F", $Eclass);
         return $Fclass::deleteOne($key);
     }
 
@@ -53,71 +60,110 @@ class FDbH {
      * @param $Fclass
      * @return mixed
      */
-    public static function existOne($key, $Fclass) {
+    public static function existOne($key, String $Eclass):?bool {
+        $Fclass = str_replace("E", "F", $Eclass);
         return $Fclass::existOne($key);
     }
 
 
-    /** Metodo che permette il login di un utente, date le credenziali (email e password)
+    /** Method : for login of an user
      * @param $user
      * @param $password
      * @return array|EUser|null
      */
-    public static function login($user, $password) :?bool{
-        return FUser::login($user, $password);
+    public static function login(String $email,String $password) :?bool{
+        return FUser::login($email, $password);
     }
 
-    /** -Method : update EAthlete data by primarykey saved into object passed
-     * @param $Eclass
-     * @param $Fclass
-     * @return mixed
+
+    /**
+     * -Method : update Entity class data by primarykey saved into object passed
+     * @param EAthlete|EUser|EComment|ECompetition|EContact|EEvent $obj
+     * @return bool|null
      */
-    public static function updateOne($Eclass, $Fclass) {
-        return $Fclass::updateOne($Eclass);
+    public static function updateOne(EAthlete|EUser|EComment|ECompetition|EContact|EEvent $obj):?bool
+    {
+        $Eclass = get_class($obj);
+        $Fclass = str_replace("E", "F", $Eclass);
+        return $Fclass::updateOne($obj);
     }
 
-    /** -Method : return an array (name copetition key) of array (idevent , time) with the result order by time
-     * @param $atleta
-     * @return mixed
+
+    /**
+     * -Method : return an array (name copetition key) of array (idevent , time) with the result order by time
+     * @param EAthlete $athlete
+     * @return array|null
+     * @throws Exception
      */
-    public static function getResults($atleta) {
-        return FAthlete::getResults($atleta);
+    public static function getResultsAthletete( EAthlete $athlete):Array{
+        return FAthlete::getResults($athlete);
+    }
+
+    public static function getResultCompetition( ECompetition $competition , EAthlete $athlete):ETime{
+        return FCompetition::getResult($competition,$athlete);
+    }
+
+    /**
+     * @param ECompetition $competition
+     * @param EAthlete $athlete
+     * @param ETime $time
+     * @return bool|null
+     */
+    public static function addResultCompetition(ECompetition $competition,EAthlete $athlete, ETime $time):?bool{
+        return FCompetition::addResult($competition, $athlete, $time);
     }
 
     /** -Method
-     * @param $competizione
-     * @param $atleta
-     * @param $time
-     * @return mixed
-     */
-    public static function addResult($competizione, $atleta, $time) {
-        return FCompetition::addResult($competizione, $atleta, $time);
-    }
-
-    /** -Method
-     * @param $competizione
-     * @param $atleta
+     * @param $competition
+     * @param $athlete
      * @param $EUser
      * @return mixed
      */
-    public static function addRegistration($competizione, $atleta, $EUser) {
-        return FCompetition::addRegistration($competizione, $atleta, $EUser);
+    public static function addRegistrationCompetition(ECompetition $competition,EAthlete $athlete, EUser $user):?bool{
+        return FCompetition::addRegistration($competition, $athlete, $user);
     }
 
     /** -Method
-     * @param $competizione
-     * @param $atleta
+     * @param $competition
+     * @param $athlete
      * @return mixed
      */
-    public static function deleteRegistration($competizione, $atleta) {
-        return FCompetition::deleteRegistration($competizione, $atleta);
+    public static function deleteRegistrationCompetition(ECompetition $competition, EAthlete $athlete):bool {
+        return FCompetition::deleteRegistration($competition,$athlete);
     }
 
     /** -Method
-     * @param $competizione
+     * @param $competition
      * @return mixed
      */
-    public static function getClassification($competizione) {
-        return FCompetition::getClassification($competizione);
+    public static function getClassificationCompetition(ECompetition $competition):Array{
+        return FCompetition::getClassification($competition);
+    }
+
+    /**
+     * @param EEvent $event
+     * @return array
+     */
+    public static function getCompetitions(EEvent $event):Array
+    {
+        return FEvent::getCompetitions($event);
+    }
+
+    /**
+     * @param EEvent $event
+     * @return array
+     */
+    public static function getContacts(EEvent $event):Array
+    {
+        return FEvent::getContacts($event);
+    }
+
+    /**
+     * @param EEvent $event
+     * @return array
+     */
+    public static function getComments(EEvent $event):Array
+    {
+        return FEvent::getComments($event);
     }
 }
