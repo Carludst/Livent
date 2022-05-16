@@ -19,38 +19,40 @@ class FContact{
             'name'=>$name,
             'number'=>$number,
             'e-mail'=>$email,
-            'nameEvent'=>$nameEvent
+            'idEvent'=>$idEvent,
+            'created_at'=>$created_at,
+            'updated_at'=>$updated_at,
         );
         return $fieldValue;
     }
 
     private static function getObjectByArray(Array $contacts):EContacts
     {
-        $object = new ECompetition($contacts["name"],$contacts["number"],$contacts["e-mail"],$contacts["nameEvent"]);
+        $object = new ECompetition($contacts["name"],$contacts["number"],$contacts["e-mail"],$contacts["nameEvent"],$contacts['created_at'],$contact['updated_at']);
         return $object;
     }
 
-    private static function whereKey($valueKey):String
+    private static function whereKey():String
     {
-        return FDb::where("nameEvent",$valueKey);
+        return FDb::multiWhere(array('idEvent'=>$idEvent,'name'=>$name));
     }
 
     public static function store(EContact $contact):void
     {
-        $fieldValue = self::getArrayByObject($contact,true);
-        FDb::store(self::$table[0], $fieldValue);
+        $fieldValue = self::getArrayByObject($contact);
+        FDb::store(self::$table, $fieldValue);
     }
 
-    public static function loadOne(int $key):?EContact{
-        $query=FDb::load(self::$table[0],self::whereKey($key));
+    public static function loadOne():?EContact{
+        $query=FDb::load(self::$table,self::whereKey());
         $result=FDb::exInterrogation($query);
         if(count($result)==0)  return null;
         $arrayObject=$result[0];
         return self::getObjectByArray($arrayObject);
     }
 
-    public static function load(int $key): Econtact{
-        $query=FDb::load(self::$table[0],$where);
+    public static function load(String $where, String|Array $orderBy="", bool|Array $ascending=true): Econtact{
+        $query=FDb::load(self::$table,$where);
         $resultQ=FDb::exInterrogation($query,$orderBy,$ascending);
         $result=array();
         foreach ($resultQ as $c=>$v){
@@ -59,19 +61,19 @@ class FContact{
         return $result;
     }
 
-    public static function existOne(int $key):?bool
+    public static function existOne():?bool
     {
-        return FDb::exist(FDb::load(self::$table[0],self::whereKey($key)));
+        return FDb::exist(FDb::load(self::$table,self::whereKey()));
     }
 
-    public static function deleteOne(int $key):?bool
+    public static function deleteOne():?bool
     {
-        return FDb::delate(self::$table[0],self::whereKey($key));
+        return FDb::delate(self::$table,self::whereKey());
     }
 
     public static function updateOne(EContact $contact,String $idEvent):?bool
     {
-        return FDb::update(self::$table[0],self::whereKey(array($contact->getName(),$nameEvent)),self::getArrayByObject($contact));
+        return FDb::update(self::$table,self::whereKey(),self::getArrayByObject($contact));
     }
 
 }
