@@ -37,15 +37,17 @@ class FDb{
             self::$pdoV->beginTransaction();
             $fields=array_keys($fieldValue);
             $values=array_values($fieldValue);
-            $valStr=$values[0];
+            $arrayBind=array(":$fields[0]"=>$values[0]);
+            $valStr=":$fields[0]";
             $fieldStr=$fields[0];
             for($i=1;$i<count($values);$i++){
-                $valStr=$valStr.",".$values[$i];
+                $arrayBind[":$fields[$i]"]=$values[$i];
+                $valStr=$valStr.",".":$fields[0]";
                 $fieldStr=$fieldStr.",".$fields[$i];
             }
             $query = "INSERT INTO " . $table ."(".$fieldStr.")". "  VALUES  " ."(".$valStr.")";
             $stmt=self::$pdoV->prepare($query);
-            $stmt->execute();
+            $stmt->execute($arrayBind);
             self::closeConnection();
             return true;
         }
@@ -64,13 +66,13 @@ class FDb{
      * @param String $where where clause
      * @return bool|null true if the operation completed successfuly
      */
-    public static function delate(String $table , String $where):?bool{
+    public static function delate(String $table , Array $where):?bool{
         try{
             if(self::exist(self::load($table,$where))){
                 self::$pdoV->beginTransaction();
-                $query = "DELETE FROM " . $table .$where;
+                $query = "DELETE FROM " . $table .$where["where"];
                 $stmt = self::$pdoV->prepare($query);
-                $stmt->execute();
+                $stmt->execute($where["bind"]);
                 self::closeConnection();
                 return true;
             }
@@ -90,21 +92,23 @@ class FDb{
      * @param String $fieldValue array with field to change as key and new value as element of the array
      * @return bool|null true if the operation completed successfuly
      */
-    public static function update(String $table,String $where,Array $fieldValue):?bool
+    public static function update(String $table,Array $where,Array $fieldValue):?bool
     {
         try {
             if(self::exist(self::load($table,$where))){
                 self::$pdoV->beginTransaction();
+                $arrayBind=$where["bind"];
                 $fields=array_keys($fieldValue);
                 $values=array_values($fieldValue);
-                $clouse=$fields[0]."=".$values[0];
+                $arrayBind[":field0"]=$values[0];
+                $clouse=$fields[0]."=".":field0";
                 for($i=1;$i<count($fields);$i++){
-                    $clouse=$clouse.",".$fields[$i]."=".$values[$i];
-
+                    $arrayBind=array(":field$i"=>$values[$i]);
+                    $clouse=$clouse.",".$fields[$i]."=".":field$i";
                 }
-                $query = "UPDATE " . $table . " SET " . $clouse.$where ;
+                $query = "UPDATE " . $table . " SET " . $clouse.$where["where"] ;
                 $stmt = self::$pdoV->prepare($query);
-                $stmt->execute();
+                $stmt->execute($arrayBind);
                 self::closeConnection();
                 return true;
             }
@@ -126,12 +130,12 @@ class FDb{
      * @return array|null result of the query (null can be also due by an error)
      * @throws Exception see the orderBy method exception
      */
-    public static function exInterrogation(String $query,String|Array $orderBy="",bool|Array $ascending=true):?array{
+    public static function exInterrogation(Array $query,String|Array $orderBy="",bool|Array $ascending=true):?array{
         try{
             self::$pdoV->beginTransaction();
-            if($orderBy!="")$query=$query.self::OrderBy($orderBy,$ascending);
-            $stmt=self::$pdoV->prepare($query);
-            $stmt->execute();
+            if($orderBy!="")$q=$query["query"].self::OrderBy($orderBy,$ascending);
+            $stmt=self::$pdoV->prepare($q);
+            $stmt->execute($query["bind"]);
 
             $num = $stmt->rowCount();
             if ($num == 0) {
@@ -164,13 +168,12 @@ class FDb{
      * @param array|null $valParametres parametres not just express into the query (useful for login)
      * @return bool|null return true if the query result is not empty , null if is occurred an error
      */
-    public static function exist(String $query,?Array $valParametres=null):?bool
+    public static function exist(Array $query):?bool
     {
         try{
             self::$pdoV->beginTransaction();
-            $stmt=self::$pdoV->prepare($query);
-            if(is_null($valParametres))$stmt->execute($valParametres);
-            else $stmt->execute();
+            $stmt=self::$pdoV->prepare($query["query"]);
+            $stmt->execute($query["bind"]);
 
             $num = $stmt->rowCount();
             if ($num>0) {
@@ -197,9 +200,9 @@ class FDb{
      * @param String $operation operation of the condition ("=","<",">","!=")("Op all","Op any","in","exist")
      * @return String clause where
      */
-    public static function where(String $field,String $value , String $operation="="):String
+    public static function where(String $field,String $value , String $operation="="):Array
     {
-       return  " WHERE " . $field .$operation ."'".$value."'";
+       return  array("where"=>" WHERE " . $field .$operation ."'".$value."'","bind"=>array(":value0"=>$value));
     }
 
     /**
@@ -210,23 +213,27 @@ class FDb{
      * @return String clause where
      * @throws Exception paramatres invalid
      */
-    public static function multiWhere(Array $field,Array $value , String $logicOp="AND",Array|String $operation="="):String
+    public static function multiWhere(Array $field,Array $value , String $logicOp="AND",Array|String $operation="="):Array
     {
         if((is_array($operation) && count($field)!=count($value) && count($field)!=count($operation) ))throw new Exception("parametres multiWhere invalid");
         if(is_string($operation)){
-            $result=" WHERE ".$field[0].$operation."'".$value[0]."'";
+            $result=" WHERE ".$field[0].$operation."'".":value0"."'";
+            $arrayBind=array(":value0"=>$value[0]);
             for($i=1;$i<count($field);$i++){
-                $result=$result." ".$logicOp." ".$field[$i].$operation."'".$value[$i]."'";
+                $result=$result." ".$logicOp." ".$field[$i].$operation."'".":value$i"."'";
+                $arrayBind[":value$i"]=$value[$i];
             }
         }
         else{
-            $result=" WHERE ".$field[0].$operation[0]."'".$value[0]."'";
+            $result=" WHERE ".$field[0].$operation[0]."'".":value0"."'";
+            $arrayBind=array(":value0"=>$value[0]);
             for($i=1;$i<count($field);$i++) {
-                $result = $result . " " . $logicOp . " " . $field[$i] . $operation[$i] ."'". $value[$i]."'";
+                $result = $result . " " . $logicOp . " " . $field[$i] . $operation[$i] ."'".":value$i"."'";
+                $arrayBind[":value$i"]=$value[$i];
             }
         }
 
-        return $result;
+        return array("where"=>$result,"bind"=>$arrayBind);
 
     }
 
@@ -236,9 +243,9 @@ class FDb{
      * @param String $where where clause
      * @return string query
      */
-    public static function load(String $table ,String $where){
-        $query = "SELECT * FROM " . $table .$where;
-        return $query;
+    public static function load(String $table ,Array $where):Array{
+        $query = "SELECT * FROM " . $table .$where["where"];
+        return array("query"=>$query,"bind"=>$where["bind"]);
     }
 
 
@@ -271,7 +278,8 @@ class FDb{
      * @param String $countOperation method of count
      * @return String query
      */
-    public static function opGroupCount(String $table ,String $where="",String|Array$groupByfield="",String $countField="*",String $countOperation=""):String{
+    public static function opGroupCount(String $table ,?Array $where=NULL,String|Array$groupByfield="",String $countField="*",String $countOperation=""):Array{
+        if(is_null($where))$where=array("where"=>"","bind"=>array());
         $select= "SELECT count(".$countOperation." ".$countField.") AS count";
         if(is_array($groupByfield)){
             $groupBy=" GROUP BY ".$groupByfield[0];
@@ -286,8 +294,8 @@ class FDb{
             $select=$select.",".$groupByfield;
         }
         else $groupBy="";
-        $query=$select." FROM ".$table.$where.$groupBy;
-        return $query;
+        $query=$select." FROM ".$table.$where["where"].$groupBy;
+        return array("query"=>$query,"bind"=>$where["bind"]);
     }
 
     /**
@@ -298,8 +306,8 @@ class FDb{
      * @param String|array $groupByfield attributes to group by
      * @return String query
      */
-    public static function opGroupMax(String $table ,String $maxField,?String $where="",String|Array$groupByfield=""):String{
-        if(is_null($where))$where="";
+    public static function opGroupMax(String $table ,String $maxField,?Array $where=NULL,String|Array$groupByfield=""):Array{
+        if(is_null($where))$where=array("where"=>"","bind"=>array());
         $select= "SELECT max(".$maxField.") AS max";
         if(is_array($groupByfield)){
             $groupBy=" GROUP BY ".$groupByfield[0];
@@ -314,8 +322,8 @@ class FDb{
             $select=$select.",".$groupByfield;
         }
         else $groupBy="";
-        $query=$select." FROM ".$table.$where.$groupBy;
-        return $query;
+        $query=$select." FROM ".$table.$where["where"].$groupBy;
+        return array("query"=>$query,"bind"=>$where["bind"]);
     }
 
     /**
@@ -326,8 +334,8 @@ class FDb{
      * @param String|array $groupByfield attributes to group by
      * @return string query
      */
-    public static function opGroupMin(String $table ,String $minField,?String $where="",String|Array$groupByfield=""){
-        if(is_null($where))$where="";
+    public static function opGroupMin(String $table ,String $minField,?Array $where=NULL,String|Array$groupByfield=""):Array{
+        if(is_null($where))$where=array("where"=>"","bind"=>array());
         $select= "SELECT min(".$minField.") AS min";
         if(is_array($groupByfield)){
             $groupBy=" GROUP BY ".$groupByfield[0];
@@ -342,8 +350,8 @@ class FDb{
             $select=$select.",".$groupByfield;
         }
         else $groupBy="";
-        $query=$select." FROM ".$table.$where.$groupBy;
-        return $query;
+        $query=$select." FROM ".$table.$where["where"].$groupBy;
+        return array("query"=>$query,"bind"=>$where["bind"]);
     }
 
     /**
@@ -355,7 +363,8 @@ class FDb{
      * @param String $avgOperation method of avg calculation
      * @return string query
      */
-    public static function opGroupAvg(String $table ,String $avgField,String $where="",String|Array$groupByfield="",String $avgOperation=""){
+    public static function opGroupAvg(String $table ,String $avgField,?Array $where=NULL,String|Array$groupByfield="",String $avgOperation=""):Array{
+        if(is_null($where))$where=array("where"=>"","bind"=>array());
         $select= "SELECT avg(".$avgOperation." ".$avgField.") AS avg";
         if(is_array($groupByfield)){
             $groupBy=" GROUP BY ".$groupByfield[0];
@@ -370,8 +379,8 @@ class FDb{
             $select=$select.",".$groupByfield;
         }
         else $groupBy="";
-        $query=$select." FROM ".$table.$where.$groupBy;
-        return $query;
+        $query=$select." FROM ".$table.$where["where"].$groupBy;
+        return array("query"=>$query,"bind"=>$where["bind"]);
     }
 
     /**
@@ -383,7 +392,8 @@ class FDb{
      * @param String $sumOperation method of avg calculation
      * @return string query
      */
-    public static function opGroupSum(String $table ,String $sumField,String $where="",String|Array$groupByfield="",String $sumOperation=""){
+    public static function opGroupSum(String $table ,String $sumField,?Array $where=NULL,String|Array$groupByfield="",String $sumOperation=""):Array{
+        if(is_null($where))$where=array("where"=>"","bind"=>array());
         $select= "SELECT sum(".$sumOperation." ".$sumField.") AS sum";
         if(is_array($groupByfield)){
             $groupBy=" GROUP BY ".$groupByfield[0];
@@ -398,7 +408,7 @@ class FDb{
             $select=$select.",".$groupByfield;
         }
         else $groupBy="";
-        $query=$select." FROM ".$table.$where.$groupBy;
-        return $query;
+        $query=$select." FROM ".$table.$where["where"].$groupBy;
+        return array("query"=>$query,"bind"=>$where["bind"]);
     }
 }

@@ -43,7 +43,7 @@ class FCompetition {
     }
 
     //return where clause for take a tuple by primarykey
-    private static function whereKey(int $key ):String
+    private static function whereKey(int $key ):Array
     {
         return FDb::where("idcompetition",$key);
     }
@@ -66,7 +66,7 @@ class FCompetition {
         }
     }
 
-    private static function whereResult(ECompetition $competition,EAthlete $athlete):String
+    private static function whereResult(ECompetition $competition,EAthlete $athlete):Array
     {
         return FDb::multiWhere(array('idcompetition','idathlete'),array((string)$competition->getId(),(string)$athlete->getId()));
     }
@@ -91,7 +91,8 @@ class FCompetition {
         return self::getObjectByArray($arrayObject);
     }
 
-    public static function load(String $where,String|Array $orderBy="",bool|Array $ascending=true):Array{
+    public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array{
+        $where=FDb::where($fieldWhere,$valueWhere,$opWhere);
         $query=FDb::load(self::$table[0],$where);
         $resultQ=FDb::exInterrogation($query,$orderBy,$ascending);
         $result=array();
@@ -163,8 +164,8 @@ class FCompetition {
             $result[]=array($athlete,$time);
         }
         $where1=FDb::multiWhere(array('idcompetition','NULL'),array((String)$competition->getId(),'NULL'),"AND",array("=","<>"));
-        $query1=FDb::load(self::$table[1],$where);
-        $resultQ1=FDb::exInterrogation($query);
+        $query1=FDb::load(self::$table[1],$where1);
+        $resultQ1=FDb::exInterrogation($query1);
         foreach ($resultQ1 as $c=>$v){
             $athlete=FAthlete::loadOne((int)$v["idathlete"]);
             $time=new ETime((float)$v["time"]);

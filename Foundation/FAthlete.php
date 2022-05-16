@@ -36,7 +36,7 @@ class FAthlete {
     }
 
     //resturn where clause for take a tuple by primarykey
-    private static function whereKey($valueKey):String
+    private static function whereKey($valueKey):Array
     {
         return FDb::where("idathlete",$valueKey);
     }
@@ -77,7 +77,8 @@ class FAthlete {
      * @return array array of object
      * @throws Exception FDb exInterrogation exception
      */
-    public static function load(String $where,String|Array $orderBy="",bool|Array $ascending=true):Array{
+    public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array{
+        $where=FDb::where($fieldWhere,$valueWhere,$opWhere);
         $query=FDb::load(self::$table[0],$where);
         $resultQ=FDb::exInterrogation($query,$orderBy,$ascending);
         $result=array();

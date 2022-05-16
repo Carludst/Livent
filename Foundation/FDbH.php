@@ -40,9 +40,10 @@ class FDbH {
      * @param $Fclass
      * @return mixed
      */
-    public static function load($where, $orderBy, $ascending, String $Eclass):Array {
+    public static function load(String $Eclass,String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array {
+
         $Fclass = str_replace("E", "F", $Eclass);
-        return $Fclass::load($where, $orderBy, $ascending);
+        return $Fclass::load($fieldWhere,$valueWhere,$opWhere, $orderBy, $ascending);
     }
 
     /** -Method : delate by primarykey

@@ -34,7 +34,7 @@ class FUser
     }
 
     //resturn where clause for take a tuple by primarykey
-    private static function whereKey($valueKey):String
+    private static function whereKey($valueKey):Array
     {
         return FDb::where("email",$valueKey);
     }
@@ -76,7 +76,8 @@ class FUser
      * @return array array of object
      * @throws Exception FDb exInterrogation exception
      */
-    public static function load(String $where,String|Array $orderBy="",bool|Array $ascending=true):Array{
+    public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array{
+        $where=FDb::where($fieldWhere,$valueWhere,$opWhere);
         $query=FDb::load(self::$table[0],$where);
         $resultQ=FDb::exInterrogation($query,$orderBy,$ascending);
         $result=array();
@@ -118,8 +119,8 @@ class FUser
 
     public static function login(string $email, string $password):?bool
     {
-        $where = "WHERE email = :em AND password = :pw";
-        return FDb::exist(FDb::load(self::$table[0], $where), array(':em'=>$email,':pw'=>$password));
+        $where=FDb::multiWhere(array('email','password'),array($email,$password));
+        return FDb::exist(FDb::load(self::$table[0], $where));
     }
 
 

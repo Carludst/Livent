@@ -38,7 +38,7 @@ class FEvent
         return new EEvent($name,$place,$organizer,$pubilc,$description,$id);
     }
 
-    private static function whereKey(int $key ):String
+    private static function whereKey(int $key ):Array
     {
         return FDb::where('idevent',$key);
     }
@@ -62,7 +62,8 @@ class FEvent
         return self::getObjectByArray($arrayObject);
     }
 
-    public static function load(String $where,String|Array $orderBy="",bool|Array $ascending=true):Array{
+    public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array{
+        $where=FDb::where($fieldWhere,$valueWhere,$opWhere);
         $query=FDb::load(self::$table,$where);
         $resultQ=FDb::exInterrogation($query,$orderBy,$ascending);
         $result=array();

@@ -35,7 +35,7 @@ class FComment
 
 
     //resturn where clause for take a tuple by primarykey
-    private static function whereKey(int $valueKey): string
+    private static function whereKey(int $valueKey): Array
     {
         return FDb::where("idcomment",(String) $valueKey);
     }
@@ -76,8 +76,9 @@ class FComment
      * @return array array of object
      * @throws Exception FDb exInterrogation exception
      */
-    public static function load(string $where, string|array $orderBy = "", bool|array $ascending = true): array
+    public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=", string|array $orderBy = "", bool|array $ascending = true): array
     {
+        $where=FDb::where($fieldWhere,$valueWhere,$opWhere);
         $query = FDb::load(self::$table[0], $where);
         $resultQ = FDb::exInterrogation($query, $orderBy, $ascending);
         $result = array();
