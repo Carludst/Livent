@@ -7,51 +7,58 @@ require_once "Entity/Etime.php";
 class FContact{
     private static array $table = array("contact");
     
-    public static function getArrayByObject(EContact $contact){
+    public static function getArrayByObject(EContact $contact,EEvent $event):Array{
         $name = $contact->getName();
-        $number = $contact->getNumber();
+        $number = $contact->getPhoneNumber();
         $email = $contact->getEmail();
+        $idevent= $event->getId();
         //vedere se aggiungere l'attributo evento alla classe EContact per usarlo come chiave
-        $created_at = date('Y-m-d H:i:s');
+
         $updated_at = date('Y-m-d H:i:s');
 
         $fieldValue=array(
             'name'=>$name,
             'number'=>$number,
             'e-mail'=>$email,
-            'idEvent'=>$idEvent,
-            'created_at'=>$created_at,
+            'idevent'=>$idevent,
             'updated_at'=>$updated_at,
         );
         return $fieldValue;
     }
 
-    private static function getObjectByArray(Array $contacts):EContacts
+    private static function getObjectByArray(Array $contacts):EContact
     {
-        $object = new ECompetition($contacts["name"],$contacts["number"],$contacts["e-mail"],$contacts["nameEvent"],$contacts['created_at'],$contact['updated_at']);
+        $object = new EContact($contacts["name"],$contacts["number"],$contacts["e-mail"]);
         return $object;
     }
 
-    private static function whereKey():String
+    private static function whereKey(Array $key):Array
     {
-        return FDb::multiWhere(array('idEvent'=>$idEvent,'name'=>$name));
+        $idevent=$key[0];
+        $name=$key[1];
+        return FDb::multiWhere(array('idevent','name'),array((String)$idevent,$name));
     }
 
-    public static function store(EContact $contact):void
+    public static function store(Array $object):void
     {
-        $fieldValue = self::getArrayByObject($contact);
+        $contact=$object[1];
+        $event=$object[0];
+        $created_at = date('Y-m-d H:i:s');
+        $fieldValue = self::getArrayByObject($contact,$event);
+        $fieldValue['created_at']=$created_at;
         FDb::store(self::$table, $fieldValue);
     }
 
-    public static function loadOne():?EContact{
-        $query=FDb::load(self::$table,self::whereKey());
+    public static function loadOne(Array $key):?EContact{
+        $query=FDb::load(self::$table,self::whereKey($key));
         $result=FDb::exInterrogation($query);
         if(count($result)==0)  return null;
         $arrayObject=$result[0];
         return self::getObjectByArray($arrayObject);
     }
 
-    public static function load(String $where, String|Array $orderBy="", bool|Array $ascending=true): Econtact{
+    public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=", String|Array $orderBy="", bool|Array $ascending=true): Array{
+        $where=FDb::where($fieldWhere,$valueWhere,$opWhere);
         $query=FDb::load(self::$table,$where);
         $resultQ=FDb::exInterrogation($query,$orderBy,$ascending);
         $result=array();
@@ -61,19 +68,22 @@ class FContact{
         return $result;
     }
 
-    public static function existOne():?bool
+    public static function existOne(Array $key):?bool
     {
-        return FDb::exist(FDb::load(self::$table,self::whereKey()));
+        return FDb::exist(FDb::load(self::$table,self::whereKey($key)));
     }
 
-    public static function deleteOne():?bool
+    public static function deleteOne(Array $key):?bool
     {
-        return FDb::delate(self::$table,self::whereKey());
+        return FDb::delate(self::$table,self::whereKey($key));
     }
 
-    public static function updateOne(EContact $contact,String $idEvent):?bool
+    public static function updateOne(Array $object):?bool
     {
-        return FDb::update(self::$table,self::whereKey(),self::getArrayByObject($contact));
+        $contact=$object[1];//secondo elemento dell'array: oggetto contatto
+        $event=$object[0];//primo elemento:oggetto evento
+        $key=array($event->getId(),$contact->getName());
+        return FDb::update(self::$table,self::whereKey($key),self::getArrayByObject($event,$contact));
     }
 
 }
