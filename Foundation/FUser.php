@@ -1,6 +1,6 @@
 <?php
 
-require_once "Entity/EUser.php";
+require_once "../Entity/EUser.php";
 require_once "FDb.php";
 
 class FUser

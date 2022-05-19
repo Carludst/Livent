@@ -17,7 +17,7 @@ class EAthlete {
      * @param string $sport
      * @param int $id
      */
-    public function __construct(string $name, string $surname, DateTime $birthdate, string $famale ,string $team="", string $sport="", int $id=-1)
+    public function __construct(string $name, string $surname, DateTime $birthdate, bool $famale ,string $team="", string $sport="", int $id=-1)
     {
         $this->name = $name;
         $this->surname = $surname;

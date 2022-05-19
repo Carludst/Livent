@@ -42,7 +42,7 @@ class FDb{
             $fieldStr=$fields[0];
             for($i=1;$i<count($values);$i++){
                 $arrayBind[":$fields[$i]"]=$values[$i];
-                $valStr=$valStr.",".":$fields[0]";
+                $valStr=$valStr.",".":$fields[$i]";
                 $fieldStr=$fieldStr.",".$fields[$i];
             }
             $query = "INSERT INTO " . $table ."(".$fieldStr.")". "  VALUES  " ."(".$valStr.")";
@@ -103,7 +103,7 @@ class FDb{
                 $arrayBind[":field0"]=$values[0];
                 $clouse=$fields[0]."=".":field0";
                 for($i=1;$i<count($fields);$i++){
-                    $arrayBind=array(":field$i"=>$values[$i]);
+                    $arrayBind[":field$i"]=$values[$i];
                     $clouse=$clouse.",".$fields[$i]."=".":field$i";
                 }
                 $query = "UPDATE " . $table . " SET " . $clouse.$where["where"] ;
@@ -133,7 +133,8 @@ class FDb{
     public static function exInterrogation(Array $query,String|Array $orderBy="",bool|Array $ascending=true):?array{
         try{
             self::$pdoV->beginTransaction();
-            if($orderBy!="")$q=$query["query"].self::OrderBy($orderBy,$ascending);
+            if($orderBy!="")$q=$query["query"]." ".self::OrderBy($orderBy,$ascending);
+            else $q=$query["query"];
             $stmt=self::$pdoV->prepare($q);
             $stmt->execute($query["bind"]);
 
@@ -141,9 +142,6 @@ class FDb{
             if ($num == 0) {
                 $result= null;                                   //nessuna riga interessata -> return null
             }
-            //elseif ($num ==1) {                                //nel caso in cui una sola riga fosse interessata
-            //    $result= $stmt->fetch(PDO::FETCH_ASSOC);   //ritorna una sola riga
-            //}
             else {
                 $result = array();                                //nel caso in cui piu' righe fossero interessate
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);      //imposta la modalità di fetch come array associativo
@@ -200,9 +198,9 @@ class FDb{
      * @param String $operation operation of the condition ("=","<",">","!=")("Op all","Op any","in","exist")
      * @return String clause where
      */
-    public static function where(String $field,String $value , String $operation="="):Array
+    public static function where(String $field, $value , String $operation="="):Array
     {
-       return  array("where"=>" WHERE " . $field .$operation ."'".$value."'","bind"=>array(":value0"=>$value));
+       return  array("where"=>" WHERE " . $field .$operation .":value0","bind"=>array(":value0"=>$value));
     }
 
     /**
@@ -217,18 +215,20 @@ class FDb{
     {
         if((is_array($operation) && count($field)!=count($value) && count($field)!=count($operation) ))throw new Exception("parametres multiWhere invalid");
         if(is_string($operation)){
-            $result=" WHERE ".$field[0].$operation."'".":value0"."'";
+            $result=" WHERE ".$field[0].$operation.":value0";
             $arrayBind=array(":value0"=>$value[0]);
             for($i=1;$i<count($field);$i++){
-                $result=$result." ".$logicOp." ".$field[$i].$operation."'".":value$i"."'";
+                $result=$result." ".$logicOp." ".$field[$i].$operation.":value$i";
                 $arrayBind[":value$i"]=$value[$i];
             }
         }
         else{
-            $result=" WHERE ".$field[0].$operation[0]."'".":value0"."'";
+            if(is_string($value[0])) $value[0]="'".$value[0]."'";
+            $result=" WHERE ".$field[0].$operation[0].":value0";
             $arrayBind=array(":value0"=>$value[0]);
             for($i=1;$i<count($field);$i++) {
-                $result = $result . " " . $logicOp . " " . $field[$i] . $operation[$i] ."'".":value$i"."'";
+                if(is_string($value[$i])) $value[0]="'".$value[0]."'";
+                $result = $result . " " . $logicOp . " " . $field[$i] . $operation[$i] .":value$i";
                 $arrayBind[":value$i"]=$value[$i];
             }
         }

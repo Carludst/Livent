@@ -1,6 +1,6 @@
 <?php
 
-require "EUser.php";
+require_once "EUser.php";
 
 class EComment
 {

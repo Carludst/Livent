@@ -12,6 +12,7 @@ class FAthlete {
         $name=$athlete->getName();
         $surname=$athlete->getSurname();
         $birthdate=$athlete->getBirthdate()->format("y-m-d");
+        $famale=$athlete->getFamale();
         $team=$athlete->getTeam();
         $sport=$athlete->getSport();
         $update_at=$dateTime->format("Y-m-d h:i:s");
@@ -20,9 +21,10 @@ class FAthlete {
             'name'=>$name,
             'surname'=>$surname,
             'birthdate'=>$birthdate,
+            'famale'=>$famale,
             'team'=>$team,
             'sport'=>$sport,
-            'update_at'=>$update_at
+            'updated_at'=>$update_at
         );
         return $fieldValue;
 
@@ -31,7 +33,7 @@ class FAthlete {
     private static function getObjectByArray(Array $athlete):EAthlete
     {
         $birthdate=new DateTime($athlete["birthdate"]);
-        $object=new EAthlete($athlete["name"],$athlete["surname"],$birthdate,$athlete["team"],$athlete["sport"],(int)$athlete["idathlete"]);
+        $object=new EAthlete($athlete["name"],$athlete["surname"],$birthdate,(bool)$athlete['famale'],$athlete["team"],$athlete["sport"],(int)$athlete["idathlete"]);
         return $object;
     }
 
@@ -115,7 +117,7 @@ class FAthlete {
      */
     public static function updateOne(EAthlete $athlete):?bool
     {
-        return FDb::update(self::$table[0],self::whereKey((String)$athlete->getId()),self::getArrayByObject($athlete));
+        return FDb::update(self::$table[0],self::whereKey($athlete->getId()),self::getArrayByObject($athlete));
     }
 
     /**

@@ -1,8 +1,8 @@
 <?php
 
-require_once "Entity/EContact.php";
+require_once "../Entity/EContact.php";
 require_once "FDb.php";
-require_once "Entity/Etime.php";
+require_once "../Entity/ETime.php";
 
 class FContact{
     private static array $table = array("contact");
@@ -36,7 +36,7 @@ class FContact{
     {
         $idevent=$key[0];
         $name=$key[1];
-        return FDb::multiWhere(array('idevent','name'),array((String)$idevent,$name));
+        return FDb::multiWhere(array('idevent','name'),array($idevent,$name));
     }
 
     public static function store(Array $object):void

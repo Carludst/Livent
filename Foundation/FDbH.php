@@ -7,6 +7,13 @@ require_once ('../Foundation/FCompetition.php');
 require_once ('../Foundation/FContact.php');
 require_once ('../Foundation/FEvent.php');
 
+require_once ('../Entity/EAthlete.php');
+require_once ('../Entity/EUser.php');
+require_once ('../Entity/EComment.php');
+require_once ('../Entity/ECompetition.php');
+require_once ('../Entity/EContact.php');
+require_once ('../Entity/EEvent.php');
+
 
 
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once "Entity/EUser.php";
+require_once "../Entity/EUser.php";
 require_once "FDb.php";
 
 class FComment
@@ -37,7 +37,7 @@ class FComment
     //resturn where clause for take a tuple by primarykey
     private static function whereKey(int $valueKey): Array
     {
-        return FDb::where("idcomment",(String) $valueKey);
+        return FDb::where("idcomment",$valueKey);
     }
 
     /**
