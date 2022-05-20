@@ -189,6 +189,20 @@ class FDb{
 
     }
 
+    public static function storeFile(String $pathFile, String $pathDB ,String $type,int $size){
+        $file=file_get_contents($pathFile) ;
+        $file=addslashes($file);
+        $p=explode('/',$pathDB);
+        $name=$p[-1];
+        $path=$p[0];
+        for($i=0;$i<count($p);$i++){
+            $path=$path."/".$p[$i];
+        }
+        $updated_at=date("Y-m-d H:i:s");
+        $created_at=date("Y-m-d H:i:s");
+        self::store('file',array('path'=>$path,'nome'=>$name,'size'=>$size,'type'=>$type,'file'=>$file));
+    }
+
 
 
     /**

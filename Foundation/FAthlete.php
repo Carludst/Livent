@@ -149,6 +149,13 @@ class FAthlete {
         return $result;
     }
 
+    public static function storeFile(EAthlete $athlete, String $nome , String $path , String $type , int $size){
+        $pathDB=EAthlete::class."/".$athlete->getId()."/".$nome;
+        FDb::storeFile($path,$pathDB,$type,$size);
+    }
+
+
+
 
 
 
