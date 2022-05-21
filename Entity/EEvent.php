@@ -1,22 +1,19 @@
 <?php
+require_once '../Foundation/FDbH.php';
 class EEvent{
     private int $id;
     private String $name;
     private String $description;
     private String $place;
-    private Array $competitions;
-    private Array $contacts;
     private bool $public;
     private EUser $organizer;
     //comments
 
-    public function __construct(String $name, String $place, EUser $organizer, bool $public=false, String $description="",Array $competitions =array(), Array $contacts=array(),int $id=-1)
+    public function __construct(String $name, String $place, EUser $organizer, bool $public=false, String $description="",int $id=-1)
     {
         $this->name = $name;
         $this->description = $description;
         $this->place = $place;
-        $this->competitions = $competitions;
-        $this->contacts = $contacts;
         $this->public = $public;
         $this->organizer = $organizer;
         $this->id=$id;
@@ -86,7 +83,7 @@ class EEvent{
      */
     public function getCompetitions(): Array
     {
-      return $this->competitions;
+        return FDbH::getCompetitions($this);
     }
 
     /**
@@ -95,16 +92,23 @@ class EEvent{
      */
     public function setCompetitions(Array $newcompetition): void
     {
-        $this->competition = $newcompetition;
+        $competitionDelete=FDbH::getCompetitions($this);
+        foreach ($competitionDelete as $value){
+            FDbH::deleteOne($value->getId(),$value::class);
+        }
+        foreach ($newcompetition as $value){
+            FDbH::store($value,$this->getId());
+        }
     }
 
     /**
      * @param int $index
-     * @return string
+     * @return ECompetition
      */
-    public function getCompetition(int $index): string
+    public function getCompetition(int $index): ECompetition
     {
-      return $this->competitions[$index];
+        $competitions=FDbH::getCompetitions($this);
+        return $competitions[$index];
     }
 
     /**
@@ -113,7 +117,7 @@ class EEvent{
      */
     public function addCompetition(ECompetition $competition): void
     {
-        array_push($this->competitions, $competition);
+        FDbH::store($competition,$this->getId());
     }
 
     /**
@@ -122,9 +126,12 @@ class EEvent{
      */
     public function popCompetition(ECompetition|int $competition): void
     {
-        if(is_int($competition)==false)$index=array_search($competition,$this->competitions);
-        else $index=$competition;
-        unset($this->competitions[$index]);
+        if(is_int($competition)){
+            FDbH::deleteOne($this->getCompetition($competition)->getId(),$this->getCompetition($competition)::class);
+        }
+        else{
+            FDbH::deleteOne($competition->getId(),$competition::class);
+        }
     }
 
 
@@ -133,15 +140,29 @@ class EEvent{
      */
     public function getContacts(): Array
     {
-      return $this->contacts;
+        return FDbH::getContacts($this);
+    }
+
+    public function getContact(int $index): ECompetition
+    {
+        $contacts=FDbH::getContacts($this);
+        return $contacts[$index];
     }
 
     /**
      * @param array $newcontact
      * @return void
      */
-    public function setContacts(Array $newcontact): void{
-      $this->contacts = $newcontact;
+    public function setContacts(Array $newcontact): void
+    {
+        $competitionDelete=FDbH::getContacts($this);
+        foreach ($competitionDelete as $value){
+            FDbH::deleteOne($value->getId(),$value::class);
+        }
+        foreach ($newcontact as $value){
+            FDbH::store($value,$this->getId());
+        }
+
     }
 
     /**
@@ -150,19 +171,22 @@ class EEvent{
      */
     public function addContact(EContact $contact): void
     {
-        array_push($this->contacts, $contact);
+        FDbH::store($contact,$this->getId());
     }
 
 
     /**
-     * @param EContact $contacts
+     * @param EContact|int $contact
      * @return void
      */
-    public function popContact(EContact $contacts): void
+    public function popContact(EContact|int $contact): void
     {
-        if(is_int($contacts)==false)$index=array_search($contacts,$this->contacts);
-        else $index=$contacts;
-        unset($this->contacts[$index]);
+        if(is_int($contact)){
+            FDbH::deleteOne($this->getContact($contact)->getId(),$this->getContact($contact)::class);
+        }
+        else{
+            FDbH::deleteOne($contact->getId(),$contact::class);
+        }
     }
 
 
@@ -183,12 +207,33 @@ class EEvent{
       $this->public = $newpublic;
     }
 
-    /*
-    public function getComments(): EComment
+
+    public function getComments(): Array
     {
-      //prenderlo dal db
+      return FDbH::getComments($this);
     }
-    */
+
+    public function addComment(EComment $comment):void
+    {
+        FDbH::store($comment,$this->getId());
+    }
+
+    public function getComment(int $index):EComment
+    {
+        $comments=FDbH::getComments($this);
+        return $comments[$index];
+    }
+
+    public function popComment(EComment|int $comment):void
+    {
+        if(is_int($comment)){
+            FDbH::deleteOne($this->getComment($comment)->getId(),$this->getComment($comment)::class);
+        }
+        else{
+            FDbH::deleteOne($comment->getId(),$comment::class);
+        }
+
+    }
     /**
      * @return EUser
      */
@@ -209,4 +254,3 @@ class EEvent{
 
 
 }
-?>

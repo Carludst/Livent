@@ -5,13 +5,12 @@ require_once "FDb.php";
 require_once "../Entity/ETime.php";
 
 class FContact{
-    private static array $table = array("contact");
+    private static String $table = "contact";
     
-    public static function getArrayByObject(EContact $contact,EEvent $event):Array{
+    public static function getArrayByObject(EContact $contact):Array{
         $name = $contact->getName();
         $number = $contact->getPhoneNumber();
         $email = $contact->getEmail();
-        $idevent= $event->getId();
         //vedere se aggiungere l'attributo evento alla classe EContact per usarlo come chiave
 
         $updated_at = date('Y-m-d H:i:s');
@@ -20,7 +19,6 @@ class FContact{
             'name'=>$name,
             'number'=>$number,
             'e-mail'=>$email,
-            'idevent'=>$idevent,
             'updated_at'=>$updated_at,
         );
         return $fieldValue;
@@ -28,28 +26,25 @@ class FContact{
 
     private static function getObjectByArray(Array $contacts):EContact
     {
-        $object = new EContact($contacts["name"],$contacts["number"],$contacts["e-mail"]);
+        $object = new EContact($contacts["name"],$contacts["number"],$contacts["e-mail"],(int)$contacts['idcontact']);
         return $object;
     }
 
-    private static function whereKey(Array $key):Array
+    private static function whereKey(int $key):Array
     {
-        $idevent=$key[0];
-        $name=$key[1];
-        return FDb::multiWhere(array('idevent','name'),array($idevent,$name));
+        return FDb::where('idcontact',$key);
     }
 
-    public static function store(Array $object):void
+    public static function store( EContact $contact , int $idEvent):void
     {
-        $contact=$object[1];
-        $event=$object[0];
         $created_at = date('Y-m-d H:i:s');
-        $fieldValue = self::getArrayByObject($contact,$event);
+        $fieldValue = self::getArrayByObject($contact);
         $fieldValue['created_at']=$created_at;
+        $fieldValue['idevent']=$idEvent;
         FDb::store(self::$table, $fieldValue);
     }
 
-    public static function loadOne(Array $key):?EContact{
+    public static function loadOne(int $key):?EContact{
         $query=FDb::load(self::$table,self::whereKey($key));
         $result=FDb::exInterrogation($query);
         if(count($result)==0)  return null;
@@ -68,22 +63,20 @@ class FContact{
         return $result;
     }
 
-    public static function existOne(Array $key):?bool
+    public static function existOne(int $key):?bool
     {
         return FDb::exist(FDb::load(self::$table,self::whereKey($key)));
     }
 
-    public static function deleteOne(Array $key):?bool
+    public static function deleteOne(int $key):?bool
     {
         return FDb::delate(self::$table,self::whereKey($key));
     }
 
-    public static function updateOne(Array $object):?bool
+    public static function updateOne(EContact $contact):?bool
     {
-        $contact=$object[1];//secondo elemento dell'array: oggetto contatto
-        $event=$object[0];//primo elemento:oggetto evento
-        $key=array($event->getId(),$contact->getName());
-        return FDb::update(self::$table,self::whereKey($key),self::getArrayByObject($event,$contact));
+        $key=$contact->getId();
+        return FDb::update(self::$table,self::whereKey($key),self::getArrayByObject($contact));
     }
 
 }

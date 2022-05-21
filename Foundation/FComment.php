@@ -45,11 +45,12 @@ class FComment
      * @param EComment $comment EUser object to store data
      * @return void
      */
-    public static function store(EComment $comment): void
+    public static function store(EComment $comment, int $idEvent): void
     {
         $dateTime=new DateTime();
         $fieldValue = self::getArrayByObject($comment);
         $fieldValue['created_at']=$dateTime->format("y-m-d h-i-s");
+        $fieldValue['idevent']=$idEvent;
         FDb::store(self::$table, $fieldValue);
     }
 

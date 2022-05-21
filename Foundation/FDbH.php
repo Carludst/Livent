@@ -22,11 +22,14 @@ class FDbH {
     /** Method : save an object of Entity class into db
      * @param $obj
      */
-    public static function store(EAthlete|EUser|EComment|ECompetition|Array|EEvent $obj) {
+    public static function store(EAthlete|EUser|EComment|EEvent|ECompetition|EContact $obj , ?int $idEvent=Null) {
         $Eclass = get_class($obj);
         $Fclass = str_replace("E", "F", $Eclass);
-        $Fclass::store($obj);
+        if(is_null($idEvent))$Fclass::store($obj);
+        else $Fclass::store($obj,$idEvent);
     }
+
+
 
 
     /**
@@ -79,7 +82,7 @@ class FDbH {
      * @param EAthlete|EUser|EComment|ECompetition|EContact|EEvent $obj
      * @return bool|null
      */
-    public static function updateOne(EAthlete|EUser|EComment|ECompetition|Array|EEvent $obj):?bool
+    public static function updateOne(EAthlete|EUser|EComment|ECompetition|EContact|EEvent $obj):?bool
     {
         $Eclass = get_class($obj);
         $Fclass = str_replace("E", "F", $Eclass);
@@ -96,7 +99,7 @@ class FDbH {
      * @param int $size
      * @return void
      */
-    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|Array|EEvent $objPath, String $name , String $path , String $type , int $size){
+    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $path , String $type , int $size){
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
@@ -112,7 +115,7 @@ class FDbH {
      * @return String
      * @throws Exception
      */
-    public static function loadFile(String|EAthlete|EUser|EComment|ECompetition|Array|EEvent $objPath , String $name):String
+    public static function loadFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name):String
     {
         if(is_string($objPath))$pathDB=$objPath;
         else{
@@ -130,7 +133,7 @@ class FDbH {
      * @return bool|null
      * @throws Exception
      */
-    public static function delateFile(String|EAthlete|EUser|EComment|ECompetition|Array|EEvent $objPath , String $name):?bool
+    public static function delateFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name):?bool
     {
         if(is_string($objPath))$pathDB=$objPath;
         else{
@@ -146,7 +149,7 @@ class FDbH {
      * @return array
      * @throws Exception
      */
-    public static function loadDirectory(String|EAthlete|EUser|EComment|ECompetition|Array|EEvent $objPath){
+    public static function loadDirectory(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath){
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);

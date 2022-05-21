@@ -1,14 +1,21 @@
 <?php
 class EContact
 {
+    private int $id;
     private String $name;
     private String $phoneNumber;
     private String $email;
 
-    function __construct(String $name,String $phoneNumber , String $email){
+    function __construct(String $name,String $phoneNumber , String $email,int $id=-1){
+        $this->id=$id;
         $this->email=$email;
         $this->phoneNumber=$phoneNumber;
         $this->name=$name;
+    }
+
+    public function getId():int
+    {
+        return $this->id;
     }
 
     /**
