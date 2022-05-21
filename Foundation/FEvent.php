@@ -90,16 +90,16 @@ class FEvent
 
     public static function getCompetitions(EEvent $event):Array
     {
-       return FCompetition::load(FDb::where('idevent',$event->getId()),'datetime');
+       return FCompetition::load('idevent',$event->getId(),'=','datetime');
     }
 
     public static function getContacts(EEvent $event):Array
     {
-        return FContact::load(FDb::where('idevent',$event->getId()),'namecontact');
+        return FContact::load('idevent',$event->getId(),"=",'namecontact');
     }
 
     public static function getComments(EEvent $event):Array
     {
-        return FComment::load(FDb::where('idevent',$event->getId()),'updated_at');
+        return FComment::load('idevent',$event->getId(),'=','updated_at');
     }
 }

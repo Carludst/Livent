@@ -22,7 +22,7 @@ class FDbH {
     /** Method : save an object of Entity class into db
      * @param $obj
      */
-    public static function store(EAthlete|EUser|EComment|ECompetition|EContact|EEvent $obj) {
+    public static function store(EAthlete|EUser|EComment|ECompetition|Array|EEvent $obj) {
         $Eclass = get_class($obj);
         $Fclass = str_replace("E", "F", $Eclass);
         $Fclass::store($obj);
@@ -74,6 +74,94 @@ class FDbH {
     }
 
 
+    /**
+     * -Method : update Entity class data by primarykey saved into object passed
+     * @param EAthlete|EUser|EComment|ECompetition|EContact|EEvent $obj
+     * @return bool|null
+     */
+    public static function updateOne(EAthlete|EUser|EComment|ECompetition|Array|EEvent $obj):?bool
+    {
+        $Eclass = get_class($obj);
+        $Fclass = str_replace("E", "F", $Eclass);
+        return $Fclass::updateOne($obj);
+    }
+
+
+
+    /**
+     * @param EAthlete $obj
+     * @param String $name
+     * @param String $path
+     * @param String $type
+     * @param int $size
+     * @return void
+     */
+    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|Array|EEvent $objPath, String $name , String $path , String $type , int $size){
+        if(is_string($objPath))$pathDB=$objPath;
+        else{
+            $Eclass = get_class($objPath);
+            $Fclass = str_replace("E", "F", $Eclass);
+            $pathDB=$Fclass::getPathFile;
+        }
+        FDb::storeFile($path,$pathDB,$name,$type,$size);
+    }
+
+    /**
+     * @param String|EAthlete|EUser|EComment|ECompetition|array|EEvent $objPath
+     * @param String $name
+     * @return String
+     * @throws Exception
+     */
+    public static function loadFile(String|EAthlete|EUser|EComment|ECompetition|Array|EEvent $objPath , String $name):String
+    {
+        if(is_string($objPath))$pathDB=$objPath;
+        else{
+            $Eclass = get_class($objPath);
+            $Fclass = str_replace("E", "F", $Eclass);
+            $pathDB=$Fclass::getPathFile;
+        }
+        $array=FDb::load('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)));
+        return $array[0]['file'];
+    }
+
+    /**
+     * @param String|EAthlete|EUser|EComment|ECompetition|array|EEvent $objPath
+     * @param String $name
+     * @return bool|null
+     * @throws Exception
+     */
+    public static function delateFile(String|EAthlete|EUser|EComment|ECompetition|Array|EEvent $objPath , String $name):?bool
+    {
+        if(is_string($objPath))$pathDB=$objPath;
+        else{
+            $Eclass = get_class($objPath);
+            $Fclass = str_replace("E", "F", $Eclass);
+            $pathDB=$Fclass::getPathFile;
+        }
+        return FDb::delate('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)));
+    }
+
+    /**
+     * @param String|EAthlete|EUser|EComment|ECompetition|array|EEvent $objPath
+     * @return array
+     * @throws Exception
+     */
+    public static function loadDirectory(String|EAthlete|EUser|EComment|ECompetition|Array|EEvent $objPath){
+        if(is_string($objPath))$pathDB=$objPath;
+        else{
+            $Eclass = get_class($objPath);
+            $Fclass = str_replace("E", "F", $Eclass);
+            $pathDB=$Fclass::getPathFile;
+        }
+        $resultQ=FDb::exInterrogation(FDb::load('file',FDb::where('path',$pathDB),'name'));
+        $result=array();
+        foreach ($resultQ as $key=>$value){
+            $result[]=$value['name'];
+        }
+        return $result;
+    }
+
+
     /** Method : for login of an user
      * @param $user
      * @param $password
@@ -81,19 +169,6 @@ class FDbH {
      */
     public static function login(String $email,String $password) :?bool{
         return FUser::login($email, $password);
-    }
-
-
-    /**
-     * -Method : update Entity class data by primarykey saved into object passed
-     * @param EAthlete|EUser|EComment|ECompetition|EContact|EEvent $obj
-     * @return bool|null
-     */
-    public static function updateOne(EAthlete|EUser|EComment|ECompetition|EContact|EEvent $obj):?bool
-    {
-        $Eclass = get_class($obj);
-        $Fclass = str_replace("E", "F", $Eclass);
-        return $Fclass::updateOne($obj);
     }
 
 

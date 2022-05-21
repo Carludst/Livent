@@ -189,18 +189,13 @@ class FDb{
 
     }
 
-    public static function storeFile(String $pathFile, String $pathDB ,String $type,int $size){
+    public static function storeFile(String $pathFile, String $pathDB ,String $name ,String $type,int $size){
         $file=file_get_contents($pathFile) ;
         $file=addslashes($file);
-        $p=explode('/',$pathDB);
-        $name=$p[-1];
-        $path=$p[0];
-        for($i=0;$i<count($p);$i++){
-            $path=$path."/".$p[$i];
-        }
+
         $updated_at=date("Y-m-d H:i:s");
         $created_at=date("Y-m-d H:i:s");
-        self::store('file',array('path'=>$path,'nome'=>$name,'size'=>$size,'type'=>$type,'file'=>$file));
+        self::store('file',array('path'=>$pathDB,'nome'=>$name,'size'=>$size,'type'=>$type,'file'=>$file , 'updated_at'=>$updated_at , 'created_at'=>$created_at));
     }
 
 
@@ -257,8 +252,17 @@ class FDb{
      * @param String $where where clause
      * @return string query
      */
-    public static function load(String $table ,Array $where):Array{
-        $query = "SELECT * FROM " . $table .$where["where"];
+    public static function load(String $table ,Array $where, String|Array $select="*"):Array{
+        if (is_string($select)){
+            $query = "SELECT ".$select." FROM " . $table .$where["where"];
+        }
+        else{
+            $strSelect=$select[0];
+            for ($i=1;$i<count($select);$i++){
+                $strSelect=' , '.$select[$i];
+            }
+            $query = "SELECT ".$strSelect." FROM " . $table .$where["where"];
+        }
         return array("query"=>$query,"bind"=>$where["bind"]);
     }
 
