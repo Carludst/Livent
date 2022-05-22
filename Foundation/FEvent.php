@@ -102,4 +102,45 @@ class FEvent
     {
         return FComment::load('idevent',$event->getId(),'=','updated_at');
     }
+
+    public static function getPathFile(EEvent $event):String
+    {
+        return $event::class."/".$event->getId();
+    }
+
+    public static function search(?String $name , ?EUser $user ,String $place){
+        $fields=array();
+        $values=array();
+        $opWhere=array();
+        $result=array();
+        if(is_null($name) && is_null($user)){
+            $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
+            foreach ($resultQ as $c=>$v){
+                $result[$c]=self::getObjectByArray($v);
+            }
+            return $result;
+        }
+        else{
+            if(!is_null($name)){
+                $fields[]='namevent';
+                $values[]=$name.'%';
+                $opWhere[]='LIKE ';
+            }
+            if(!is_null($place)){
+                $fields[]='place';
+                $values[]=$place.'%';
+                $opWhere[]='LIKE ';
+            }
+            if(!is_null($user)){
+                $fields[]='emailorganizer';
+                $values[]=$user->getEmail();
+                $opWhere[]='=';
+            }
+            $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)));
+            foreach ($resultQ as $c=>$v){
+                $result[$c]=self::getObjectByArray($v);
+            }
+            return $result;
+        }
+    }
 }

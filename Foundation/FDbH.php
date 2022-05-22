@@ -252,4 +252,28 @@ class FDbH {
     {
         return FEvent::getComments($event);
     }
+
+    /**
+     * @param String|null $name
+     * @param EUser|null $organizer
+     * @param String $place
+     * @return array
+     */
+    public static function searchEvent(?String $name , ?EUser $organizer ,String $place){
+        return FEvent::search($name,$organizer,$place);
+    }
+
+    /**
+     * @param String|Null $name
+     * @param String|Null $surname
+     * @param DateTime|Null $birthdateFrom
+     * @param DateTime|Null $birthdateTo
+     * @param bool|null $famale
+     * @param String|Null $team
+     * @param String|Null $sport
+     * @return array
+     */
+    public static function searchAthlete(String|Null $name , String|Null $surname , DateTime|Null $birthdateFrom , DateTime|Null $birthdateTo , ?bool $famale , String|Null $team , String|Null $sport ){
+        return FAthlete::search($name,$surname,$birthdateFrom,$birthdateTo,$famale,$team,$sport);
+    }
 }

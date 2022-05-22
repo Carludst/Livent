@@ -252,7 +252,8 @@ class FDb{
      * @param String $where where clause
      * @return string query
      */
-    public static function load(String $table ,Array $where, String|Array $select="*"):Array{
+    public static function load(String $table ,?Array $where=Null, String|Array $select="*"):Array{
+        if(is_null($where))$where=array('where'=>"",'bind'=>array());
         if (is_string($select)){
             $query = "SELECT ".$select." FROM " . $table .$where["where"];
         }

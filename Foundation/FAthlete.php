@@ -154,6 +154,66 @@ class FAthlete {
         return EAthlete::class."/".$athlete->getId();
     }
 
+    public static function search(String|Null $name , String|Null $surname , DateTime|Null $birthdateFrom , DateTime|Null $birthdateTo , ?bool $famale , String|Null $team , String|Null $sport )
+    {
+       $fields=array();
+       $values=array();
+       $opWhere=array();
+       $result=array();
+       if(is_null($name)&& is_null($surname) && is_null($birthdateFrom) && is_null($birthdateTo) && is_null($famale) && is_null($team) && is_null($sport)){
+           $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
+           foreach ($resultQ as $c=>$v){
+               $result[$c]=self::getObjectByArray($v);
+           }
+           return $result;
+       }
+       else{
+           if(!is_null($name)){
+               $fields[]='name';
+               $values[]=$name.'%';
+               $opWhere[]='LIKE';
+           }
+           if(!is_null($surname)){
+               $fields[]='surname';
+               $values[]=$surname.'%';
+               $opWhere[]='LIKE';
+           }
+           if(!is_null($birthdateFrom)){
+               $fields[]='birthdate';
+               $values[]=$birthdateFrom->format("y-m-d");
+               if(is_null($birthdateTo)||$birthdateFrom<$birthdateTo) $opWhere[]='>=';
+               else $opWhere[]='<=';
+           }
+           if(!is_null($birthdateTo)){
+               $fields[]='birthdate';
+               $values[]=$birthdateTo->format("y-m-d");
+               if(is_null($birthdateFrom)||$birthdateTo<$birthdateFrom) $opWhere[]='>=';
+               else $opWhere[]='<=';
+           }
+           if(!is_null($famale)){
+               $fields[]='famale';
+               $values[]=$famale;
+               $opWhere[]='=';
+           }
+           if(!is_null($team)){
+               $fields[]='team';
+               $values[]=$team.'%';
+               $opWhere[]='LIKE';
+           }
+           if(!is_null($sport)){
+               $fields[]='sport';
+               $values[]=$sport;
+               $opWhere[]='=';
+           }
+           $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)));
+           foreach ($resultQ as $c=>$v){
+               $result[$c]=self::getObjectByArray($v);
+           }
+           return $result;
+       }
+
+    }
+
 
 
 
