@@ -67,7 +67,7 @@ class EComment
      */
     public function getDateTime(): DateTime
     {
-        return FComment::getDateTime($this);
+        return FDbH::getDateTimeComment($this);
     }
 
 }

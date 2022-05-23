@@ -132,7 +132,7 @@ class FCompetition {
         return FDb::store(self::$table[1],$fieldValue);
     }
 
-    public static function deleteRegistration(ECompetition $competition,EAthlete $athlete): bool
+    public static function deleteCompetitor(ECompetition $competition,EAthlete $athlete): bool
     {
         return FDb::delate(self::$table[1],self::whereResult($competition,$athlete));
     }
@@ -163,7 +163,7 @@ class FCompetition {
             $time=new ETime((float)$v["time"]);
             $result[]=array($athlete,$time);
         }
-        $where1=FDb::multiWhere(array('idcompetition','NULL'),array((String)$competition->getId(),'NULL'),"AND",array("=","<>"));
+        $where1=FDb::multiWhere(array('idcompetition','time'),array((String)$competition->getId(),'NULL'),"AND",array("=","<>"));
         $query1=FDb::load(self::$table[1],$where1);
         $resultQ1=FDb::exInterrogation($query1);
         foreach ($resultQ1 as $c=>$v){
@@ -174,10 +174,19 @@ class FCompetition {
         return $result;
     }
 
-    /*
+
      static function getRegistrations(ECompetition $competition): Array
     {
-
+        $where=FDb::multiWhere(array('idcompetition','time'),array((String)$competition->getId(),'NULL'));
+        $query=FDb::load(self::$table[1],$where);
+        $resultQ=FDb::exInterrogation($query);
+        $result=array();
+        foreach ($resultQ as $c=>$v){
+            $athlete=FAthlete::loadOne((int)$v["idathlete"]);
+            $iscriber=FUser::loadOne((String)$v["email"]);
+            $result[]=array($athlete,$iscriber);
+        }
+        return $result;
     }
-    */
+
 }

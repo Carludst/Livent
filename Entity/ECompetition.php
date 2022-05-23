@@ -1,5 +1,6 @@
 <?php
 require_once "EDistance.php";
+require_once "EAthlete.php.php";
 
 class ECompetition{
     private int $id;
@@ -7,13 +8,18 @@ class ECompetition{
     private DateTime $dateTime;
     private string $description;
     private string $gender;
-    //private string $competitors;
     private string $sport;
     private EDistance $distance;
 
 
     /**
-     * @return string
+     * @param String $name
+     * @param DateTime $dateTime
+     * @param String $gender
+     * @param String $sport
+     * @param EDistance $distance
+     * @param String $description
+     * @param int $id
      */
     public function  __construct(String $name, DateTime $dateTime, String $gender, String $sport, EDistance $distance, String $description="",int $id=-1)
     {
@@ -95,19 +101,6 @@ class ECompetition{
       $this->gender = $newgender;
     }
 
-    /*
-     public function getCompetitors() : string
-     {
-      return $this->competitors;
-     }
-    */
-
-    /*
-    public function setConpetitors(string $newcompetitors) : void
-    {
-      $this->competitors = $newcompetitors;
-    }
-    */
 
     /**
      * @return string
@@ -142,15 +135,50 @@ class ECompetition{
     }
 
     /**
-    public function addCompetitors(EAtleta $atleta, EAtleta $atleti) : EAtleta
+     * @param EAthlete $athlete
+     * @param EUser $iscriber
+     * @return bool|null
+     */
+    public function addRegistration(EAthlete $athlete , EUser $iscriber) :?bool
     {
-        array_push($atleti, $atleta);
+        return FDbH::addRegistrationCompetition($this,$athlete,$iscriber);
     }
 
-    public function popCompetitors(EAtleta $atleta, EAtleta $atleti) : void
+    /**
+     * @param EAthlete $athlete
+     * @param ETime $time
+     * @return bool|null
+     */
+    public function addResult(EAthlete $athlete , ETime $time):?bool
     {
-        unset($atleti[$atleta->getId()]);
+        return FDbH::addResultCompetition($this,$athlete,$time);
     }
-    */
+
+    /**
+     * @param EAthlete $athlete
+     * @return bool
+     */
+    public function popCompetitor(EAthlete $athlete) : bool
+    {
+        return FDbH::deleteCompetitorCompetition($this,$athlete);
+    }
+
+    /**
+     * @return array
+     */
+    public function getRegistrations() : Array
+    {
+        return FDbH::getRegistrationsCompetition($this);
+    }
+
+    /**
+     * @return array
+     */
+    public function getClassification() : Array
+    {
+        return FDbH::getClassificationCompetition($this);
+    }
+
+
 }
 ?>

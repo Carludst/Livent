@@ -174,6 +174,14 @@ class FDbH {
         return FUser::login($email, $password);
     }
 
+    /**
+     * @param EComment $comment
+     * @return DateTime
+     */
+    public static function getDateTimeComment(EComment $comment):DateTime
+    {
+        return FComment::getDateTime($comment);
+    }
 
     /**
      * -Method : return an array (name copetition key) of array (idevent , time) with the result order by time
@@ -214,8 +222,8 @@ class FDbH {
      * @param $athlete
      * @return mixed
      */
-    public static function deleteRegistrationCompetition(ECompetition $competition, EAthlete $athlete):bool {
-        return FCompetition::deleteRegistration($competition,$athlete);
+    public static function deleteCompetitorCompetition(ECompetition $competition, EAthlete $athlete):bool {
+        return FCompetition::deleteCompetitor($competition,$athlete);
     }
 
     /** -Method
@@ -224,6 +232,10 @@ class FDbH {
      */
     public static function getClassificationCompetition(ECompetition $competition):Array{
         return FCompetition::getClassification($competition);
+    }
+
+    public static function getRegistrationsCompetition(ECompetition $competition):Array{
+        return FCompetition::getRegistrations($competition);
     }
 
     /**
