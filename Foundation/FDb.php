@@ -135,12 +135,13 @@ class FDb{
             self::$pdoV->beginTransaction();
             if($orderBy!="")$q=$query["query"]." ".self::OrderBy($orderBy,$ascending);
             else $q=$query["query"];
+            echo $q;
             $stmt=self::$pdoV->prepare($q);
             $stmt->execute($query["bind"]);
 
             $num = $stmt->rowCount();
             if ($num == 0) {
-                $result= null;                                   //nessuna riga interessata -> return null
+                $result= array();                                   //nessuna riga interessata -> return null
             }
             else {
                 $result = array();                                //nel caso in cui piu' righe fossero interessate
@@ -224,19 +225,21 @@ class FDb{
     {
         if((is_array($operation) && count($field)!=count($value) && count($field)!=count($operation) ))throw new Exception("parametres multiWhere invalid");
         if(is_string($operation)){
-            $result=" WHERE ".$field[0].$operation.":value0";
-            $arrayBind=array(":value0"=>$value[0]);
+            if(count($field)>0){
+                $result=" WHERE ".$field[0].$operation.":value0";
+                $arrayBind=array(":value0"=>$value[0]);
+            }
             for($i=1;$i<count($field);$i++){
                 $result=$result." ".$logicOp." ".$field[$i].$operation.":value$i";
                 $arrayBind[":value$i"]=$value[$i];
             }
         }
         else{
-            if(is_string($value[0])) $value[0]="'".$value[0]."'";
-            $result=" WHERE ".$field[0].$operation[0].":value0";
-            $arrayBind=array(":value0"=>$value[0]);
+            if(count($field)>0){
+                $result=" WHERE ".$field[0].$operation[0].":value0";
+                $arrayBind=array(":value0"=>$value[0]);
+            }
             for($i=1;$i<count($field);$i++) {
-                if(is_string($value[$i])) $value[0]="'".$value[0]."'";
                 $result = $result . " " . $logicOp . " " . $field[$i] . $operation[$i] .":value$i";
                 $arrayBind[":value$i"]=$value[$i];
             }
@@ -252,8 +255,8 @@ class FDb{
      * @param String $where where clause
      * @return string query
      */
-    public static function load(String $table ,?Array $where=Null, String|Array $select="*"):Array{
-        if(is_null($where))$where=array('where'=>"",'bind'=>array());
+    public static function load(String $table ,Array|String $where="", String|Array $select="*"):Array{
+        if(is_string($where))$where=array('where'=>$where,'bind'=>array());
         if (is_string($select)){
             $query = "SELECT ".$select." FROM " . $table .$where["where"];
         }
@@ -297,8 +300,8 @@ class FDb{
      * @param String $countOperation method of count
      * @return String query
      */
-    public static function opGroupCount(String $table ,?Array $where=NULL,String|Array$groupByfield="",String $countField="*",String $countOperation=""):Array{
-        if(is_null($where))$where=array("where"=>"","bind"=>array());
+    public static function opGroupCount(String $table ,String|Array $where='',String|Array$groupByfield="",String $countField="*",String $countOperation=""):Array{
+        if(is_string($where))$where=array('where'=>$where,'bind'=>array());
         $select= "SELECT count(".$countOperation." ".$countField.") AS count";
         if(is_array($groupByfield)){
             $groupBy=" GROUP BY ".$groupByfield[0];
@@ -325,8 +328,8 @@ class FDb{
      * @param String|array $groupByfield attributes to group by
      * @return String query
      */
-    public static function opGroupMax(String $table ,String $maxField,?Array $where=NULL,String|Array$groupByfield=""):Array{
-        if(is_null($where))$where=array("where"=>"","bind"=>array());
+    public static function opGroupMax(String $table ,String $maxField,String|Array $where='',String|Array$groupByfield=""):Array{
+        if(is_string($where))$where=array('where'=>$where,'bind'=>array());
         $select= "SELECT max(".$maxField.") AS max";
         if(is_array($groupByfield)){
             $groupBy=" GROUP BY ".$groupByfield[0];
@@ -353,8 +356,8 @@ class FDb{
      * @param String|array $groupByfield attributes to group by
      * @return string query
      */
-    public static function opGroupMin(String $table ,String $minField,?Array $where=NULL,String|Array$groupByfield=""):Array{
-        if(is_null($where))$where=array("where"=>"","bind"=>array());
+    public static function opGroupMin(String $table ,String $minField,String|Array $where='',String|Array$groupByfield=""):Array{
+        if(is_string($where))$where=array('where'=>$where,'bind'=>array());
         $select= "SELECT min(".$minField.") AS min";
         if(is_array($groupByfield)){
             $groupBy=" GROUP BY ".$groupByfield[0];
@@ -382,8 +385,8 @@ class FDb{
      * @param String $avgOperation method of avg calculation
      * @return string query
      */
-    public static function opGroupAvg(String $table ,String $avgField,?Array $where=NULL,String|Array$groupByfield="",String $avgOperation=""):Array{
-        if(is_null($where))$where=array("where"=>"","bind"=>array());
+    public static function opGroupAvg(String $table ,String $avgField,String|Array $where='',String|Array$groupByfield="",String $avgOperation=""):Array{
+        if(is_string($where))$where=array('where'=>$where,'bind'=>array());
         $select= "SELECT avg(".$avgOperation." ".$avgField.") AS avg";
         if(is_array($groupByfield)){
             $groupBy=" GROUP BY ".$groupByfield[0];
@@ -411,8 +414,8 @@ class FDb{
      * @param String $sumOperation method of avg calculation
      * @return string query
      */
-    public static function opGroupSum(String $table ,String $sumField,?Array $where=NULL,String|Array$groupByfield="",String $sumOperation=""):Array{
-        if(is_null($where))$where=array("where"=>"","bind"=>array());
+    public static function opGroupSum(String $table ,String $sumField,String|Array $where='',String|Array$groupByfield="",String $sumOperation=""):Array{
+        if(is_string($where))$where=array('where'=>$where,'bind'=>array());
         $select= "SELECT sum(".$sumOperation." ".$sumField.") AS sum";
         if(is_array($groupByfield)){
             $groupBy=" GROUP BY ".$groupByfield[0];

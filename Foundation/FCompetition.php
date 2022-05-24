@@ -27,8 +27,8 @@ class FCompetition {
             'description'=>$description,
             'gender'=>$gender,
             'sport'=>$sport,
-            'duration'=>$duration,
-            'update_at'=>$update_at
+            'distance'=>$duration,
+            'updated_at'=>$update_at
         );
         return $fieldValue;
 

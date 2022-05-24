@@ -1,7 +1,7 @@
 <?php
 class FEvent
 {
-    private static String $table="event";
+    private static Array $table=array("event",'competitions');
 
     private static function getArrayByObject(EEvent $event):Array
     {
@@ -20,7 +20,7 @@ class FEvent
             'place'=>$place,
             'description'=>$description,
             'public'=>$pubilc,
-            'update_at'=>$update_at
+            'updated_at'=>$update_at
         );
 
         return $fieldValue;
@@ -35,7 +35,7 @@ class FEvent
         $description=$event['description'];
         $pubilc=$event['public'];
 
-        return new EEvent($name,$place,$organizer,$pubilc,$description,$id);
+        return new EEvent($name,$place,$organizer,(bool)$pubilc,$description,$id);
     }
 
     private static function whereKey(int $key ):Array
@@ -50,12 +50,12 @@ class FEvent
         $created_at=$dateTime->format("Y-m-d h:i:s");
         $fieldValue=self::getArrayByObject($event);
         $fieldValue['created_at']=$created_at;
-        FDb::store(self::$table,$fieldValue);
+        FDb::store(self::$table[0],$fieldValue);
     }
 
     public static function loadOne(int $key):?EEvent
     {
-        $query=FDb::load(self::$table,self::whereKey($key));
+        $query=FDb::load(self::$table[0],self::whereKey($key));
         $result=FDb::exInterrogation($query);
         if(count($result)==0)  return null;
         $arrayObject=$result[0];
@@ -64,7 +64,7 @@ class FEvent
 
     public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array{
         $where=FDb::where($fieldWhere,$valueWhere,$opWhere);
-        $query=FDb::load(self::$table,$where);
+        $query=FDb::load(self::$table[0],$where);
         $resultQ=FDb::exInterrogation($query,$orderBy,$ascending);
         $result=array();
         foreach ($resultQ as $c=>$v){
@@ -75,17 +75,17 @@ class FEvent
 
     public static function existOne(int $key):?bool
     {
-        return FDb::exist(FDb::load(self::$table,self::whereKey($key)));
+        return FDb::exist(FDb::load(self::$table[0],self::whereKey($key)));
     }
 
     public static function deleteOne(int $key):?bool
     {
-        return FDb::delate(self::$table,self::whereKey($key));
+        return FDb::delate(self::$table[0],self::whereKey($key));
     }
 
     public static function updateOne(EEvent $event):?bool
     {
-        return FDb::update(self::$table,self::whereKey((String)$event->getId()),self::getArrayByObject($event));
+        return FDb::update(self::$table[0],self::whereKey((String)$event->getId()),self::getArrayByObject($event));
     }
 
     public static function getCompetitions(EEvent $event):Array
@@ -108,12 +108,12 @@ class FEvent
         return $event::class."/".$event->getId();
     }
 
-    public static function search(?String $name , ?EUser $user ,String $place){
+    public static function search(?String $name , ?EUser $user ,?String $place , ?DateTime $startDateFrom , ?DateTime $startDateTo){
         $fields=array();
         $values=array();
         $opWhere=array();
         $result=array();
-        if(is_null($name) && is_null($user)){
+        if(is_null($name) && is_null($user) && is_null($place) && is_null($startDateFrom) && is_null($startDateTo)){
             $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
             foreach ($resultQ as $c=>$v){
                 $result[$c]=self::getObjectByArray($v);
@@ -135,6 +135,20 @@ class FEvent
                 $fields[]='emailorganizer';
                 $values[]=$user->getEmail();
                 $opWhere[]='=';
+            }
+            if(!is_null($startDateFrom)){
+                $dateStart=FDb::opGroupMin(self::$table[1].' AS T','T.datetime',' WHERE T.idevent=idevent');
+                $fields[]='('.$dateStart['query'].')';
+                $values[]=$startDateFrom->format("y-m-d");
+                if(is_null($startDateTo)||$startDateFrom<$startDateTo) $opWhere[]='>=';
+                else $opWhere[]='<=';
+            }
+            if(!is_null($startDateTo)){
+                $dateStart=FDb::opGroupMin(self::$table[1].' AS T','T.datetime', ' WHERE T.idevent=idevent');
+                $fields[]='('.$dateStart['query'].')';
+                $values[]=$startDateTo->format("y-m-d");
+                if(is_null($startDateFrom)||$startDateTo<$startDateFrom) $opWhere[]='>=';
+                else $opWhere[]='<=';
             }
             $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)));
             foreach ($resultQ as $c=>$v){

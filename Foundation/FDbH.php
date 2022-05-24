@@ -24,7 +24,7 @@ class FDbH {
      */
     public static function store(EAthlete|EUser|EComment|EEvent|ECompetition|EContact $obj , ?int $idEvent=Null) {
         $Eclass = get_class($obj);
-        $Fclass = str_replace("E", "F", $Eclass);
+        $Fclass = "F".substr($Eclass,1);
         if(is_null($idEvent))$Fclass::store($obj);
         else $Fclass::store($obj,$idEvent);
     }
@@ -39,7 +39,7 @@ class FDbH {
      * @return EAthlete|EUser|EComment|ECompetition|EContact|EEvent
      */
     public static function loadOne($key,String $Eclass):EAthlete|EUser|EComment|ECompetition|EContact|EEvent {
-        $Fclass = str_replace("E", "F", $Eclass);
+        $Fclass = "F".substr($Eclass,1);
         return $Fclass::loadOne($key);
     }
 
@@ -52,7 +52,7 @@ class FDbH {
      */
     public static function load(String $Eclass,String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array {
 
-        $Fclass = str_replace("E", "F", $Eclass);
+        $Fclass = "F".substr($Eclass,1);
         return $Fclass::load($fieldWhere,$valueWhere,$opWhere, $orderBy, $ascending);
     }
 
@@ -62,7 +62,7 @@ class FDbH {
      * @return mixed
      */
     public static function deleteOne($key, String $Eclass):?bool {
-        $Fclass = str_replace("E", "F", $Eclass);
+        $Fclass = "F".substr($Eclass,1);
         return $Fclass::deleteOne($key);
     }
 
@@ -72,7 +72,7 @@ class FDbH {
      * @return mixed
      */
     public static function existOne($key, String $Eclass):?bool {
-        $Fclass = str_replace("E", "F", $Eclass);
+        $Fclass = "F".substr($Eclass,1);
         return $Fclass::existOne($key);
     }
 
@@ -85,7 +85,7 @@ class FDbH {
     public static function updateOne(EAthlete|EUser|EComment|ECompetition|EContact|EEvent $obj):?bool
     {
         $Eclass = get_class($obj);
-        $Fclass = str_replace("E", "F", $Eclass);
+        $Fclass = "F".substr($Eclass,1);
         return $Fclass::updateOne($obj);
     }
 
@@ -103,7 +103,7 @@ class FDbH {
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
-            $Fclass = str_replace("E", "F", $Eclass);
+            $Fclass = "F".substr($Eclass,1);
             $pathDB=$Fclass::getPathFile;
         }
         FDb::storeFile($path,$pathDB,$name,$type,$size);
@@ -120,7 +120,7 @@ class FDbH {
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
-            $Fclass = str_replace("E", "F", $Eclass);
+            $Fclass = "F".substr($Eclass,1);
             $pathDB=$Fclass::getPathFile;
         }
         $array=FDb::load('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)));
@@ -138,7 +138,7 @@ class FDbH {
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
-            $Fclass = str_replace("E", "F", $Eclass);
+            $Fclass = "F".substr($Eclass,1);
             $pathDB=$Fclass::getPathFile;
         }
         return FDb::delate('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)));
@@ -153,7 +153,7 @@ class FDbH {
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
-            $Fclass = str_replace("E", "F", $Eclass);
+            $Fclass = "F".substr($Eclass,1);
             $pathDB=$Fclass::getPathFile;
         }
         $resultQ=FDb::exInterrogation(FDb::load('file',FDb::where('path',$pathDB),'name'));
@@ -271,8 +271,8 @@ class FDbH {
      * @param String $place
      * @return array
      */
-    public static function searchEvent(?String $name , ?EUser $organizer ,String $place){
-        return FEvent::search($name,$organizer,$place);
+    public static function searchEvent(?String $name , ?EUser $organizer ,?String $place , ?DateTime $startDateFrom , ?DateTime $startDateTo){
+        return FEvent::search($name,$organizer,$place,$startDateFrom,$startDateTo);
     }
 
     /**

@@ -22,7 +22,7 @@ class FUser
             'email'=>$email,
             'password'=>$password,
             'type'=>$type,
-            'update_at'=>$update_at
+            'updated_at'=>$update_at
         );
         return $fieldValue;
 
