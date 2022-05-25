@@ -31,6 +31,15 @@ class EComment
     }
 
     /**
+     * @param int $id
+     * @return void
+     */
+    public function setId(int $id)
+    {
+        $this->id=$id;
+    }
+
+    /**
      * @return EUser
      */
     public function getUser(): string

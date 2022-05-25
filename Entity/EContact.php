@@ -19,6 +19,15 @@ class EContact
     }
 
     /**
+     * @param int $id
+     * @return void
+     */
+    public function setId(int $id)
+    {
+        $this->id=$id;
+    }
+
+    /**
      * @return String
      */
     public function getEmail(): string

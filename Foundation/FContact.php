@@ -37,11 +37,13 @@ class FContact{
 
     public static function store( EContact $contact , int $idEvent):void
     {
+        if(!FEvent::existOne($idEvent))throw new Exception("you can't associate an contact with an event don't saved on DB");
         $created_at = date('Y-m-d H:i:s');
         $fieldValue = self::getArrayByObject($contact);
         $fieldValue['created_at']=$created_at;
         $fieldValue['idevent']=$idEvent;
         FDb::store(self::$table, $fieldValue);
+        $contact->setId((int)FDb::exInterrogation(FDb::opGroupMax(self::$table,'idcontact'))[0]['max']);
     }
 
     public static function loadOne(int $key):?EContact{

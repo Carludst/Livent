@@ -44,13 +44,20 @@ class FEvent
     }
 
 
+    /**
+     * @param EEvent $event
+     * @return void
+     * @throws Exception
+     */
     public static function store(EEvent $event):void
     {
+        if(!FUser::existOne($event->getOrganizer()->getEmail()))throw new Exception("the organizer of the event don't exist on DB");
         $dateTime=new DateTime();
         $created_at=$dateTime->format("Y-m-d h:i:s");
         $fieldValue=self::getArrayByObject($event);
         $fieldValue['created_at']=$created_at;
         FDb::store(self::$table[0],$fieldValue);
+        $event->setId((int)FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'idevent'))[0]['max']);
     }
 
     public static function loadOne(int $key):?EEvent

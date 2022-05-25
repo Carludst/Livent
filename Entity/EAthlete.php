@@ -132,6 +132,15 @@ class EAthlete {
           return $this->id;
       }
 
+    /**
+     * @param int $id
+     * @return void
+     */
+    public function setId(int $id)
+    {
+         $this->id=$id;
+    }
+
 
 }
 ?>

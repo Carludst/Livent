@@ -44,14 +44,17 @@ class FComment
      * -Method : store into database the data of EUser object
      * @param EComment $comment EUser object to store data
      * @return void
+     * @throws Exception
      */
     public static function store(EComment $comment, int $idEvent): void
     {
+        if(!FEvent::existOne($idEvent))throw new Exception("you can't associate an comment with an event don't saved on DB");
         $dateTime=new DateTime();
         $fieldValue = self::getArrayByObject($comment);
         $fieldValue['created_at']=$dateTime->format("y-m-d h-i-s");
         $fieldValue['idevent']=$idEvent;
         FDb::store(self::$table, $fieldValue);
+        $comment->setId((int)FDb::exInterrogation(FDb::opGroupMax(self::$table,'idcomment'))[0]['max']);
     }
 
     /**

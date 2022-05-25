@@ -55,6 +55,7 @@ class FAthlete {
         $fieldValue=self::getArrayByObject($athlete,true);
         $fieldValue['created_at']=$created_at;
         FDb::store(self::$table[0],$fieldValue);
+        $athlete->setId((int)FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'idathlete'))[0]['max']);
     }
 
     /**

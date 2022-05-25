@@ -14,7 +14,11 @@ class ETime
     }
 
 
-
+    /**
+     * @param String $stringValue
+     * @return float
+     * @throws Exception
+     */
     private function stringToFloat(String $stringValue):float{
         str_replace(",",".",$stringValue);
         $arrayValue=explode(":",$stringValue);

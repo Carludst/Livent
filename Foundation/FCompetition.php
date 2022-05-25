@@ -73,6 +73,7 @@ class FCompetition {
 
     public static function store(ECompetition $competition,int $idEvent):void
     {
+        if(!FEvent::existOne($idEvent))throw new Exception("you can't associate an competition with an event don't saved on DB");
         $now=new DateTime();
         $created_at=$now->format("Y-m-d h:i:s");
         $fieldValue=self::getArrayByObject($competition);
@@ -81,6 +82,7 @@ class FCompetition {
         $fieldValue['idevent']=$idEvent;
 
         FDb::store(self::$table[0],$fieldValue);
+        $competition->setId((int)FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'idcompetition'))[0]['max']);
     }
 
     public static function loadOne(int $key):?ECompetition{
