@@ -135,7 +135,6 @@ class FDb{
             self::$pdoV->beginTransaction();
             if($orderBy!="")$q=$query["query"]." ".self::OrderBy($orderBy,$ascending);
             else $q=$query["query"];
-            echo $q;
             $stmt=self::$pdoV->prepare($q);
             $stmt->execute($query["bind"]);
 
