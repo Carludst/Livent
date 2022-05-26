@@ -123,6 +123,9 @@ class FUser
         return FDb::exist(FDb::load(self::$table[0], $where));
     }
 
-
+    public static function getPathFile(EUser $user):String
+    {
+        return EUser::class."/".$user->getEmail();
+    }
 
 }

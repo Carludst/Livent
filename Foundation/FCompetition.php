@@ -191,4 +191,9 @@ class FCompetition {
         return $result;
     }
 
+    public static function getPathFile(ECompetition $competition):String
+    {
+        return ECompetition::class."/".$competition->getId();
+    }
+
 }
