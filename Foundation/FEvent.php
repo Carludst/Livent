@@ -115,7 +115,7 @@ class FEvent
         return $event::class."/".$event->getId();
     }
 
-    public static function search(?String $name , ?EUser $user ,?String $place , ?DateTime $startDateFrom , ?DateTime $startDateTo){
+    public static function search(?String $name=NULL , ?EUser $user=NULL ,?String $place=NULL , ?String $sport=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL){
         $fields=array();
         $values=array();
         $opWhere=array();
@@ -141,6 +141,12 @@ class FEvent
             if(!is_null($user)){
                 $fields[]='emailorganizer';
                 $values[]=$user->getEmail();
+                $opWhere[]='=';
+            }
+            if(!is_null($sport)){
+                $dateStart=FDb::load(self::$table[1].' AS S','WHERE S.idevent=idevent ','S.sport');
+                $fields[]='ANY ('.$dateStart['query'].')';;
+                $values[]=$sport;
                 $opWhere[]='=';
             }
             if(!is_null($startDateFrom)){

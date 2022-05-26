@@ -1,11 +1,15 @@
 <?php
 require_once ('../Foundation/FDbH.php');
-$e=new EEvent('prova','Avezzano',new EUser('robertodistefano24@gmail.com','roby','carla','o'),'true');
-$u=new EUser('robertodistefano24@gmail.com','roby','carla','o');
 
-$e=FDbH::loadOne(1,$e::class);
-//$e->addCompetition(new ECompetition('prova',new DateTime('now'),'M','corsa',new EDistance(10)));
-$a=FDbH::searchEvent(NULL,NULL,NULL,new DateTime('2022-05-24 01:06:23'),new DateTime('2022-05-25 01:06:23'));
+//$e=new EEvent('carla','Avezzano',new EUser('robertodistefano24@gmail.com','roby','carla','o'),'true');
+$u=FDbH::loadOne('robertodistefano24@gmail.com',EUser::class);
+//new EUser('robertodistefano24@gmail.com','roby','carla','o');
+//FDbH::store($u);
+//FDbH::store($e);
+/*
+$e->addCompetition(new ECompetition('prova',new DateTime('now'),'M','corsa',new EDistance(10)));
+*/
+$a=FDbH::searchEvent('pr');
 var_dump($a);
 
 
