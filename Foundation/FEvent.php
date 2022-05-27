@@ -115,12 +115,12 @@ class FEvent
         return $event::class."/".$event->getId();
     }
 
-    public static function search(?String $name=NULL , ?EUser $user=NULL ,?String $place=NULL , ?String $sport=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL){
+    public static function search(?String $name=NULL , ?EUser $user=NULL ,?String $place=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL){
         $fields=array();
         $values=array();
         $opWhere=array();
         $result=array();
-        if(is_null($name) && is_null($user) && is_null($place) && is_null($startDateFrom) && is_null($startDateTo)){
+        if(is_null($name) && is_null($user) && is_null($place) && is_null($startDateFrom)  && is_null($startDateTo)){
             $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
             foreach ($resultQ as $c=>$v){
                 $result[$c]=self::getObjectByArray($v);
@@ -141,12 +141,6 @@ class FEvent
             if(!is_null($user)){
                 $fields[]='emailorganizer';
                 $values[]=$user->getEmail();
-                $opWhere[]='=';
-            }
-            if(!is_null($sport)){
-                $dateStart=FDb::load(self::$table[1].' AS S','WHERE S.idevent=idevent ','S.sport');
-                $fields[]='ANY ('.$dateStart['query'].')';;
-                $values[]=$sport;
                 $opWhere[]='=';
             }
             if(!is_null($startDateFrom)){

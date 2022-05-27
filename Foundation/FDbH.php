@@ -271,7 +271,7 @@ class FDbH {
      * @param String $place
      * @return array
      */
-    public static function searchEvent(?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL){
+    public static function searchEvent(?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL  , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL){
         return FEvent::search($name,$organizer,$place,$startDateFrom,$startDateTo);
     }
 
