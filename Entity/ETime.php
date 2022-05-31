@@ -7,10 +7,7 @@ class ETime
      * @param float|String $value number of seconds
      */
     function __construct(float|String $value){
-        if(gettype($value)=="double") $this->value=$value;
-        elseif(strtoupper($value)=="DNF")$this->value=-1;
-        elseif (strtoupper($value)=="DNS")$this->value=0;
-        else $this->value=$this->stringToFloat($value);
+        $this->setValue($value);
     }
 
 
@@ -20,12 +17,11 @@ class ETime
      * @throws Exception
      */
     private function stringToFloat(String $stringValue):float{
+        if(!preg_match('/^((([0-9]{1,2}:){1,2}[0-9]{1,2}(\.[0-9]*)?)|([0-9]*((\.|,)[0-9]*)?))$/',$stringValue))throw new Exception('invalid time format');
         str_replace(",",".",$stringValue);
         $arrayValue=explode(":",$stringValue);
-        if(count($arrayValue)>3)throw new Exception('time is expressible with at most three terms separeted by ":" ');
         $seconds=0;
-        foreach ($arrayValue as $c=>$v){
-            if(is_numeric($v)==false||(str_contains($v,".")&&$c!=count($arrayValue)-1))throw new Exception('minutes and hours must be int and seconds must bea number');
+        foreach ($arrayValue as $v){
             $seconds=($seconds*60)+$v;
         }
         return $seconds;
@@ -50,7 +46,7 @@ class ETime
      */
     public function setValue(float|string $value): void
     {
-        if(gettype($value)=="double")$this->value=$value;
+        if(is_numeric($value))$this->value=$value;
         elseif(strtoupper($value)=="DNF")$this->value=-1;
         elseif (strtoupper($value)=="DNS")$this->value=0;
         else $this->value=$this->stringToFloat($value);
@@ -63,22 +59,22 @@ class ETime
         if($this->value==0)return "DNS";
         elseif ($this->value<0)return "DNF";
         $minutes=intdiv($this->value,60);
-        $seconds=number_format($this->value%60,2);
         $hours=intdiv($minutes,60);
-        $minutes=$minutes%60;
-        $result=$seconds;
+        $minutes=$minutes-$hours*60;
+        $seconds=number_format($this->value-($hours*3600)-($minutes*60),2);
 
-        if ($minutes>0){
-            if($seconds<10)$result="0".$result;
-            if($minutes<10) $result="0".$minutes.":".$result;
-            else $result=$minutes.":".$result;
-        }
         if($hours>0){
-            if($hours<10) $result="0".$hours.":".$result;
-            else $result=$hours.":".$result;;
+            if($minutes<10)$minutes="0".$minutes;
+            if($hours<10)$hours="0".$hours;
+            if($seconds<10)$seconds="0".$seconds;
+            return $hours.":".$minutes.":".$seconds;
         }
-
-        return $result;
+        elseif ($minutes>0){
+            if($minutes<10)$minutes="0".$minutes;
+            if($seconds<10)$seconds="0".$seconds;
+            return $minutes.":".$seconds;
+        }
+        else return $seconds;
     }
 
 
