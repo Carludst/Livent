@@ -37,15 +37,15 @@ class FDb{
             self::$pdoV->beginTransaction();
             $fields=array_keys($fieldValue);
             $values=array_values($fieldValue);
-            $arrayBind=array(":$fields[0]"=>$values[0]);
-            $valStr=":$fields[0]";
+            $arrayBind=array(":value0"=>$values[0]);
+            $valStr=":value0";
             $fieldStr=$fields[0];
             for($i=1;$i<count($values);$i++){
-                $arrayBind[":$fields[$i]"]=$values[$i];
-                $valStr=$valStr.",".":$fields[$i]";
+                $arrayBind[":value$i"]=$values[$i];
+                $valStr=$valStr." , ".":value$i";
                 $fieldStr=$fieldStr.",".$fields[$i];
             }
-            $query = "INSERT INTO " . $table ."(".$fieldStr.")". "  VALUES  " ."(".$valStr.")";
+            $query = "INSERT INTO " . $table ."(".$fieldStr.")". "  VALUES  " ."( ".$valStr." )";
             $stmt=self::$pdoV->prepare($query);
             $stmt->execute($arrayBind);
             self::closeConnection();
@@ -135,6 +135,7 @@ class FDb{
             self::$pdoV->beginTransaction();
             if($orderBy!="")$q=$query["query"]." ".self::OrderBy($orderBy,$ascending);
             else $q=$query["query"];
+            echo $q;
             $stmt=self::$pdoV->prepare($q);
             $stmt->execute($query["bind"]);
 
@@ -195,7 +196,7 @@ class FDb{
 
         $updated_at=date("Y-m-d H:i:s");
         $created_at=date("Y-m-d H:i:s");
-        self::store('file',array('path'=>$pathDB,'nome'=>$name,'size'=>$size,'type'=>$type,'file'=>$file , 'updated_at'=>$updated_at , 'created_at'=>$created_at));
+        self::store('file',array('path'=>$pathDB,'name'=>$name,'size'=>$size,'type'=>$type,'file'=>$file , 'updated_at'=>$updated_at , 'created_at'=>$created_at));
     }
 
 
@@ -209,7 +210,7 @@ class FDb{
      */
     public static function where(String $field, $value , String $operation="="):Array
     {
-       return  array("where"=>" WHERE " . $field .$operation .":value0","bind"=>array(":value0"=>$value));
+        return  array("where"=>" WHERE " . $field." ".$operation ." :value0 ","bind"=>array(":value0"=>$value));
     }
 
     /**
@@ -225,21 +226,21 @@ class FDb{
         if((is_array($operation) && count($field)!=count($value) && count($field)!=count($operation) ))throw new Exception("parametres multiWhere invalid");
         if(is_string($operation)){
             if(count($field)>0){
-                $result=" WHERE ".$field[0].$operation.":value0";
+                $result=" WHERE ".$field[0]." ".$operation." :value0 ";
                 $arrayBind=array(":value0"=>$value[0]);
             }
             for($i=1;$i<count($field);$i++){
-                $result=$result." ".$logicOp." ".$field[$i].$operation.":value$i";
+                $result=$result." ".$logicOp." ".$field[$i]." ".$operation." :value$i ";
                 $arrayBind[":value$i"]=$value[$i];
             }
         }
         else{
             if(count($field)>0){
-                $result=" WHERE ".$field[0].$operation[0].":value0";
+                $result=" WHERE ".$field[0]." ".$operation[0]." :value0 ";
                 $arrayBind=array(":value0"=>$value[0]);
             }
             for($i=1;$i<count($field);$i++) {
-                $result = $result . " " . $logicOp . " " . $field[$i] . $operation[$i] .":value$i";
+                $result = $result . " " . $logicOp . " " . $field[$i] ." ". $operation[$i] ." :value$i ";
                 $arrayBind[":value$i"]=$value[$i];
             }
         }

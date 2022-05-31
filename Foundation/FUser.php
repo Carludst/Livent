@@ -128,4 +128,30 @@ class FUser
         return EUser::class."/".$user->getEmail();
     }
 
+    public static function search(String|Null $username=NULL)
+    {
+        $fields = array();
+        $values = array();
+        $opWhere = array();
+        $result = array();
+        if (is_null($username)) {
+            $resultQ = FDb::exInterrogation(FDb::load(self::$table[0]));
+            foreach ($resultQ as $c => $v) {
+                $result[$c] = self::getObjectByArray($v);
+            }
+            return $result;
+        }
+        else {
+            $fields[] = 'username';
+            $values[] = $username . '%';
+            $opWhere[] = 'LIKE';
+
+            $resultQ = FDb::exInterrogation(FDb::load(self::$table[0], FDb::multiWhere($fields, $values, 'AND', $opWhere)));
+            foreach ($resultQ as $c => $v) {
+                $result[$c] = self::getObjectByArray($v);
+            }
+            return $result;
+        }
+    }
+
 }

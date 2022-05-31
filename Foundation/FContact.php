@@ -84,14 +84,14 @@ class FContact{
         return EContact::class."/".$contact->getId();
     }
 
-    public static function search(String|Null $name , String|Null $email , String|Null $number)
+    public static function search(String|Null $name=NULL , String|Null $email=NULL , String|Null $number=NULL , EEvent|Null $event=NULL)
     {
        $fields=array();
        $values=array();
        $opWhere=array();
        $result=array();
-       if(is_null($name)&& is_null($email) && is_null($number) && is_null($team)){
-           $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
+       if(is_null($name)&& is_null($email) && is_null($number)){
+           $resultQ=FDb::exInterrogation(FDb::load(self::$table));
            foreach ($resultQ as $c=>$v){
                $result[$c]=self::getObjectByArray($v);
            }
@@ -113,7 +113,12 @@ class FContact{
                $values[]=$number.'%';
                $opWhere[]='LIKE';
            }
-           $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)));
+           if(!is_null($event)){
+               $fields[]='idevent';
+               $values[]=$event->getId();
+               $opWhere[]='=';
+           }
+           $resultQ=FDb::exInterrogation(FDb::load(self::$table,FDb::multiWhere($fields,$values,'AND',$opWhere)));
            foreach ($resultQ as $c=>$v){
                $result[$c]=self::getObjectByArray($v);
            }

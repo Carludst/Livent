@@ -38,7 +38,7 @@ class FDbH {
      * @param String $Eclass
      * @return EAthlete|EUser|EComment|ECompetition|EContact|EEvent
      */
-    public static function loadOne($key,String $Eclass):EAthlete|EUser|EComment|ECompetition|EContact|EEvent {
+    public static function loadOne($key,String $Eclass):NULL|EAthlete|EUser|EComment|ECompetition|EContact|EEvent {
         $Fclass = "F".substr($Eclass,1);
         return $Fclass::loadOne($key);
     }
@@ -104,7 +104,7 @@ class FDbH {
         else{
             $Eclass = get_class($objPath);
             $Fclass = "F".substr($Eclass,1);
-            $pathDB=$Fclass::getPathFile;
+            $pathDB=$Fclass::getPathFile($objPath);
         }
         FDb::storeFile($path,$pathDB,$name,$type,$size);
     }
@@ -121,10 +121,11 @@ class FDbH {
         else{
             $Eclass = get_class($objPath);
             $Fclass = "F".substr($Eclass,1);
-            $pathDB=$Fclass::getPathFile;
+            $pathDB=$Fclass::getPathFile($objPath);
         }
         $array=FDb::load('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)));
-        return $array[0]['file'];
+        if(count($array)>0)return $array[0]['file'];
+        else return "don't exist the file required";
     }
 
     /**
@@ -139,7 +140,7 @@ class FDbH {
         else{
             $Eclass = get_class($objPath);
             $Fclass = "F".substr($Eclass,1);
-            $pathDB=$Fclass::getPathFile;
+            $pathDB=$Fclass::getPathFile($objPath);
         }
         return FDb::delate('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)));
     }
@@ -154,7 +155,7 @@ class FDbH {
         else{
             $Eclass = get_class($objPath);
             $Fclass = "F".substr($Eclass,1);
-            $pathDB=$Fclass::getPathFile;
+            $pathDB=$Fclass::getPathFile($objPath);
         }
         $resultQ=FDb::exInterrogation(FDb::load('file',FDb::where('path',$pathDB),'name'));
         $result=array();
@@ -271,8 +272,8 @@ class FDbH {
      * @param String $place
      * @return array
      */
-    public static function searchEvent(?String $name , ?EUser $organizer ,?String $place , ?DateTime $startDateFrom , ?DateTime $startDateTo){
-        return FEvent::search($name,$organizer,$place,$startDateFrom,$startDateTo);
+    public static function searchEvent(?bool $public ,?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL  , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL){
+        return FEvent::search($public,$name,$organizer,$place,$startDateFrom,$startDateTo);
     }
 
     /**
@@ -287,5 +288,29 @@ class FDbH {
      */
     public static function searchAthlete(String|Null $name , String|Null $surname , DateTime|Null $birthdateFrom , DateTime|Null $birthdateTo , ?bool $famale , String|Null $team , String|Null $sport ){
         return FAthlete::search($name,$surname,$birthdateFrom,$birthdateTo,$famale,$team,$sport);
+    }
+
+    /**
+     * @param String|Null $containText
+     * @param EUser|NULL $user
+     * @return array
+     */
+    public static function searchComment(String|Null $containText=NULL , EUser|NULL $user=NULL){
+        return FComment::search($containText,$user);
+    }
+
+    /**
+     * @param String|Null $name
+     * @param String|Null $email
+     * @param String|Null $number
+     * @param EEvent|Null $event
+     * @return array
+     */
+    public static function searchContact(String|Null $name=NULL , String|Null $email=NULL , String|Null $number=NULL , EEvent|Null $event=NULL){
+        return FContact::search($name,$email,$number,$event);
+    }
+
+    public static function searchUser(String|Null $username=NULL ){
+        return FContact::search($username);
     }
 }

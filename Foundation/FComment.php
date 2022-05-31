@@ -133,13 +133,13 @@ class FComment
         return EComment::class."/".$comment->getId();
     }
 
-    public static function search(String|Null $name )
+    public static function search(String|Null $containText , EUser|NULL $user ):Array
     {
        $fields=array();
        $values=array();
        $opWhere=array();
        $result=array();
-       if(is_null($name)){
+       if(is_null($containText)&&is_null($user)){
            $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
            foreach ($resultQ as $c=>$v){
                $result[$c]=self::getObjectByArray($v);
@@ -147,10 +147,15 @@ class FComment
            return $result;
        }
        else{
-           if(!is_null($name)){
+           if(!is_null($containText)){
                $fields[]='name';
-               $values[]=$name.'%';
+               $values[]='%'.$containText.'%';
                $opWhere[]='LIKE';
+           }
+           if(!is_null($user)){
+               $fields[]='emailuser';
+               $values[]=$user->getEmail();
+               $opWhere[]='=';
            }
            $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)));
            foreach ($resultQ as $c=>$v){
