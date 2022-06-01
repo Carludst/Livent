@@ -134,7 +134,7 @@ class FDbH {
      * @return bool|null
      * @throws Exception
      */
-    public static function delateFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name):?bool
+    public static function deleteFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name):?bool
     {
         if(is_string($objPath))$pathDB=$objPath;
         else{
@@ -190,7 +190,7 @@ class FDbH {
      * @return array|null
      * @throws Exception
      */
-    public static function getResultsAthletete( EAthlete $athlete):Array{
+    public static function getResultsAthlete( EAthlete $athlete):Array{
         return FAthlete::getResults($athlete);
     }
 

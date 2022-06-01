@@ -29,7 +29,7 @@ class CEvent
         }
     }
 
-    public static function delate(EEvent $event){
+    public static function delete(EEvent $event){
         try{
             FDbH::deleteOne($event->getId(),EEvent::class);
         }
