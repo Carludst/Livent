@@ -190,7 +190,7 @@ class FDbH {
      * @return array|null
      * @throws Exception
      */
-    public static function getResultsAthletete( EAthlete $athlete):Array{
+    public static function getResultsAthlete( EAthlete $athlete):Array{
         return FAthlete::getResults($athlete);
     }
 

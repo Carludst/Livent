@@ -2,6 +2,8 @@
 
 require_once '../Foundation/FDbH.php';
 require_once '../Entity/EAthlete.php';
+require_once '../Entity/ECompetition.php';
+require_once '../Entity/EUser.php';
 
 class CAthlete
 {
@@ -61,6 +63,64 @@ class CAthlete
             //Richiama  VAthlete::showNewPage($athlete);
         }
         catch(Exception $e){
+            //RICHIAMA ERRORE
+        }
+    }
+
+    public static function addRegistration(ECompetition $competition,EAthlete $athlete, EUser $user){
+        try{
+            if(!FDbH::addRegistrationCompetition($competition,$athlete,$user))throw new Exception("registration is failed");
+        }
+        catch(Exception $e){
+            //RICHIAMA ERRORE
+        }
+    }
+
+    public static function addResult(ECompetition $competition,EAthlete $athlete, ETime $time){
+        try{
+            if(!FDbH::addRegistrationCompetition($competition,$athlete,$time))throw new Exception("is failed");
+        }
+        catch(Exception $e){
+            //RICHIAMA ERRORE
+        }
+    }
+
+    public static function getRegistration(ECompetition $competition):array{
+        try{
+            return FDbH::getRegistrationsCompetition($competition);
+        }
+        catch(Exception $e){
+            return array();
+            //RICHIAMA ERRORE
+        }
+    }
+
+    public static function getResult(ECompetition $competition):array{
+        try{
+            return FDbH::getClassificationCompetition($competition);
+        }
+        catch(Exception $e){
+            return array();
+            //RICHIAMA ERRORE
+        }
+    }
+
+    public static function getResultAthlete(EAthlete $athlete, string $sport, string $NameCompetition):array{
+        try{
+            $a = FDbH::getResultsAthlete($athlete);
+
+            if(!array_key_exists($sport, $a)){
+                return array();
+            }
+            elseif (!array_key_exists($NameCompetition, $a[$sport])){
+                return array();
+            }
+            else{
+                return $a[$sport[$NameCompetition]];
+            }
+        }
+        catch(Exception $e){
+            return array();
             //RICHIAMA ERRORE
         }
     }
