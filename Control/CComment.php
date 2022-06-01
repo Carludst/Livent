@@ -30,7 +30,7 @@ class CComment
         // else RICHIAMA ERRORE
     }
 
-    public static function delate(){
+    public static function delete(){
         if ($_SERVER['REQUEST_METHOD'] == "GET"){
             try{
                 $id=(int)$_GET['id'];
