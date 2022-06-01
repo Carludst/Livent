@@ -12,7 +12,8 @@ class EAthlete {
     /**
      * @param string $name
      * @param string $surname
-     * @param string $birthdate
+     * @param DateTime $birthdate
+     * @param bool $famale
      * @param string $team
      * @param string $sport
      * @param int $id

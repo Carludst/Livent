@@ -115,7 +115,7 @@ class FEvent
         return $event::class."/".$event->getId();
     }
 
-    public static function search(?bool $public ,?String $name=NULL , ?EUser $user=NULL ,?String $place=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL){
+    public static function search(?bool $public=NULL ,?String $name=NULL , ?EUser $user=NULL ,?String $place=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL){
         $fields=array();
         $values=array();
         $opWhere=array();

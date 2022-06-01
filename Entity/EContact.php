@@ -7,10 +7,11 @@ class EContact
     private String $email;
 
     function __construct(String $name,String $phoneNumber , String $email,int $id=-1){
+        $phoneFields=array();
         if(!filter_var($email, FILTER_VALIDATE_EMAIL))throw new Exception("the email passed is invalid");
+        $this->setPhoneNumber($phoneNumber);
         $this->id=$id;
         $this->email=$email;
-        $this->phoneNumber=$phoneNumber;
         $this->name=$name;
     }
 
@@ -79,6 +80,10 @@ class EContact
      */
     public function setPhoneNumber(string $phoneNumber): void
     {
+        if(!preg_match('/^(\+\d+)?(\d{3})(\d{3})(\d{4})$/',$phoneNumber,$phoneFields))throw new Exception("the phonenumber passed is invalid");
+        if(!str_contains($phoneNumber,"+"))$phoneNumber="+39";
+        else $phoneNumber=$phoneFields[1];
+        for($i=2;$i<count($phoneFields);$i++)$phoneNumber=$phoneNumber." ".$phoneFields[$i];
         $this->phoneNumber=$phoneNumber;
     }
 }
