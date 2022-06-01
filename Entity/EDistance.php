@@ -8,7 +8,7 @@ class EDistance
      * @throws Exception return an exception when it is passed a negative parameter
      */
     function __construct(float|String $value){
-        if(gettype($value)=="double"){
+        if(is_numeric($value)){
             if($value<0)throw new Exception("distance can't be negative");
             $this->value=$value;
         }

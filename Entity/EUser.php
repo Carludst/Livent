@@ -16,7 +16,7 @@ class EUser
      */
     public function __construct(string $email, string $username, string $password, string $type)
     {
-        if(count(explode("@",$email))!=2)throw new Exception("the email passed is invalid");
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL))throw new Exception("the email passed is invalid");
         $this->email = $email;
         $this->username = $username;
         $this->password = hash("sha3-256", $password);
@@ -33,11 +33,12 @@ class EUser
 
     /**
      * @param string $email
+     * @return void
      * @throws Exception
      */
     public function setEmail(string $email): void
     {
-        if(count(explode("@",$email))!=2)throw new Exception("the email passed is invalid");
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL))throw new Exception("the email passed is invalid");
         $this->email = $email;
     }
 
@@ -84,9 +85,9 @@ class EUser
     /**
      * @param String $type
      */
-    public function setType(bool $type): void
+    public function setType(String $type): void
     {
-        $this->admin = $type;
+        $this->type = $type;
     }
 
 }

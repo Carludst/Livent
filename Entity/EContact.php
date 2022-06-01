@@ -7,6 +7,7 @@ class EContact
     private String $email;
 
     function __construct(String $name,String $phoneNumber , String $email,int $id=-1){
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL))throw new Exception("the email passed is invalid");
         $this->id=$id;
         $this->email=$email;
         $this->phoneNumber=$phoneNumber;
@@ -58,6 +59,7 @@ class EContact
      */
     public function setEmail(string $email): void
     {
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL))throw new Exception("the email passed is invalid");
         $this->email = $email;
     }
 
