@@ -139,7 +139,7 @@ class FCompetition {
         return FDb::delate(self::$table[1],self::whereResult($competition,$athlete));
     }
 
-    public static function getResult(ECompetition $competition,EAthlete $athlete): ?ETime
+    public static function getCompetitor(ECompetition $competition,EAthlete $athlete): ?ETime
     {
         $resultQ=FDb::exInterrogation(FDb::load(self::$table[1],self::whereResult($competition,$athlete)));
         if($resultQ[0]["time"]=="NULL")return null;

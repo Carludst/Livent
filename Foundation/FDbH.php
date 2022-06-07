@@ -6,6 +6,7 @@ require_once ('../Foundation/FComment.php');
 require_once ('../Foundation/FCompetition.php');
 require_once ('../Foundation/FContact.php');
 require_once ('../Foundation/FEvent.php');
+require_once ('../Foundation/FFile.php');
 
 require_once ('../Entity/EAthlete.php');
 require_once ('../Entity/EUser.php');
@@ -194,8 +195,8 @@ class FDbH {
         return FAthlete::getResults($athlete);
     }
 
-    public static function getResultCompetition( ECompetition $competition , EAthlete $athlete):ETime{
-        return FCompetition::getResult($competition,$athlete);
+    public static function getCompetitor( ECompetition $competition , EAthlete $athlete):ETime{
+        return FCompetition::getCompetitor($competition,$athlete);
     }
 
     /**
@@ -223,7 +224,7 @@ class FDbH {
      * @param $athlete
      * @return mixed
      */
-    public static function deleteCompetitorCompetition(ECompetition $competition, EAthlete $athlete):bool {
+    public static function deleteCompetitor(ECompetition $competition, EAthlete $athlete):bool {
         return FCompetition::deleteCompetitor($competition,$athlete);
     }
 
@@ -312,5 +313,48 @@ class FDbH {
 
     public static function searchUser(String|Null $username=NULL ){
         return FContact::search($username);
+    }
+
+    /**
+     * @param Exception $exception
+     * @return void
+     */
+    public static function addError(Exception $exception)
+    {
+        FFile::appendElement((FFile::numberRow()+1).") ".$exception->getTraceAsString());
+    }
+
+    /**
+     * @param int $index
+     * @return String
+     * @throws Exception
+     */
+    public static function getError(int $index):String
+    {
+        return FFile::getElement($index);
+    }
+
+    /**
+     * @return array
+     */
+    public static function getErrors():Array
+    {
+        return FFile::getElements();
+    }
+
+    /**
+     * @return String
+     */
+    public static function readErrors():String
+    {
+        return FFile::read();
+    }
+
+    /**
+     * @return void
+     */
+    public static function deleteErrors()
+    {
+        return FFile::delate();
     }
 }
