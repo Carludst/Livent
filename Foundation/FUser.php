@@ -1,8 +1,5 @@
 <?php
 
-require_once "../Entity/EUser.php";
-require_once "FDb.php";
-
 class FUser
 {
     private static array $table=array("user","result");

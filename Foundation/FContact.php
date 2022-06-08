@@ -1,9 +1,5 @@
 <?php
 
-require_once "../Entity/EContact.php";
-require_once "FDb.php";
-require_once "../Entity/ETime.php";
-
 class FContact{
     private static String $table = "contact";
     

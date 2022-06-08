@@ -1,23 +1,5 @@
 <?php
 
-require_once ('../Foundation/FAthlete.php');
-require_once ('../Foundation/FUser.php');
-require_once ('../Foundation/FComment.php');
-require_once ('../Foundation/FCompetition.php');
-require_once ('../Foundation/FContact.php');
-require_once ('../Foundation/FEvent.php');
-require_once ('../Foundation/FFile.php');
-
-require_once ('../Entity/EAthlete.php');
-require_once ('../Entity/EUser.php');
-require_once ('../Entity/EComment.php');
-require_once ('../Entity/ECompetition.php');
-require_once ('../Entity/EContact.php');
-require_once ('../Entity/EEvent.php');
-
-
-
-
 class FDbH {
 
     /** Method : save an object of Entity class into db
@@ -324,23 +306,6 @@ class FDbH {
         FFile::appendElement((FFile::numberRow()+1).") ".$exception->getTraceAsString());
     }
 
-    /**
-     * @param int $index
-     * @return String
-     * @throws Exception
-     */
-    public static function getError(int $index):String
-    {
-        return FFile::getElement($index);
-    }
-
-    /**
-     * @return array
-     */
-    public static function getErrors():Array
-    {
-        return FFile::getElements();
-    }
 
     /**
      * @return String

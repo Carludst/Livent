@@ -1,5 +1,4 @@
 <?php
-require_once "../Utility/DbDefaultConfiguration.php";
 
 class FDb{
 

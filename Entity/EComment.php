@@ -1,7 +1,5 @@
 <?php
 
-require_once "EUser.php";
-
 class EComment
 {
     private int $id;

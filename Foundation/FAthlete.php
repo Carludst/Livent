@@ -1,7 +1,5 @@
 <?php
-require_once "../Entity/EAthlete.php";
-require_once "FDb.php";
-require_once "../Entity/ETime.php";
+
 class FAthlete {
     private static array $table=array("athlete","result");
 

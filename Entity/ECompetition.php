@@ -1,6 +1,4 @@
 <?php
-require_once "EDistance.php";
-require_once "EAthlete.php";
 
 class ECompetition{
     private int $id;

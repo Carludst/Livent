@@ -1,10 +1,5 @@
 <?php
 
-require_once '../Foundation/FDbH.php';
-require_once '../Entity/EAthlete.php';
-require_once '../Entity/ECompetition.php';
-require_once '../Entity/EUser.php';
-
 class CManageCompetitors
 {
 

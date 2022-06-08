@@ -1,5 +1,5 @@
 <?php
-require_once '../Foundation/FDbH.php';
+
 class EEvent{
     private int $id;
     private String $name;

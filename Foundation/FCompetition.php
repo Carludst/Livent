@@ -1,10 +1,4 @@
 <?php
-require_once "FDb.php";
-require_once "FAthlete.php";
-require_once "../Entity/ECompetition.php";
-require_once "../Entity/ETime.php";
-require_once "../Entity/EDistance.php";
-require_once "../Entity/EAthlete.php";
 
 class FCompetition {
     private static array $table=array("competitions","result");
