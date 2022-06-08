@@ -322,4 +322,8 @@ class FDbH {
     {
         return FFile::delete();
     }
+
+    public static function searchCompetition(String|NULL $name=NULL, String|NULL $gender=NULL, String|NULL $sport=NULL, EDistance|Null $distance=NULL){
+        return FCompetition::search($name,$gender,$sport,$distance);
+    }
 }
