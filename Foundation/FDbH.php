@@ -320,6 +320,6 @@ class FDbH {
      */
     public static function deleteErrors()
     {
-        return FFile::delate();
+        return FFile::delete();
     }
 }

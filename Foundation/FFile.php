@@ -66,7 +66,7 @@ class FFile
     /**
      * @return void
      */
-    public static  function delate()
+    public static  function delete()
     {
         self::write("");
     }
