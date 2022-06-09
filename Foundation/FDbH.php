@@ -82,14 +82,18 @@ class FDbH {
      * @param int $size
      * @return void
      */
-    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $path , String $type , int $size){
+    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , int $size){
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
             $Fclass = "F".substr($Eclass,1);
             $pathDB=$Fclass::getPathFile($objPath);
         }
-        FDb::storeFile($path,$pathDB,$name,$type,$size);
+        $blobFile=file_get_contents($pathFile) ;
+        $blobFile=addslashes($blobFile);
+        $updated_at=date("Y-m-d H:i:s");
+        $created_at=date("Y-m-d H:i:s");
+        FDb::store('file',array('path'=>$pathDB,'name'=>$name,'size'=>$size,'type'=>$type,'file'=>$blobFile , 'updated_at'=>$updated_at , 'created_at'=>$created_at));
     }
 
     /**
@@ -98,7 +102,7 @@ class FDbH {
      * @return String
      * @throws Exception
      */
-    public static function loadFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name):String
+    public static function loadFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name ,bool $base64=true):String
     {
         if(is_string($objPath))$pathDB=$objPath;
         else{
@@ -107,8 +111,11 @@ class FDbH {
             $pathDB=$Fclass::getPathFile($objPath);
         }
         $array=FDb::load('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)));
-        if(count($array)>0)return $array[0]['file'];
-        else return "don't exist the file required";
+        if(count($array)>0){
+            if($base64)return base64_encode($array[0]['file']);
+            else return $array[0]['file'];
+        }
+        else throw new Exception("don't exist file with this path");
     }
 
     /**
