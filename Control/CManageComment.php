@@ -1,6 +1,6 @@
 <?php
 
-class CEditComment
+class CManageComment
 {
 
     public static function update(EComment $comment):void
@@ -34,15 +34,6 @@ class CEditComment
         }
     }
 
-    public static function search(String|Null $containText=NULL , EUser|NULL $user=NULL):array
-    {
-        try{
-            return FDbH::searchComment($containText,$user);
-        }
-        catch (Exception $e){
-            //RICHIAMA ERRORE
-            return array();
-        }
-    }
+
 
 }

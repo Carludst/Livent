@@ -1,6 +1,6 @@
 <?php
 
-class CEditEvent
+class CManageEvent
 {
     public static function update(EEvent $event):void
     {
@@ -31,17 +31,6 @@ class CEditEvent
         }
         catch(Exception $e){
                 //RICHIAMA ERRORE
-        }
-    }
-
-    public static function search(?bool $public=NULL ,?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL  , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL):array
-    {
-        try{
-            return FDbH::searchEvent($public,$name,$organizer,$place,$startDateFrom,$startDateTo);
-        }
-        catch (Exception $e){
-            //RICHIAMA ERRORE
-            return array();
         }
     }
 

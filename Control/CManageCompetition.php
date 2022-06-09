@@ -4,7 +4,7 @@ require_once '../Foundation/FDbH.php';
 require_once '../Entity/EUser.php';
 require_once '../Entity/EEvent.php';
 
-class CCompetition
+class CManageCompetition
 {
     public static function update(ECompetition $competition):void
     {
@@ -35,17 +35,6 @@ class CCompetition
         }
         catch(Exception $e){
                 //RICHIAMA ERRORE
-        }
-    }
-
-    public static function search(?String $name=NULL , String|NULL $gender=NULL, String|NULL $sport=NULL, EDistance|Null $distance=NULL):array
-    {
-        try{
-            return FDbH::searchCompetition($name,$gender,$sport,$distance);
-        }
-        catch (Exception $e){
-            //RICHIAMA ERRORE
-            return array();
         }
     }
 

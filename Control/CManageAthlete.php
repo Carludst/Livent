@@ -1,6 +1,6 @@
 <?php
 
-class CEditAthlete
+class CManageAthlete
 {
 
     public static function update(EAthlete $athlete):void
@@ -32,16 +32,7 @@ class CEditAthlete
         }
     }
 
-    public static function search(String|Null $name , String|Null $surname , DateTime|Null $birthdateFrom , DateTime|Null $birthdateTo , ?bool $famale , String|Null $team , String|Null $sport):array
-    {
-        try{
-            return FDbH::searchAthlete($name, $surname, $birthdateFrom, $birthdateTo, $famale, $team, $sport);
-        }
-        catch (Exception $e){
-            //RICHIAMA ERRORE
-            return array();
-        }
-    }
+
 
     public static function show(EAthlete $athlete){
         try{
