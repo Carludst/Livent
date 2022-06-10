@@ -50,7 +50,7 @@ class CManageCompetitors
 
             if(!array_key_exists($sport, $a))return array();
             elseif (!array_key_exists($NameCompetition, $a[$sport]))return array();
-            else return $a[$sport[$NameCompetition]];
+            else return $a[$sport][$NameCompetition];
         }
         catch(Exception $e){
             return array();
