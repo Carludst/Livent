@@ -2,31 +2,27 @@
 
 function my_autoloader($className){
     $firstLetter = $className[0];
-    $fileName = '';
+    $relativePath=substr(__DIR__,0,strrpos(__DIR__,'\\')-strlen(__DIR__));
     switch ($firstLetter) {
         case 'E':
-            include_once('../Entity/' . $className . '.php');
+            include_once($relativePath.'/Entity/' . $className . '.php');
             break;
 
         case 'F':
-            include_once('../Foundation/' . $className . '.php');
+            include_once($relativePath.'/Foundation/' . $className . '.php');
             break;
 
         case 'V':
-            include_once('../View/' . $className . '.php');
+            include_once($relativePath.'/View/' . $className . '.php');
             break;
 
         case 'C':
-            include_once('../Controller/' . $className . '.php');
+            include_once($relativePath.'/Control/' . $className . '.php');
             break;
 
         default :
-            include_once($className . '.php');
+            include_once($relativePath.'/'.$className . '.php');
             break;
-    }
-
-    if (file_exists($fileName) && is_readable($fileName)) {
-        include_once($fileName);
     }
 }
 

@@ -46,5 +46,15 @@ class CManageCompetition
             //RICHIAMA ERRORE
         }
     }
+
+    public static function showNewPage(ECompetition $competition){
+        try{
+            //VERIFICA LOGIN E TIPO UTENTE
+            //Richiama  VEvent::showNewPage($competition);
+        }
+        catch(Exception $e){
+            //RICHIAMA ERRORE
+        }
+    }
 }
 

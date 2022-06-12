@@ -17,7 +17,14 @@ class FFile
      */
     public static function getPath():String
     {
-        return self::$path;
+        if(preg_match('/^(\.\.)',self::$path)){
+            $relativePath=substr(__DIR__,0,strrpos(__DIR__,'\\')-strlen(__DIR__));
+            return $relativePath.substr(self::$path,2);
+        }
+        elseif(preg_match('/^(\.)',self::$path)){
+            return __DIR__.substr(self::$path,1);
+        }
+        else return self::$path;
     }
 
     /**
