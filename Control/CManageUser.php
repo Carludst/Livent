@@ -13,7 +13,7 @@ class CManageUser
         }
     }
 
-    public static function saveNew(EUser $user):void
+    public static function create(EUser $user):void
     {
         try{
             FDbH::store($user);
