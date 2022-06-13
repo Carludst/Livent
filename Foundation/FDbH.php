@@ -82,14 +82,29 @@ class FDbH {
      * @param int $size
      * @return void
      */
-    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , int $size){
+    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , int $size, ?int $resize=NULL){
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
             $Fclass = "F".substr($Eclass,1);
             $pathDB=$Fclass::getPathFile($objPath);
         }
-        $blobFile=file_get_contents($pathFile) ;
+        if(!is_null($resize)&& $resize!=1){
+            $currentSize=getimagesize($pathFile);
+            $width=$currentSize[0];
+            $height=$currentSize[1];
+            $img=imagecreatefromjpeg($pathFile);
+            if($img==false)$img=imagecreatefrompng($pathFile);
+            if($img==false)throw new Exception('file format not supported');
+            $imgResized=imagescale($img,$width*$size,$height*$size);
+            if($imgResized==false)throw new Exception('resized not succes');
+            imagejpeg($imgResized,'../imgresized.jpg');
+            $blobFile=file_get_contents('../imgresized.jpg') ;
+            unlink('../imgresized.jpg');
+            imagedestroy($img);
+            imagedestroy($imgResized);
+        }
+        else $blobFile=file_get_contents($pathFile) ;
         $blobFile=addslashes($blobFile);
         $updated_at=date("Y-m-d H:i:s");
         $created_at=date("Y-m-d H:i:s");

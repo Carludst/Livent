@@ -1,9 +1,9 @@
 <?php
 
-class Csearch
+class CSearch
 {
 
-    public static function showSEvent(){
+    public static function searchPageEvent(){
         try{
             //Richiamare view search;
         }
@@ -12,7 +12,7 @@ class Csearch
         }
     }
 
-    public static function showSAthlete(){
+    public static function searchPageAthlete(){
         try{
             //Richiamare view search;
         }
@@ -21,7 +21,7 @@ class Csearch
         }
     }
 
-    public static function showSCompetition(){
+    public static function searchPageCompetition(){
         try{
             //Richiamare view search;
         }

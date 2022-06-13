@@ -13,7 +13,7 @@ class CManageEvent
         }
     }
 
-    public static function saveNew(EEvent $event):void
+    public static function create(EEvent $event):void
     {
         //VERIFICA LOGIN E TIPO UTENTE
         //if(filter_var($organizerEmail,FILTER_VALIDATE_EMAIL)!=false)
@@ -34,7 +34,7 @@ class CManageEvent
         }
     }
 
-    public static function show(EEvent $event){
+    public static function mainPage(EEvent $event){
         try{
             //Richiama  VEvent::show($event);
         }
@@ -43,7 +43,7 @@ class CManageEvent
         }
     }
 
-    public static function showNewPage(EEvent $event){
+    public static function newPage(EEvent $event){
         try{
             //VERIFICA LOGIN E TIPO UTENTE
             //Richiama  VEvent::showNewPage($event);
@@ -52,5 +52,6 @@ class CManageEvent
             //RICHIAMA ERRORE
         }
     }
+
 
 }

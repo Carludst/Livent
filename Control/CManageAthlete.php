@@ -13,7 +13,7 @@ class CManageAthlete
         }
     }
 
-    public static function saveNew(EAthlete $athlete):void
+    public static function create(EAthlete $athlete):void
     {
         try{
             FDbH::store($athlete);
@@ -34,7 +34,7 @@ class CManageAthlete
 
 
 
-    public static function show(EAthlete $athlete){
+    public static function mainPage(EAthlete $athlete){
         try{
             //Richiama  VAthlete::show($athlete);
         }
@@ -43,7 +43,7 @@ class CManageAthlete
         }
     }
 
-    public static function showNewPage(EAthlete $athlete){
+    public static function newPage(EAthlete $athlete){
         try{
             //VERIFICA LOGIN E TIPO UTENTE
             //Richiama  VAthlete::showNewPage($athlete);
