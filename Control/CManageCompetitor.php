@@ -1,6 +1,6 @@
 <?php
 
-class CManageCompetitors
+class CManageCompetitor
 {
 
     public static function addRegistration(ECompetition $competition,EAthlete $athlete, EUser $user){
@@ -12,7 +12,7 @@ class CManageCompetitors
         }
     }
 
-    public static function getRegistration(ECompetition $competition):array{
+    public static function getRegistrationCompetition(ECompetition $competition):array{
         try{
             return FDbH::getRegistrationsCompetition($competition);
         }
@@ -34,7 +34,7 @@ class CManageCompetitors
 
 
 
-    public static function getResult(ECompetition $competition):array{
+    public static function getResultCompetition(ECompetition $competition):array{
         try{
             return FDbH::getClassificationCompetition($competition);
         }
@@ -70,7 +70,7 @@ class CManageCompetitors
 
     }
 
-    public static function showNewRegistration(?ECompetition $competition , ?EAthlete $athlete){
+    public static function newPageRegistration(?ECompetition $competition , ?EAthlete $athlete){
         try{
             if(!is_null($competition) && !is_null($athlete))$registration=FDbH::getCompetitor($competition,$athlete);
             else $registration=NULL;
@@ -81,7 +81,7 @@ class CManageCompetitors
         }
     }
 
-    public static function showNewResult(?ECompetition $competition , ?EAthlete $athlete){
+    public static function newPageResult(?ECompetition $competition , ?EAthlete $athlete){
         try{
             if(!is_null($competition) && !is_null($athlete))$result=FDbH::getCompetitor($competition,$athlete);
             else $result=NULL;

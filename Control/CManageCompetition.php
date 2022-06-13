@@ -17,7 +17,7 @@ class CManageCompetition
         }
     }
 
-    public static function saveNew(ECompetition $competition):void
+    public static function create(ECompetition $competition):void
     {
         //VERIFICA LOGIN E TIPO UTENTE
         //if(filter_var($organizerEmail,FILTER_VALIDATE_EMAIL)!=false)
@@ -38,7 +38,7 @@ class CManageCompetition
         }
     }
 
-    public static function show(ECompetition $competition){
+    public static function mainPage(ECompetition $competition){
         try{
             //Richiama  view competition
         }
@@ -47,7 +47,7 @@ class CManageCompetition
         }
     }
 
-    public static function showNewPage(ECompetition $competition){
+    public static function newPage(ECompetition $competition){
         try{
             //VERIFICA LOGIN E TIPO UTENTE
             //Richiama  VEvent::showNewPage($competition);

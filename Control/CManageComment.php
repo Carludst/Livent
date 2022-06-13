@@ -14,7 +14,7 @@ class CManageComment
         }
     }
 
-    public static function saveNew(EComment $comment,EEvent $event):void
+    public static function create(EComment $comment,EEvent $event):void
     {
         //VERIFICA LOGIN E TIPO UTENTE
         try{
@@ -28,6 +28,16 @@ class CManageComment
     public static function delete(EComment $comment){
         try{
             FDbH::deleteOne($comment->getId(),EComment::class);
+        }
+        catch(Exception $e){
+            //RICHIAMA ERRORE
+        }
+    }
+
+    public static function mainPage(EEvent $event){
+        try{
+            //VERIFICA LOGIN E TIPO UTENTE
+            //Richiama  VComment::mainPage($event);
         }
         catch(Exception $e){
             //RICHIAMA ERRORE
