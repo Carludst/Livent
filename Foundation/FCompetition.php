@@ -1,4 +1,10 @@
 <?php
+require_once "FDb.php";
+require_once "FAthlete.php";
+require_once "../Entity/ECompetition.php";
+require_once "../Entity/ETime.php";
+require_once "../Entity/EDistance.php";
+require_once "../Entity/EAthlete.php";
 
 class FCompetition {
     private static array $table=array("competitions","result");
@@ -133,7 +139,7 @@ class FCompetition {
         return FDb::delate(self::$table[1],self::whereResult($competition,$athlete));
     }
 
-    public static function getCompetitor(ECompetition $competition,EAthlete $athlete): ?ETime
+    public static function getResult(ECompetition $competition,EAthlete $athlete): ?ETime
     {
         $resultQ=FDb::exInterrogation(FDb::load(self::$table[1],self::whereResult($competition,$athlete)));
         if($resultQ[0]["time"]=="NULL")return null;
