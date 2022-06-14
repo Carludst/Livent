@@ -323,7 +323,7 @@ class FDbH {
      * @param Exception $exception
      * @return void
      */
-    public static function addError(Exception $exception)
+    public static function storeError(Exception $exception)
     {
         FFile::appendElement((FFile::numberRow()+1).") ".$exception->getTraceAsString());
     }
