@@ -2,8 +2,8 @@
 
 class CFrontController
 {
-    static String $url;
-    static String $method;
+    private static String $url;
+    private static String $method;
 
     public function __construct()
     {
@@ -76,6 +76,7 @@ class CFrontController
     {
         return self::$method;
     }
+
 
 
 }

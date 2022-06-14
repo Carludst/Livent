@@ -5,9 +5,13 @@ class CManageComment
 
     public static function update(EComment $comment):void
     {
-        //VERIFICA LOGIN E TIPO UTENTE
         try{
-            if(!FDbH::updateOne($comment))throw new Exception("you can't update a comment that don't exist");
+            if(FSession::isLogged() && (FSession::getUserLogged()->getEmail()!=$comment->getUser()->getEmail()&& FSession::getUserLogged()->getType()!='Administrator'))throw new Exception("you must be an administrator to update an Athlete");
+            elseif(!FSession::isLogged()){
+                FSession::addDataSession('requeredPath',CFrontController::getUrl());
+                CLogin::loginPage();
+            }
+            elseif(!FDbH::updateOne($comment))throw new Exception("you can't update a comment that don't exist");
         }
         catch (Exception $e){
             //RICHIAMA ERRORE
@@ -18,7 +22,11 @@ class CManageComment
     {
         //VERIFICA LOGIN E TIPO UTENTE
         try{
-            FDbH::store($comment,$event->getId());
+            if(!FSession::isLogged()) {
+                FSession::addDataSession('requeredPath', CFrontController::getUrl());
+                CLogin::loginPage();
+            }
+            else FDbH::store($comment,$event->getId());
         }
         catch (Exception $e){
             //RICHIAMA ERRORE
@@ -27,7 +35,12 @@ class CManageComment
 
     public static function delete(EComment $comment){
         try{
-            FDbH::deleteOne($comment->getId(),EComment::class);
+            if(FSession::isLogged() && (FSession::getUserLogged()->getEmail()!=$comment->getUser()->getEmail()&& FSession::getUserLogged()->getType()!='Administrator'))throw new Exception("you must be an administrator to update an Athlete");
+            elseif(!FSession::isLogged()){
+                FSession::addDataSession('requeredPath',CFrontController::getUrl());
+                CLogin::loginPage();
+            }
+            else FDbH::deleteOne($comment->getId(),EComment::class);
         }
         catch(Exception $e){
             //RICHIAMA ERRORE
@@ -36,6 +49,10 @@ class CManageComment
 
     public static function mainPage(EEvent $event){
         try{
+            if(!FSession::isLogged()) {
+                FSession::addDataSession('requeredPath', CFrontController::getUrl());
+                CLogin::loginPage();
+            }
             //VERIFICA LOGIN E TIPO UTENTE
             //Richiama  VComment::mainPage($event);
         }

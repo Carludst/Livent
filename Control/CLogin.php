@@ -2,7 +2,7 @@
 
 class CLogin
 {
-    static function login(EUser $user)
+    public static function login(EUser $user)
     {
         try{
             if(FDbH::existOne($user->getEmail(),EUser::class)){
@@ -22,7 +22,7 @@ class CLogin
     }
 
 
-    static function logout()
+    public static function logout()
     {
         try{
             if(FSession::isLogged()) FSession::logout();
@@ -34,7 +34,7 @@ class CLogin
     }
 
 
-    static function signin(EUser $user)
+    public static function signin(EUser $user)
     {
         try{
             if(FDbH::existOne($user->getEmail(), $user::class)) new Exception("user just exist");
@@ -43,6 +43,24 @@ class CLogin
             FSession::login($user);
         }
         catch (Exception $e){
+            //RICHIAMA ERRORE
+        }
+    }
+
+    public static function loginPage(){
+        try{
+            //Richiama  VLogin::show();
+        }
+        catch(Exception $e){
+            //RICHIAMA ERRORE
+        }
+    }
+
+    public static function signinPage(){
+        try{
+            //Richiama  VSignin::show();
+        }
+        catch(Exception $e){
             //RICHIAMA ERRORE
         }
     }

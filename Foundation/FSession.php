@@ -39,7 +39,7 @@ class FSession
         else return NULL;
     }
 
-    public static function addDataSession(String $key , $data)
+    public static function addDataSession(String $key ,mixed $data)
     {
         if (session_status() == PHP_SESSION_NONE)session_start();
         if($key!='user'){
@@ -48,7 +48,7 @@ class FSession
         else throw new Exception("invalid key for data session , it is just used for login");
     }
 
-    public static function getDataSession(String $key )
+    public static function getDataSession(String $key ):mixed
     {
         if (session_status() == PHP_SESSION_NONE)session_start();
         if(!is_null($_SESSION[$key]))return unserialize($_SESSION[$key]);
