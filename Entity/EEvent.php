@@ -11,6 +11,7 @@ class EEvent{
 
     public function __construct(String $name, String $place, EUser $organizer, bool $public=false, String $description="",int $id=-1)
     {
+        if($organizer->getType()!='Organizer') throw new Exception('organizer must be of type Organizer');
         $this->name = $name;
         $this->description = $description;
         $this->place = $place;
@@ -253,7 +254,8 @@ class EEvent{
      */
     public function setOrganizer(EUser $neworganizer): void
     {
-      $this->organizer =  $neworganizer;
+        if($neworganizer->getType()!='Organizer') throw new Exception('organizer must be of type Organizer');
+        $this->organizer =  $neworganizer;
     }
 
 

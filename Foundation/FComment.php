@@ -145,7 +145,7 @@ class FComment
        }
        else{
            if(!is_null($containText)){
-               $fields[]='name';
+               $fields[]='text';
                $values[]='%'.$containText.'%';
                $opWhere[]='LIKE';
            }

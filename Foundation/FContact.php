@@ -86,6 +86,9 @@ class FContact{
        $values=array();
        $opWhere=array();
        $result=array();
+       $orderBy=array();
+       $ascending=array();
+
        if(is_null($name)&& is_null($email) && is_null($number)){
            $resultQ=FDb::exInterrogation(FDb::load(self::$table));
            foreach ($resultQ as $c=>$v){
@@ -98,23 +101,29 @@ class FContact{
                $fields[]='name';
                $values[]=$name.'%';
                $opWhere[]='LIKE';
+               $orderBy[]='name';
+               $ascending[]=true;
            }
            if(!is_null($email)){
                $fields[]='email';
                $values[]=$email.'%';
                $opWhere[]='LIKE';
+               $orderBy[]='email';
+               $ascending[]=true;
            }
            if(!is_null($number)){
                $fields[]='number';
                $values[]=$number.'%';
                $opWhere[]='LIKE';
+               $orderBy[]='number';
+               $ascending[]=true;
            }
            if(!is_null($event)){
                $fields[]='idevent';
                $values[]=$event->getId();
                $opWhere[]='=';
            }
-           $resultQ=FDb::exInterrogation(FDb::load(self::$table,FDb::multiWhere($fields,$values,'AND',$opWhere)));
+           $resultQ=FDb::exInterrogation(FDb::load(self::$table,FDb::multiWhere($fields,$values,'AND',$opWhere)),$orderBy,$ascending);
            foreach ($resultQ as $c=>$v){
                $result[$c]=self::getObjectByArray($v);
            }

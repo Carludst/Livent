@@ -133,7 +133,7 @@ class FDb{
     public static function exInterrogation(Array $query,String|Array $orderBy="",bool|Array $ascending=true):?array{
         try{
             self::$pdoV->beginTransaction();
-            if($orderBy!="")$q=$query["query"]." ".self::OrderBy($orderBy,$ascending);
+            if(!empty($orderBy))$q=$query["query"]." ".self::OrderBy($orderBy,$ascending);
             else $q=$query["query"];
             $stmt=self::$pdoV->prepare($q);
             $stmt->execute($query["bind"]);

@@ -271,6 +271,11 @@ class FDbH {
         return FEvent::getComments($event);
     }
 
+    public static function loadEventByCompetition(ECompetition $competition):EEvent
+    {
+        return FEvent::loadByCompetition($competition);
+    }
+
     /**
      * @param String|null $name
      * @param EUser|null $organizer
@@ -319,13 +324,17 @@ class FDbH {
         return FContact::search($username);
     }
 
+    public static function searchCompetition(EEvent|NULL $event=NULL,String $name=NULL,?String $gender=NULL ,?String $sport=NULL ,DateTime|Null $dateFrom=NULL , DateTime|Null $dateTo=NULL,?EDistance $distanceFrom=NULL ,?EDistance $distanceTo=NULL){
+        return FCompetition::search($event,$name,$gender,$sport,$dateFrom,$dateTo,$distanceFrom,$distanceTo);
+    }
+
     /**
      * @param Exception $exception
      * @return void
      */
     public static function storeError(Exception $exception)
     {
-        FFile::appendElement((FFile::numberRow()+1).") ".$exception->getTraceAsString());
+        FFile::append((FFile::numberRow()+1).") ".$exception->getTraceAsString());
     }
 
 
@@ -342,7 +351,7 @@ class FDbH {
      */
     public static function deleteErrors()
     {
-        return FFile::delete();
+        FFile::delete();
     }
 
     public static function returnPathFile()
@@ -351,7 +360,5 @@ class FDbH {
 
     }
 
-    public static function searchCompetition(String|NULL $name=NULL, String|NULL $gender=NULL, String|NULL $sport=NULL, EDistance|Null $distance=NULL){
-        return FCompetition::search($name,$gender,$sport,$distance);
-    }
+
 }

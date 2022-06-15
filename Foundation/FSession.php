@@ -27,7 +27,6 @@ class FSession
         session_unset();
         session_destroy();
         setcookie('PHPSESSID', '', time() - 3600);
-        header('Location: /Museo/Utente/login');
     }
 
     public static function getUserLogged():?EUser

@@ -2,16 +2,18 @@
 
 class CManageComment
 {
+    private static function authorizer(EComment $comment):bool{
+
+        if(FSession::isLogged() && (FSession::getUserLogged()->getEmail()!=$comment->getUser()->getEmail()&& FSession::getUserLogged()->getType()!='Administrator'))throw new Exception("you don't have authorization");
+        return CManageUser::callLogin();
+    }
 
     public static function update(EComment $comment):void
     {
         try{
-            if(FSession::isLogged() && (FSession::getUserLogged()->getEmail()!=$comment->getUser()->getEmail()&& FSession::getUserLogged()->getType()!='Administrator'))throw new Exception("you must be an administrator to update an Athlete");
-            elseif(!FSession::isLogged()){
-                FSession::addDataSession('requeredPath',CFrontController::getUrl());
-                CLogin::loginPage();
+            if(self::authorizer($comment)){
+                if(!FDbH::updateOne($comment))throw new Exception("you can't update a comment that don't exist");
             }
-            elseif(!FDbH::updateOne($comment))throw new Exception("you can't update a comment that don't exist");
         }
         catch (Exception $e){
             //RICHIAMA ERRORE
@@ -22,11 +24,7 @@ class CManageComment
     {
         //VERIFICA LOGIN E TIPO UTENTE
         try{
-            if(!FSession::isLogged()) {
-                FSession::addDataSession('requeredPath', CFrontController::getUrl());
-                CLogin::loginPage();
-            }
-            else FDbH::store($comment,$event->getId());
+            if(CManageUser::callLogin())FDbH::store($comment,$event->getId());
         }
         catch (Exception $e){
             //RICHIAMA ERRORE
@@ -35,12 +33,7 @@ class CManageComment
 
     public static function delete(EComment $comment){
         try{
-            if(FSession::isLogged() && (FSession::getUserLogged()->getEmail()!=$comment->getUser()->getEmail()&& FSession::getUserLogged()->getType()!='Administrator'))throw new Exception("you must be an administrator to update an Athlete");
-            elseif(!FSession::isLogged()){
-                FSession::addDataSession('requeredPath',CFrontController::getUrl());
-                CLogin::loginPage();
-            }
-            else FDbH::deleteOne($comment->getId(),EComment::class);
+            if(self::authorizer($comment))FDbH::deleteOne($comment->getId(),EComment::class);
         }
         catch(Exception $e){
             //RICHIAMA ERRORE
@@ -49,12 +42,10 @@ class CManageComment
 
     public static function mainPage(EEvent $event){
         try{
-            if(!FSession::isLogged()) {
-                FSession::addDataSession('requeredPath', CFrontController::getUrl());
-                CLogin::loginPage();
+            if(CManageUser::callLogin()) {
+                //VERIFICA LOGIN E TIPO UTENTE
+                //Richiama  VComment::mainPage($event);
             }
-            //VERIFICA LOGIN E TIPO UTENTE
-            //Richiama  VComment::mainPage($event);
         }
         catch(Exception $e){
             //RICHIAMA ERRORE

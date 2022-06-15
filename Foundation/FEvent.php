@@ -110,6 +110,15 @@ class FEvent
         return FComment::load('idevent',$event->getId(),'=','updated_at');
     }
 
+    public static function loadByCompetition(ECompetition $competition):?EEvent
+    {
+        if(FDb::exist(FDb::load(self::$table[1],FDb::where('idcompetition',$competition->getId())))) {
+            $id=(int)FDb::exInterrogation(FDb::load(self::$table[1],FDb::where('idcompetition',$competition->getId()),'idevent'));
+            return self::loadOne($id);
+        }
+        else return NULL;
+    }
+
     public static function getPathFile(EEvent $event):String
     {
         return $event::class."/".$event->getId();
@@ -120,6 +129,9 @@ class FEvent
         $values=array();
         $opWhere=array();
         $result=array();
+        $orderBy=array();
+        $ascending=array();
+
         if(is_null($name) && is_null($user) && is_null($public) && is_null($place) && is_null($startDateFrom)  && is_null($startDateTo)){
             $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
             foreach ($resultQ as $c=>$v){
@@ -137,6 +149,8 @@ class FEvent
                 $fields[]='place';
                 $values[]=$place.'%';
                 $opWhere[]='LIKE ';
+                $orderBy[]='place';
+                $ascending[]=true;
             }
             if(!is_null($user)){
                 $fields[]='emailorganizer';
@@ -152,17 +166,29 @@ class FEvent
                 $dateStart=FDb::opGroupMin(self::$table[1].' AS T','T.datetime',' WHERE T.idevent=idevent');
                 $fields[]='('.$dateStart['query'].')';
                 $values[]=$startDateFrom->format("y-m-d");
-                if(is_null($startDateTo)||$startDateFrom<$startDateTo) $opWhere[]='>=';
+                if(is_null($startDateTo)||$startDateFrom<$startDateTo)
+                {
+                    $opWhere[]='>=';
+                    $orderBy[]='datetime';
+                    $ascending[]=true;
+                }
                 else $opWhere[]='<=';
             }
             if(!is_null($startDateTo)){
                 $dateStart=FDb::opGroupMin(self::$table[1].' AS T','T.datetime', ' WHERE T.idevent=idevent');
                 $fields[]='('.$dateStart['query'].')';
                 $values[]=$startDateTo->format("y-m-d");
-                if(is_null($startDateFrom)||$startDateTo<$startDateFrom) $opWhere[]='>=';
-                else $opWhere[]='<=';
+                if(is_null($startDateFrom)||$startDateTo>$startDateFrom)
+                {
+                    $opWhere[]='<=';
+                    if(is_null($startDateFrom)){
+                        $orderBy[]='datetime';
+                        $ascending[]=false;
+                    }
+                }
+                else $opWhere[]='>=';
             }
-            $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)));
+            $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)),$orderBy,$ascending);
             foreach ($resultQ as $c=>$v){
                 $result[$c]=self::getObjectByArray($v);
             }

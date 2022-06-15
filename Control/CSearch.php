@@ -52,10 +52,10 @@ class CSearch
         }
     }
 
-    public static function searchCompetition(?String $name=NULL , String|NULL $gender=NULL, String|NULL $sport=NULL, EDistance|Null $distance=NULL):array
+    public static function searchCompetition(EEvent|NULL $event=NULL,String $name=NULL,?String $gender=NULL ,?String $sport=NULL ,DateTime|Null $dateFrom=NULL , DateTime|Null $dateTo=NULL,?EDistance $distanceFrom=NULL ,?EDistance $distanceTo=NULL):array
     {
         try{
-            return FDbH::searchCompetition($name,$gender,$sport,$distance);
+            return FDbH::searchCompetition($event,$name,$gender,$sport,$dateFrom,$dateTo,$distanceFrom,$distanceTo);
         }
         catch (Exception $e){
             //RICHIAMA ERRORE

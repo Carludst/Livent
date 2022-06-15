@@ -159,6 +159,9 @@ class FAthlete {
        $values=array();
        $opWhere=array();
        $result=array();
+       $orderBy=array();
+       $ascending=array();
+
        if(is_null($name)&& is_null($surname) && is_null($birthdateFrom) && is_null($birthdateTo) && is_null($famale) && is_null($team) && is_null($sport)){
            $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
            foreach ($resultQ as $c=>$v){
@@ -171,23 +174,39 @@ class FAthlete {
                $fields[]='name';
                $values[]=$name.'%';
                $opWhere[]='LIKE';
+               $orderBy[]='name';
+               $ascending[]=true;
            }
            if(!is_null($surname)){
                $fields[]='surname';
                $values[]=$surname.'%';
                $opWhere[]='LIKE';
+               $orderBy[]='name';
+               $ascending[]=true;
            }
            if(!is_null($birthdateFrom)){
                $fields[]='birthdate';
                $values[]=$birthdateFrom->format("y-m-d");
-               if(is_null($birthdateTo)||$birthdateFrom<$birthdateTo) $opWhere[]='>=';
+               if(is_null($birthdateTo)||$birthdateFrom<$birthdateTo)
+               {
+                   $opWhere[]='>=';
+                   $orderBy[]='birthdate';
+                   $ascending[]=true;
+               }
                else $opWhere[]='<=';
            }
            if(!is_null($birthdateTo)){
                $fields[]='birthdate';
                $values[]=$birthdateTo->format("y-m-d");
-               if(is_null($birthdateFrom)||$birthdateTo<$birthdateFrom) $opWhere[]='>=';
-               else $opWhere[]='<=';
+               if(is_null($birthdateFrom)||$birthdateTo>$birthdateFrom)
+               {
+                   $opWhere[]='<=';
+                   if(is_null($birthdateFrom)){
+                       $orderBy[]='birthdate';
+                       $ascending[]=false;
+                   }
+               }
+               else $opWhere[]='>=';
            }
            if(!is_null($famale)){
                $fields[]='famale';
@@ -198,13 +217,15 @@ class FAthlete {
                $fields[]='team';
                $values[]=$team.'%';
                $opWhere[]='LIKE';
+               $orderBy[]='team';
+               $ascending[]=true;
            }
            if(!is_null($sport)){
                $fields[]='sport';
                $values[]=$sport;
                $opWhere[]='=';
            }
-           $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)));
+           $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)),$orderBy,$ascending);
            foreach ($resultQ as $c=>$v){
                $result[$c]=self::getObjectByArray($v);
            }

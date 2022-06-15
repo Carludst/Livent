@@ -196,4 +196,96 @@ class FCompetition {
         return ECompetition::class."/".$competition->getId();
     }
 
+    public static function search(EEvent|NULL $event=NULL,?String $name=NULL,?String $gender=NULL ,?String $sport=NULL ,DateTime|Null $dateFrom=NULL , DateTime|Null $dateTo=NULL,?EDistance $distanceFrom=NULL ,?EDistance $distanceTo=NULL):Array
+    {
+        $fields=array();
+        $values=array();
+        $opWhere=array();
+        $result=array();
+        $orderBy=array();
+        $ascending=array();
+
+        if(is_null($event)&& is_null($name) && is_null($gender) && is_null($sport) && is_null($distanceFrom) && is_null($distanceTo)){
+            $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
+            foreach ($resultQ as $c=>$v){
+                $result[$c]=self::getObjectByArray($v);
+            }
+            return $result;
+        }
+        else{
+            if(!is_null($event)){
+                $fields[]='idevent';
+                $values[]=$event->getId();
+                $opWhere[]='=';
+            }
+            if(!is_null($dateFrom)){
+                $fields[]='datetime';
+                $values[]=$dateFrom ->format("y-m-d");
+                if(is_null($dateTo)||$dateFrom <$dateTo){
+                    $opWhere[]='>=';
+                    $orderBy[]='datetime';
+                    $ascending[]=true;
+                }
+                else $opWhere[]='<=';
+            }
+            if(!is_null($dateTo)){
+                $fields[]='datetime';
+                $values[]=$dateTo->format("y-m-d");
+                if(is_null($dateFrom )||$dateTo>$dateFrom ){
+                    $opWhere[]='<=';
+                    if(is_null($dateFrom)){
+                        $orderBy[]='datetime';
+                        $ascending[]=false;
+                    }
+                }
+                else $opWhere[]='>=';
+            }
+            if(!is_null($name)){
+                $fields[]='name';
+                $values[]=$name;
+                $opWhere[]='=';
+                $orderBy[]='name';
+                $ascending[]=true;
+            }
+            if(!is_null($gender)){
+                $fields[]='gender';
+                $values[]=$gender;
+                $opWhere[]='=';
+            }
+            if(!is_null($distanceFrom)){
+                $fields[]='distance';
+                $values[]=$distanceFrom->getValue();
+                if(is_null($distanceTo)||$distanceFrom<$distanceTo){
+                    $opWhere[]='>=';
+                    $orderBy[]='distance';
+                    $ascending[]=true;
+                }
+                else $opWhere[]='<=';
+            }
+            if(!is_null($distanceTo)){
+                $fields[]='distance';
+                $values[]=$distanceTo->getValue();
+                if(is_null($distanceFrom)||$distanceTo>$distanceFrom){
+                    $opWhere[]='<=';
+                    if(is_null($dateFrom)){
+                        $orderBy[]='distance';
+                        $ascending[]=false;
+                    }
+                }
+                else $opWhere[]='>=';
+            }
+            if(!is_null($sport)){
+                $fields[]='sport';
+                $values[]=$sport;
+                $opWhere[]='=';
+            }
+            $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)),$orderBy,$ascending);
+            foreach ($resultQ as $c=>$v){
+                $result[$c]=self::getObjectByArray($v);
+            }
+            return $result;
+        }
+
+    }
+
 }

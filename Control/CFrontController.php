@@ -21,23 +21,27 @@ class CFrontController
             require_once("routing.php");
             $route=$routing;
             $i=0;
-            while (is_array($route)&&$i<count($url)){
-                if(key_exists($url[$i],$route))$route=$route[$url[$i]];
-                else {
-                    throw new Exception('HTTP/1.1 404 Not Found');
-                }
+            while (is_array($route) && $i<count($url) && key_exists($url[$i],$route)){
+                $route=$route[$url[$i]];
                 $i=$i+1;
             }
 
-            if(is_array($route)){
+            while(is_array($route)){
                 if(key_exists('',$route))$route=$route[''];
                 else throw new Exception('HTTP/1.1 404 Not Found');
             }
             if($i<count($url)-1)throw new Exception('HTTP/1.1 404 Not Found');
-            if($i==count($url)-1){
-                global $_MYINPUT;
-                $_MYINPUT=$url[-1];
+            elseif(preg_match('/\(\)$/',$route)){
+                if($i==count($url)-1){
+                    global $_MYINPUT;
+                    $_MYINPUT=$url[-1];
+                    $route=substr($route,0,-2);
+                }
+                else $route=substr($route,0,-2);
             }
+            elseif($i==count($url)-1)throw new Exception('HTTP/1.1 404 Not Found');
+
+
 
 
             $exec=explode("::",$route);

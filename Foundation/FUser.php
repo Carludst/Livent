@@ -131,6 +131,9 @@ class FUser
         $values = array();
         $opWhere = array();
         $result = array();
+        $orderBy=array();
+        $ascending=array();
+
         if (is_null($username)) {
             $resultQ = FDb::exInterrogation(FDb::load(self::$table[0]));
             foreach ($resultQ as $c => $v) {
@@ -142,8 +145,10 @@ class FUser
             $fields[] = 'username';
             $values[] = $username . '%';
             $opWhere[] = 'LIKE';
+            $orderBy[]='username';
+            $ascending[]=true;
 
-            $resultQ = FDb::exInterrogation(FDb::load(self::$table[0], FDb::multiWhere($fields, $values, 'AND', $opWhere)));
+            $resultQ = FDb::exInterrogation(FDb::load(self::$table[0], FDb::multiWhere($fields, $values, 'AND', $opWhere)),$orderBy,$ascending);
             foreach ($resultQ as $c => $v) {
                 $result[$c] = self::getObjectByArray($v);
             }

@@ -2,11 +2,17 @@
 
 class CManageEvent
 {
+    private static function authorizer(EEvent $event):bool{
+
+        if(FSession::isLogged() && $event->getOrganizer()->getEmail()!=FSession::getUserLogged()->getEmail())throw new Exception("you don'y have autorization");
+        return CManageUser::callLogin();
+    }
     public static function update(EEvent $event):void
     {
-        //VERIFICA LOGIN E TIPO UTENTE
         try{
-            if(!FDbH::updateOne($event))throw new Exception("you can't update an event that don't exist");
+            if(self::authorizer($event)){
+                if(!FDbH::updateOne($event))throw new Exception("you can't update an event that don't exist");
+            }
         }
         catch (Exception $e){
             //RICHIAMA ERRORE
@@ -15,10 +21,10 @@ class CManageEvent
 
     public static function create(EEvent $event):void
     {
-        //VERIFICA LOGIN E TIPO UTENTE
-        //if(filter_var($organizerEmail,FILTER_VALIDATE_EMAIL)!=false)
         try{
-            FDbH::store($event);
+            if(self::authorizer($event)){
+                FDbH::store($event);
+            }
         }
         catch (Exception $e){
             //RICHIAMA ERRORE
@@ -27,7 +33,9 @@ class CManageEvent
 
     public static function delete(EEvent $event){
         try{
-            FDbH::deleteOne($event->getId(),EEvent::class);
+            if(self::authorizer($event)||FSession::getUserLogged()->getType()=='Administator'){
+                FDbH::deleteOne($event->getId(),EEvent::class);
+            }
         }
         catch(Exception $e){
                 //RICHIAMA ERRORE
@@ -43,10 +51,11 @@ class CManageEvent
         }
     }
 
-    public static function newPage(EEvent $event){
+    public static function newPage(NULL|EEvent $event){
         try{
-            //VERIFICA LOGIN E TIPO UTENTE
-            //Richiama  VEvent::showNewPage($event);
+            if((is_null($event) && FSession::getUserLogged()->getType()=='Organizer')||self::authorizer($event)){
+                //Richiama  VEvent::showNewPage($event);
+            }
         }
         catch(Exception $e){
             //RICHIAMA ERRORE
