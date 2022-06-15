@@ -8,7 +8,7 @@ class CSearch
             //Richiamare view search;
         }
         catch(Exception $e){
-            //eccezione(oggetto errore)
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di ricerca degli eventi non è andata a buon fine");
         }
     }
 
@@ -17,7 +17,7 @@ class CSearch
             //Richiamare view search;
         }
         catch(Exception $e){
-            //eccezione(oggetto errore)
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di ricerca degli atleti non è andata a buon fine");
         }
     }
 
@@ -26,7 +26,7 @@ class CSearch
             //Richiamare view search;
         }
         catch(Exception $e){
-            //eccezione(oggetto errore)
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di ricerca delle competizione non è andata a buon fine");
         }
     }
 
@@ -36,7 +36,7 @@ class CSearch
             return FDbH::searchAthlete($name, $surname, $birthdateFrom, $birthdateTo, $famale, $team, $sport);
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La ricerca degli atleti non è andata a buon fine");
             return array();
         }
     }
@@ -47,7 +47,7 @@ class CSearch
             return FDbH::searchComment($containText,$user);
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La ricerca dei commenti non è andata a buon fine");
             return array();
         }
     }
@@ -58,7 +58,7 @@ class CSearch
             return FDbH::searchCompetition($event,$name,$gender,$sport,$dateFrom,$dateTo,$distanceFrom,$distanceTo);
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La ricerca delle competizioni non è andata a buon fine");
             return array();
         }
     }
@@ -69,7 +69,7 @@ class CSearch
             return FDbH::searchEvent($public,$name,$organizer,$place,$startDateFrom,$startDateTo);
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La ricerca degli eventi non è andata a buon fine");
             return array();
         }
     }

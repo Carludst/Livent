@@ -39,7 +39,7 @@ class CManageUser
             else throw new Exception("user don't signin");
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e," login fallita , verificare di aver inserito le credenziali corrette");
         }
     }
 
@@ -51,7 +51,7 @@ class CManageUser
             else throw new Exception("you are not logged");
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! Il logout non è andata a buon fine");
         }
     }
 
@@ -63,7 +63,7 @@ class CManageUser
             self::login($user);
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La registrazione non è andata a buon fine");
         }
     }
 
@@ -72,7 +72,7 @@ class CManageUser
             //Richiama  VLogin::show();
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di login non è andata a buon fine");
         }
     }
 
@@ -81,7 +81,7 @@ class CManageUser
             //Richiama  VSignin::show();
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di registrazione utente non è andata a buon fine");
         }
     }
 
@@ -90,7 +90,7 @@ class CManageUser
             //Richiama  VSignin::show($user);
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di aggiornamento dei tuoi dati utente non è andata a buon fine");
         }
     }
 

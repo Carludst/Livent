@@ -16,7 +16,7 @@ class CManageCompetition
             }
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! L'aggiornamento dei dati della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -30,7 +30,7 @@ class CManageCompetition
             }
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La creazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -41,7 +41,7 @@ class CManageCompetition
             }
         }
         catch(Exception $e){
-                //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! L'eliminazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -50,7 +50,7 @@ class CManageCompetition
             //Richiama  view competition
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina della competizione non è andato a buon fine");
         }
     }
 
@@ -61,7 +61,7 @@ class CManageCompetition
             }
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 }

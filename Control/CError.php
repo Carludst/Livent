@@ -4,7 +4,7 @@ class CError
 {
     public static function storeError(Exception $error, string $message){
         FDbH::storeError($error);
-        //richiamare la view
+        //VErrorPage::Show($message);
     }
 
     public static function readError(){

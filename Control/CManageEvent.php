@@ -15,7 +15,7 @@ class CManageEvent
             }
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! L'aggiornamento dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -27,7 +27,7 @@ class CManageEvent
             }
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La creazione dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -38,7 +38,7 @@ class CManageEvent
             }
         }
         catch(Exception $e){
-                //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La cancellazione dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -47,7 +47,7 @@ class CManageEvent
             //Richiama  VEvent::show($event);
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -58,7 +58,7 @@ class CManageEvent
             }
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina per creare/modificare un evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 

@@ -5,10 +5,12 @@ class CManageCompetitor
 
     public static function addRegistration(ECompetition $competition,EAthlete $athlete, EUser $user){
         try{
-            if(!FDbH::addRegistrationCompetition($competition,$athlete,$user))throw new Exception("registration is failed");
+            if(CManageUser::callLogin()){
+                if(!FDbH::addRegistrationCompetition($competition,$athlete,$user))throw new Exception("registration is failed");
+            }
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! L'inserimento della registazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -17,8 +19,8 @@ class CManageCompetitor
             return FDbH::getRegistrationsCompetition($competition);
         }
         catch(Exception $e){
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizazione delle registazioni non è andato a buon fine");
             return array();
-            //RICHIAMA ERRORE
         }
     }
 
@@ -28,7 +30,7 @@ class CManageCompetitor
             if(!FDbH::addResultCompetition($competition,$athlete,$time))throw new Exception("loading result is failed");
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! L'inserimento del risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -39,8 +41,8 @@ class CManageCompetitor
             return FDbH::getClassificationCompetition($competition);
         }
         catch(Exception $e){
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizazione dei risultati non è andato a buon fine");
             return array();
-            //RICHIAMA ERRORE
         }
     }
 
@@ -53,8 +55,8 @@ class CManageCompetitor
             else return $a[$sport][$NameCompetition];
         }
         catch(Exception $e){
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizazione dei risultati non è andato a buon fine");
             return array();
-            //RICHIAMA ERRORE
         }
     }
 
@@ -62,10 +64,9 @@ class CManageCompetitor
     {
         try{
             if(!FDbH::deleteCompetitor($competition,$athlete))throw new Exception("deletion registration/result is failed");
-
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La cancellazione dei risultati/registrazioni non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
 
     }
@@ -77,7 +78,7 @@ class CManageCompetitor
             //Richiama  VRegistration::show($registration);
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizazzione della pagina per inserire una nuova registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -88,7 +89,7 @@ class CManageCompetitor
             //Richiama  VResult::show($result);
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizazzione della pagina per inserire un risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 }
