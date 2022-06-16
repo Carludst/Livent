@@ -82,7 +82,7 @@ class FDbH {
      * @param int $size
      * @return void
      */
-    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , int $size, ?int $resize=NULL){
+    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , int $size, ?float $resize=NULL){
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
@@ -91,12 +91,13 @@ class FDbH {
         }
         if(!is_null($resize)&& $resize!=1){
             $currentSize=getimagesize($pathFile);
-            $width=$currentSize[0];
-            $height=$currentSize[1];
+            $width=$currentSize[0]*$resize;
+            $height=$currentSize[1]*$resize;
             $img=imagecreatefromjpeg($pathFile);
             if($img==false)$img=imagecreatefrompng($pathFile);
             if($img==false)throw new Exception('file format not supported');
-            $imgResized=imagescale($img,$width*$size,$height*$size);
+            $imgResized=imagecreatetruecolor($width,$height);
+            imagecopyresampled($imgResized,$img,0,0,0,0,$width,$height,$currentSize[0],$currentSize[1]);
             if($imgResized==false)throw new Exception('resized not succes');
             imagejpeg($imgResized,'../imgresized.jpg');
             $blobFile=file_get_contents('../imgresized.jpg') ;
@@ -125,7 +126,7 @@ class FDbH {
             $Fclass = "F".substr($Eclass,1);
             $pathDB=$Fclass::getPathFile($objPath);
         }
-        $array=FDb::load('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)));
+        $array=FDb::exInterrogation(FDb::load('file',FDb::multiWhere(array("path","name"),array($pathDB,$name))));
         if(count($array)>0){
             if($base64)return base64_encode($array[0]['file']);
             else return $array[0]['file'];
@@ -176,8 +177,8 @@ class FDbH {
      * @param $password
      * @return array|EUser|null
      */
-    public static function login(String $email,String $password) :?bool{
-        return FUser::login($email, $password);
+    public static function login(EUser $user) :?bool{
+        return FUser::login($user);
     }
 
     /**
@@ -189,19 +190,7 @@ class FDbH {
         return FComment::getDateTime($comment);
     }
 
-    /**
-     * -Method : return an array (name copetition key) of array (idevent , time) with the result order by time
-     * @param EAthlete $athlete
-     * @return array|null
-     * @throws Exception
-     */
-    public static function getResultsAthlete( EAthlete $athlete):Array{
-        return FAthlete::getResults($athlete);
-    }
 
-    public static function getCompetitor( ECompetition $competition , EAthlete $athlete):ETime{
-        return FCompetition::getCompetitor($competition,$athlete);
-    }
 
     /**
      * @param ECompetition $competition
@@ -228,8 +217,35 @@ class FDbH {
      * @param $athlete
      * @return mixed
      */
-    public static function deleteCompetitor(ECompetition $competition, EAthlete $athlete):bool {
-        return FCompetition::deleteCompetitor($competition,$athlete);
+    public static function deleteRegistration(ECompetition $competition, EAthlete $athlete):bool {
+        return FCompetition::deleteRegistration($competition,$athlete);
+    }
+
+    /**
+     * @param ECompetition $competition
+     * @param EAthlete $athlete
+     * @return bool
+     */
+    public static function deleteResult(ECompetition $competition, EAthlete $athlete):bool {
+        return FCompetition::deleteResult($competition,$athlete);
+    }
+
+    /**
+     * @param ECompetition $competition
+     * @param EAthlete $athlete
+     * @return bool
+     */
+    public static function existRegistration(ECompetition $competition, EAthlete $athlete):bool{
+        return FCompetition::existRegistration($competition,$athlete);
+    }
+
+    /**
+     * @param ECompetition $competition
+     * @param EAthlete $athlete
+     * @return EUser
+     */
+    public static function getRegisterBy(ECompetition $competition, EAthlete $athlete):EUser{
+        return FCompetition::getRegisterBy($competition,$athlete);
     }
 
     /** -Method
@@ -240,8 +256,22 @@ class FDbH {
         return FCompetition::getClassification($competition);
     }
 
+    /**
+     * @param ECompetition $competition
+     * @return array
+     */
     public static function getRegistrationsCompetition(ECompetition $competition):Array{
         return FCompetition::getRegistrations($competition);
+    }
+
+    /**
+     * -Method : return an array (name copetition key) of array (idevent , time) with the result order by time
+     * @param EAthlete $athlete
+     * @return array|null
+     * @throws Exception
+     */
+    public static function getResultsAthlete( EAthlete $athlete):Array{
+        return FAthlete::getResults($athlete);
     }
 
     /**
@@ -271,6 +301,10 @@ class FDbH {
         return FEvent::getComments($event);
     }
 
+    /**
+     * @param ECompetition $competition
+     * @return EEvent
+     */
     public static function loadEventByCompetition(ECompetition $competition):EEvent
     {
         return FEvent::loadByCompetition($competition);
@@ -320,10 +354,25 @@ class FDbH {
         return FContact::search($name,$email,$number,$event);
     }
 
+    /**
+     * @param String|Null $username
+     * @return array
+     */
     public static function searchUser(String|Null $username=NULL ){
         return FContact::search($username);
     }
 
+    /**
+     * @param EEvent|NULL $event
+     * @param String|NULL $name
+     * @param String|null $gender
+     * @param String|null $sport
+     * @param DateTime|Null $dateFrom
+     * @param DateTime|Null $dateTo
+     * @param EDistance|null $distanceFrom
+     * @param EDistance|null $distanceTo
+     * @return array
+     */
     public static function searchCompetition(EEvent|NULL $event=NULL,String $name=NULL,?String $gender=NULL ,?String $sport=NULL ,DateTime|Null $dateFrom=NULL , DateTime|Null $dateTo=NULL,?EDistance $distanceFrom=NULL ,?EDistance $distanceTo=NULL){
         return FCompetition::search($event,$name,$gender,$sport,$dateFrom,$dateTo,$distanceFrom,$distanceTo);
     }
@@ -354,6 +403,9 @@ class FDbH {
         FFile::delete();
     }
 
+    /**
+     * @return String
+     */
     public static function returnPathFile()
     {
         return FFile::getPath();

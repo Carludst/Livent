@@ -87,9 +87,9 @@ class FUser
     /**
      * -Method : search in database by primarykey
      * @param string $key primarykey value
-     * @return bool|null return true if find correspondence , null if occurs an exception
+     * @return bool return true if find correspondence , null if occurs an exception
      */
-    public static function existOne(string $key):?bool
+    public static function existOne(string $key):bool
     {
         return FDb::exist(FDb::load(self::$table[0],self::whereKey($key)));
     }
@@ -97,9 +97,9 @@ class FUser
     /**
      * -Method : delate by primarykey
      * @param string $key primarykey value
-     * @return bool|null return true if find correspondence , null if occurs an exception , false if not found corrispondence
+     * @return bool return true if find correspondence , null if occurs an exception , false if not found corrispondence
      */
-    public static function deleteOne(string $key):?bool
+    public static function deleteOne(string $key): bool
     {
         return FDb::delate(self::$table[0],self::whereKey($key));
     }
@@ -107,16 +107,32 @@ class FUser
     /**
      * -Method : update EAthlete data by primarykey saved into object passed
      * @param EUser $user  EAthlete data to update
-     * @return bool|null return true if find correspondence , null if occurs an exception , false if not found corrispondence
+     * @return bool return true if find correspondence , null if occurs an exception , false if not found corrispondence
      */
-    public static function updateOne(EUser $user):?bool
+    public static function updateOne(EUser $user):bool
     {
         return FDb::update(self::$table[0],self::whereKey((String)$user->getEmail()),self::getArrayByObject($user));
     }
 
-    public static function login(string $email, string $password):?bool
+    public static function getRegistration(EUser $user ):Array
     {
-        $where=FDb::multiWhere(array('email','password'),array($email,$password));
+        $where=FDb::where('email',$user->getEmail());
+        $query=FDb::load(self::$table[1],$where);
+        $resultQ=FDb::exInterrogation($query);
+        $result=array();
+        foreach ($resultQ as $c=>$v){
+            //righa successiva da modificare
+            $competition=FCompetition::loadOne($v["idcompetition"]);
+            $athlete=FAthlete::loadOne($v['idathlete']);
+            $result[$competition]=$athlete;
+        }
+        return $result;
+    }
+
+
+    public static function login(EUser $user):?bool
+    {
+        $where=FDb::multiWhere(array('email','password'),array($user->getEmail(),$user->getPassword()));
         return FDb::exist(FDb::load(self::$table[0], $where));
     }
 

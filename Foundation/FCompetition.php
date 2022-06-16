@@ -1,10 +1,4 @@
 <?php
-require_once "FDb.php";
-require_once "FAthlete.php";
-require_once "../Entity/ECompetition.php";
-require_once "../Entity/ETime.php";
-require_once "../Entity/EDistance.php";
-require_once "../Entity/EAthlete.php";
 
 class FCompetition {
     private static array $table=array("competitions","result");
@@ -48,28 +42,7 @@ class FCompetition {
         return FDb::where("idcompetition",$key);
     }
 
-    private static function getArrByObjResult(ECompetition $competition,EAthlete $athlete , EUser|ETime $info):Array
-    {
-        $idCompetition=(String)$competition->getId();
-        $idAthlete=(String)$athlete->getId();
 
-        $now=new DateTime();
-        $update_at=$now->format("Y-m-d h:i:s");
-
-        if($info::class==EUser::class){
-            $email=$info->getEmail();
-            return array("idathlete"=>$idAthlete,"idcompetition"=>$idCompetition,"email"=>$email,"updated_at"=>$update_at);
-        }
-        else{
-            $time=(String)$info->getValue();
-            return array("idathlete"=>$idAthlete,"idcompetition"=>$idCompetition,"time"=>$time);
-        }
-    }
-
-    private static function whereResult(ECompetition $competition,EAthlete $athlete):Array
-    {
-        return FDb::multiWhere(array('idcompetition','idathlete'),array((string)$competition->getId(),(string)$athlete->getId()));
-    }
 
     public static function store(ECompetition $competition,int $idEvent):void
     {
@@ -104,96 +77,19 @@ class FCompetition {
         return $result;
     }
 
-    public static function existOne(int $key):?bool
+    public static function existOne(int $key):bool
     {
         return FDb::exist(FDb::load(self::$table[0],self::whereKey($key)));
     }
 
-    public static function deleteOne(int $key):?bool
+    public static function deleteOne(int $key):bool
     {
         return FDb::delate(self::$table[0],self::whereKey($key));
     }
 
-    public static function updateOne(ECompetition $competition):?bool
+    public static function updateOne(ECompetition $competition):bool
     {
         return FDb::update(self::$table[0],self::whereKey($competition->getId()),self::getArrayByObject($competition));
-    }
-
-    public static function addResult(ECompetition $competition,EAthlete $athlete,ETime $time):?bool
-    {
-        return FDb::update(self::$table[0],self::whereResult($competition,$athlete),self::getArrByObjResult($competition,$athlete,$time));
-    }
-
-    public static function addRegistration(ECompetition $competition,EAthlete $athlete,EUser $user): ?bool
-    {
-        $now=new DateTime();
-        $created_at=$now->format("Y-m-d h:i:s");
-        $fieldValue=self::getArrByObjResult($competition,$athlete,$user);
-        $fieldValue["created_at"]= $created_at;
-
-        return FDb::store(self::$table[1],$fieldValue);
-    }
-
-    public static function deleteCompetitor(ECompetition $competition,EAthlete $athlete): bool
-    {
-        return FDb::delate(self::$table[1],self::whereResult($competition,$athlete));
-    }
-
-    public static function getResult(ECompetition $competition,EAthlete $athlete): ?ETime
-    {
-        $resultQ=FDb::exInterrogation(FDb::load(self::$table[1],self::whereResult($competition,$athlete)));
-        if($resultQ[0]["time"]=="NULL")return null;
-        else return new ETime($resultQ[0]["time"]);
-    }
-
-    /*
-     * return the user who register the athlete passed to the competition passed
-    public static function getRegisterBy(ECompetition $competition,EAthlete $athlete):EUser
-    {
-
-    }
-    */
-
-    public static function getClassification(ECompetition $competition): Array
-    {
-        $where=FDb::multiWhere(array('idcompetition','time','time'),array((String)$competition->getId(),'NULL','0'),"AND",array("=","<>",">"));
-        $query=FDb::load(self::$table[1],$where);
-        $resultQ=FDb::exInterrogation($query,"time");
-        $result=array();
-        foreach ($resultQ as $c=>$v){
-            $athlete=FAthlete::loadOne((int)$v["idathlete"]);
-            $time=new ETime((float)$v["time"]);
-            $result[]=array($athlete,$time);
-        }
-        $where1=FDb::multiWhere(array('idcompetition','time'),array((String)$competition->getId(),'NULL'),"AND",array("=","<>"));
-        $query1=FDb::load(self::$table[1],$where1);
-        $resultQ1=FDb::exInterrogation($query1);
-        foreach ($resultQ1 as $c=>$v){
-            $athlete=FAthlete::loadOne((int)$v["idathlete"]);
-            $time=new ETime((float)$v["time"]);
-            $result[]=array($athlete,$time);
-        }
-        return $result;
-    }
-
-
-     static function getRegistrations(ECompetition $competition): Array
-    {
-        $where=FDb::multiWhere(array('idcompetition','time'),array((String)$competition->getId(),'NULL'));
-        $query=FDb::load(self::$table[1],$where);
-        $resultQ=FDb::exInterrogation($query);
-        $result=array();
-        foreach ($resultQ as $c=>$v){
-            $athlete=FAthlete::loadOne((int)$v["idathlete"]);
-            $iscriber=FUser::loadOne((String)$v["email"]);
-            $result[]=array($athlete,$iscriber);
-        }
-        return $result;
-    }
-
-    public static function getPathFile(ECompetition $competition):String
-    {
-        return ECompetition::class."/".$competition->getId();
     }
 
     public static function search(EEvent|NULL $event=NULL,?String $name=NULL,?String $gender=NULL ,?String $sport=NULL ,DateTime|Null $dateFrom=NULL , DateTime|Null $dateTo=NULL,?EDistance $distanceFrom=NULL ,?EDistance $distanceTo=NULL):Array
@@ -287,5 +183,134 @@ class FCompetition {
         }
 
     }
+
+    public static function getPathFile(ECompetition $competition):String
+    {
+        return ECompetition::class."/".$competition->getId();
+    }
+
+
+
+
+    //Registration-Result
+
+
+
+    private static function whereResult(ECompetition $competition,EAthlete $athlete):Array
+    {
+        return FDb::multiWhere(array('idcompetition','idathlete'),array((string)$competition->getId(),(string)$athlete->getId()));
+    }
+
+    private static function getArrByObjResult(ECompetition $competition,EAthlete $athlete , EUser|ETime $info):Array
+    {
+        $idCompetition=(String)$competition->getId();
+        $idAthlete=(String)$athlete->getId();
+
+        $now=new DateTime();
+        $update_at=$now->format("Y-m-d h:i:s");
+
+        if($info::class==EUser::class){
+            $email=$info->getEmail();
+            return array("idathlete"=>$idAthlete,"idcompetition"=>$idCompetition,"email"=>$email,"updated_at"=>$update_at);
+        }
+        else{
+            $time=(String)$info->getValue();
+            return array("idathlete"=>$idAthlete,"idcompetition"=>$idCompetition,"time"=>$time);
+        }
+    }
+
+    public static function addResult(ECompetition $competition,EAthlete $athlete,ETime $time): bool
+    {
+        return FDb::update(self::$table[0],self::whereResult($competition,$athlete),self::getArrByObjResult($competition,$athlete,$time));
+    }
+
+    public static function addRegistration(ECompetition $competition,EAthlete $athlete,EUser $user): bool
+    {
+        $now=new DateTime();
+        $created_at=$now->format("Y-m-d h:i:s");
+        $fieldValue=self::getArrByObjResult($competition,$athlete,$user);
+        $fieldValue["created_at"]= $created_at;
+
+        return FDb::store(self::$table[1],$fieldValue);
+    }
+
+    /**
+     * @param ECompetition $competition
+     * @param EAthlete $athlete
+     * @return bool
+     */
+    public static function deleteRegistration(ECompetition $competition,EAthlete $athlete): bool
+    {
+        return FDb::delate(self::$table[1],FDb::multiWhere(array('idcompetition','idathlete','time'),array((string)$competition->getId(),(string)$athlete->getId(),NULL),array('=','=','=')));
+    }
+
+    /**
+     * @param ECompetition $competition
+     * @param EAthlete $athlete
+     * @return bool
+     * @throws Exception
+     */
+    public static function deleteResult(ECompetition $competition,EAthlete $athlete): bool
+    {
+        return FDb::delate(self::$table[1],FDb::multiWhere(array('idcompetition','idathlete','time'),array((string)$competition->getId(),(string)$athlete->getId(),NULL),array('=','=','<>')));
+    }
+
+    public static function existRegistration(ECompetition $competition,EAthlete $athlete):bool
+    {
+        return FDb::exist(FDb::load(self::$table[1],self::whereResult($competition,$athlete)));
+    }
+
+    /**
+     * return the user who register the athlete passed to the competition passed
+     * @param ECompetition $competition
+     * @param EAthlete $athlete
+     * @return EUser
+     */
+    public static function getRegisterBy(ECompetition $competition,EAthlete $athlete):?EUser
+    {
+        $resultQ=FDb::exInterrogation(FDb::load(self::$table[1],self::whereResult($competition,$athlete),'email'));
+        if(!empty($resultQ)) return FDbH::loadOne($resultQ[0],EUser::class);
+        else return NULL;
+    }
+
+
+    public static function getClassification(ECompetition $competition): Array
+    {
+        $where=FDb::multiWhere(array('idcompetition','time','time'),array((String)$competition->getId(),'NULL','0'),"AND",array("=","<>",">"));
+        $query=FDb::load(self::$table[1],$where);
+        $resultQ=FDb::exInterrogation($query,"time");
+        $result=array();
+        foreach ($resultQ as $c=>$v){
+            $athlete=FAthlete::loadOne((int)$v["idathlete"]);
+            $time=new ETime((float)$v["time"]);
+            $result[]=array($athlete,$time);
+        }
+        $where1=FDb::multiWhere(array('idcompetition','time'),array((String)$competition->getId(),'NULL'),"AND",array("=","<>"));
+        $query1=FDb::load(self::$table[1],$where1);
+        $resultQ1=FDb::exInterrogation($query1);
+        foreach ($resultQ1 as $c=>$v){
+            $athlete=FAthlete::loadOne((int)$v["idathlete"]);
+            $time=new ETime((float)$v["time"]);
+            $result[]=array($athlete,$time);
+        }
+        return $result;
+    }
+
+
+     static function getRegistrations(ECompetition $competition): Array
+    {
+        $where=FDb::multiWhere(array('idcompetition','time'),array((String)$competition->getId(),'NULL'));
+        $query=FDb::load(self::$table[1],$where);
+        $resultQ=FDb::exInterrogation($query);
+        $result=array();
+        foreach ($resultQ as $c=>$v){
+            $athlete=FAthlete::loadOne((int)$v["idathlete"]);
+            $iscriber=FUser::loadOne((String)$v["email"]);
+            $result[]=array($athlete,$iscriber);
+        }
+        return $result;
+    }
+
+
 
 }

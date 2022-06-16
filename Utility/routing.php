@@ -6,7 +6,7 @@ function routing():Array{
         'Delete'=> 'CManageAthlete::delete()',
         'MainPage'=>'CManageAthlete::mainPage()',
         'NewPage'=> 'CManageAthlete::newPage()',
-        'GetResult'=> 'CManageCompetitor::getResultAthlete()',
+        'GetResult'=> 'CManageRegistration::getResultAthlete()',
         'SearchPage'=> 'Csearch::searchPageAthlete',
         'Search'=> 'Csearch::searchAthlete'
     ];
@@ -22,15 +22,15 @@ function routing():Array{
         'Delete'=>'CManageCompetition::delete()',
         'MainPage'=>'CManageCompetition::mainPage()',
         'NewPage'=>'CManageCompetition::newPage()',
-        'AddRegistration'=> 'CManageCompetitor::addRegistration()',
-        'GetRegistration'=>'CManageCompetitor::getRegistration()',
-        'AddResult'=>'CManageCompetitor::addResult()',
-        'GetResult'=>'CManageCompetitor::getResult()',
+        'AddRegistration'=> 'CManageRegistration::addRegistration()',
+        'GetRegistration'=>'CManageRegistration::getRegistration()',
+        'AddResult'=>'CManageRegistration::addResult()',
+        'GetResult'=>'CManageRegistration::getResult()',
         'SearchPage'=>'CSearch::searchPageCompetition',
         'Search'=>'CSearch::searchCompetition'
     ];
     $competitor=[
-        'Delete'=>'CManageCompetitor::delate()'
+        'Delete'=>'CManageRegistration::delate()'
     ];
     $event=[
         'Update'=>'CManageEvent::update',
@@ -42,10 +42,10 @@ function routing():Array{
         'Search'=>'CSearch::searchEvent'
     ];
     $registration=[
-        'NewPage'=>'CManageCompetitor::newPageRegistration()'
+        'NewPage'=>'CManageRegistration::newPageRegistration()'
     ];
     $result=[
-        'NewPage'=>'CManageCompetitor::newPageResult()'
+        'NewPage'=>'CManageRegistration::newPageResult()'
     ];
 
     $controller=[

@@ -27,16 +27,8 @@ class CManageUser
     public static function login(EUser $user)
     {
         try{
-            if(FDbH::existOne($user->getEmail(),EUser::class)){
-                $u = FDbH::loadOne($user->getEmail(), EUser::class);
-
-                if($u->getPassword() == $user->getPassword()){
-                    FSession::login($user);
-                }
-                else throw new Exception("password wrong");
-            }
-
-            else throw new Exception("user don't signin");
+            if(FDbH::login($user->getEmail(),$user->getPassword()))FSession::login($user);
+            else throw new Exception("credential wrong");
         }
         catch (Exception $e){
             CError::storeError($e," login fallita , verificare di aver inserito le credenziali corrette");

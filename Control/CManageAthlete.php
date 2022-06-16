@@ -41,8 +41,12 @@ class CManageAthlete
 
 
 
-    public static function mainPage(EAthlete $athlete){
+    public static function mainPage(EAthlete $athlete , String $sport , String $nameCompetition){
         try{
+            $a = FDbH::getResultsAthlete($athlete);
+            if(!array_key_exists($sport, $a))return array();
+            elseif (!array_key_exists($nameCompetition, $a[$sport]))return array();
+            else return $a[$sport][$nameCompetition];
             //Richiama  VAthlete::show($athlete);
         }
         catch(Exception $e){

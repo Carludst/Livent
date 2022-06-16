@@ -89,9 +89,9 @@ class FComment
     /**
      * -Method : search in database by primarykey
      * @param int $key primarykey value
-     * @return bool|null return true if find correspondence , null if occurs an exception
+     * @return bool return true if find correspondence , null if occurs an exception
      */
-    public static function existOne(int $key): ?bool
+    public static function existOne(int $key): bool
     {
         return FDb::exist(FDb::load(self::$table, self::whereKey($key)));
     }
@@ -99,9 +99,9 @@ class FComment
     /**
      * -Method : delate by primarykey
      * @param int $key primarykey value
-     * @return bool|null return true if find correspondence , null if occurs an exception , false if not found corrispondence
+     * @return bool return true if find correspondence , null if occurs an exception , false if not found corrispondence
      */
-    public static function deleteOne(int $key): ?bool
+    public static function deleteOne(int $key): bool
     {
         return FDb::delate(self::$table, self::whereKey($key));
     }
@@ -109,9 +109,9 @@ class FComment
     /**
      * -Method : update EAthlete data by primarykey saved into object passed
      * @param EComment $comment EAthlete data to update
-     * @return bool|null return true if find correspondence , null if occurs an exception , false if not found corrispondence
+     * @return bool return true if find correspondence , null if occurs an exception , false if not found corrispondence
      */
-    public static function updateOne(EComment $comment): ?bool
+    public static function updateOne(EComment $comment): bool
     {
         return FDb::update(self::$table, self::whereKey($comment->getUser()->getEmail()), self::getArrayByObject($comment));
     }

@@ -38,6 +38,7 @@ class FContact{
         $fieldValue['created_at']=$created_at;
         $fieldValue['idevent']=$idEvent;
         FDb::store(self::$table, $fieldValue);
+        $contact->setId((int)FDb::exInterrogation(FDb::opGroupMax(self::$table,'idcontact'))[0]['max']);
     }
 
     public static function loadOne(int $key):?EContact{
@@ -59,17 +60,17 @@ class FContact{
         return $result;
     }
 
-    public static function existOne(int $key):?bool
+    public static function existOne(int $key):bool
     {
         return FDb::exist(FDb::load(self::$table,self::whereKey($key)));
     }
 
-    public static function deleteOne(int $key):?bool
+    public static function deleteOne(int $key):bool
     {
         return FDb::delate(self::$table,self::whereKey($key));
     }
 
-    public static function updateOne(EContact $contact):?bool
+    public static function updateOne(EContact $contact):bool
     {
         $key=$contact->getId();
         return FDb::update(self::$table,self::whereKey($key),self::getArrayByObject($contact));

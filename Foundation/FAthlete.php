@@ -92,9 +92,9 @@ class FAthlete {
     /**
      * -Method : search in database by primarykey
      * @param int $key primarykey value
-     * @return bool|null return true if find correspondence , null if occurs an exception
+     * @return bool return true if find correspondence , null if occurs an exception
      */
-    public static function existOne(int $key):?bool
+    public static function existOne(int $key): bool
     {
         return FDb::exist(FDb::load(self::$table[0],self::whereKey($key)));
     }
@@ -102,9 +102,9 @@ class FAthlete {
     /**
      * -Method : delate by primarykey
      * @param int $key primarykey value
-     * @return bool|null return true if find correspondence , null if occurs an exception , false if not found corrispondence
+     * @return bool return true if find correspondence , null if occurs an exception , false if not found corrispondence
      */
-    public static function deleteOne(int $key):?bool
+    public static function deleteOne(int $key):bool
     {
         return FDb::delate(self::$table[0],self::whereKey($key));
     }
@@ -112,9 +112,9 @@ class FAthlete {
     /**
      * -Method : update EAthlete data by primarykey saved into object passed
      * @param EAthlete $athlete  EAthlete data to update
-     * @return bool|null return true if find correspondence , null if occurs an exception , false if not found corrispondence
+     * @return bool return true if find correspondence , null if occurs an exception , false if not found corrispondence
      */
-    public static function updateOne(EAthlete $athlete):?bool
+    public static function updateOne(EAthlete $athlete):bool
     {
         return FDb::update(self::$table[0],self::whereKey($athlete->getId()),self::getArrayByObject($athlete));
     }
@@ -136,9 +136,9 @@ class FAthlete {
             $competition=FCompetition::loadOne($v["idcompetition"]);
             $result[$competition->getSport()][$competition->getName()][]=array($competition,new ETime((float)$v["time"]));
         }
-        $where1=FDb::multiWhere(array('idathlete','time'),array((String)$athlete->getId(),'NULL'),"AND",array("=","<>"));
+        $where1=FDb::multiWhere(array('idathlete','time','time'),array((String)$athlete->getId(),'NULL',0),"AND",array("=","<>","<="));
         $query1=FDb::load(self::$table[1],$where);
-        $resultQ1=FDb::exInterrogation($query);
+        $resultQ1=FDb::exInterrogation($query,"time");
         foreach ($resultQ1 as $c=>$v){
             //righa successiva da modificare
             $competition=FCompetition::loadOne($v["idcompetition"]);

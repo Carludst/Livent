@@ -47,6 +47,8 @@ class CManageCompetition
 
     public static function mainPage(ECompetition $competition){
         try{
+            $registration=FDbH::getRegistrationsCompetition($competition);
+            $result=FDbH::getClassificationCompetition($competition);
             //Richiama  view competition
         }
         catch(Exception $e){

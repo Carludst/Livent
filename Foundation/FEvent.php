@@ -80,17 +80,17 @@ class FEvent
         return $result;
     }
 
-    public static function existOne(int $key):?bool
+    public static function existOne(int $key):bool
     {
         return FDb::exist(FDb::load(self::$table[0],self::whereKey($key)));
     }
 
-    public static function deleteOne(int $key):?bool
+    public static function deleteOne(int $key):bool
     {
         return FDb::delate(self::$table[0],self::whereKey($key));
     }
 
-    public static function updateOne(EEvent $event):?bool
+    public static function updateOne(EEvent $event):bool
     {
         return FDb::update(self::$table[0],self::whereKey((String)$event->getId()),self::getArrayByObject($event));
     }

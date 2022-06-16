@@ -1,5 +1,5 @@
 <?php
-include_once '../Utility/DbDefaultConfiguration.php';
+require_once '../Utility/DbDefaultConfiguration.php';
 
 class FDb{
 
@@ -8,12 +8,7 @@ class FDb{
 
     public function __construct(String $host,String $database,String $username , String $password)
     {
-        try {
-            self::$pdoV = new PDO("mysql:host=$host; dbname=$database", $username, $password);
-        } catch (PDOException $e) {
-            echo "!ERRORE!" . $e->getMessage();
-            die;
-        }
+        self::$pdoV = new PDO("mysql:host=$host; dbname=$database", $username, $password);
     }
 
     public static function getPdo():PDO
@@ -30,6 +25,7 @@ class FDb{
      * @param String $table database table where insert the values
      * @param array $fieldValue array with field  as key and value as element of the array
      * @return bool return false if is occurred an error
+     * @throws Exception
      */
     public static function store(String $table,Array $fieldValue):bool
     {
@@ -53,9 +49,9 @@ class FDb{
         }
         catch (PDOException $e)
         {
-            echo "!ERRORE!" . $e->getMessage();
-            self::$pdoV->rollBack();
-            return false;
+            echo($e->getMessage());
+            self::getPdo()->rollBack();
+            throw new Exception('store error');
         }
 
     }
@@ -65,8 +61,9 @@ class FDb{
      * @param String $table work table
      * @param String $where where clause
      * @return bool|null true if the operation completed successfuly
+     * @throws Exception
      */
-    public static function delate(String $table , Array $where):?bool{
+    public static function delate(String $table , Array $where):bool{
         try{
             if(self::exist(self::load($table,$where))){
                 self::$pdoV->beginTransaction();
@@ -79,9 +76,8 @@ class FDb{
             else return false;
         }
         catch (PDOException $e){
-            echo "!ERRORE!" . $e->getMessage();
             self::$pdoV->rollBack();
-            return null;
+            throw new Exception('delate error');
         }
 
     }
@@ -91,6 +87,7 @@ class FDb{
      * @param String $where where clause
      * @param String $fieldValue array with field to change as key and new value as element of the array
      * @return bool|null true if the operation completed successfuly
+     * @throws Exception
      */
     public static function update(String $table,Array $where,Array $fieldValue):?bool
     {
@@ -115,9 +112,8 @@ class FDb{
             else return false;
         }
         catch (PDOException $e){
-            echo "!ERRORE!" . $e->getMessage();
             self::$pdoV->rollBack();
-            return null;
+            throw new Exception('update error');
         }
 
     }
@@ -153,9 +149,8 @@ class FDb{
             return $result;
         }
         catch (PDOException $e) {
-            echo "!ERRORE!" . $e->getMessage();
             self::$pdoV->rollBack();
-            return null;
+            throw new Exception('execute query error');
         }
 
     }
@@ -165,6 +160,7 @@ class FDb{
      * @param String $query query to execute
      * @param array|null $valParametres parametres not just express into the query (useful for login)
      * @return bool|null return true if the query result is not empty , null if is occurred an error
+     * @throws Exception
      */
     public static function exist(Array $query):?bool
     {
@@ -182,19 +178,11 @@ class FDb{
             return $result;
         }
         catch (PDOException $e) {
-            echo "!ERRORE!" . $e->getMessage();
             self::$pdoV->rollBack();
-            return null;
+            throw new Exception('exist error');
         }
 
     }
-
-    public static function storeFile(String $pathFile, String $pathDB ,String $name ,String $type,int $size){
-
-
-
-    }
-
 
 
     /**
