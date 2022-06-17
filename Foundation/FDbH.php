@@ -89,23 +89,7 @@ class FDbH {
             $Fclass = "F".substr($Eclass,1);
             $pathDB=$Fclass::getPathFile($objPath);
         }
-        if(!is_null($resize)&& $resize!=1){
-            $currentSize=getimagesize($pathFile);
-            $width=$currentSize[0]*$resize;
-            $height=$currentSize[1]*$resize;
-            $img=imagecreatefromjpeg($pathFile);
-            if($img==false)$img=imagecreatefrompng($pathFile);
-            if($img==false)throw new Exception('file format not supported');
-            $imgResized=imagecreatetruecolor($width,$height);
-            imagecopyresampled($imgResized,$img,0,0,0,0,$width,$height,$currentSize[0],$currentSize[1]);
-            if($imgResized==false)throw new Exception('resized not succes');
-            imagejpeg($imgResized,'../imgresized.jpg');
-            $blobFile=file_get_contents('../imgresized.jpg') ;
-            unlink('../imgresized.jpg');
-            imagedestroy($img);
-            imagedestroy($imgResized);
-        }
-        else $blobFile=file_get_contents($pathFile) ;
+        $blobFile=file_get_contents($pathFile) ;
         $blobFile=addslashes($blobFile);
         $updated_at=date("Y-m-d H:i:s");
         $created_at=date("Y-m-d H:i:s");
@@ -118,7 +102,7 @@ class FDbH {
      * @return String
      * @throws Exception
      */
-    public static function loadFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name ,bool $base64=true):String
+    public static function loadFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name , ?float $resize=NULL ,bool $base64=true):String
     {
         if(is_string($objPath))$pathDB=$objPath;
         else{
@@ -127,11 +111,37 @@ class FDbH {
             $pathDB=$Fclass::getPathFile($objPath);
         }
         $array=FDb::exInterrogation(FDb::load('file',FDb::multiWhere(array("path","name"),array($pathDB,$name))));
-        if(count($array)>0){
-            if($base64)return base64_encode($array[0]['file']);
-            else return $array[0]['file'];
+        if(!count($array)>0) throw new Exception("don't exist file with this path");
+        $array=$array[0];
+
+        if(count($array)>0&&!is_null($resize)&& $resize<1){
+            $pathFile='../img.'.$array['type'];
+
+
+            $file=fopen($pathFile,'w');
+            fwrite($file,stripslashes($array['file']));
+            fclose($file);
+
+            $currentSize=getimagesize($pathFile);
+            $width=$currentSize[0]*$resize;
+            $height=$currentSize[1]*$resize;
+            $img=imagecreatefromjpeg($pathFile);
+            if($img==false)$img=imagecreatefrompng($pathFile);
+            if($img==false)throw new Exception('file format not supported');
+            $imgResized=imagecreatetruecolor($width,$height);
+            imagecopyresampled($imgResized,$img,0,0,0,0,$width,$height,$currentSize[0],$currentSize[1]);
+            if($imgResized==false)throw new Exception('resized not succes');
+            imagejpeg($imgResized,'../imgresized.jpg');
+            $blob=file_get_contents('../imgresized.jpg') ;
+            unlink('../imgresized.jpg');
+            unlink($pathFile);
+            imagedestroy($img);
+            imagedestroy($imgResized);
         }
-        else throw new Exception("don't exist file with this path");
+        else $blob=stripslashes($array['file']);
+
+        if($base64)return base64_encode($blob);
+        else return $blob;
     }
 
     /**

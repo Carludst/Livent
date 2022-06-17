@@ -3,4 +3,8 @@ include_once "../Utility/autoload.php";
 include_once "../Foundation/FDbH.php";
 
 //$a=new EAthlete('r','d',new DateTime(),false);
-//FDbH::storeFile('prova11111','roberto','C:\Users\rober\OneDrive\Pictures\Saved Pictures\IMG_20180822_094922.jpg','txt',1);
+FDbH::deleteFile('prova','r0');
+FDbH::storeFile('prova','r0','C:\Users\rober\OneDrive\Pictures\Luna.jpg','JPEG',2);
+$blob=FDbH::loadFile('prova','r0',0.5,false);
+//FFile::write($blob);
+//FFile::delete();

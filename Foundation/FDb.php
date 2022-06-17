@@ -150,7 +150,7 @@ class FDb{
         }
         catch (PDOException $e) {
             self::$pdoV->rollBack();
-            throw new Exception('execute query error');
+            throw new Exception($e->getMessage());
         }
 
     }
