@@ -1,5 +1,5 @@
 <?php
-require_once '../Utility/DbDefaultConfiguration.php';
+require_once $GLOBALS('pathProject').'/Utility/DbDefaultConfiguration.php';
 
 class FDb{
 

@@ -2,7 +2,7 @@
 
 function my_autoloader($className){
     $firstLetter = $className[0];
-    $relativePath=substr(__DIR__,0,strrpos(__DIR__,'\\')-strlen(__DIR__));
+    $relativePath=$GLOBALS('defoultPath');
     switch ($firstLetter) {
         case 'E':
             include_once($relativePath.'/Entity/' . $className . '.php');

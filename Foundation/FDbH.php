@@ -125,14 +125,19 @@ class FDbH {
             $currentSize=getimagesize($pathFile);
             $width=$currentSize[0]*$resize;
             $height=$currentSize[1]*$resize;
+
             $img=imagecreatefromjpeg($pathFile);
             if($img==false)$img=imagecreatefrompng($pathFile);
             if($img==false)throw new Exception('file format not supported');
             $imgResized=imagecreatetruecolor($width,$height);
             imagecopyresampled($imgResized,$img,0,0,0,0,$width,$height,$currentSize[0],$currentSize[1]);
             if($imgResized==false)throw new Exception('resized not succes');
-            imagejpeg($imgResized,'../imgresized.jpg');
+
+            if(!imagejpeg($imgResized,'../imgresized.jpg')){
+                if(!imagepng($imgResized,'../imgresized.jpg'))throw new Exception('file format not supported');
+            }
             $blob=file_get_contents('../imgresized.jpg') ;
+
             unlink('../imgresized.jpg');
             unlink($pathFile);
             imagedestroy($img);
