@@ -40,10 +40,11 @@ class CManageComment
         }
     }
 
-    public static function appendImage(String $href,EComment $comment){
+    public static function attachImage(String $href,EComment $comment){
         try{
             if(self::authorizer($comment)){
-                //store image
+                if(FDbH::existFile($comment,'attachedImg'))FDbH::updateFile($comment,'attachedImg',$href,'type',2);
+                else FDbH::storeFile($comment,'attachedImg',$href,'type',2);
             }
         }
         catch(Exception $e){

@@ -48,7 +48,8 @@ class CManageCompetition
     public static function setImageFront(String $href , ECompetition $competition){
         try{
             if(self::authorizer($competition)){
-                //update image
+                if(FDbH::existFile($competition,'front'))FDbH::updateFile($competition,'front',$href,'type',2);
+                else FDbH::storeFile($competition,'front',$href,'type',2);
             }
         }
         catch(Exception $e){

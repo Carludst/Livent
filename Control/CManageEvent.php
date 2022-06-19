@@ -45,7 +45,8 @@ class CManageEvent
     public static function setImageFront(String $href , EEvent $event){
         try{
             if(self::authorizer($event)){
-                //update image
+                if(FDbH::existFile($event,'front'))FDbH::updateFile($event,'front',$href,'type',2);
+                else FDbH::storeFile($event,'front',$href,'type',2);
             }
         }
         catch(Exception $e){

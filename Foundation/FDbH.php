@@ -97,6 +97,30 @@ class FDbH {
     }
 
     /**
+     * @param String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath
+     * @param String $name
+     * @param String $pathFile
+     * @param String $type
+     * @param int $size
+     * @param float|null $resize
+     * @return void
+     * @throws Exception
+     */
+    public static function updateFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , int $size, ?float $resize=NULL):bool
+    {
+        if(is_string($objPath))$pathDB=$objPath;
+        else{
+            $Eclass = get_class($objPath);
+            $Fclass = "F".substr($Eclass,1);
+            $pathDB=$Fclass::getPathFile($objPath);
+        }
+        $blobFile=file_get_contents($pathFile) ;
+        $blobFile=addslashes($blobFile);
+        $updated_at=date("Y-m-d H:i:s");
+        return FDb::update('file',FDb::multiWhere(array('path','name'),array($pathDB,$name)),array('path'=>$pathDB,'name'=>$name,'size'=>$size,'type'=>$type,'file'=>$blobFile , 'updated_at'=>$updated_at));
+    }
+
+    /**
      * @param String|EAthlete|EUser|EComment|ECompetition|array|EEvent $objPath
      * @param String $name
      * @return String
@@ -164,6 +188,17 @@ class FDbH {
             $pathDB=$Fclass::getPathFile($objPath);
         }
         return FDb::delate('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)));
+    }
+
+    public static function existFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name):bool
+    {
+        if(is_string($objPath))$pathDB=$objPath;
+        else{
+            $Eclass = get_class($objPath);
+            $Fclass = "F".substr($Eclass,1);
+            $pathDB=$Fclass::getPathFile($objPath);
+        }
+        return FDb::exist(FDb::load('file',FDb::multiWhere(array("path","name"),array($pathDB,$name))));
     }
 
     /**

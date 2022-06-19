@@ -94,7 +94,8 @@ class CManageUser
 
     public static function setProgileImage(String $href , EUser $user){
         try{
-            //update image
+            if(FDbH::existFile($user,'profile'))FDbH::updateFile($user,'profile',$href,'type',2);
+            else FDbH::storeFile($user,'profile',$href,'type',2);
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! il file non è stato salvato , verificare di possedere le autorizazioni necessarie");
