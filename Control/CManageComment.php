@@ -16,7 +16,7 @@ class CManageComment
             }
         }
         catch (Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! L'aggiornamento del commento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! L'aggiornamento del commento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -27,7 +27,7 @@ class CManageComment
             if(CManageUser::callLogin())FDbH::store($comment,$event->getId());
         }
         catch (Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! L'invio  del commento non è andato a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! L'invio  del commento non è andato a buon fine");
         }
     }
 
@@ -36,7 +36,18 @@ class CManageComment
             if(self::authorizer($comment))FDbH::deleteOne($comment->getId(),EComment::class);
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La cancellazione del commento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione del commento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+        }
+    }
+
+    public static function appendImage(String $href,EComment $comment){
+        try{
+            if(self::authorizer($comment)){
+                //store image
+            }
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! il file non è stato allegato , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -48,7 +59,7 @@ class CManageComment
             }
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dei commenti non è andato a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dei commenti non è andato a buon fine");
         }
     }
 

@@ -155,7 +155,7 @@ class FDbH {
      * @return bool|null
      * @throws Exception
      */
-    public static function deleteFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name):?bool
+    public static function deleteFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name): bool
     {
         if(is_string($objPath))$pathDB=$objPath;
         else{
@@ -259,8 +259,8 @@ class FDbH {
      * @param EAthlete $athlete
      * @return EUser
      */
-    public static function getRegisterBy(ECompetition $competition, EAthlete $athlete):EUser{
-        return FCompetition::getRegisterBy($competition,$athlete);
+    public static function RegisteredBy(ECompetition $competition, EAthlete $athlete):EUser{
+        return FCompetition::RegisteredBy($competition,$athlete);
     }
 
     /** -Method
@@ -287,6 +287,12 @@ class FDbH {
      */
     public static function getResultsAthlete( EAthlete $athlete):Array{
         return FAthlete::getResults($athlete);
+    }
+
+
+    public static function getRegistrationUser(EUser $user ):Array
+    {
+        return FUser::getRegistration($user);
     }
 
     /**
@@ -421,7 +427,7 @@ class FDbH {
     /**
      * @return String
      */
-    public static function returnPathFile()
+    public static function returnErrorPathFile()
     {
         return FFile::getPath();
 

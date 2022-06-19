@@ -1,5 +1,6 @@
 <?php
 function routing():Array{
+    //8
     $athlete=[
         'Update'=>'CManageAthlete::update',
         'Create'=>'CManageAthlete::create',
@@ -10,12 +11,14 @@ function routing():Array{
         'SearchPage'=> 'Csearch::searchPageAthlete',
         'Search'=> 'Csearch::searchAthlete'
     ];
+    //4 => 12
     $comment=[
         'Update'=>'CManageComment::update',
         'Create'=>'CManageComment::create',
         'Delete'=>'CManageComment::delete()',
         'Search'=>'Csearch::searchComment'
     ];
+    //9 => 21
     $competition=[
         'Update'=>'CManageCompetition::update',
         'Create'=>'CManageCompetition::create',
@@ -23,15 +26,11 @@ function routing():Array{
         'MainPage'=>'CManageCompetition::mainPage()',
         'NewPage'=>'CManageCompetition::newPage()',
         'AddRegistration'=> 'CManageRegistration::addRegistration()',
-        'GetRegistration'=>'CManageRegistration::getRegistration()',
-        'AddResult'=>'CManageRegistration::addResult()',
-        'GetResult'=>'CManageRegistration::getResult()',
+        'AddResult'=>'CManageResult::addResult()',
         'SearchPage'=>'CSearch::searchPageCompetition',
         'Search'=>'CSearch::searchCompetition'
     ];
-    $competitor=[
-        'Delete'=>'CManageRegistration::delate()'
-    ];
+    //7 => 28
     $event=[
         'Update'=>'CManageEvent::update',
         'Create'=>'CManageEvent::create',
@@ -41,21 +40,43 @@ function routing():Array{
         'SearchPage'=>'CSearch::searchPageEvent',
         'Search'=>'CSearch::searchEvent'
     ];
+    //2 => 30
     $registration=[
-        'NewPage'=>'CManageRegistration::newPageRegistration()'
+        'NewPage'=>'CManageRegistration::newPageRegistration()',
+        'Delete'=>'CManageRegistration::delate()'
     ];
+    //2 => 32
     $result=[
-        'NewPage'=>'CManageRegistration::newPageResult()'
+        'NewPage'=>'CManageResult::newPageResult()',
+        'Delete'=>'CManageResult::delate()'
     ];
-
+    //7 => 39
+    $user=[
+        'LoginPage'=>'CManageUser::loginPage',
+        'SigninPage'=>'CManageUser::signinPage',
+        'UpdatePage'=>'CManageUser::updatePage',
+        'ProfilePage'=>'CManageUser::profilePage',
+        'Login'=>'CManageUser::login',
+        'Signin'=>'CManageUser::signin',
+        'Logout'=>'CManageUser::logout'
+    ];
+    //3 => 42
+    $error=[
+        ''=>'CError::read',
+        'Delate'=>'CError::delate',
+        'Dowload'=>'CError::getFile'
+    ];
+    //1 =>43
     $controller=[
         'Athlete'=>$athlete,
         'Comment'=>$comment,
         'Competition'=>$competition,
-        'Competitor'=>$competitor,
         'Event'=>$event,
         'Registration'=>$registration,
-        'Result'=>$result
+        'Result'=>$result,
+        'User'=>$user,
+        'Error'=>$error,
+        ''=>'CShowHome::HomePage'
     ];
     $routing=[
         'Livent'=>$controller

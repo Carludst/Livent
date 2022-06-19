@@ -16,7 +16,7 @@ class CManageAthlete
             }
         }
         catch (Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! ci sono stati errori con l'aggiornamento dei dati dell' atleta , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! ci sono stati errori con l'aggiornamento dei dati dell' atleta , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -26,7 +26,7 @@ class CManageAthlete
             if(CManageUser::callLogin())FDbH::store($athlete);
         }
         catch (Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! il salvataggio dei dati dell' Atleta non è andato a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! il salvataggio dei dati dell' Atleta non è andato a buon fine");
         }
     }
 
@@ -35,7 +35,7 @@ class CManageAthlete
             if(self::authorizer())FDbH::deleteOne($athlete->getId(),EAthlete::class);
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! la cancellazione dei dati dell' atleta non è andata a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! la cancellazione dei dati dell' atleta non è andata a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -50,7 +50,7 @@ class CManageAthlete
             //Richiama  VAthlete::show($athlete);
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! la visualizzazione della pagina dell'Atleta non è andata a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! la visualizzazione della pagina dell'Atleta non è andata a buon fine");
         }
     }
 
@@ -61,7 +61,7 @@ class CManageAthlete
             }
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! la visualizzazione della pagina di crezione/aggiornamento dati dell'Atleta non è andata a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! la visualizzazione della pagina di crezione/aggiornamento dati dell'Atleta non è andata a buon fine");
         }
     }
 

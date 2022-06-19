@@ -2,6 +2,15 @@
 
 class CManageUser
 {
+
+    private static function authorizer(EUser $user):bool{
+
+        if(FSession::isLogged() && FSession::getUserLogged()->getEmail()==$user->getEmail())throw new Exception("you must be an administrator to update an Athlete");
+        return self::callLogin();
+    }
+
+
+
     public static function callLogin(bool $return=true){
         if(!FSession::isLogged()){
             if($return){
@@ -18,20 +27,15 @@ class CManageUser
         else return true;
     }
 
-    private static function authorizer(EUser $user):bool{
-
-        if(FSession::isLogged() && FSession::getUserLogged()->getEmail()==$user->getEmail())throw new Exception("you must be an administrator to update an Athlete");
-        return self::callLogin();
-    }
 
     public static function login(EUser $user)
     {
         try{
-            if(FDbH::login($user->getEmail(),$user->getPassword()))FSession::login($user);
+            if(FDbH::login($user))FSession::login($user);
             else throw new Exception("credential wrong");
         }
         catch (Exception $e){
-            CError::storeError($e," login fallita , verificare di aver inserito le credenziali corrette");
+            CError::store($e," login fallita , verificare di aver inserito le credenziali corrette");
         }
     }
 
@@ -43,7 +47,7 @@ class CManageUser
             else throw new Exception("you are not logged");
         }
         catch (Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! Il logout non è andata a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! Il logout non è andata a buon fine");
         }
     }
 
@@ -55,36 +59,10 @@ class CManageUser
             self::login($user);
         }
         catch (Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La registrazione non è andata a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! La registrazione non è andata a buon fine");
         }
     }
 
-    public static function loginPage(){
-        try{
-            //Richiama  VLogin::show();
-        }
-        catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di login non è andata a buon fine");
-        }
-    }
-
-    public static function signinPage(){
-        try{
-            //Richiama  VSignin::show();
-        }
-        catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di registrazione utente non è andata a buon fine");
-        }
-    }
-
-    public static function updatePage(EUser $user){
-        try{
-            //Richiama  VSignin::show($user);
-        }
-        catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di aggiornamento dei tuoi dati utente non è andata a buon fine");
-        }
-    }
 
     public static function update(EUser $user):void
     {
@@ -97,7 +75,7 @@ class CManageUser
             }
         }
         catch (Exception $e){
-            //RICHIAMA ERRORE
+            CError::store($e,"ci scusiamo per il disaggio !!! L'aggiornamento dei dati dell'utente non è andato a buon fine");
         }
     }
 
@@ -110,7 +88,53 @@ class CManageUser
             }
         }
         catch(Exception $e){
-            //RICHIAMA ERRORE
+            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione dell'utente non è andato a buon fine");
+        }
+    }
+
+    public static function setProgileImage(String $href , EUser $user){
+        try{
+            //update image
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! il file non è stato salvato , verificare di possedere le autorizazioni necessarie");
+        }
+    }
+
+    public static function loginPage(){
+        try{
+            //Richiama  VLogin::show();
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di login non è andata a buon fine");
+        }
+    }
+
+    public static function signinPage(){
+        try{
+            //Richiama  VSignin::show();
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di registrazione utente non è andata a buon fine");
+        }
+    }
+
+    public static function updatePage(EUser $user){
+        try{
+            //Richiama  VSignin::show($user);
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di aggiornamento dei tuoi dati utente non è andata a buon fine");
+        }
+    }
+
+    public static function profilePage(){
+        try{
+            FDbH::getRegistrationUser(FSession::getUserLogged());
+            //Richiama  VLogin::show();
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di profilo non è andata a buon fine");
         }
     }
 

@@ -16,7 +16,7 @@ class CManageCompetition
             }
         }
         catch (Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! L'aggiornamento dei dati della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! L'aggiornamento dei dati della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -30,7 +30,7 @@ class CManageCompetition
             }
         }
         catch (Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La creazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La creazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -41,18 +41,29 @@ class CManageCompetition
             }
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! L'eliminazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! L'eliminazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+        }
+    }
+
+    public static function setImageFront(String $href , ECompetition $competition){
+        try{
+            if(self::authorizer($competition)){
+                //update image
+            }
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! il file non è stato salvato , verificare di possedere le autorizazioni necessarie");
         }
     }
 
     public static function mainPage(ECompetition $competition){
         try{
-            $registration=FDbH::getRegistrationsCompetition($competition);
-            $result=FDbH::getClassificationCompetition($competition);
+            $registration=$competition->getRegistrations();
+            $result=$competition->getClassification();
             //Richiama  view competition
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina della competizione non è andato a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina della competizione non è andato a buon fine");
         }
     }
 
@@ -63,7 +74,7 @@ class CManageCompetition
             }
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 }

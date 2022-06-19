@@ -15,7 +15,7 @@ class CManageEvent
             }
         }
         catch (Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! L'aggiornamento dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! L'aggiornamento dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -27,7 +27,7 @@ class CManageEvent
             }
         }
         catch (Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La creazione dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La creazione dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -38,7 +38,18 @@ class CManageEvent
             }
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La cancellazione dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+        }
+    }
+
+    public static function setImageFront(String $href , EEvent $event){
+        try{
+            if(self::authorizer($event)){
+                //update image
+            }
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! il file non è stato salvato , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -47,7 +58,7 @@ class CManageEvent
             //Richiama  VEvent::show($event);
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -58,7 +69,7 @@ class CManageEvent
             }
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina per creare/modificare un evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina per creare/modificare un evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 

@@ -17,11 +17,11 @@ class CManageResult
     public static function addResult(ECompetition $competition,EAthlete $athlete, ETime $time){
         try{
             if(self::authorizer($competition)){
-                if(!FDbH::addResultCompetition($competition,$athlete,$time))throw new Exception("loading result is failed");
+                if(!$competition->addResult($athlete,$time))throw new Exception("loading result is failed");
             }
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! L'inserimento del risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! L'inserimento del risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -30,11 +30,11 @@ class CManageResult
     {
         try{
             if(self::authorizer($competition)){
-                if(!FDbH::deleteResult($competition,$athlete))throw new Exception("deletion registration/result is failed");
+                if(!$competition->popResult($athlete))throw new Exception("deletion registration/result is failed");
             }
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La cancellazione dei risultati/registrazioni non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione dei risultati/registrazioni non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
 
     }
@@ -48,7 +48,7 @@ class CManageResult
             }
         }
         catch(Exception $e){
-            CError::storeError($e,"ci scusiamo per il disaggio !!! La visualizazzione della pagina per inserire un risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizazzione della pagina per inserire un risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 

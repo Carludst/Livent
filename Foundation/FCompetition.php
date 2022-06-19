@@ -266,7 +266,7 @@ class FCompetition {
      * @param EAthlete $athlete
      * @return EUser
      */
-    public static function getRegisterBy(ECompetition $competition,EAthlete $athlete):?EUser
+    public static function RegisteredBy(ECompetition $competition,EAthlete $athlete):?EUser
     {
         $resultQ=FDb::exInterrogation(FDb::load(self::$table[1],self::whereResult($competition,$athlete),'email'));
         if(!empty($resultQ)) return FDbH::loadOne($resultQ[0],EUser::class);

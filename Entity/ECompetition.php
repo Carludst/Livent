@@ -146,9 +146,14 @@ class ECompetition{
      * @param EUser $iscriber
      * @return bool|null
      */
-    public function addRegistration(EAthlete $athlete , EUser $iscriber) :?bool
+    public function addRegistration(EAthlete $athlete , EUser $iscriber) :bool
     {
         return FDbH::addRegistrationCompetition($this,$athlete,$iscriber);
+    }
+
+    public function RegisteredBy(EAthlete $athlete):EUser
+    {
+        return FDbH::RegisteredBy($this,$athlete);
     }
 
     /**
@@ -156,7 +161,7 @@ class ECompetition{
      * @param ETime $time
      * @return bool|null
      */
-    public function addResult(EAthlete $athlete , ETime $time):?bool
+    public function addResult(EAthlete $athlete , ETime $time):bool
     {
         return FDbH::addResultCompetition($this,$athlete,$time);
     }
@@ -165,9 +170,14 @@ class ECompetition{
      * @param EAthlete $athlete
      * @return bool
      */
-    public function popCompetitor(EAthlete $athlete) : bool
+    public function popRegistration(EAthlete $athlete) : bool
     {
-        return FDbH::deleteCompetitorCompetition($this,$athlete);
+        return FDbH::deleteRegistration($this,$athlete);
+    }
+
+    public function popResult(EAthlete $athlete) : bool
+    {
+        return FDbH::deleteResult($this,$athlete);
     }
 
     /**

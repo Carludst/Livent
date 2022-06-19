@@ -2,22 +2,22 @@
 
 class CError
 {
-    public static function storeError(Exception $error, string $message){
+    public static function store(Exception $error, string $message){
         FDbH::storeError($error);
         //VErrorPage::Show($message);
     }
 
-    public static function readError(){
+    public static function read(){
         FDbH::readErrors();
         //richiama la view
     }
 
-    public static function deleteError(){
+    public static function delete(){
         FDbH::deleteErrors();
     }
 
     public static function getFile(){
-        header("Location: ".FDbH::returnPathFile());
+        header("Location: ".FDbH::returnErrorPathFile());
         header("Content-Type: txt");
     }
 
