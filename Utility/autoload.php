@@ -3,6 +3,7 @@
 function my_autoloader($className){
     $firstLetter = $className[0];
     $relativePath=$GLOBALS('defoultPath');
+
     switch ($firstLetter) {
         case 'E':
             include_once($relativePath.'/Entity/' . $className . '.php');
@@ -21,7 +22,10 @@ function my_autoloader($className){
             break;
 
         default :
-            include_once($relativePath.'/'.$className . '.php');
+            if (file_exists($relativePath.'/smarty-4.1.1/libs/' . $className . '.php')){
+                include_once($relativePath.'/smarty-4.1.1/libs/' . $className . '.php');
+            }
+            else include_once($relativePath.'/'.$className . '.php');
             break;
     }
 }
