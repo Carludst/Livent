@@ -43,12 +43,12 @@ function routing():Array{
     //2 => 30
     $registration=[
         'NewPage'=>'CManageRegistration::newPageRegistration()',
-        'Delete'=>'CManageRegistration::delate()'
+        'Delete'=>'CManageRegistration::delete()'
     ];
     //2 => 32
     $result=[
         'NewPage'=>'CManageResult::newPageResult()',
-        'Delete'=>'CManageResult::delate()'
+        'Delete'=>'CManageResult::delete()'
     ];
     //7 => 39
     $user=[
@@ -63,8 +63,8 @@ function routing():Array{
     //3 => 42
     $error=[
         ''=>'CError::read',
-        'Delate'=>'CError::delate',
-        'Dowload'=>'CError::getFile'
+        'Delete'=>'CError::delete',
+        'Download'=>'CError::getFile'
     ];
     //1 =>43
     $controller=[

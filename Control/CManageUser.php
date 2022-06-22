@@ -92,7 +92,7 @@ class CManageUser
         }
     }
 
-    public static function setProgileImage(String $href , EUser $user){
+    public static function setProfileImage(String $href , EUser $user){
         try{
             if(FDbH::existFile($user,'profile'))FDbH::updateFile($user,'profile',$href,'type',2);
             else FDbH::storeFile($user,'profile',$href,'type',2);

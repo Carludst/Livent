@@ -3,6 +3,6 @@ $projectName='Livent';
 
 
 
-global $defoultPath;
+global $defaultPath;
 preg_match('/^(.*'.$projectName.')/',__DIR__,$array);
-$defoultPath=$array[0];
+$defaultPath=$array[0];
