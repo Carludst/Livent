@@ -58,6 +58,16 @@ FACEBOOK: https://www.facebook.com/themefisher
 -------------------------------------------------------------------*/
 /*=== MEDIA QUERY ===*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500");
+
+/*=== our classes ===*/
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+/*=== our classes ===*/
+
 body {
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
