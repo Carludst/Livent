@@ -11,7 +11,7 @@ class CManageUser
 
 
 
-    public static function callLogin(bool $return=true){
+    public static function callLogin(bool $return=true):bool{
         if(!FSession::isLogged()){
             if($return){
                 FSession::addDataSession('requeredPath',CFrontController::getUrl());
@@ -104,7 +104,7 @@ class CManageUser
 
     public static function loginPage(){
         try{
-            //Richiama  VLogin::show();
+            VLogin::show();
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di login non è andata a buon fine");
@@ -113,7 +113,7 @@ class CManageUser
 
     public static function signinPage(){
         try{
-            //Richiama  VSignin::show();
+            VSignin::show();
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di registrazione utente non è andata a buon fine");
@@ -122,7 +122,7 @@ class CManageUser
 
     public static function updatePage(EUser $user){
         try{
-            //Richiama  VSignin::show($user);
+            //Richiama   VSignin::show($user);
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di aggiornamento dei tuoi dati utente non è andata a buon fine");
@@ -131,8 +131,8 @@ class CManageUser
 
     public static function profilePage(){
         try{
-            FDbH::getRegistrationUser(FSession::getUserLogged());
-            //Richiama  VLogin::show();
+            if(self::callLogin()) FDbH::getRegistrationUser(FSession::getUserLogged());
+            //Richiama  VProfile::show();
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di profilo non è andata a buon fine");

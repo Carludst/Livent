@@ -1,27 +1,26 @@
 <?php
-class VHome
+class VHome extends Smarty
 {
-    private static Smarty $smarty;
     private static String $template='home.tpl';
 
     public function __construct(String $template, String $compile)
     {
-        self::$smarty=new Smarty();
-        self::$smarty->setTemplateDir($template);
-        self::$smarty->setCompileDir($compile);
+        $this->setTemplateDir($template);
+        $this->setCompileDir($compile);
     }
 
-    public static function show(?EUser $user , String $profileImg,Array $eventOpen, Array $eventsFinished , Array $homeImg)
+    public function show(?EUser $user , String $profileImg,Array $eventsOpen, Array $eventsFinished , Array $homeImg, Array $eventsOpenImg, Array $eventsFinishedImg)
     {
         $assign=array();
-
         $assign['user']=$user;
         $assign['profileImg']=$profileImg;
-        $assign['eventOpen']=$eventOpen;
+        $assign['eventsOpen']=$eventsOpen;
         $assign['eventsFinished']=$eventsFinished;
         $assign['homeImg']=$homeImg;
+        $assign['eventsOpenImg']=$eventsOpenImg;
+        $assign['eventsFinishedImg']=$eventsFinishedImg;
 
-        self::$smarty->assign($assign);
-        self::$smarty->display(self::$template);
+        $this->assign($assign);
+        $this->display(self::$template);
     }
 }
