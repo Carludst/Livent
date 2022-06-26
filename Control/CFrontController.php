@@ -14,8 +14,8 @@ class CFrontController
 
     public static function run(){
         try{
-
             $url=explode("/",self::$url);
+            $url=array_slice($url,1,-1);
 
 
             require_once("routing.php");
@@ -59,8 +59,9 @@ class CFrontController
 
         }
         catch (Exception $exception){
-           if($exception->getMessage()=='HTTP/1.1 404 Not Found') header('HTTP/1.1 404 Not Found');
-           else header('HTTP/1.1 405 Method Not Found');
+            echo($exception->getMessage());
+           //if($exception->getMessage()=='HTTP/1.1 404 Not Found') header('HTTP/1.1 404 Not Found');
+           //else header('HTTP/1.1 405 Method Not Found');
         }
 
     }

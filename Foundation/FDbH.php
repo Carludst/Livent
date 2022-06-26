@@ -82,7 +82,7 @@ class FDbH {
      * @param int $size
      * @return void
      */
-    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , int $size, ?float $resize=NULL){
+    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , ?float $resize=NULL){
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
@@ -93,7 +93,7 @@ class FDbH {
         $blobFile=addslashes($blobFile);
         $updated_at=date("Y-m-d H:i:s");
         $created_at=date("Y-m-d H:i:s");
-        FDb::store('file',array('path'=>$pathDB,'name'=>$name,'size'=>$size,'type'=>$type,'file'=>$blobFile , 'updated_at'=>$updated_at , 'created_at'=>$created_at));
+        FDb::store('file',array('path'=>$pathDB,'name'=>$name,'type'=>$type,'file'=>$blobFile , 'updated_at'=>$updated_at , 'created_at'=>$created_at));
     }
 
     /**
@@ -106,7 +106,7 @@ class FDbH {
      * @return void
      * @throws Exception
      */
-    public static function updateFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , int $size, ?float $resize=NULL):bool
+    public static function updateFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , ?float $resize=NULL):bool
     {
         if(is_string($objPath))$pathDB=$objPath;
         else{
@@ -117,7 +117,7 @@ class FDbH {
         $blobFile=file_get_contents($pathFile) ;
         $blobFile=addslashes($blobFile);
         $updated_at=date("Y-m-d H:i:s");
-        return FDb::update('file',FDb::multiWhere(array('path','name'),array($pathDB,$name)),array('path'=>$pathDB,'name'=>$name,'size'=>$size,'type'=>$type,'file'=>$blobFile , 'updated_at'=>$updated_at));
+        return FDb::update('file',FDb::multiWhere(array('path','name'),array($pathDB,$name)),array('path'=>$pathDB,'name'=>$name,'type'=>$type,'file'=>$blobFile , 'updated_at'=>$updated_at));
     }
 
     /**
@@ -126,7 +126,7 @@ class FDbH {
      * @return String
      * @throws Exception
      */
-    public static function loadFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name , ?float $resize=NULL ,bool $base64=true):String
+    public static function loadFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name , ?float $resize=NULL ,bool $base64=true):String|Array
     {
         if(is_string($objPath))$pathDB=$objPath;
         else{
@@ -134,7 +134,7 @@ class FDbH {
             $Fclass = "F".substr($Eclass,1);
             $pathDB=$Fclass::getPathFile($objPath);
         }
-        $array=FDb::exInterrogation(FDb::load('file',FDb::multiWhere(array("path","name"),array($pathDB,$name))));
+        $array=FDb::exInterrogation(FDb::load('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)),array('file','type')));
         if(!count($array)>0) throw new Exception("don't exist file with this path");
         $array=$array[0];
 
@@ -169,8 +169,8 @@ class FDbH {
         }
         else $blob=stripslashes($array['file']);
 
-        if($base64)return base64_encode($blob);
-        else return $blob;
+        if($base64)return 'data:image/'.$array['type'].';base64,'.base64_encode($blob);
+        else return array('blob'=>$blob,'type'=>$array['type']);
     }
 
     /**

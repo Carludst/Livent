@@ -5,7 +5,7 @@ class FSession
     public static function isLogged():bool
     {
         if (session_status() == PHP_SESSION_NONE)session_start();
-        if(!is_null($_SESSION['user']))return true;
+        if(array_key_exists('user',$_SESSION))return true;
         else return false;
     }
 

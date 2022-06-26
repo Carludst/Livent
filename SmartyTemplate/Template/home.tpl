@@ -31,21 +31,21 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="generator" content="Themefisher Constra HTML Template v1.0">
   
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.png" />
   
   <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
   <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
   
   <!-- Animate css -->
-  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
   <!-- Slick Carousel -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
-  <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+  <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
+  <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
   
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{$dir}/css/style.css">
 
 </head>
 
@@ -82,19 +82,21 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- User -->
+
 				<ul class="top-menu text-right list-inline">
+					{if '' != $user && ''!=$profileImg}
 					<li class="dropdown cart-nav dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="images/shop/cart/cart-1.jpg" alt="image" /></a>
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
 						<div class="dropdown-menu cart-dropdown">
 							<!-- Cart Item -->
 							<div class="media">
 								<a class="pull-left" href="#!">
-									<img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
+									<img class="media-object" src="{$profileImg}" alt="image" />
 								</a>
 								<div class="media-body">
-									<h4 class="media-heading"><a href="#!">Username</a></h4>
+									<h4 class="media-heading"><a href="#!">{$user->getUsername()}</a></h4>
 									</br>
-									<h4 class="media-heading"><a href="#!">e-mail</a></h4>
+									<h4 class="media-heading"><a href="#!">{$user->getEmail()}</a></h4>
 								</div>
 							</div><!-- / Cart Item -->
 							<!-- Cart Item -->
@@ -106,11 +108,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 					</li><!-- / User -->
 
+					{else}
 					<!-- / Login -->
 					<li class="dropdown search dropdown-slide">
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
 								class="tf-ion-android-person"></i> Login</a>
 					</li><!-- / Login -->
+					{/if}
 				</ul><!-- / .nav .navbar-nav .navbar-right -->
 			</div>
 		</div>
@@ -177,16 +181,21 @@ FACEBOOK: https://www.facebook.com/themefisher
 </section>
 
 <div class="hero-slider">
-  <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slider-1.jpg);">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 text-center">
-          <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
-          <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The beauty of nature <br> is hidden in details.</h1>
-        </div>
-      </div>
-    </div>
-  </div>
+	{section name=index loop=$homeImg}
+		<div class="slider-item th-fullpage hero-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-offset-0">
+						<img class="media" src="{$homeImg[index]['file']}" alt="image" style="width: 1060px;height: 600px;"/>
+					</div>
+					<div class="col-lg-9 text-left ">
+						<p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">{$homeImg[index]['name']}</p>
+						<h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">La bellezza dello sport     <br> è la condivisione.     </h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	{/section}
 </div>
 
 
@@ -204,7 +213,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					<div class="col-md-4">
 						<div class="product-item">
 							<div class="product-thumb">
-								<img class="img-responsive" src={$eventsFinishedImg[index]} alt="product-img" />
+								<img class="img-responsive" src="{$eventsFinishedImg[index]}" alt="product-img" />
 								<div class="preview-meta">
 									<ul>
 										<li>
@@ -243,7 +252,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					<div class="col-md-4">
 						<div class="product-item">
 							<div class="product-thumb">
-								<img class="img-responsive" src={$eventsFinishedImg[index]} alt="product-img" />
+								<img class="img-responsive" src="{$eventsFinishedImg[index]}" alt="product-img" />
 								<div class="preview-meta">
 									<ul>
 										<li>
@@ -282,7 +291,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			        	<div class="row">
 			        		<div class="col-md-8 col-sm-6 col-xs-12">
 			        			<div class="modal-image">
-				        			<img class="img-responsive" src="images/shop/products/modal-product.jpg" alt="product-img" />
+				        			<img class="img-responsive" src="../images/shop/products/modal-product.jpg" alt="product-img" />
 			        			</div>
 			        		</div>
 			        		<div class="col-md-4 col-sm-6 col-xs-12">
@@ -316,28 +325,28 @@ Start Call To Action
     =====================================-->
     
     <!-- Main jQuery -->
-    <script src="plugins/jquery/dist/jquery.min.js"></script>
+    <script src="{$dir}/plugins/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.1 -->
-    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{$dir}/plugins/bootstrap/js/bootstrap.min.js"></script>
     <!-- Bootstrap Touchpin -->
-    <script src="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="{$dir}/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
     <!-- Instagram Feed Js -->
-    <script src="plugins/instafeed/instafeed.min.js"></script>
+    <script src="{$dir}/plugins/instafeed/instafeed.min.js"></script>
     <!-- Video Lightbox Plugin -->
-    <script src="plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <script src="{$dir}/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
     <!-- Count Down Js -->
-    <script src="plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+    <script src="{$dir}/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
 
     <!-- slick Carousel -->
-    <script src="plugins/slick/slick.min.js"></script>
-    <script src="plugins/slick/slick-animation.min.js"></script>
+    <script src="{$dir}/plugins/slick/slick.min.js"></script>
+    <script src="{$dir}/plugins/slick/slick-animation.min.js"></script>
 
     <!-- Google Mapl -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-    <script type="text/javascript" src="plugins/google-map/gmap.js"></script>
+    <script type="text/javascript" src="{$dir}/plugins/google-map/gmap.js"></script>
 
     <!-- Main Js File -->
-    <script src="js/script.js"></script>
+    <script src="{$dir}/js/script.js"></script>
     
 
 

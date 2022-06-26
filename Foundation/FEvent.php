@@ -169,8 +169,6 @@ class FEvent
                 if(is_null($startDateTo)||$startDateFrom<$startDateTo)
                 {
                     $opWhere[]='>=';
-                    $orderBy[]='datetime';
-                    $ascending[]=true;
                 }
                 else $opWhere[]='<=';
             }
@@ -181,10 +179,6 @@ class FEvent
                 if(is_null($startDateFrom)||$startDateTo>$startDateFrom)
                 {
                     $opWhere[]='<=';
-                    if(is_null($startDateFrom)){
-                        $orderBy[]='datetime';
-                        $ascending[]=false;
-                    }
                 }
                 else $opWhere[]='>=';
             }

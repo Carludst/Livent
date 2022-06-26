@@ -1,17 +1,27 @@
 <?php
-class VHome extends Smarty
+class VHome extends View
 {
     private static String $template='home.tpl';
 
-    public function __construct(String $template, String $compile)
+    public function __construct()
     {
-        $this->setTemplateDir($template);
-        $this->setCompileDir($compile);
+        parent::__construct();
     }
 
-    public function show(?EUser $user , String $profileImg,Array $eventsOpen, Array $eventsFinished , Array $homeImg, Array $eventsOpenImg, Array $eventsFinishedImg)
+    /**
+     * @param EUser|null $user
+     * @param String|null $profileImg
+     * @param array $eventsOpen
+     * @param array $eventsFinished
+     * @param array $homeImg
+     * @param array $eventsOpenImg
+     * @param array $eventsFinishedImg
+     * @return void
+     * @throws SmartyException
+     */
+    public function show(?EUser $user , ?String $profileImg, Array $eventsOpen, Array $eventsFinished , Array $homeImg, Array $eventsOpenImg, Array $eventsFinishedImg)
     {
-        $assign=array();
+        $assign=$this->assign;
         $assign['user']=$user;
         $assign['profileImg']=$profileImg;
         $assign['eventsOpen']=$eventsOpen;
@@ -20,7 +30,7 @@ class VHome extends Smarty
         $assign['eventsOpenImg']=$eventsOpenImg;
         $assign['eventsFinishedImg']=$eventsFinishedImg;
 
-        $this->assign($assign);
-        $this->display(self::$template);
+        $this->smarty->assign($assign);
+        $this->smarty->display(self::$template);
     }
 }

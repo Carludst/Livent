@@ -1,5 +1,5 @@
 <?php
-require_once $GLOBALS('pathProject').'/Utility/DbDefaultConfiguration.php';
+require_once $GLOBALS['defaultPath'].'/Utility/DbDefaultConfiguration.php';
 
 class FDb{
 
@@ -247,7 +247,7 @@ class FDb{
         else{
             $strSelect=$select[0];
             for ($i=1;$i<count($select);$i++){
-                $strSelect=' , '.$select[$i];
+                $strSelect=$strSelect.' , '.$select[$i];
             }
             $query = "SELECT ".$strSelect." FROM " . $table .$where["where"];
         }

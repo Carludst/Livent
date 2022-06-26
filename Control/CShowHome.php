@@ -22,7 +22,7 @@ class CShowHome
 
             $homeImgName=FDbH::loadDirectory('System/HomeImg');
             $homeImg=array();
-            for($i=0;$i<count($homeImgName);$i++)$homeImg[]='data:image/jpeg;base64,'.FDbH::loadFile( 'System/HomeImg',$homeImgName[$i]);
+            for($i=0;$i<count($homeImgName);$i++)$homeImg[]=array('file'=>FDbH::loadFile( 'System/HomeImg',$homeImgName[$i]),'name'=>$homeImgName[$i]);
             $eventsFinished=FDbH::searchEvent(false,NULL,NULL,NULL,NULL,new DateTime());
             $eventsOpen=FDbH::searchEvent(true,NULL,NULL,NULL,new DateTime());
             if(count($eventsFinished)>9) $eventsFinished=array_slice($eventsFinished,0,9);
@@ -30,16 +30,17 @@ class CShowHome
             $eventsFinishedImg=array();
             $eventsOpenImg=array();
             foreach($eventsFinished as $element){
-                if(FDbH::existFile($element, 'front')) $eventsFinishedImg[]='data:image/jpeg;base64,'.FDbH::loadFile($element, 'front', 0.6);
-                else  $eventsFinishedImg[]='data:image/jpeg;base64,'.FDbH::loadFile('System/Competition', 'front', 0.6);
+                if(FDbH::existFile($element, 'front')) $eventsFinishedImg[]=FDbH::loadFile($element, 'front', 0.6);
+                else  $eventsFinishedImg[]=FDbH::loadFile('System/Competition', 'front', 0.6);
             }
             foreach($eventsOpen as $element){
-                if(FDbH::existFile($element, 'front')) $eventsOpenImg[]='data:image/jpeg;base64,'.FDbH::loadFile($element, 'front', 0.6);
-                else  $eventsOpenImg[]='data:image/jpeg;base64,'.FDbH::loadFile('System/Competition', 'front', 0.6);
+                if(FDbH::existFile($element, 'front')) $eventsOpenImg[]=FDbH::loadFile($element, 'front', 0.6);
+                else  $eventsOpenImg[]=FDbH::loadFile('System/Competition', 'front', 0.6);
             }
 
 
-            VHome::show($user,$profileImg,$eventsOpen,$eventsFinished,$homeImg,$eventsOpenImg,$eventsFinishedImg);
+            $view=new VHome();
+            $view->show($user,$profileImg,$eventsOpen,$eventsFinished,$homeImg,$eventsOpenImg,$eventsFinishedImg);
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizazzione della pagina home non è andata a buon fine");

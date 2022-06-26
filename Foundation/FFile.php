@@ -2,7 +2,7 @@
 
 class FFile
 {
-    private static String $path="../Utility/Error.txt";
+    private static String $path="Utility/Error.txt";
 
     /**
      * @param String $path
@@ -17,14 +17,7 @@ class FFile
      */
     public static function getPath():String
     {
-        if(preg_match('/^(\.\.)',self::$path)){
-            $relativePath=substr(__DIR__,0,strrpos(__DIR__,'\\')-strlen(__DIR__));
-            return $relativePath.substr(self::$path,2);
-        }
-        elseif(preg_match('/^(\.)',self::$path)){
-            return __DIR__.substr(self::$path,1);
-        }
-        else return self::$path;
+        return $GLOBALS['defaultPath'].'/'.self::$path;
     }
 
     /**
@@ -33,7 +26,7 @@ class FFile
      */
     public static function append(String $text)
     {
-        $file=fopen(self::$path,'a');
+        $file=fopen(self::getPath(),'a');
         fwrite($file,$text);
         fclose($file);
     }
@@ -46,7 +39,7 @@ class FFile
      */
     public static function write(String $text)
     {
-        $file=fopen(self::$path,'w');
+        $file=fopen(self::getPath(),'w');
         fwrite($file,$text);
         fclose($file);
     }
@@ -59,7 +52,7 @@ class FFile
     {
         if(is_null($row))return file(self::$path);
         else{
-            $file=fopen(self::$path,'r');
+            $file=fopen(self::getPath(),'r');
             $result="";
             if($row<0)$row=count(file(self::$path))+1-$row;
             for($i=0;$i<$row;$i++) {
@@ -83,7 +76,7 @@ class FFile
      */
     public static function numberRow():int
     {
-        return count(file(self::$path));
+        return count(file(self::getPath()));
 
     }
 
