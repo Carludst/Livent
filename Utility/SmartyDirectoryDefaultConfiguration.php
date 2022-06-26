@@ -1,6 +1,6 @@
 <?php
-$defoultDirReference='/Livent/SmartyTemplate';
+$graphicDirReference='/Livent/SmartyTemplate';
 $tamplateDir=$GLOBALS['defaultPath'].'/SmartyTemplate/Template';
 $compileDir=$GLOBALS['defaultPath'].'/SmartyTemplate/Compile';
 
-View::setDir($tamplateDir,$compileDir,$defoultDirReference);
+View::setDir($tamplateDir,$compileDir,$graphicDirReference);

@@ -144,7 +144,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 					<!-- Home -->
 					<li class="dropdown ">
-						<a href="home.html" >Home</a>
+						<a href="/Livent/" >Home</a>
 					</li><!-- / Home -->
 
 					<!-- / Search -->
@@ -161,6 +161,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					<!-- / Search -->
 
 					<!-- / System -->
+					{if '' != $user && ''!=$profileImg && $user->getType() eq 'Administrator'}
 					<li class="dropdown dropdown-slide">
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
 						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> System<span
@@ -171,6 +172,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							<li><a href="alerts.html">Gestione utenti</a></li>
 						</ul>
 					</li>
+					{/if}
 					<!-- / System -->
 				</ul><!-- / .nav .navbar-nav -->
 
@@ -206,79 +208,62 @@ FACEBOOK: https://www.facebook.com/themefisher
 				<h2>Eventi in programma</h2>
 			</div>
 		</div>
-		{section name=index loop=$eventsOpen}
-			{if index%3 eq 0}
-				<div class="row">
-			{/if}
-					<div class="col-md-4">
-						<div class="product-item">
-							<div class="product-thumb">
-								<img class="img-responsive" src="{$eventsFinishedImg[index]}" alt="product-img" />
-								<div class="preview-meta">
-									<ul>
-										<li>
-											<span  data-toggle="modal" data-target="#product-modal">
-												<i class="tf-ion-ios-search-strong"></i>
-											</span>
-										</li>
-										<li>
-											<a href="#!" ><i class="tf-ion-ios-heart"></i></a>
-										</li>
-										<li>
-											<a href="#!"><i class="tf-ion-android-cart"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="product-content">
-								<h4><a href="product-single.html">Reef Boardsport</a></h4>
-								<time>{$eventsOpen[index]->getDateTime()->format("d-m-y")}</time>
+
+		<div class="row">
+
+			{section name=i loop=$eventsOpen}
+				<div class="col-md-4">
+					<div class="product-item">
+						<div class="product-thumb">
+							<img class="img-responsive" src="{$eventsOpenImg[i]}" alt="product-img" />
+							<div class="preview-meta">
+								<ul>
+									<li>
+										<a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
+									</li>
+								</ul>
 							</div>
 						</div>
+						<div class="product-content">
+							<h4><a href="product-single.html">{$eventsOpen[i]->getName()}</a></h4>
+							<time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
+						</div>
 					</div>
-			{if index%3 eq 0}
 				</div>
-			{/if}
-		{/section}
+			{/section}
+
+		</div>
+
 		<div class="row">
 			<div class="title text-center">
 				<h2>Eventi terminati</h2>
 			</div>
 		</div>
-		{section name=index loop=$eventsFinished}
-			{if index%3 eq 0}
-				<div class="row">
-			{/if}
-					<div class="col-md-4">
-						<div class="product-item">
-							<div class="product-thumb">
-								<img class="img-responsive" src="{$eventsFinishedImg[index]}" alt="product-img" />
-								<div class="preview-meta">
-									<ul>
-										<li>
-											<span  data-toggle="modal" data-target="#product-modal">
-												<i class="tf-ion-ios-search-strong"></i>
-											</span>
-										</li>
-										<li>
-											<a href="#!" ><i class="tf-ion-ios-heart"></i></a>
-										</li>
-										<li>
-											<a href="#!"><i class="tf-ion-android-cart"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="product-content">
-								<h4><a href="product-single.html">Reef Boardsport</a></h4>
-								<time>{$eventsFinished[index]->getDateTime()->format("d-m-y")}</time>
+
+		<div class="row">
+
+			{section name=i loop=$eventsFinished}
+				<div class="col-md-4">
+					<div class="product-item">
+						<div class="product-thumb">
+							<img class="img-responsive" src="{$eventsFinishedImg[i]}" alt="product-img" />
+							<div class="preview-meta">
+								<ul>
+									<li>
+										<a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
+									</li>
+								</ul>
 							</div>
 						</div>
+						<div class="product-content">
+							<h4><a href="product-single.html">{$eventsFinished[i]->getName()}</a></h4>
+							<time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
+						</div>
 					</div>
-			{if index%3 eq 0}
-			  </div>
-			{/if}
-		{/section}
+				</div>
+			{/section}
+
+		</div>
 
 		<!-- Modal -->
 		<div class="modal product-modal fade" id="product-modal">

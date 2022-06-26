@@ -462,9 +462,11 @@ class FDbH {
     /**
      * @return String
      */
-    public static function returnErrorPathFile()
+    public static function returnErrorPathFile(bool $webReference=true)
     {
-        return FFile::getPath();
+        $path=FFile::getPath();
+        if($webReference)$path=str_replace($GLOBALS['defaultPath'],$GLOBALS['webReference'],$path);
+        return $path;
 
     }
 

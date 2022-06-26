@@ -31,7 +31,7 @@ class FCompetition {
     private static function getObjectByArray(Array $competition):ECompetition
     {
         $datetime=new DateTime($competition['datetime']);
-        $duration=new EDistance((float)$competition["duration"]);
+        $duration=new EDistance((float)$competition['distance']);
         $object=new ECompetition($competition["namecompetition"],$datetime,$competition["gender"],$competition["sport"],$duration,$competition['description'],$competition["idcompetition"]);
         return $object;
     }
