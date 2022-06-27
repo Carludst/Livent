@@ -18,7 +18,7 @@ class CFrontController
             $url=array_slice($url,1,-1);
 
 
-            require_once("routing.php");
+            require_once($GLOBALS['defoultPath']."routing.php");
             $route=$routing;
             $i=0;
             while (is_array($route) && $i<count($url) && key_exists($url[$i],$route)){
