@@ -29,13 +29,24 @@ class CShowHome
             if(count($eventsOpen)>9) $eventsOpen=array_slice($eventsOpen,0,9);
             $eventsFinishedImg=array();
             $eventsOpenImg=array();
+            $default='';
             foreach($eventsFinished as $element){
-                if(FDbH::existFile($element, 'front')) $eventsFinishedImg[]=FDbH::loadFile($element, 'front', 0.6);
-                else  $eventsFinishedImg[]=FDbH::loadFile('System/Competition', 'front', 0.6);
+                if(FDbH::existFile($element, 'front')) $eventsFinishedImg[]=FDbH::loadFile($element, 'front', 0.4);
+                elseif(!empty($default))$eventsFinishedImg[]=$default;
+                elseif(FDbH::existFile('System/Event', 'front')){
+                    $default=FDbH::loadFile('System/Event', 'front', 0.4);
+                    $eventsFinishedImg[]=$default;
+                }
+                else $eventsFinishedImg[]=$default;
             }
             foreach($eventsOpen as $element){
-                if(FDbH::existFile($element, 'front')) $eventsOpenImg[]=FDbH::loadFile($element, 'front', 0.6);
-                else  $eventsOpenImg[]=FDbH::loadFile('System/Competition', 'front', 0.6);
+                if(FDbH::existFile($element, 'front')) $eventsOpenImg[]=FDbH::loadFile($element, 'front', 0.4);
+                elseif(!empty($default))$eventsOpenImg[]=$default;
+                elseif(FDbH::existFile('System/Event', 'front')){
+                    $default=FDbH::loadFile('System/Event', 'front', 0.4);
+                    $eventsOpenImg[]=$default;
+                }
+                else $eventsOpenImg[]=$default;
             }
 
 
