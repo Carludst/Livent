@@ -23,7 +23,7 @@ class CShowHome
             $homeImgName=FDbH::loadDirectory('System/HomeImg');
             $homeImg=array();
             for($i=0;$i<count($homeImgName);$i++)$homeImg[]=array('file'=>FDbH::loadFile( 'System/HomeImg',$homeImgName[$i]),'name'=>$homeImgName[$i]);
-            $eventsFinished=FDbH::searchEvent(false,NULL,NULL,NULL,NULL,new DateTime());
+            $eventsFinished=FDbH::searchEvent(true,NULL,NULL,NULL,NULL,new DateTime());
             $eventsOpen=FDbH::searchEvent(true,NULL,NULL,NULL,new DateTime());
             if(count($eventsFinished)>9) $eventsFinished=array_slice($eventsFinished,0,9);
             if(count($eventsOpen)>9) $eventsOpen=array_slice($eventsOpen,0,9);

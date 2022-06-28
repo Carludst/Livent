@@ -8,10 +8,11 @@ include_once $GLOBALS['defaultPath']."/Foundation/FDbH.php";
 //$e=new EEvent("Internazionali D'Italia","L'Aquila",$user,true);
 //FDbH::store($e);
 //$e->addCompetition(new ECompetition('5000m a punti',new DateTime(),'M','Pattinaggio',new EDistance(5000)));
-
+$parola='';
+if(preg_match('/^(.*)$/',$parola))echo 'true';
 //$a=new EAthlete('r','d',new DateTime(),false);
 //FDbH::deleteFile('prova','r0');
-FDbH::storeFile('System/Event',"front",'C:\Users\rober\OneDrive\Pictures\DefaultEvent.png','png');
+//FDbH::storeFile('System',"logo",'C:\Users\rober\OneDrive\Pictures\logo.png','png');
 //$blob=FDbH::loadFile('prova','r0',0.5,false);
 //FFile::write($blob);
 //FFile::delete();

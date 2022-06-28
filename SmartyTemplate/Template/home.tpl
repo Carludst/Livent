@@ -20,7 +20,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Aviato | E-commerce template</title>
+  <title>Livent</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -31,7 +31,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="generator" content="Themefisher Constra HTML Template v1.0">
   
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
   
   <!-- Themefisher Icon font -->
   <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">

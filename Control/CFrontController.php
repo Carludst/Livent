@@ -39,7 +39,7 @@ class CFrontController
                 }
                 else $route=substr($route,0,-2);
             }
-            elseif($i==count($url)-1)throw new Exception('HTTP/1.1 404 Not Found');
+            elseif($i==count($url)-1)echo('qui');
 
 
 

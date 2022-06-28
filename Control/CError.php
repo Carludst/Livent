@@ -4,7 +4,17 @@ class CError
 {
     public static function store(Exception $error, string $message){
         FDbH::storeError($error);
-        //VErrorPage::Show($message);
+        FSession::addDataSession('errorMessage',$message);
+        header("Location: ".'/Livent/Error/');
+    }
+
+    public static function callError(){
+        if(FSession::isSetDataSession('errorMessage')){
+            $message=FSession::getDataSession('errorMessage');
+        }
+        else $message='ci scusiamo per il disaggio !!! si è verificato un errore non catalogato';
+        $view=new VError();
+        $view->show($message);
     }
 
     public static function read(){

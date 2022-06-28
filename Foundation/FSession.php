@@ -54,6 +54,13 @@ class FSession
         else return NULL;
     }
 
+    public static function isSetDataSession(String $key ):bool
+    {
+        if (session_status() == PHP_SESSION_NONE)session_start();
+        if(array_key_exists($key ,$_SESSION))return true;
+        else return false;
+    }
+
 
 
 

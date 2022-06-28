@@ -62,7 +62,8 @@ function routing():Array{
     ];
     //3 => 42
     $error=[
-        ''=>'CError::read',
+        ''=>'CError::callError',
+        'Show'=>'CError::read',
         'Delete'=>'CError::delete',
         'Download'=>'CError::getFile'
     ];
