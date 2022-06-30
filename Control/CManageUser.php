@@ -94,8 +94,8 @@ class CManageUser
 
     public static function setProfileImage(String $href , EUser $user){
         try{
-            if(FDbH::existFile($user,'profile'))FDbH::updateFile($user,'profile',$href,'type',2);
-            else FDbH::storeFile($user,'profile',$href,'type',2);
+            if(FDbH::existFile($user,MappingPathFile::nameUserMain()))FDbH::updateFile($user,MappingPathFile::nameUserMain(),$href,'type',2);
+            else FDbH::storeFile($user,MappingPathFile::nameUserMain(),$href,'type',2);
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! il file non è stato salvato , verificare di possedere le autorizazioni necessarie");

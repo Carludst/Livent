@@ -23,7 +23,9 @@ function my_autoloader($className){
 
         default :
             if($className=='Smarty')include_once($GLOBALS['defaultPath'].'/smarty-4.1.1/libs/Smarty.class.php');
+            elseif (file_exists($relativePath.'/Utility/'.$className . '.php'))include_once($relativePath.'/Utility/'.$className . '.php');
             elseif(file_exists($relativePath.'/'.$className . '.php')) include_once($relativePath.'/'.$className . '.php');
+
             break;
     }
 }

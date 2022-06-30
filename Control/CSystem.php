@@ -1,6 +1,6 @@
 <?php
 
-class CShowHome
+class CSystem
 {
     private static function authorizer():bool{
 
@@ -12,24 +12,24 @@ class CShowHome
         try{
             if(FSession::isLogged()){
                 $user=FSession::getUserLogged();
-                $profileImg=FDbH::loadMultiFile($user,'profile','System/User','defaultProfile',0.2);
+                $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
             }
             else{
                 $user=null;
                 $profileImg=null;
             }
 
-            $homeImgName=FDbH::loadDirectory('System/HomeImg');
+            $homeImgName=FDbH::loadDirectory(MappingPathFile::dirHomeMain());
             $homeImg=array();
-            for($i=0;$i<count($homeImgName);$i++)$homeImg[]=array('file'=>FDbH::loadFile( 'System/HomeImg',$homeImgName[$i]),'name'=>$homeImgName[$i]);
+            for($i=0;$i<count($homeImgName);$i++)$homeImg[]=array('file'=>FDbH::loadFile( MappingPathFile::dirHomeMain(),$homeImgName[$i]),'name'=>$homeImgName[$i]);
 
             $eventsFinished=FDbH::searchEvent(true,NULL,NULL,NULL,NULL,new DateTime());
             $eventsOpen=FDbH::searchEvent(true,NULL,NULL,NULL,new DateTime());
             if(count($eventsFinished)>9) $eventsFinished=array_slice($eventsFinished,0,9);
             if(count($eventsOpen)>9) $eventsOpen=array_slice($eventsOpen,0,9);
 
-            $eventsFinishedImg=FDbH::loadMultiFile($eventsFinished,'front','System/Event','front',0.4);
-            $eventsOpenImg=FDbH::loadMultiFile($eventsOpen,'front','System/Event','front',0.4);
+            $eventsFinishedImg=FDbH::loadMultiFile($eventsFinished,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.4);
+            $eventsOpenImg=FDbH::loadMultiFile($eventsOpen,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.4);
 
             $view=new VHome();
             $view->show($user,$profileImg,$eventsOpen,$eventsFinished,$homeImg,$eventsOpenImg,$eventsFinishedImg);
@@ -42,10 +42,10 @@ class CShowHome
     public static function setIntroImg(String $href){
         try{
             if(self::authorizer()){
-                $array=FDbH::loadDirectory('System/HomeImg');
+                $array=FDbH::loadDirectory(MappingPathFile::dirHomeMain());
                 if(count($array)>0)$name=(int)max($array)+1;
                 else $name=0;
-                FDbH::storeFile('System/HomeImg',$name,$href,'type',2);
+                FDbH::storeFile(MappingPathFile::dirHomeMain(),$name,$href,'type',2);
             }
         }
         catch(Exception $e){
@@ -57,7 +57,7 @@ class CShowHome
         try{
             if(self::authorizer()){
                 //prendi input
-                FDbH::updateFile('System/User','defaultProfile',$href,'type',2);
+                FDbH::updateFile(MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),$href,'type',2);
             }
         }
         catch(Exception $e){

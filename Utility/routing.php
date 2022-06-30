@@ -76,7 +76,7 @@ function routing():Array{
         'Result'=>$result,
         'User'=>$user,
         'Error'=>$error,
-        ''=>'CShowHome::HomePage'
+        ''=>'CSystem::HomePage'
     ];
     $routing=[
         'Livent'=>$controller

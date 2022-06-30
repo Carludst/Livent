@@ -43,8 +43,8 @@ class CManageComment
     public static function attachImage(String $href,EComment $comment){
         try{
             if(self::authorizer($comment)){
-                if(FDbH::existFile($comment,'attachedImg'))FDbH::updateFile($comment,'attachedImg',$href,'type',2);
-                else FDbH::storeFile($comment,'attachedImg',$href,'type',2);
+                if(FDbH::existFile($comment,MappingPathFile::nameCommentMain()))FDbH::updateFile($comment,MappingPathFile::nameCommentMain(),$href,'type',2);
+                else FDbH::storeFile($comment,MappingPathFile::nameCommentMain(),$href,'type',2);
             }
         }
         catch(Exception $e){

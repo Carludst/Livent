@@ -45,18 +45,6 @@ class CManageCompetition
         }
     }
 
-    public static function setImageFront(String $href , ECompetition $competition){
-        try{
-            if(self::authorizer($competition)){
-                if(FDbH::existFile($competition,'front'))FDbH::updateFile($competition,'front',$href,'type',2);
-                else FDbH::storeFile($competition,'front',$href,'type',2);
-            }
-        }
-        catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! il file non è stato salvato , verificare di possedere le autorizazioni necessarie");
-        }
-    }
-
     public static function mainPage(ECompetition $competition){
         try{
             $registration=$competition->getRegistrations();
