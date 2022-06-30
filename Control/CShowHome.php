@@ -12,8 +12,7 @@ class CShowHome
         try{
             if(FSession::isLogged()){
                 $user=FSession::getUserLogged();
-                if(FDbH::existFile( $user,'profile'))   $profileImg=FDbH::loadFile( $user,'profile',0.2);
-                else   $profileImg=FDbH::loadFile('System/User','defaultProfile');
+                $profileImg=FDbH::loadMultiFile($user,'profile','System/User','defaultProfile',0.2);
             }
             else{
                 $user=null;
@@ -23,32 +22,14 @@ class CShowHome
             $homeImgName=FDbH::loadDirectory('System/HomeImg');
             $homeImg=array();
             for($i=0;$i<count($homeImgName);$i++)$homeImg[]=array('file'=>FDbH::loadFile( 'System/HomeImg',$homeImgName[$i]),'name'=>$homeImgName[$i]);
+
             $eventsFinished=FDbH::searchEvent(true,NULL,NULL,NULL,NULL,new DateTime());
             $eventsOpen=FDbH::searchEvent(true,NULL,NULL,NULL,new DateTime());
             if(count($eventsFinished)>9) $eventsFinished=array_slice($eventsFinished,0,9);
             if(count($eventsOpen)>9) $eventsOpen=array_slice($eventsOpen,0,9);
-            $eventsFinishedImg=array();
-            $eventsOpenImg=array();
-            $default='';
-            foreach($eventsFinished as $element){
-                if(FDbH::existFile($element, 'front')) $eventsFinishedImg[]=FDbH::loadFile($element, 'front', 0.4);
-                elseif(!empty($default))$eventsFinishedImg[]=$default;
-                elseif(FDbH::existFile('System/Event', 'front')){
-                    $default=FDbH::loadFile('System/Event', 'front', 0.4);
-                    $eventsFinishedImg[]=$default;
-                }
-                else $eventsFinishedImg[]=$default;
-            }
-            foreach($eventsOpen as $element){
-                if(FDbH::existFile($element, 'front')) $eventsOpenImg[]=FDbH::loadFile($element, 'front', 0.4);
-                elseif(!empty($default))$eventsOpenImg[]=$default;
-                elseif(FDbH::existFile('System/Event', 'front')){
-                    $default=FDbH::loadFile('System/Event', 'front', 0.4);
-                    $eventsOpenImg[]=$default;
-                }
-                else $eventsOpenImg[]=$default;
-            }
 
+            $eventsFinishedImg=FDbH::loadMultiFile($eventsFinished,'front','System/Event','front',0.4);
+            $eventsOpenImg=FDbH::loadMultiFile($eventsOpen,'front','System/Event','front',0.4);
 
             $view=new VHome();
             $view->show($user,$profileImg,$eventsOpen,$eventsFinished,$homeImg,$eventsOpenImg,$eventsFinishedImg);

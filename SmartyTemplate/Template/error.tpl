@@ -54,8 +54,12 @@ FACEBOOK: https://www.facebook.com/themefisher
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Operazione non consentita !!!</h2>
-					<h3>{$message}</h3>
+                    <h2>Operazione non consentita !!!</h2>
+                        {if '' != $message}
+                            <h3>{$message}</h3>
+                        {else}
+                            <h3>{'ci scusiamo per il disaggio !!! si è verificato un errore non catalogato'}</h3>
+                        {/if}
 					<a href="/Livent/" class="btn btn-main"><i class="tf-ion-android-arrow-back"></i> torna alla Home</a>
 				</div>
 			</div>

@@ -174,6 +174,54 @@ class FDbH {
     }
 
     /**
+     * @param String|array|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath
+     * @param array|String $name
+     * @param String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent|NULL $objDefaultPath
+     * @param String|NULL $defaultName
+     * @param float|null $resize
+     * @param bool $base64
+     * @return array
+     * @throws Exception
+     */
+    public static function loadMultiFile(String|Array|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , Array|String $name ,NULL|String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objDefaultPath=NULL , NULL|String $defaultName=NULL ,?float $resize=NULL ,bool $base64=true):Array|String
+    {
+        if(is_array($objPath)&&is_array($name))throw new Exception('you have to fixed at least one parameters between name or directory');
+        $default='';
+        if(is_array($objPath)){
+            $result=array();
+            foreach ($objPath as $element){
+                if(FDbH::existFile($element, $name)) $result[]=FDbH::loadFile($element, $name, $resize,$base64);
+                elseif(!empty($default))$result[]=$default;
+                elseif(!is_null($objDefaultPath) && !is_null($defaultName) && FDbH::existFile($objDefaultPath, $name)){
+                    $default=FDbH::loadFile($objDefaultPath, $name, $resize,$base64);
+                    $result[]=$default;
+                }
+                else $result[]=$default;
+            }
+        }
+        elseif(is_array($name)){
+            $result=array();
+            foreach ($name as $element){
+                if(FDbH::existFile($objPath, $element)) $result[]=FDbH::loadFile($objPath, $element, $resize , $base64);
+                elseif(!empty($default))$result[]=$default;
+                elseif(!is_null($objDefaultPath) && !is_null($defaultName) && FDbH::existFile($objDefaultPath, $defaultName)){
+                    $default=FDbH::loadFile($objDefaultPath, $defaultName, $resize,$base64);
+                    $result[]=$default;
+                }
+                else $result[]=$default;
+            }
+        }
+        else{
+            $result='';
+            if(FDbH::existFile($objPath, $name))$result=FDbH::loadFile($objPath, $name, $resize , $base64);
+            elseif(!is_null($objDefaultPath) && !is_null($defaultName) && FDbH::existFile($objDefaultPath, $defaultName)){
+                $result=FDbH::loadFile($objDefaultPath, $defaultName, $resize,$base64);
+            }
+        }
+        return $result;
+    }
+
+    /**
      * @param String|EAthlete|EUser|EComment|ECompetition|array|EEvent $objPath
      * @param String $name
      * @return bool|null
@@ -372,8 +420,8 @@ class FDbH {
      * @param String $place
      * @return array
      */
-    public static function searchEvent(?bool $public=NULL ,?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL  , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL){
-        return FEvent::search($public,$name,$organizer,$place,$startDateFrom,$startDateTo);
+    public static function searchEvent(?bool $public=NULL ,?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL  , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL , ?String $sport=NULL){
+        return FEvent::search($public,$name,$organizer,$place,$startDateFrom,$startDateTo,$sport);
     }
 
     /**

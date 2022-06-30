@@ -9,7 +9,7 @@ class VError extends View
         parent::__construct();
     }
 
-    public function show(String $message)
+    public function show(String $message )
     {
         $assign=$this->assign;
         $assign['message']=$message;

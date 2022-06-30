@@ -124,7 +124,7 @@ class FEvent
         return $event::class."/".$event->getId();
     }
 
-    public static function search(?bool $public=NULL ,?String $name=NULL , ?EUser $user=NULL ,?String $place=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL){
+    public static function search(?bool $public=NULL ,?String $name=NULL , ?EUser $user=NULL ,?String $place=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL , ?String $sport=NULL){
         $fields=array();
         $values=array();
         $opWhere=array();
@@ -132,7 +132,7 @@ class FEvent
         $orderBy=array();
         $ascending=array();
 
-        if(is_null($name) && is_null($user) && is_null($public) && is_null($place) && is_null($startDateFrom)  && is_null($startDateTo)){
+        if(is_null($name) && is_null($user) && is_null($public) && is_null($place) && is_null($startDateFrom)  && is_null($startDateTo) && is_null($sport)){
             $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
             foreach ($resultQ as $c=>$v){
                 $result[$c]=self::getObjectByArray($v);
@@ -173,7 +173,7 @@ class FEvent
                 else $opWhere[]='<=';
             }
             if(!is_null($startDateTo)){
-                $dateStart=FDb::opGroupMin(self::$table[1].' AS T','T.datetime', ' WHERE T.idevent=idevent');
+                $dateStart=FDb::opGroupMin(self::$table[1].' AS T','T.datetime', ' WHERE T.idevent=idevent ');
                 $fields[]='('.$dateStart['query'].')';
                 $values[]=$startDateTo->format("y-m-d");
                 if(is_null($startDateFrom)||$startDateTo>$startDateFrom)
@@ -181,6 +181,12 @@ class FEvent
                     $opWhere[]='<=';
                 }
                 else $opWhere[]='>=';
+            }
+            if(!is_null($sport)){
+                $bind=array(false,true);
+                $fields[]='idevent';
+                $values[]=FDb::load(self::$table[1].' AS T',FDb::where('T.sport',$sport),'idevent');
+                $opWhere[]='= any ';
             }
             $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)),$orderBy,$ascending);
             foreach ($resultQ as $c=>$v){

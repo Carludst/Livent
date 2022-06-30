@@ -192,44 +192,75 @@ class FDb{
      * @param String $operation operation of the condition ("=","<",">","!=")("Op all","Op any","in","exist")
      * @return String clause where
      */
-    public static function where(String $field, $value , String $operation="="):Array
+    public static function where(String $field, mixed $value , String $operation="="):Array
     {
-        return  array("where"=>" WHERE " . $field." ".$operation ." :value0 ","bind"=>array(":value0"=>$value));
+        if(is_array($value)){
+            $where=' WHERE '.$field.' '.$operation.' ('.$value['query'].' )';
+            $arrayBind=$value['bind'];
+            return array('where'=>$where,'$bind'=>$arrayBind);
+        }
+        else {
+            return  array("where"=>" WHERE " . $field." ".$operation ." :value0 ","bind"=>array(":value0"=>$value));
+        }
     }
 
     /**
-     * -Method : create the clause where whit more than one condition
+     * -Method : create the clause where with more than one condition
      * @param array $fieldValue array with attribute as key and value as element of the array
      * @param array|String $logicOp logic operetion between conditions
      * @param array|String $operation operetion between terms of the conditions
      * @return String clause where
      * @throws Exception paramatres invalid
      */
-    public static function multiWhere(Array $field,Array $value , String $logicOp="AND",Array|String $operation="="):Array
+    public static function multiWhere(Array $field,Array $value , String $logicOp="AND",Array|String $operation="=" ):Array
     {
         if((is_array($operation) && count($field)!=count($value) && count($field)!=count($operation) ))throw new Exception("parametres multiWhere invalid");
-        if(is_string($operation)){
-            if(count($field)>0){
-                $result=" WHERE ".$field[0]." ".$operation." :value0 ";
-                $arrayBind=array(":value0"=>$value[0]);
+        $p=0;
+        $arrayBind=array();
+        if(count($field)>0){
+            if(is_string($operation))$op=$operation;
+            else $op=$operation[0];
+            if(is_array($value[0])){
+                foreach ($value[0]['bind'] as $k=>$v){
+                    $value[0]['query']=str_replace($k,':value'.$p,$value[0]['query']);
+                    $arrayBind[':value'.$p]=$v;
+                    $p=$p+1;
+                }
+                $result=" WHERE ".$field[0]." ".$op.' ('.$value[0]['query'].' )';
             }
-            for($i=1;$i<count($field);$i++){
-                $result=$result." ".$logicOp." ".$field[$i]." ".$operation." :value$i ";
-                $arrayBind[":value$i"]=$value[$i];
+            else{
+                $arrayBind[":value".$p]=$value[0];
+                $result=" WHERE ".$field[0]." ".$op." :value0 ";
+                $p=$p+1;
             }
         }
-        else{
-            if(count($field)>0){
-                $result=" WHERE ".$field[0]." ".$operation[0]." :value0 ";
-                $arrayBind=array(":value0"=>$value[0]);
+        for($i=1;$i<count($field);$i++){
+            if(is_array($operation))$op=$operation[$i];
+            if(is_array($value[$i])){
+                foreach ($value[$i]['bind'] as $k=>$v){
+                    str_replace($k,':value'.$p,$value[$i]['query']);
+                    $arrayBind[':value'.$p]=$v;
+                    $p=$p+1;
+                }
+                $result=$result." ".$logicOp." ".$field[$i]." ".$op.' ( '.$value[0]['query'].' )';
             }
-            for($i=1;$i<count($field);$i++) {
-                $result = $result . " " . $logicOp . " " . $field[$i] ." ". $operation[$i] ." :value$i ";
-                $arrayBind[":value$i"]=$value[$i];
+            else{
+                $arrayBind[":value$p"]=$value[$i];
+                $result=$result." ".$logicOp." ".$field[$i]." ".$op." :value$p ";
             }
         }
-
         return array("where"=>$result,"bind"=>$arrayBind);
+
+    }
+
+    /**
+     * Permit to make the clouse where with only one condition but between interrogation and attribute
+     * @param array $interrogation
+     * @param String $field
+     * @param String $op
+     * @return array
+     */
+    public static function nestedWhere(Array $interrogation , String $field='', String $op='EXISTS'){
 
     }
 
