@@ -34,7 +34,7 @@ class CFrontController
             elseif(preg_match('/\(\)$/',$route)){
                 if($i==count($url)-1){
                     global $_MYINPUT;
-                    $_MYINPUT=$url[-1];
+                    $_MYINPUT=end($url);
                     $route=substr($route,0,-2);
                 }
                 else $route=substr($route,0,-2);

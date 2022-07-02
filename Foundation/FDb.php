@@ -238,11 +238,11 @@ class FDb{
             if(is_array($operation))$op=$operation[$i];
             if(is_array($value[$i])){
                 foreach ($value[$i]['bind'] as $k=>$v){
-                    str_replace($k,':value'.$p,$value[$i]['query']);
+                    $value[$i]['query']=str_replace($k,':value'.$p,$value[$i]['query']);
                     $arrayBind[':value'.$p]=$v;
                     $p=$p+1;
                 }
-                $result=$result." ".$logicOp." ".$field[$i]." ".$op.' ( '.$value[0]['query'].' )';
+                $result=$result." ".$logicOp." ".$field[$i]." ".$op.' ( '.$value[$i]['query'].' )';
             }
             else{
                 $arrayBind[":value$p"]=$value[$i];

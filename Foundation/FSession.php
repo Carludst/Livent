@@ -29,6 +29,37 @@ class FSession
         setcookie('PHPSESSID', '', time() - 3600);
     }
 
+    public static function getChronology(String $class)
+    {
+        if (session_status() == PHP_SESSION_NONE)session_start();
+        if(isset($_SESSION['Chronology_'.$class])){
+            return unserialize($_SESSION['Chronology_'.$class]);
+        }
+        else return array();
+    }
+
+    public static function addChronology(String $class , mixed $data)
+    {
+        if (session_status() == PHP_SESSION_NONE)session_start();
+        if(isset($_SESSION['Chronology_'.$class])){
+            $array=unserialize($_SESSION['Chronology_'.$class]);
+            if(!in_array($data,$array))$array[]=$data;
+            $_SESSION['Chronology_'.$class]=serialize($array);
+        }
+        else $_SESSION['Chronology_'.$class]=serialize(array($data));
+    }
+
+    public static function popChronology(String $class,int $index)
+    {
+        if (session_status() == PHP_SESSION_NONE)session_start();
+        if(!is_null($_SESSION['Chronology_'.$class])){
+            $array=unserialize($_SESSION['Chronology_'.$class]);
+            if(isset($array[$index]))array_splice($array,$index,1);
+            $_SESSION['Chronology_'.$class]=serialize($array);
+        }
+        else return array();
+    }
+
     public static function getUserLogged():?EUser
     {
         if (session_status() == PHP_SESSION_NONE)session_start();

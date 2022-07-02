@@ -1,5 +1,8 @@
 <?php
 function routing():Array{
+    $eventChronology=[
+        'Delate'=>'CSearch::popEventChronology()'
+    ];
     //8
     $athlete=[
         'Update'=>'CManageAthlete::update',
@@ -38,7 +41,8 @@ function routing():Array{
         'MainPage'=>'CManageEvent::mainPage()',
         'NewPage'=>'CManageEvent::newPage()',
         'SearchPage'=>'CSearch::searchPageEvent',
-        'Search'=>'CSearch::searchEvent'
+        'Search'=>'CSearch::searchEvent',
+        'Chronology'=>$eventChronology
     ];
     //2 => 30
     $registration=[
@@ -66,6 +70,7 @@ function routing():Array{
         'Delete'=>'CError::delete',
         'Download'=>'CError::getFile'
     ];
+
     //1 =>43
     $controller=[
         'Athlete'=>$athlete,

@@ -153,7 +153,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
 								class="tf-ion-ios-arrow-down"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="typography.html">Evento</a></li>
+							<li><a href="/Livent/Event/Search/">Evento</a></li>
 							<li><a href="buttons.html">Atleta</a></li>
 							<li><a href="alerts.html">Competizione</a></li>
 						</ul>
@@ -202,102 +202,110 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 
 <section class="products section bg-gray">
-	<div class="container">
-		<div class="row">
-			<div class="title text-center">
-				<h2>Eventi in programma</h2>
-			</div>
-		</div>
+	{if empty($eventsOpen) && empty($eventsFinished)}
+		<h1 class="my-allert-page" > Non ci sono eventi </h1>
+	{else}
+		<div class="container">
+				<div class="row">
+					{if empty($eventsOpen)}
+						<div class="title text-center">
+							<h2>Eventi in programma</h2>
+						</div>
+					{/if}
+				</div>
 
-		<div class="row">
 
-			{section name=i loop=$eventsOpen}
-				<div class="col-md-4">
-					<div class="product-item">
-						<div class="product-thumb">
-							<img class="img-responsive" src="{$eventsOpenImg[i]}" alt="product-img" />
-							<div class="preview-meta">
-								<ul>
-									<li>
-										<a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
-									</li>
-								</ul>
+			<div class="row">
+
+				{section name=i loop=$eventsOpen}
+					<div class="col-md-4">
+						<div class="product-item">
+							<div class="product-thumb">
+								<img class="img-responsive" src="{$eventsOpenImg[i]}" alt="product-img" />
+								<div class="preview-meta">
+									<ul>
+										<li>
+											<a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="product-content">
+								<h4><a href="product-single.html">{$eventsOpen[i]->getName()}</a></h4>
+								<time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
 							</div>
 						</div>
-						<div class="product-content">
-							<h4><a href="product-single.html">{$eventsOpen[i]->getName()}</a></h4>
-							<time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
+					</div>
+				{/section}
+
+			</div>
+
+			<div class="row">
+				{if empty($eventsFinished)}
+					<div class="title text-center">
+						<h2>Eventi terminati</h2>
+					</div>
+				{/if}
+			</div>
+
+			<div class="row">
+
+				{section name=i loop=$eventsFinished}
+					<div class="col-md-4">
+						<div class="product-item">
+							<div class="product-thumb">
+								<img class="img-responsive" src="{$eventsFinishedImg[i]}" alt="product-img" />
+								<div class="preview-meta">
+									<ul>
+										<li>
+											<a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="product-content">
+								<h4><a href="product-single.html">{$eventsFinished[i]->getName()}</a></h4>
+								<time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
+							</div>
+						</div>
+					</div>
+				{/section}
+
+			</div>
+
+			<!-- Modal -->
+			<div class="modal product-modal fade" id="product-modal">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<i class="tf-ion-close"></i>
+				</button>
+				<div class="modal-dialog " role="document">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-8 col-sm-6 col-xs-12">
+									<div class="modal-image">
+										<img class="img-responsive" src="../images/shop/products/modal-product.jpg" alt="product-img" />
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 col-xs-12">
+									<div class="product-short-details">
+										<h2 class="product-title">GM Pendant, Basalt Grey</h2>
+										<p class="product-price">$200</p>
+										<p class="product-short-description">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
+										</p>
+										<a href="cart.html" class="btn btn-main">Add To Cart</a>
+										<a href="product-single.html" class="btn btn-transparent">View Product Details</a>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			{/section}
-
-		</div>
-
-		<div class="row">
-			<div class="title text-center">
-				<h2>Eventi terminati</h2>
-			</div>
-		</div>
-
-		<div class="row">
-
-			{section name=i loop=$eventsFinished}
-				<div class="col-md-4">
-					<div class="product-item">
-						<div class="product-thumb">
-							<img class="img-responsive" src="{$eventsFinishedImg[i]}" alt="product-img" />
-							<div class="preview-meta">
-								<ul>
-									<li>
-										<a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="product-content">
-							<h4><a href="product-single.html">{$eventsFinished[i]->getName()}</a></h4>
-							<time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
-						</div>
-					</div>
-				</div>
-			{/section}
-
-		</div>
-
-		<!-- Modal -->
-		<div class="modal product-modal fade" id="product-modal">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<i class="tf-ion-close"></i>
-			</button>
-		  	<div class="modal-dialog " role="document">
-		    	<div class="modal-content">
-			      	<div class="modal-body">
-			        	<div class="row">
-			        		<div class="col-md-8 col-sm-6 col-xs-12">
-			        			<div class="modal-image">
-				        			<img class="img-responsive" src="../images/shop/products/modal-product.jpg" alt="product-img" />
-			        			</div>
-			        		</div>
-			        		<div class="col-md-4 col-sm-6 col-xs-12">
-			        			<div class="product-short-details">
-			        				<h2 class="product-title">GM Pendant, Basalt Grey</h2>
-			        				<p class="product-price">$200</p>
-			        				<p class="product-short-description">
-			        					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
-			        				</p>
-			        				<a href="cart.html" class="btn btn-main">Add To Cart</a>
-			        				<a href="product-single.html" class="btn btn-transparent">View Product Details</a>
-			        			</div>
-			        		</div>
-			        	</div>
-			        </div>
-		    	</div>
-		  	</div>
-		</div><!-- /.modal -->
-
+			</div><!-- /.modal -->
 		</div>
 	</div>
+	{/if}
 </section>
 
 

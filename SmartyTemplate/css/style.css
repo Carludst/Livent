@@ -66,6 +66,11 @@ FACEBOOK: https://www.facebook.com/themefisher
   height: 50px;
   border-radius: 50%;
 }
+
+.my-allert-page{
+  opacity: 0.7;
+  text-align: center;
+}
 /*=== our classes ===*/
 
 body {

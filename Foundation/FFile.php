@@ -71,13 +71,4 @@ class FFile
         self::write("");
     }
 
-    /**
-     * @return int
-     */
-    public static function numberRow():int
-    {
-        return count(file(self::getPath()));
-
-    }
-
 }

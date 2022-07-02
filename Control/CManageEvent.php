@@ -54,8 +54,12 @@ class CManageEvent
         }
     }
 
-    public static function mainPage(EEvent $event){
+    public static function mainPage(){
         try{
+            $key=(int)$GLOBALS['_MYINPUT'];
+            if(FDbH::existOne($key,EEvent::class))FSession::addChronology(EEvent::class,$key);
+            header("Location: /Livent/Event/Search/");
+
             //Richiama  VEvent::show($event);
         }
         catch(Exception $e){

@@ -183,9 +183,8 @@ class FEvent
                 else $opWhere[]='>=';
             }
             if(!is_null($sport)){
-                $bind=array(false,true);
                 $fields[]='idevent';
-                $values[]=FDb::load(self::$table[1].' AS T',FDb::where('T.sport',$sport),'idevent');
+                $values[]=FDb::load(self::$table[1].' AS T',FDb::where('T.sport',$sport),'T.idevent');
                 $opWhere[]='= any ';
             }
             $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)),$orderBy,$ascending);

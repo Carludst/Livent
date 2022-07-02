@@ -487,7 +487,7 @@ class FDbH {
      */
     public static function storeError(Exception $exception)
     {
-        FFile::append((FFile::numberRow()+1).") ".$exception->getTraceAsString());
+        FFile::append("\n\n".$exception->getTraceAsString());
     }
 
 

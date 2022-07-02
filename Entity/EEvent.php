@@ -92,6 +92,17 @@ class EEvent{
         return FDbH::getCompetitions($this);
     }
 
+    public function getDateStart():DateTime
+    {
+        return $this->getCompetition(0)->getDateTime();
+    }
+
+    public function getDateFinish():DateTime
+    {
+        $competitions=$this->getCompetitions();
+        return end($competitions)->getDateTime();
+    }
+
     /**
      * @param array $newcompetition
      * @return void

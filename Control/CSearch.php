@@ -63,14 +63,38 @@ class CSearch
         }
     }
 
-    public static function searchEvent(?bool $public=NULL ,?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL  , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL):array
+    public static function searchEvent()
     {
         try{
-            return FDbH::searchEvent($public,$name,$organizer,$place,$startDateFrom,$startDateTo);
+            $view=new VSearchEvent();
+            $name=$view->getName();
+            $place=$view->getPlace();
+            $startDateFrom=$view->minDate();
+            $startDateTo=$view->maxDate();
+            $sport=$view->getSport();
+
+            if($view->getMood()){
+                $keys=FSession::getChronology(EEvent::class);
+                $events=array();
+                foreach ($keys as $k=>$v){
+                    if(!FDbH::existOne((int)$v,EEvent::class))FSession::popChronology(EEvent::class,$k);
+                    else $events[]=FDbH::loadOne($v,EEvent::class);
+                }
+            }
+            else $events=FDbH::searchEvent(NULL,$name,NULL,$place,$startDateFrom,$startDateTo,$sport);
+
+            $eventsImg=FDbH::loadMultiFile($events,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain());
+            $view->show($events,$eventsImg);
+
         }
         catch (Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La ricerca degli eventi non è andata a buon fine");
-            return array();
         }
+    }
+
+    public static function popEventChronology(){
+        $view=new VSearchEvent();
+        FSession::popChronology(EEvent::class,$view->getChronologyId());
+        header("Location: /Livent/Event/Search/");
     }
 }
