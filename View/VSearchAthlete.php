@@ -11,7 +11,6 @@ class VSearchAthlete extends View
 
     public function show(Array $athletes)
     {
-        var_dump($_GET);
         $assign=$this->assign;
         if($this->getMood())$assign['mood']='true';
         else $assign['mood']='false';
