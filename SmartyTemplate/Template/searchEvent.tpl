@@ -46,7 +46,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{$dir}/css/style.css">
-    <link rel="stylesheet" href="{$dir}/css/myStyle.css">
 
 
 </head>
