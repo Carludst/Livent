@@ -16,7 +16,7 @@ function routing():Array{
         'NewPage'=> 'CManageAthlete::newPage()',
         'GetResult'=> 'CManageRegistration::getResultAthlete()',
         'Search'=> 'Csearch::searchAthlete',
-        'Chronology'=>$eventChronology
+        'Chronology'=>$athleteChronology
     ];
     //4 => 12
     $comment=[

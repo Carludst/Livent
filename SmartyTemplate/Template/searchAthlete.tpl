@@ -147,7 +147,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 								<div class="row">
 									{section name=index loop=$athletes}
 										<div class="col-md-11">
-											<a href="/Livent/Athlete/MainPage/{$events[index]->getId()}/" class="list-group-item list-group-item-action flex-column align-items-start">
+											<a href="/Livent/Athlete/MainPage/{$athletes[index]->getId()}/" class="list-group-item list-group-item-action flex-column align-items-start">
 												<div class="d-flex w-100 justify-content-between">
 													<div class="row">
 														<div class="my-search-item">

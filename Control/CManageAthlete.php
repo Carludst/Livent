@@ -41,13 +41,18 @@ class CManageAthlete
 
 
 
-    public static function mainPage(EAthlete $athlete , String $sport , String $nameCompetition){
+    public static function mainPage(){
         try{
+            $key=(int)$GLOBALS['_MYINPUT'];
+            if(FDbH::existOne($key,EAthlete::class))FSession::addChronology(EAthlete::class,$key);
+            header("Location: /Livent/Athlete/Search/");
+            /*
             $a = FDbH::getResultsAthlete($athlete);
             if(!array_key_exists($sport, $a))return array();
             elseif (!array_key_exists($nameCompetition, $a[$sport]))return array();
             else return $a[$sport][$nameCompetition];
             //Richiama  VAthlete::show($athlete);
+            */
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! la visualizzazione della pagina dell'Atleta non è andata a buon fine");

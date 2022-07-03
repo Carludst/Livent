@@ -111,7 +111,7 @@ class CSearch
 
     public static function popAthleteChronology(){
         $view=new VSearchAthlete();
-        FSession::popChronology(EEvent::class,$view->getMyInput());
+        FSession::popChronology(EAthlete::class,$view->getMyInput());
         header("Location: /Livent/Athlete/Search/");
     }
 }
