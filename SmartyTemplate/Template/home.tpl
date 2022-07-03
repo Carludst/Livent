@@ -46,6 +46,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{$dir}/css/style.css">
+	<link rel="stylesheet" href="{$dir}/css/myStyle.css">
 
 </head>
 
@@ -154,7 +155,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 								class="tf-ion-ios-arrow-down"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="/Livent/Event/Search/">Evento</a></li>
-							<li><a href="buttons.html">Atleta</a></li>
+							<li><a href="/Livent/Athlete/Search/">Atleta</a></li>
 							<li><a href="alerts.html">Competizione</a></li>
 						</ul>
 					</li>

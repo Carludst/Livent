@@ -30,7 +30,7 @@ class VSearchEvent extends View
         return empty($_GET);
     }
 
-    public function getChronologyId():?int{
+    public function getMyInput():?int{
         if(isset($GLOBALS['_MYINPUT'])){
             return (int)$GLOBALS['_MYINPUT'];
         }

@@ -3,6 +3,10 @@ function routing():Array{
     $eventChronology=[
         'Delate'=>'CSearch::popEventChronology()'
     ];
+
+    $athleteChronology=[
+        'Delate'=>'CSearch::popAthleteChronology()'
+    ];
     //8
     $athlete=[
         'Update'=>'CManageAthlete::update',
@@ -11,8 +15,8 @@ function routing():Array{
         'MainPage'=>'CManageAthlete::mainPage()',
         'NewPage'=> 'CManageAthlete::newPage()',
         'GetResult'=> 'CManageRegistration::getResultAthlete()',
-        'SearchPage'=> 'Csearch::searchPageAthlete',
-        'Search'=> 'Csearch::searchAthlete'
+        'Search'=> 'Csearch::searchAthlete',
+        'Chronology'=>$eventChronology
     ];
     //4 => 12
     $comment=[

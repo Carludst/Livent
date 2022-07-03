@@ -3,15 +3,6 @@
 class CSearch
 {
 
-    public static function searchPageEvent(){
-        try{
-            //Richiamare view search;
-        }
-        catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di ricerca degli eventi non è andata a buon fine");
-        }
-    }
-
     public static function searchPageAthlete(){
         try{
             //Richiamare view search;
@@ -30,10 +21,30 @@ class CSearch
         }
     }
 
-    public static function searchAthlete(String|Null $name , String|Null $surname , DateTime|Null $birthdateFrom , DateTime|Null $birthdateTo , ?bool $famale , String|Null $team , String|Null $sport):array
+    public static function searchAthlete()
     {
         try{
-            return FDbH::searchAthlete($name, $surname, $birthdateFrom, $birthdateTo, $famale, $team, $sport);
+            $view=new VSearchAthlete();
+
+            $name=$view->getName();
+            $surname=$view->getSurname();
+            $birthdateFrom=$view->getMinDate();
+            $birthdateTo=$view->getMaxDate();
+            $sport=$view->getSport();
+            $gender=$view->getGender();
+            $team=$view->getTeam();
+
+            if($view->getMood()){
+                $keys=FSession::getChronology(EAthlete::class);
+                $athletes=array();
+                foreach ($keys as $k=>$v){
+                    if(!FDbH::existOne((int)$v,EAthlete::class))FSession::popChronology(EAthlete::class,$k);
+                    else $athletes[]=FDbH::loadOne($v,EAthlete::class);
+                }
+            }
+            else $athletes=FDbH::searchAthlete($name, $surname, $birthdateFrom, $birthdateTo, $gender, $team, $sport);
+
+            $view->show($athletes);
         }
         catch (Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La ricerca degli atleti non è andata a buon fine");
@@ -94,7 +105,13 @@ class CSearch
 
     public static function popEventChronology(){
         $view=new VSearchEvent();
-        FSession::popChronology(EEvent::class,$view->getChronologyId());
+        FSession::popChronology(EEvent::class,$view->getMyInput());
         header("Location: /Livent/Event/Search/");
+    }
+
+    public static function popAthleteChronology(){
+        $view=new VSearchAthlete();
+        FSession::popChronology(EEvent::class,$view->getMyInput());
+        header("Location: /Livent/Athlete/Search/");
     }
 }

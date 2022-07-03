@@ -230,7 +230,7 @@ class FDb{
             }
             else{
                 $arrayBind[":value".$p]=$value[0];
-                $result=" WHERE ".$field[0]." ".$op." :value0 ";
+                $result=" WHERE ".$field[0]." ".$op." :value$p ";
                 $p=$p+1;
             }
         }
@@ -247,6 +247,7 @@ class FDb{
             else{
                 $arrayBind[":value$p"]=$value[$i];
                 $result=$result." ".$logicOp." ".$field[$i]." ".$op." :value$p ";
+                $p=$p+1;
             }
         }
         return array("where"=>$result,"bind"=>$arrayBind);

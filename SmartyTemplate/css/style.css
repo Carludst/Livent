@@ -60,6 +60,69 @@ FACEBOOK: https://www.facebook.com/themefisher
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500");
 
 /*=== our classes ===*/
+.widget .my-widget-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.my-table{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border: transparent ;
+}
+
+.my-table-input-inline{
+  width: auto;
+  column-rule-width: medium;
+  padding: 5px;
+  margin-left: 0px;
+  margin-right: auto;
+  border: transparent ;
+}
+
+.my-td{
+  padding: 3px;
+  text-align: left;
+}
+
+.my-td h4{
+  padding: 3px;
+  position: relative;
+}
+
+.my-td-title h4{
+  position: relative;
+  right: 5px;
+}
+
+.my-td-title{
+  max-width: available;
+  text-align: right;
+}
+
+
+
+.my-search-item table{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border: transparent ;
+}
+.my-search-item h4{
+  text-align: center;
+  font-weight: normal;
+}
+.my-search-item h3{
+  text-align: center;
+  font-weight: bold;
+}
+
+
+
 .avatar {
   vertical-align: middle;
   width: 50px;
