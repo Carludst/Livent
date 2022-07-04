@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Aviato | E-commerce template</title>
+    <title>Livent</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -16,26 +16,26 @@
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
 
     <!-- Themefisher Icon font -->
-    <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
 
     <!-- Animate css -->
-    <link rel="stylesheet" href="plugins/animate/animate.css">
+    <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
     <!-- Slick Carousel -->
-    <link rel="stylesheet" href="plugins/slick/slick.css">
-    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
+    <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{$dir}/css/style.css">
 
 
 </head>
 
-<body id="body" onload="setDate(document.searchForm)">
+<body>
 
 <!-- Start Top Header Bar -->
 <!--COPIA DA HOME-->
@@ -89,11 +89,9 @@
                                 <tbody>
                                 <tr>
                                     <td><h4>Data di inizio : </h4></td>
-                                    <td> <input type="date" name="dateMin" {if $dateMin!=""}value="{$dateMin->format("Y-m-d")}" onload="setDate(form)"{/if}  style="width: 225px" onchange="setDate(form)"></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Data di fine  : </h4></td>
-                                    <td> <input type="date" name="dateMax"  {if $dateMax!=""}value="{$dateMax->format("Y-m-d")}" onload="setDate(form)"{/if}  onchange="setDate(form)" style="width: 225px"> </td>
+                                    <td> <input type="date" name="startdate"></td>
+                                    <td><h4>Orario di inizio : </h4></td>
+                                    <input type="time" name="time" min="09:00" max="18:00" required>
                                 </tr>
                                 </tbody>
                             </table>

@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Aviato | E-commerce template</title>
+    <title>Livent</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -16,26 +16,26 @@
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
 
     <!-- Themefisher Icon font -->
-    <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
 
     <!-- Animate css -->
-    <link rel="stylesheet" href="plugins/animate/animate.css">
+    <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
     <!-- Slick Carousel -->
-    <link rel="stylesheet" href="plugins/slick/slick.css">
-    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
+    <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{$dir}/css/style.css">
 
 
 </head>
 
-<body id="body" onload="setDate(document.searchForm)">
+<body>
 
 <!-- Start Top Header Bar -->
 <!--COPIA DA HOME-->
@@ -107,12 +107,6 @@
                             </table>
                         </div>
                         <br>
-                        <select class="form-control">
-                            <option>No Selected</option>
-                            <option {if $sport=='M'}selected{/if}>Uomo</option>
-                            <option {if $sport=='F'}selected{/if}>Donna</option>
-                        </select>
-                        </br>
                         <fieldset>
                             Pubblico <input type="text" name="public?" value="public"/>
                             Privato <input type="text" name="public?" value="private"/>
@@ -120,11 +114,28 @@
                         <br>
                         <h2>contatti:</h2>
                         <br>
+                        <h3>contatto 1:</h3>
                         <div class="input-group input-group-sm mb-3">
                             <input type="text" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="telephone" placeholder="Numero di telefono" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="tel" name="telephone" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                        </div>
+                        <br>
+                        <h3>contatto 2:</h3>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="tel" name="telephone" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                        </div>
+                        <br>
+                        <h3>contatto 3:</h3>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="text" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="tel" name="telephone" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
                         </div>
                         <br>
                         <div>
