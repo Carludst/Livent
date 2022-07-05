@@ -9,8 +9,13 @@ class CManageAthlete
     }
 
     public static function update(EAthlete $athlete):void
-    {
+    {//usare l'ogetto della view
         try{
+            $vAthlete=new VNewAthlete();
+            $myinput=$vAthlete->getMyInput();
+            if(is_null($myinput)){
+                if(CManageUser::callLogin())FDbH::store($athlete);
+            }
             if(self::authorizer()){
                 if(!FDbH::updateOne($athlete))throw new Exception("you can't update an athlete that don't exist");
             }
@@ -59,11 +64,18 @@ class CManageAthlete
         }
     }
 
-    public static function newPage(EAthlete $athlete){
+    public static function newPage(){
         try{
-            if(CManageUser::callLogin()) {
-                //Richiama  VAthlete::showNewPage($athlete);
+            $vAthlete=new VNewAthlete();
+            $myinput=$vAthlete->getMyInput();
+            if(is_null($myinput)){
+                if(CManageUser::callLogin()) $vAthlete->show(null);
             }
+            elseif(self::authorizer()){
+                $athlete= FDbH::loadOne($myinput, EAthlete::class);
+                $vAthlete->show($athlete);
+            }
+            else throw new Exception("you don't have autorization");
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! la visualizzazione della pagina di crezione/aggiornamento dati dell'Atleta non è andata a buon fine");

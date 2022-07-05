@@ -100,26 +100,35 @@
                         <br>
                         <h3>contatto 1:</h3>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="email" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" name="nameContact1" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="tel" name="telephone" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                            <input type="email" name="email1" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="tel" name="telephone1" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
                         </div>
                         <br>
                         <h3>contatto 2:</h3>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="email" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" name="nameContact2" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="tel" name="telephone" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                            <input type="email" name="email2" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="tel" name="telephone2" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
                         </div>
                         <br>
                         <h3>contatto 3:</h3>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="email" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" name="nameContact2" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="tel" name="telephone" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                            <input type="email" name="email3" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="tel" name="telephone3" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
                         </div>
                         <br>
                         <div>
@@ -155,30 +164,30 @@ Essential Scripts
 =====================================-->
 
 <!-- Main jQuery -->
-<script src="plugins/jquery/dist/jquery.min.js"></script>
+<script src="{$dir}/plugins/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.1 -->
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{$dir}/plugins/bootstrap/js/bootstrap.min.js"></script>
 <!-- Bootstrap Touchpin -->
-<script src="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<script src="{$dir}/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
 <!-- Instagram Feed Js -->
-<script src="plugins/instafeed/instafeed.min.js"></script>
+<script src="{$dir}/plugins/instafeed/instafeed.min.js"></script>
 <!-- Video Lightbox Plugin -->
-<script src="plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+<script src="{$dir}/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
 <!-- Count Down Js -->
-<script src="plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+<script src="{$dir}/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
 
 <!-- slick Carousel -->
-<script src="plugins/slick/slick.min.js"></script>
-<script src="plugins/slick/slick-animation.min.js"></script>
+<script src="{$dir}/plugins/slick/slick.min.js"></script>
+<script src="{$dir}/plugins/slick/slick-animation.min.js"></script>
 
 <!-- Google Mapl -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script type="text/javascript" src="plugins/google-map/gmap.js"></script>
+<script type="text/javascript" src="{$dir}/plugins/google-map/gmap.js"></script>
 
 <!-- Main Js File -->
-<script src="js/script.js"></script>
+<script src="{$dir}/js/script.js"></script>
 <!--MyJavaScript -->
-<script src="../SmartyTemplate/js/myScript.js"></script>
+<script src="{$dir}/js/myScript.js"></script>
 
 
 
