@@ -85,7 +85,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 				<ul class="top-menu text-right list-inline">
 					{if '' != $user && ''!=$profileImg}
-					<li class="dropdown cart-nav dropdown-slide">
+					<li class="dropdown cart-nav dropdown-slide" >
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
 						<div class="dropdown-menu cart-dropdown">
 							<!-- Cart Item -->
@@ -101,21 +101,20 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</div><!-- / Cart Item -->
 							<!-- Cart Item -->
 							<ul class="text-center cart-buttons">
-								<li><a href="cart.html" class="btn btn-small">View Profile</a></li>
+								<li><a href="/Livent/User/ProfilePage/" class="btn btn-small">View Profile</a></li>
 								<li><a href="checkout.html" class="btn btn-small btn-solid-border">Logout</a></li>
 							</ul>
 						</div>
 
 					</li><!-- / User -->
+				</ul>
 
 					{else}
 					<!-- / Login -->
-					<li class="dropdown search dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-								class="tf-ion-android-person"></i> Login</a>
-					</li><!-- / Login -->
+				<a href="/Livent/User/LoginPage/"  ><i class="tf-ion-android-person"></i> Login</a>
+					<!-- / Login -->
 					{/if}
-				</ul><!-- / .nav .navbar-nav .navbar-right -->
+				<!-- / .nav .navbar-nav .navbar-right -->
 			</div>
 		</div>
 	</div>

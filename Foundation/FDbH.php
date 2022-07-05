@@ -168,7 +168,6 @@ class FDbH {
             imagedestroy($imgResized);
         }
         else $blob=stripslashes($array['file']);
-
         if($base64)return 'data:image/'.$array['type'].';base64,'.base64_encode($blob);
         else return array('blob'=>$blob,'type'=>$array['type']);
     }

@@ -34,12 +34,7 @@ class VSearchAthlete extends View
         return empty($_GET);
     }
 
-    public function getMyInput():?int{
-        if(isset($GLOBALS['_MYINPUT'])){
-            return (int)$GLOBALS['_MYINPUT'];
-        }
-        else return NULL;
-    }
+
 
     public function getName():?String{
         if(!empty($_GET['name']))return $_GET['name'];

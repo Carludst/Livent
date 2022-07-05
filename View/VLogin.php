@@ -1,19 +1,17 @@
 <?php
-class VLogin extends Smarty
+class VLogin extends View
 {
-    private static Smarty $smarty;
     private static String $template='login.tpl';
 
-    public function __construct(String $template, String $compile)
+    public function __construct()
     {
-        self::$smarty=new Smarty();
-        self::$smarty->setTemplateDir($template);
-        self::$smarty->setCompileDir($compile);
+        parent::__construct();
     }
 
-    public static function show()
+    public function show()
     {
-        self::$smarty->display(self::$template);
+        $this->smarty->assign($this->assign);
+        $this->smarty->display(self::$template);
     }
 }
 
