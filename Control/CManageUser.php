@@ -104,7 +104,8 @@ class CManageUser
 
     public static function loginPage(){
         try{
-            VLogin::show();
+            $view=new VLogin();
+            $view->show();
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di login non è andata a buon fine");
@@ -131,8 +132,29 @@ class CManageUser
 
     public static function profilePage(){
         try{
-            if(self::callLogin()) FDbH::getRegistrationUser(FSession::getUserLogged());
-            //Richiama  VProfile::show();
+            if(self::callLogin()){
+                $view = new VUserProfile();
+                $u = FSession::getUserLogged();
+                $profileImg=FDbH::loadMultiFile($u,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
+                $view->showProfile($u, $profileImg);
+            }
+            else throw new Exception("user logged don't have autorization");
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di profilo non è andata a buon fine");
+        }
+    }
+
+    public static function userCompetitionPage(){
+        try{
+            if(self::callLogin()){
+                $view = new VUserProfile();
+                $key=$view->getMyInput();
+                $c = FDbH::getRegistrationUser(FSession::getUserLogged());
+                $view->showCompetition($c);
+            }
+            else throw new Exception("user logged don't have autorization");
+
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di profilo non è andata a buon fine");

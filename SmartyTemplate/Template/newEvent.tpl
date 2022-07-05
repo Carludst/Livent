@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Aviato | E-commerce template</title>
+    <title>Livent</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -16,26 +16,26 @@
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
 
     <!-- Themefisher Icon font -->
-    <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
 
     <!-- Animate css -->
-    <link rel="stylesheet" href="plugins/animate/animate.css">
+    <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
     <!-- Slick Carousel -->
-    <link rel="stylesheet" href="plugins/slick/slick.css">
-    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
+    <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{$dir}/css/style.css">
 
 
 </head>
 
-<body id="body" onload="setDate(document.searchForm)">
+<body>
 
 <!-- Start Top Header Bar -->
 <!--COPIA DA HOME-->
@@ -74,57 +74,52 @@
                             <input type="text" name="name" class="form-control" placeholder="Nome evento" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
+                        <table>
+                            <td>
+                                <div class="input-group input-group-sm mb-3"><input type="text" name="city" class="form-control" placeholder="Città" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" ></div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm mb-3"><input type="text" name="street" class="form-control" placeholder="Via" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" ></div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm mb-3"><input type="text" name="civic number" class="form-control" placeholder="Numero Civico" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" ></div>
+                            </td>
+                        </table>
                         <div class="input-group-sm mb-3">
                             <input type="text" {if $place!=""}value="{$place}"{/if} placeholder="Luogo"  name="place" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
-                        <h4>sport:</h4>
-                        <select class="form-control" name="sport">
-                            <option>Qualsiasi Sport</option>
-                            <option {if $sport=='Atletica'}selected{/if}>Atletica</option>
-                            <option {if $sport=='Ciclismo'}selected{/if}>Ciclismo</option>
-                            <option {if $sport=='Nuoto'}selected{/if}>Nuoto</option>
-                            <option {if $sport=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
-                            <option {if $sport=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
-                        </select>
-                        <br>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="team" placeholder="Team" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
-                        </div>
-                        <br>
-                        <div class="it-datepicker-wrapper">
-                            <table cellpadding="5">
-                                <tbody>
-                                <tr>
-                                    <td><h4>Data di inizio : </h4></td>
-                                    <td> <input type="date" name="dateMin" {if $dateMin!=""}value="{$dateMin->format("Y-m-d")}" onload="setDate(form)"{/if}  style="width: 225px" onchange="setDate(form)"></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Data di fine  : </h4></td>
-                                    <td> <input type="date" name="dateMax"  {if $dateMax!=""}value="{$dateMax->format("Y-m-d")}" onload="setDate(form)"{/if}  onchange="setDate(form)" style="width: 225px"> </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <br>
-                        <select class="form-control">
-                            <option>No Selected</option>
-                            <option {if $sport=='M'}selected{/if}>Uomo</option>
-                            <option {if $sport=='F'}selected{/if}>Donna</option>
-                        </select>
-                        </br>
                         <fieldset>
-                            Pubblico <input type="text" name="public?" value="public"/>
-                            Privato <input type="text" name="public?" value="private"/>
+                            <input type="radio" name="public?" value="pubblico">
+                            <label for="pubblico">Pubblico</label><br>
+                            <input type="radio" name="public?" value="privato">
+                            <label for="privato">Privato</label><br>
                         </fieldset>
                         <br>
                         <h2>contatti:</h2>
                         <br>
+                        <h3>contatto 1:</h3>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="email" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="telephone" placeholder="Numero di telefono" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="tel" name="telephone" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                        </div>
+                        <br>
+                        <h3>contatto 2:</h3>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="email" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="tel" name="telephone" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                        </div>
+                        <br>
+                        <h3>contatto 3:</h3>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="email" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="tel" name="telephone" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
                         </div>
                         <br>
                         <div>

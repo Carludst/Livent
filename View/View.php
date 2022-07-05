@@ -27,4 +27,11 @@ class View
         self::$templateDir=$template;
         self::$logo=$logo;
     }
+
+    public function getMyInput():?int{
+        if(isset($GLOBALS['_MYINPUT'])){
+            return (int)$GLOBALS['_MYINPUT'];
+        }
+        else return NULL;
+    }
 }

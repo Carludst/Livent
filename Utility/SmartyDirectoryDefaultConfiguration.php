@@ -1,7 +1,8 @@
 <?php
 $graphicDirReference='/Livent/SmartyTemplate';
-$tamplateDir=$GLOBALS['defaultPath'].'/SmartyTemplate/Template';
+$templateDir=$GLOBALS['defaultPath'].'/SmartyTemplate/Template';
 $compileDir=$GLOBALS['defaultPath'].'/SmartyTemplate/Compile';
-$logoImg=FDbH::loadFile('System','logo');
+if(FDbH::existFile('System','logo'))$logoImg=FDbH::loadFile('System','logo');
+else $logoImg='';
 
-View::setDir($tamplateDir,$compileDir,$graphicDirReference,$logoImg);
+View::setDir($templateDir,$compileDir,$graphicDirReference,$logoImg);
