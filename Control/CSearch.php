@@ -63,10 +63,31 @@ class CSearch
         }
     }
 
-    public static function searchCompetition(EEvent|NULL $event=NULL,String $name=NULL,?String $gender=NULL ,?String $sport=NULL ,DateTime|Null $dateFrom=NULL , DateTime|Null $dateTo=NULL,?EDistance $distanceFrom=NULL ,?EDistance $distanceTo=NULL):array
+    public static function searchCompetition()
     {
         try{
-            return FDbH::searchCompetition($event,$name,$gender,$sport,$dateFrom,$dateTo,$distanceFrom,$distanceTo);
+            $view=new VSearchCompetition();
+
+            $name=$view->getName();
+            $dateFrom=$view->getMinDate();
+            $dateTo=$view->getMaxDate();
+            $sport=$view->getSport();
+            $gender=$view->getGender();
+            $distanceFrom=$view->getMinDistance();
+            $distanceTo=$view->getMaxDistance();
+
+            if($view->getMood()){
+                $keys=FSession::getChronology(ECompetition::class);
+                $competitions=array();
+                foreach ($keys as $k=>$v){
+                    if(!FDbH::existOne((int)$v,ECompetition::class))FSession::popChronology(ECompetition::class,$k);
+                    else $competitions[]=FDbH::loadOne($v,ECompetition::class);
+                }
+            }
+            else  $competitions=FDbH::searchCompetition(NULL,$name,$gender,$sport,$dateFrom,$dateTo,$distanceFrom,$distanceTo);
+            $events=FDbH::loadEventByCompetition($competitions);
+
+            $view->show($competitions,$events);
         }
         catch (Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La ricerca delle competizioni non è andata a buon fine");
@@ -113,5 +134,11 @@ class CSearch
         $view=new VSearchAthlete();
         FSession::popChronology(EAthlete::class,$view->getMyInput());
         header("Location: /Livent/Athlete/Search/");
+    }
+
+    public static function popCompetitionChronology(){
+        $view=new VSearchCompetition();
+        FSession::popChronology(ECompetition::class,$view->getMyInput());
+        header("Location: /Livent/Competition/Search/");
     }
 }

@@ -58,7 +58,7 @@ class CManageEvent
         try{
             $key=(int)$GLOBALS['_MYINPUT'];
             if(FDbH::existOne($key,EEvent::class))FSession::addChronology(EEvent::class,$key);
-            header("Location: /Livent/Event/Search/");
+            header("Location: /Livent/Event/Search/");//righa da eliminare
 
             //Richiama  VEvent::show($event);
         }

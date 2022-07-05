@@ -6,14 +6,14 @@ class FCompetition {
     private static function getArrayByObject(ECompetition $competition):Array
     {
         $name=$competition->getName();
-        $dateTime=$competition->getDateTime()->format("y-m-d h-i-s");
+        $dateTime=$competition->getDateTime()->format("Y-m-d H:i:s");
         $description=$competition->getDescription();
         $gender=$competition->getGender();
         $sport=$competition->getSport();
         $duration=$competition->getDistance()->getValue();
 
         $now=new DateTime();
-        $update_at=$now->format("Y-m-d h:i:s");
+        $update_at=$now->format("Y-m-d H:i:s");
 
         $fieldValue=array(
             'namecompetition'=>$name,
@@ -48,7 +48,7 @@ class FCompetition {
     {
         if(!FEvent::existOne($idEvent))throw new Exception("you can't associate an competition with an event don't saved on DB");
         $now=new DateTime();
-        $created_at=$now->format("Y-m-d h:i:s");
+        $created_at=$now->format("Y-m-d H:i:s");
         $fieldValue=self::getArrayByObject($competition);
 
         $fieldValue['created_at']=$created_at;
@@ -224,8 +224,12 @@ class FCompetition {
         return FDb::update(self::$table[0],self::whereResult($competition,$athlete),self::getArrByObjResult($competition,$athlete,$time));
     }
 
-    public static function addRegistration(ECompetition $competition,EAthlete $athlete,EUser $user): bool
+    /**
+     * @throws Exception
+     */
+    public static function addRegistration(ECompetition $competition, EAthlete $athlete, EUser $user): bool
     {
+        if($athlete->getFamale()&& $competition=='M' || !$athlete->getFamale() && $competition=='F')throw new Exception('sesso non compatibile');
         $now=new DateTime();
         $created_at=$now->format("Y-m-d h:i:s");
         $fieldValue=self::getArrByObjResult($competition,$athlete,$user);

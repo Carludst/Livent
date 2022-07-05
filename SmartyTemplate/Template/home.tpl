@@ -155,7 +155,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 						<ul class="dropdown-menu">
 							<li><a href="/Livent/Event/Search/">Evento</a></li>
 							<li><a href="/Livent/Athlete/Search/">Atleta</a></li>
-							<li><a href="alerts.html">Competizione</a></li>
+							<li><a href="/Livent/Competition/Search/">Competizione</a></li>
 						</ul>
 					</li>
 					<!-- / Search -->

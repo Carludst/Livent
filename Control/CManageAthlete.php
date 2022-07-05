@@ -45,7 +45,7 @@ class CManageAthlete
         try{
             $key=(int)$GLOBALS['_MYINPUT'];
             if(FDbH::existOne($key,EAthlete::class))FSession::addChronology(EAthlete::class,$key);
-            header("Location: /Livent/Athlete/Search/");
+            header("Location: /Livent/Athlete/Search/");//righa da eliminare
             /*
             $a = FDbH::getResultsAthlete($athlete);
             if(!array_key_exists($sport, $a))return array();

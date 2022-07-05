@@ -45,11 +45,16 @@ class CManageCompetition
         }
     }
 
-    public static function mainPage(ECompetition $competition){
+    public static function mainPage(){
         try{
+            $key=(int)$GLOBALS['_MYINPUT'];
+            if(FDbH::existOne($key,ECompetition::class))FSession::addChronology(ECompetition::class,$key);
+            header("Location: /Livent/Competition/Search/");//righa da eliminare
+            /*
             $registration=$competition->getRegistrations();
             $result=$competition->getClassification();
             //Richiama  view competition
+            */
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina della competizione non è andato a buon fine");

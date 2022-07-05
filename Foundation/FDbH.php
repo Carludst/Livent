@@ -409,9 +409,16 @@ class FDbH {
      * @param ECompetition $competition
      * @return EEvent
      */
-    public static function loadEventByCompetition(ECompetition $competition):EEvent
+    public static function loadEventByCompetition(Array|ECompetition $competition):array|EEvent
     {
-        return FEvent::loadByCompetition($competition);
+        if(is_array($competition)){
+            $events=array();
+            foreach ($competition as $v){
+                $events[]=FEvent::loadByCompetition($v);
+            }
+            return $events;
+        }
+        else return FEvent::loadByCompetition($competition);
     }
 
     /**

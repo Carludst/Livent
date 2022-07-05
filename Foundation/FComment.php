@@ -10,7 +10,7 @@ class FComment
 
         $user = $comment->getUser()->getEmail();
         $text = $comment->getText();
-        $updated_at = $dateTime->format("y-m-d h-i-s");
+        $updated_at = $dateTime->format("Y-m-d H:i:s");
 
         $fieldValue = array(
             'emailorganizer' => $user,
@@ -46,7 +46,7 @@ class FComment
     {
         $dateTime=new DateTime();
         $fieldValue = self::getArrayByObject($comment);
-        $fieldValue['created_at']=$dateTime->format("y-m-d h-i-s");
+        $fieldValue['created_at']=$dateTime->format("Y-m-d H:i:s");
         $fieldValue['idevent']=$idEvent;
         FDb::store(self::$table, $fieldValue);
     }

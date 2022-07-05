@@ -35,7 +35,7 @@
 
 </head>
 
-<body id="body" onload="setDate(document.searchForm)">
+<body id="body" onload="setDate(document.searchForm) ; setListCompetitionName({$name})">
 
 <!-- Start Top Header Bar -->
 <!--COPIA DA HOME-->
@@ -75,7 +75,7 @@
                         </div>
                         <br>
                         <h4>sport:</h4>
-                        <select class="form-control" name="sport">
+                        <select class="form-control" name="sport" id='sportList' onchange="setListCompetitionName('')">
                             <option>Qualsiasi Sport</option>
                             <option {if $sport=='Atletica'}selected{/if}>Atletica</option>
                             <option {if $sport=='Ciclismo'}selected{/if}>Ciclismo</option>
@@ -83,6 +83,8 @@
                             <option {if $sport=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
                             <option {if $sport=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
                         </select>
+                        <br>
+                        <select class="form-control" id="nameCompetitionList" name="name" onload="setListCompetitionName({$name})"></select>
                         <br>
                         <div class="it-datepicker-wrapper">
                             <table cellpadding="5">

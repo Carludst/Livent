@@ -12,7 +12,7 @@ class FUser
         $type=$user->getType();
 
         $now=new DateTime();
-        $update_at=$now->format("Y-m-d h:i:s");
+        $update_at=$now->format("Y-m-d H:i:s");
 
         $fieldValue=array(
             'username'=>$username,
@@ -44,7 +44,7 @@ class FUser
     public static function store(EUser $user):void
     {
         $now=new DateTime();
-        $created_at=$now->format("Y-m-d h:i:s");
+        $created_at=$now->format("Y-m-d H:i:s");
 
         $fieldValue=self::getArrayByObject($user);
         $fieldValue['created_at']=$created_at;

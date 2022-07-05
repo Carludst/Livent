@@ -12,7 +12,7 @@ class FEvent
         $pubilc=$event->getPublic();
 
         $now=new DateTime();
-        $update_at=$now->format("Y-m-d h:i:s");
+        $update_at=$now->format("Y-m-d H:i:s");
 
         $fieldValue=array(
             'namevent'=>$nome,
@@ -53,7 +53,7 @@ class FEvent
     {
         if(!FUser::existOne($event->getOrganizer()->getEmail()))throw new Exception("the organizer of the event don't exist on DB");
         $dateTime=new DateTime();
-        $created_at=$dateTime->format("Y-m-d h:i:s");
+        $created_at=$dateTime->format("Y-m-d H:i:s");
         $fieldValue=self::getArrayByObject($event);
         $fieldValue['created_at']=$created_at;
         FDb::store(self::$table[0],$fieldValue);
@@ -113,7 +113,8 @@ class FEvent
     public static function loadByCompetition(ECompetition $competition):?EEvent
     {
         if(FDb::exist(FDb::load(self::$table[1],FDb::where('idcompetition',$competition->getId())))) {
-            $id=(int)FDb::exInterrogation(FDb::load(self::$table[1],FDb::where('idcompetition',$competition->getId()),'idevent'));
+            $resultQuery=FDb::exInterrogation(FDb::load(self::$table[1],FDb::where('idcompetition',$competition->getId()),'idevent'));
+            $id=(int)$resultQuery[0]['idevent'];
             return self::loadOne($id);
         }
         else return NULL;

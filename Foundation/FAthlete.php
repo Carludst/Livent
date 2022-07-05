@@ -13,7 +13,7 @@ class FAthlete {
         $famale=$athlete->getFamale();
         $team=$athlete->getTeam();
         $sport=$athlete->getSport();
-        $update_at=$dateTime->format("Y-m-d h:i:s");
+        $update_at=$dateTime->format("Y-m-d H:i:s");
 
         $fieldValue=array(
             'name'=>$name,
@@ -49,7 +49,7 @@ class FAthlete {
     public static function store(EAthlete $athlete):void
     {
         $dateTime=new DateTime();
-        $created_at=$dateTime->format("Y-m-d h:i:s");
+        $created_at=$dateTime->format("Y-m-d H:i:s");
         $fieldValue=self::getArrayByObject($athlete,true);
         $fieldValue['created_at']=$created_at;
         FDb::store(self::$table[0],$fieldValue);
