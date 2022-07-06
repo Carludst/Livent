@@ -9,11 +9,10 @@ class VSearchCompetition extends View
         parent::__construct();
     }
 
-    public function show(Array $competitions,Array $events)
+    public function show(Array $competitions,Array $events,String $mood)
     {
         $assign=$this->assign;
-        if($this->getMood())$assign['mood']='true';
-        else $assign['mood']='false';
+        $assign['mood']=$mood;
         $assign['competitions']=$competitions;
         $assign['events']=$events;
 

@@ -34,17 +34,26 @@ class CSearch
             $gender=$view->getGender();
             $team=$view->getTeam();
 
-            if($view->getMood()){
+            if($view->getMood() && FSession::isLogged()){
                 $keys=FSession::getChronology(EAthlete::class);
                 $athletes=array();
+                $mood='cronology';
                 foreach ($keys as $k=>$v){
                     if(!FDbH::existOne((int)$v,EAthlete::class))FSession::popChronology(EAthlete::class,$k);
                     else $athletes[]=FDbH::loadOne($v,EAthlete::class);
                 }
             }
-            else $athletes=FDbH::searchAthlete($name, $surname, $birthdateFrom, $birthdateTo, $gender, $team, $sport);
+            elseif($view->getMood()){
+                $mood='notlogged';
+                $athletes=FDbH::searchAthlete();
+            }
+            else{
+                $mood='notlogged';
+                $athletes=FDbH::searchAthlete($name, $surname, $birthdateFrom, $birthdateTo, $gender, $team, $sport);
+            }
+            if(count($athletes)>100) $athletes=array_slice($athletes,0,100);
 
-            $view->show($athletes);
+            $view->show($athletes,$mood);
         }
         catch (Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La ricerca degli atleti non è andata a buon fine");
@@ -76,18 +85,27 @@ class CSearch
             $distanceFrom=$view->getMinDistance();
             $distanceTo=$view->getMaxDistance();
 
-            if($view->getMood()){
+            if($view->getMood() && FSession::isLogged()){
                 $keys=FSession::getChronology(ECompetition::class);
                 $competitions=array();
+                $mood='cronology';
                 foreach ($keys as $k=>$v){
                     if(!FDbH::existOne((int)$v,ECompetition::class))FSession::popChronology(ECompetition::class,$k);
                     else $competitions[]=FDbH::loadOne($v,ECompetition::class);
                 }
             }
-            else  $competitions=FDbH::searchCompetition(NULL,$name,$gender,$sport,$dateFrom,$dateTo,$distanceFrom,$distanceTo);
+            elseif($view->getMood()){
+                $mood='notlogged';
+                $competitions=FDbH::searchCompetition();
+            }
+            else {
+                $mood='search';
+                $competitions=FDbH::searchCompetition(NULL,$name,$gender,$sport,$dateFrom,$dateTo,$distanceFrom,$distanceTo);
+            }
+            if(count($competitions)>100) $athletes=array_slice($competitions,0,100);
             $events=FDbH::loadEventByCompetition($competitions);
 
-            $view->show($competitions,$events);
+            $view->show($competitions,$events,$mood);
         }
         catch (Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La ricerca delle competizioni non è andata a buon fine");
@@ -105,18 +123,27 @@ class CSearch
             $startDateTo=$view->maxDate();
             $sport=$view->getSport();
 
-            if($view->getMood()){
+            if($view->getMood() && FSession::isLogged()){
                 $keys=FSession::getChronology(EEvent::class);
                 $events=array();
+                $mood='cronology';
                 foreach ($keys as $k=>$v){
                     if(!FDbH::existOne((int)$v,EEvent::class))FSession::popChronology(EEvent::class,$k);
                     else $events[]=FDbH::loadOne($v,EEvent::class);
                 }
             }
-            else $events=FDbH::searchEvent(NULL,$name,NULL,$place,$startDateFrom,$startDateTo,$sport);
+            elseif($view->getMood()){
+                $mood='notlogged';
+                $events=FDbH::searchEvent();
+            }
+            else{
+                $mood='search';
+                $events=FDbH::searchEvent(NULL,$name,NULL,$place,$startDateFrom,$startDateTo,$sport);
+            }
+            if(count($events)>100) $athletes=array_slice($events,0,100);
 
             $eventsImg=FDbH::loadMultiFile($events,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain());
-            $view->show($events,$eventsImg);
+            $view->show($events,$eventsImg,$mood);
 
         }
         catch (Exception $e){

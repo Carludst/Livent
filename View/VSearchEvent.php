@@ -9,11 +9,10 @@ class VSearchEvent extends View
         parent::__construct();
     }
 
-    public function show(Array $events ,Array $eventsImg )
+    public function show(Array $events ,Array $eventsImg,String $mood )
     {
         $assign=$this->assign;
-        if($this->getMood())$assign['mood']='true';
-        else $assign['mood']='false';
+        $assign['mood']=$mood;
         $assign['events']=$events;
         $assign['eventsImg']=$eventsImg;
         $assign['name']=$this->getName();

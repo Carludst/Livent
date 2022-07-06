@@ -1,7 +1,7 @@
 <?php
 class VSignin extends View
 {
-    private static String $template='login.tpl';
+    private static String $template='signin.tpl';
 
     public function __construct()
     {

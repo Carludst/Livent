@@ -81,7 +81,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                             <button type="submit" class="btn btn-main text-center" >Login</button>
                         </div>
                     </form>
-                    <p class="mt-20">New in this site ?<a href="signin.tpl"> Create New Account</a></p>
+                    <p class="mt-20">New in this site ?<a href="/Livent/User/SigninPage/"> Create New Account</a></p>
                 </div>
             </div>
         </div>

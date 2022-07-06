@@ -39,12 +39,14 @@ class FSession
     public static function addChronology(String $class , mixed $data)
     {
         if (session_status() == PHP_SESSION_NONE)session_start();
-        if(isset($_SESSION['Chronology_'.$class])){
-            $array=unserialize($_SESSION['Chronology_'.$class]);
-            if(!in_array($data,$array))$array[]=$data;
-            $_SESSION['Chronology_'.$class]=serialize($array);
+        if(self::isLogged()){
+            if(isset($_SESSION['Chronology_'.$class])){
+                $array=unserialize($_SESSION['Chronology_'.$class]);
+                if(!in_array($data,$array))$array[]=$data;
+                $_SESSION['Chronology_'.$class]=serialize($array);
+            }
+            else $_SESSION['Chronology_'.$class]=serialize(array($data));
         }
-        else $_SESSION['Chronology_'.$class]=serialize(array($data));
     }
 
     public static function popChronology(String $class,int $index)

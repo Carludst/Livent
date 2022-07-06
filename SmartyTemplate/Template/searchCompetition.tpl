@@ -160,12 +160,14 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-md-9">
 				<div class="row">
 					<div class="list-group">
-						{if empty($competitions) && $mood=='true'}
+						{if empty($competitions) && $mood=='cronology'}
 							<h1 class="my-allert-page" > Non hai competizioni in cronologia </h1>
-						{elseif empty($competitions)}
+						{elseif empty($competitions) && $mood=='search'}
 							<h1 class="my-allert-page" > La ricerca non ha dato risultati </h1>
+						{elseif empty($competitions)}
+							<h1 class="my-allert-page" > Non ci sono competizioni salvate </h1>
 						{else}
-							{if $mood=='true'}
+							{if $mood=='cronology'}
 								<div class="row">
 									{section name=index loop=$competitions}
 										<div class="col-md-11">

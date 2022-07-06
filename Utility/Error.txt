@@ -360,3 +360,33 @@
 #0 C:\xampp\htdocs\Livent\Control\CFrontController.php(54): CManageUser::login()
 #1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
 #2 {main}
+
+#0 C:\xampp\htdocs\public_html\Livent\View\VSignin.php(19): VSignin->getPassword()
+#1 C:\xampp\htdocs\public_html\Livent\Control\CManageUser.php(74): VSignin->getUser()
+#2 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(54): CManageUser::signin()
+#3 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
+#4 {main}
+
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(54): CManageUser::signin()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(54): CManageUser::signin()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+user just registered
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(54): CManageUser::signin()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+system signin error
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(54): CManageUser::signin()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+you can't login if you are just logged
+#0 C:\xampp\htdocs\public_html\Livent\Control\CManageUser.php(77): FSession::login(Object(EUser))
+#1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(54): CManageUser::signin()
+#2 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
+#3 {main}

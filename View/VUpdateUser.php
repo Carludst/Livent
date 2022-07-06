@@ -43,4 +43,17 @@ class VUpdateUser extends View
         else return null;
     }
 
+    public function getPathFile():?String{
+        if(isset($_FILES[0]['name'])&&isset($_FILES[0]['tmp_name'])){
+            return $_FILES[0]['tmp_name'].'/'.$_FILES[0]['name'];
+        }
+        else return null;
+    }
+
+    public function getTypeFile():?String{
+        if(isset($_FILES[0]['type']) && $_FILES[0]['type']=='jpeg')return 'jpg';
+        elseif(isset($_FILES[0]['type'])) return $_FILES[0]['type'];
+        else return null;
+    }
+
 }

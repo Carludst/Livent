@@ -60,7 +60,11 @@ FACEBOOK: https://www.facebook.com/themefisher
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500");
 
 /*=== our classes ===*/
-
+.fileupload{
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+}
 .widget .my-widget-title {
   margin: 0;
   font-size: 13px;

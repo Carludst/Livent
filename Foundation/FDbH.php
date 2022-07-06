@@ -82,7 +82,7 @@ class FDbH {
      * @param int $size
      * @return void
      */
-    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , ?float $resize=NULL){
+    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type){
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
@@ -275,8 +275,8 @@ class FDbH {
      * @param String $password
      * @return bool|null
      */
-    public static function login(String $email, String $password) :?bool{
-        return FUser::login($email, $password);
+    public static function login(String $email, String $password,bool $encrypt=true) :?bool{
+        return FUser::login($email, $password , $encrypt);
     }
 
     /**
@@ -441,7 +441,7 @@ class FDbH {
      * @param String|Null $sport
      * @return array
      */
-    public static function searchAthlete(String|Null $name , String|Null $surname , DateTime|Null $birthdateFrom , DateTime|Null $birthdateTo , ?bool $famale , String|Null $team , String|Null $sport ){
+    public static function searchAthlete(String|Null $name=NULL , String|Null $surname=NULL , DateTime|Null $birthdateFrom=NULL , DateTime|Null $birthdateTo=NULL , ?bool $famale=NULL , String|Null $team=NULL , String|Null $sport=NULL ){
         return FAthlete::search($name,$surname,$birthdateFrom,$birthdateTo,$famale,$team,$sport);
     }
 
@@ -494,7 +494,7 @@ class FDbH {
      */
     public static function storeError(Exception $exception)
     {
-        FFile::append("\n\n".$exception->getTraceAsString());
+        FFile::append("\n\n".$exception->getMessage()."\n".$exception->getTraceAsString());
     }
 
 

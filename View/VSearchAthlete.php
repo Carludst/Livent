@@ -9,11 +9,10 @@ class VSearchAthlete extends View
         parent::__construct();
     }
 
-    public function show(Array $athletes)
+    public function show(Array $athletes,String $mood)
     {
         $assign=$this->assign;
-        if($this->getMood())$assign['mood']='true';
-        else $assign['mood']='false';
+        $assign['mood']=$mood;
         $assign['athletes']=$athletes;
 
         $assign['name']=$this->getName();

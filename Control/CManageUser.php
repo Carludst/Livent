@@ -74,8 +74,9 @@ class CManageUser
             $user=$view->getUser();
             if(!FDbH::existOne($user->getEmail(),EUser::class)){
                 FDbH::store($user);
-                if(FDbH::login($user->getEmail(),$user->getPassword()))FSession::login($user);
+                if(FDbH::login($user->getEmail(),$user->getPassword(),false))FSession::login($user);
                 else throw new Exception('system signin error');
+                header('Location: /Livent/');
             }
             else throw new Exception('user just registered');
         }
@@ -85,14 +86,29 @@ class CManageUser
     }
 
 
-    public static function update(EUser $user):void
+    public static function update():void
     {
         try{
             if(self::callLogin()){
-                FDbH::deleteOne(FSession::getUserLogged()->getEmail(),EUser::class);
-                FDbH::store($user);
-                self::logout();
-                self::callLogin(false);
+                $view=new VUpdateUser();
+                $logged=FSession::getUserLogged();
+                $password=hash("sha3-256", $view->getPassword());
+                $email=$view->getEmail();
+                if($password==$logged->getPassword() && $email==$logged->getEmail()){
+                    if(!is_null($view->getPathFile()) && !is_null($view->getTypeFile())){
+                        $dir=$view->getPathFile();
+                        $type=$view->getTypeFile();
+                    }
+                    if(!is_null($view->getNewPassword())){
+                        $logged->setPassword($view->getNewPassword());
+                    }
+                    if(!is_null($view->getUsername())){
+                        $logged->setUsername($view->getUsername());
+                    }
+                    FDbH::updateOne($logged);
+                    FDbH::storeFile($logged,MappingPathFile::nameUserMain(),$dir,$type);
+                    header('Location: /Livent/User/MainPage');
+                }
             }
         }
         catch (Exception $e){
@@ -145,7 +161,12 @@ class CManageUser
 
     public static function updatePage(EUser $user){
         try{
-            //Richiama   VSignin::show($user);
+            if(FSession::isLogged()){
+                $view=new VUpdateUser();
+                $user=FSession::getUserLogged();
+                $view->show($user);
+            }
+            else throw new Exception("you are not logged");
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di aggiornamento dei tuoi dati utente non è andata a buon fine");

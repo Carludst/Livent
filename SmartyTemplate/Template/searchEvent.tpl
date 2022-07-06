@@ -107,12 +107,12 @@ FACEBOOK: https://www.facebook.com/themefisher
                                 <table cellpadding="5">
                                     <tbody>
                                     <tr>
-                                        <td><h4>Da : </h4></td>
-                                        <td> <input type="date" name="dateMin" {if $dateMin!=""}value="{$dateMin->format("Y-m-d")}" onload="setDate(form)"{/if}  style="width: 225px" onchange="setDate(form)"></td>
+                                        <td class="my-td-title"><h4>Da : </h4></td>
+                                        <td class="my-td"> <input type="date" name="dateMin" {if $dateMin!=""}value="{$dateMin->format("Y-m-d")}" onload="setDate(form)"{/if}  style="width: 220px" onchange="setDate(form)"></td>
                                     </tr>
                                     <tr>
-                                        <td><h4>A : </h4></td>
-                                        <td> <input type="date" name="dateMax"  {if $dateMax!=""}value="{$dateMax->format("Y-m-d")}" onload="setDate(form)"{/if}  onchange="setDate(form)" style="width: 225px"> </td>
+                                        <td class="my-td-title"><h4>A : </h4></td>
+                                        <td class="my-td"> <input type="date" name="dateMax"  {if $dateMax!=""}value="{$dateMax->format("Y-m-d")}" onload="setDate(form)"{/if}  onchange="setDate(form)" style="width: 220px"> </td>
                                     </tr>
 
                                     </tbody>
@@ -127,12 +127,14 @@ FACEBOOK: https://www.facebook.com/themefisher
             <div class="col-md-9">
                 <div class="row">
                     <div class="list-group">
-                        {if empty($events) && $mood=='true'}
+                        {if empty($events) && $mood=='cronology'}
                             <h1 class="my-allert-page" > Non hai eventi in cronologia </h1>
-                        {elseif empty($events)}
+                        {elseif empty($events) && $mood=='search'}
                             <h1 class="my-allert-page" > La ricerca non ha dato risultati </h1>
+                        {elseif empty($events)}
+                            <h1 class="my-allert-page" > Non ci sono eventi salvati </h1>
                         {else}
-                            {if $mood=='true'}
+                            {if $mood=='cronology'}
                                 <div class="row">
                                     {section name=index loop=$events}
                                         <div class="col-md-9">
