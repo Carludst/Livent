@@ -102,7 +102,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							<!-- Cart Item -->
 							<ul class="text-center cart-buttons">
 								<li><a href="/Livent/User/ProfilePage/" class="btn btn-small">View Profile</a></li>
-								<li><a href="checkout.html" class="btn btn-small btn-solid-border">Logout</a></li>
+								<li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
 							</ul>
 						</div>
 
