@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-06 13:59:45
+/* Smarty version 4.1.1, created on 2022-07-06 10:01:03
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\error.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c579313b1408_14272964',
+  'unifunc' => 'content_62c5413f970c63_21549384',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0560d8d75496b895a4656538d60f5a1153a0c5f2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\error.tpl',
-      1 => 1656855606,
+      1 => 1656587776,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c579313b1408_14272964 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62c5413f970c63_21549384 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0

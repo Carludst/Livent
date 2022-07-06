@@ -57,12 +57,15 @@ FACEBOOK: https://www.facebook.com/themefisher
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-xs-12 col-sm-4">
-                <div class="contact-number"></div>
+                <div class="contact-number">
+                    <i class="tf-ion-ios-telephone"></i>
+                    <span>0129- 12323-123123</span>
+                </div>
             </div>
             <div class="col-md-4 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
-                    <a href="home.html">
+                    <a href="/Livent/">
                         <!-- replace logo here -->
                         <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -78,50 +81,99 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4 text-right">
-                <a href="home.tpl" >Logout</a>
+            <div class="col-md-4 col-xs-12 col-sm-4">
+                <!-- Cart -->
+                <ul class="top-menu text-right list-inline">
+                    <!-- Home -->
+                    <li class="dropdown ">
+                        <a href="/Livent/" >Home</a>
+                    </li>
+                    <!-- / Home -->
+                    <!-- / Search -->
+                    <li class="dropdown dropdown-slide">
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                           role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
+                                    class="tf-ion-ios-arrow-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Livent/Event/Search/">Evento</a></li>
+                            <li><a href="/Livent/Athlete/Search/">Atleta</a></li>
+                            <li><a href="/Livent/Competition/Search/">Competizione</a></li>
+                        </ul>
+                    </li>
+                    <!-- / Search -->
+
+                    <li class="dropdown ">
+                        <a><i class="tf-ion-android-person"></i>Logout</a>
+                    </li>
+
+                </ul><!-- / .nav .navbar-nav .navbar-right -->
             </div>
         </div>
     </div>
-</section><!-- End Top Header Bar -->
+</section>
+<!-- End Top Header Bar -->
 
-<section class="page-header">
+<section class="page-header dashboard-wrapper dashboard-user-profile">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="content">
-                    <h1 class="page-name">Profile</h1>
-                    <ol class="breadcrumb">
-                        <li><a href="home.tpl">Home</a></li>
-                        <li class="active">my account</li>
-                    </ol>
+                <div class="media">
+                    <div class="pull-left text-center" href="#!">
+                        <img class="media-object user-img" src="{$profileImg}" alt="Image">
+                        <a href="#x" class="btn btn-transparent mt-20">Change Profile</a>
+                    </div>
+                    <div class="media-body">
+                        <ul class="user-profile-list">
+                            <li><span>Username:</span>{$user->getUsername()}</li>
+                            <li><span>Email:</span>{$user->getEmail()}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
 <section class="user-dashboard page-wrapper">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <ul class="list-inline dashboard-menu text-center">
-                    <li><a class="active" href="/Livent/User/ProfilePage/">Profile</a></li>
-                    <li><a href="/Livent/User/CompetitionPage/">Competition</a></li>
-                </ul>
-                <div class="dashboard-wrapper dashboard-user-profile">
+                {if empty($competitions)}
+                    <br>
+                    <br>
+                    <h1 class="my-allert-page" >Non sei inscritto a nessuna competizione</h1>
+                {else}
                     <div class="media">
-                        <div class="pull-left text-center" href="#!">
-                            <img class="media-object user-img" src="{$profileImg}" alt="Image">
-                            <a href="#x" class="btn btn-transparent mt-20">Change Profile</a>
-                        </div>
-                        <div class="media-body">
-                            <ul class="user-profile-list">
-                                <li><span>Username:</span>{$user->getUsername()}</li>
-                                <li><span>Email:</span>{$user->getEmail()}</li>
-                            </ul>
+                        <div class="dashboard-wrapper dashboard-user-profile">
+                            <div class="dashboard-wrapper user-dashboard">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>ID atleta</th>
+                                            <th>Atleta</th>
+                                            <th>Evento</th>
+                                            <th>Nome Competizione</th>
+                                            <th>Data</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {section name=index loop=$athletes}
+                                            <tr>
+                                                <td><a href="/Livent/Athlete/MainPage/{$athletes[index]->getId()}">{$athletes[index]->getName()} {$athletes[index]->getSurname()} ({$athletes[index]->getId()})</a></td>
+                                                <td><a href="/Livent/Event/MainPage/{$events[index]->getId()}">{$events[index]->getName()}</a></td>
+                                                <td><a href="/Livent/Competition/MainPage/{$competitions[index]->getId()}">{$competitions[index]->getName()} ({$competitions[index]->getSport()})</a></td>
+                                                <td>{$competitions[index]->getDataTime()->format("d/m/Y")}}</td>
+                                            </tr>
+                                        {/section}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {/if}
             </div>
         </div>
     </div>

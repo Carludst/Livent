@@ -2,7 +2,7 @@
 
 class VUserProfile extends View
 {
-    private static Array $template=['profile'=>'userProfile.tpl', 'competition'=>'userCompetition.tpl', 'results'=>'userResults.tpl' ];
+    private static String $template='userProfile.tpl';
 
     public function __construct()
     {

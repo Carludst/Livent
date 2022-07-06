@@ -67,7 +67,7 @@ function routing():Array{
         'Login'=>'CManageUser::login',
         'Signin'=>'CManageUser::signin',
         'Logout'=>'CManageUser::logout',
-        'CompetitionPage'=>'CManagerUser::userCompetitionPage'
+        'CompetitionPage'=>'CManageUser::userCompetitionPage'
     ];
     //3 => 42
     $error=[
