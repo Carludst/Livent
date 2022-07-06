@@ -76,10 +76,27 @@ class FSession
         else throw new Exception("invalid key for data session , it is just used for login");
     }
 
+    public static function delateDataSession(String $key){
+        if (session_status() == PHP_SESSION_NONE)session_start();
+        if(array_key_exists($key ,$_SESSION)){
+            unset($_SESSION[$key]);
+        }
+    }
+
+    public static function getAndDeleteDataSassion(String $key):mixed{
+        if (session_status() == PHP_SESSION_NONE)session_start();
+        if(array_key_exists($key ,$_SESSION)){
+            $result=unserialize($_SESSION[$key]);
+            unset($_SESSION[$key]);
+            return $result;
+        }
+        else return NULL;
+    }
+
     public static function getDataSession(String $key ):mixed
     {
         if (session_status() == PHP_SESSION_NONE)session_start();
-        if(!is_null($_SESSION[$key]))return unserialize($_SESSION[$key]);
+        if(array_key_exists($key ,$_SESSION))return unserialize($_SESSION[$key]);
         else return NULL;
     }
 

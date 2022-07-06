@@ -69,31 +69,34 @@ FACEBOOK: https://www.facebook.com/themefisher
               </g>
             </svg>
           </a>
-          <h2 class="text-center">Crea il tuo Account</h2>
+          <h2 class="text-center">Aggiorno il tuo Account</h2>
           <form method="post" class="text-left clearfix" action="/Livent/User/Signin/">
-            <select class="form-control" name="type" style="height: 45px">
-              <option>Utente senza privileggi</option>
-              <option>Organizatore</option>
-            </select>
-            <br>
-            <div class="form-group">
-              <input type="text" class="form-control" name="username"  placeholder="Username">
-            </div>
+            <h4 class="widget-title">Autentificazione</h4>
             <div class="form-group">
               <input type="email" class="form-control" name="email" placeholder="Email">
             </div>
             <div class="form-group">
               <input type="password" class="form-control"  name="password" placeholder="Password">
             </div>
+            <h4 class="widget-title">Nuovi Dati</h4>
+            <div class="form-group">
+              <input type="text" class="form-control" name="username"  placeholder="Nuovo Username">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="newEmail" placeholder="Nuova Email">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control"  name="newPassword" placeholder="Nuova password">
+            </div>
             <div class="form-group">
               <input type="password" class="form-control"  name="confirmPassword" placeholder="Conferma password">
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-main text-center">Sign In</button>
+              <button type="submit" class="btn btn-main text-center">Aggiorna</button>
             </div>
           </form>
-          <p class="mt-20">Hai già un account ?<a href="login.html"> Login</a></p>
-          <p><a href="forget-password.html"> torna alla home</a></p>
+          <br>
+          <p><a style="opacity: 0.4" href="forget-password.html"> torna alla home</a></p>
         </div>
       </div>
     </div>

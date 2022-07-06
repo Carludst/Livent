@@ -37,9 +37,8 @@ class CManageUser
             if(FDbH::login($email, $password)){
                 $user = FDbH::loadOne($email, EUser::class);
                 FSession::login($user);
-                if(FSession::isSetDataSession('requeredPath'))$url=FSession::getDataSession('requeredPath');
+                if(FSession::isSetDataSession('requeredPath'))$url=FSession::getAndDeleteDataSassion('requeredPath');
                 else $url='/Livent/';
-                echo $url;
                 header('Location: '.$url);
             }
 
@@ -56,7 +55,10 @@ class CManageUser
     public static function logout()
     {
         try{
-            if(FSession::isLogged()) FSession::logout();
+            if(FSession::isLogged()){
+                FSession::logout();
+                header('Location: /Livent/');
+            }
             else throw new Exception("you are not logged");
         }
         catch (Exception $e){
@@ -65,14 +67,20 @@ class CManageUser
     }
 
 
-    public static function signin(EUser $user)
+    public static function signin()
     {
         try{
-            FDbH::store($user);
-            self::login($user);
+            $view=new VSignin();
+            $user=$view->getUser();
+            if(!FDbH::existOne($user->getEmail(),EUser::class)){
+                FDbH::store($user);
+                if(FDbH::login($user->getEmail(),$user->getPassword()))FSession::login($user);
+                else throw new Exception('system signin error');
+            }
+            else throw new Exception('user just registered');
         }
         catch (Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La registrazione non è andata a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! La registrazione non è andata a buon fine , verificare di non aver usato un e-mail già associata ad un utente");
         }
     }
 
@@ -127,7 +135,8 @@ class CManageUser
 
     public static function signinPage(){
         try{
-            VSignin::show();
+            $view=new VSignin();
+            $view->show();
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di registrazione utente non è andata a buon fine");

@@ -1,4 +1,27 @@
-<!--
+<?php
+/* Smarty version 4.1.1, created on 2022-07-06 14:08:33
+  from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\login.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.1.1',
+  'unifunc' => 'content_62c57b41b948f0_61912968',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '96b18aa90e1d20b5b01ca3a481f54a35af1a28c6' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\login.tpl',
+      1 => 1657109297,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_62c57b41b948f0_61912968 (Smarty_Internal_Template $_smarty_tpl) {
+?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
 AUTHOR: Themefisher
@@ -31,21 +54,28 @@ FACEBOOK: https://www.facebook.com/themefisher
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo $_smarty_tpl->tpl_vars['logo']->value;?>
+" />
 
     <!-- Themefisher Icon font -->
-    <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/themefisher-font/style.css">
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap/css/bootstrap.min.css">
 
     <!-- Animate css -->
-    <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/animate/animate.css">
     <!-- Slick Carousel -->
-    <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
-    <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick-theme.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{$dir}/css/style.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/css/style.css">
 
 </head>
 
@@ -56,7 +86,7 @@ FACEBOOK: https://www.facebook.com/themefisher
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
-                    <a class="logo text-center" href="/Livent/">
+                    <a class="logo text-center" ref="home.tpl">
                         <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
@@ -93,30 +123,63 @@ Essential Scripts
 =====================================-->
 
 <!-- Main jQuery -->
-<script src="{$dir}/plugins/jquery/dist/jquery.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/jquery/dist/jquery.min.js"><?php echo '</script'; ?>
+>
 <!-- Bootstrap 3.1 -->
-<script src="{$dir}/plugins/bootstrap/js/bootstrap.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 <!-- Bootstrap Touchpin -->
-<script src="{$dir}/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"><?php echo '</script'; ?>
+>
 <!-- Instagram Feed Js -->
-<script src="{$dir}/plugins/instafeed/instafeed.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/instafeed/instafeed.min.js"><?php echo '</script'; ?>
+>
 <!-- Video Lightbox Plugin -->
-<script src="{$dir}/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"><?php echo '</script'; ?>
+>
 <!-- Count Down Js -->
-<script src="{$dir}/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/syo-timer/build/jquery.syotimer.min.js"><?php echo '</script'; ?>
+>
 
 <!-- slick Carousel -->
-<script src="{$dir}/plugins/slick/slick.min.js"></script>
-<script src="{$dir}/plugins/slick/slick-animation.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick-animation.min.js"><?php echo '</script'; ?>
+>
 
 <!-- Google Mapl -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script type="text/javascript" src="{$dir}/plugins/google-map/gmap.js"></script>
+<?php echo '<script'; ?>
+ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/google-map/gmap.js"><?php echo '</script'; ?>
+>
 
 <!-- Main Js File -->
-<script src="{$dir}/js/script.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/js/script.js"><?php echo '</script'; ?>
+>
 
 
 
 </body>
-</html>
+</html><?php }
+}
