@@ -12,11 +12,9 @@ class FSession
     public static function login(EUser $user):void
     {
         if (session_status() == PHP_SESSION_NONE)session_start();
-        if(!is_null($_SESSION['user']))
+        if(!array_key_exists('user',$_SESSION))
         {
-            $temp = serialize($user);
-            $_SESSION['user'] = $temp;
-            $_SESSION['user'] = $user;
+            $_SESSION['user'] = serialize($user);
         }
         else throw new Exception("you can't login if you are just logged");
     }

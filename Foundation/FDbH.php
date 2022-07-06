@@ -269,13 +269,14 @@ class FDbH {
     }
 
 
-    /** Method : for login of an user
-     * @param $user
-     * @param $password
-     * @return array|EUser|null
+    /**
+     * Method : for login of an user
+     * @param String $email
+     * @param String $password
+     * @return bool|null
      */
-    public static function login(EUser $user) :?bool{
-        return FUser::login($user);
+    public static function login(String $email, String $password) :?bool{
+        return FUser::login($email, $password);
     }
 
     /**

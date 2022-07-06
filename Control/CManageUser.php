@@ -15,11 +15,11 @@ class CManageUser
         if(!FSession::isLogged()){
             if($return){
                 FSession::addDataSession('requeredPath',CFrontController::getUrl());
-                // header('Location: /Livent/User/login');
+                header('Location: /Livent/User/LoginPage');
             }
             else{
-                FSession::addDataSession('requeredPath','Livent\HomePage');
-                // header('Location: /Livent/User/login');
+                FSession::addDataSession('requeredPath','/Livent/');
+                header('Location: /Livent/User/LoginPage');
             }
 
             return false;
@@ -28,11 +28,24 @@ class CManageUser
     }
 
 
-    public static function login(EUser $user)
+    public static function login()
     {
         try{
-            if(FDbH::login($user))FSession::login($user);
-            else throw new Exception("credential wrong");
+            $view = new VLogin();
+            $email = $view->getEmail();
+            $password = $view->getPassword();
+            if(FDbH::login($email, $password)){
+                $user = FDbH::loadOne($email, EUser::class);
+                FSession::login($user);
+                if(FSession::isSetDataSession('requeredPath'))$url=FSession::getDataSession('requeredPath');
+                else $url='/Livent/';
+                echo $url;
+                header('Location: '.$url);
+            }
+
+            else {
+                throw new Exception("credential wrong");
+            }
         }
         catch (Exception $e){
             CError::store($e," login fallita , verificare di aver inserito le credenziali corrette");
@@ -150,8 +163,11 @@ class CManageUser
             if(self::callLogin()){
                 $view = new VUserProfile();
                 $key=$view->getMyInput();
-                $c = FDbH::getRegistrationUser(FSession::getUserLogged());
-                $view->showCompetition($c);
+                $registration = FDbH::getRegistrationUser(FSession::getUserLogged());
+                $competition = array_keys($registration);
+                $athletes = array_values($registration);
+                $events = FDbH::loadEventByCompetition($competition);
+                $view->showCompetition($competition, $athletes, $events);
             }
             else throw new Exception("user logged don't have autorization");
 

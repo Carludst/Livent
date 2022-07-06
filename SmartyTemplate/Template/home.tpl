@@ -84,7 +84,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 				<!-- User -->
 
 				<ul class="top-menu text-right list-inline">
-					{if '' != $user && ''!=$profileImg}
+					{if '' != $user }
 					<li class="dropdown cart-nav dropdown-slide" >
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
 						<div class="dropdown-menu cart-dropdown">
@@ -111,7 +111,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 					{else}
 					<!-- / Login -->
-				<a href="/Livent/User/LoginPage/"  ><i class="tf-ion-android-person"></i> Login</a>
+				<a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
 					<!-- / Login -->
 					{/if}
 				<!-- / .nav .navbar-nav .navbar-right -->

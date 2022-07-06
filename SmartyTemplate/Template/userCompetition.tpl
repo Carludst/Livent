@@ -105,8 +105,8 @@ FACEBOOK: https://www.facebook.com/themefisher
         <div class="row">
             <div class="col-md-12">
                 <ul class="list-inline dashboard-menu text-center">
-                    <li><a href="userProfile.tpl">Profile</a></li>
-                    <li><a class="active" href="userCompetition.tpl">Competition</a></li>
+                    <li><a href="/Livent/User/ProfilePage/">Profile</a></li>
+                    <li><a class="active" href="/Livent/User/CompetitionPage/">Competition</a></li>
                 </ul>
                 <div class="dashboard-wrapper dashboard-user-profile">
                     <div class="media">
@@ -120,16 +120,17 @@ FACEBOOK: https://www.facebook.com/themefisher
                                         <th>Evento</th>
                                         <th>Nome Competizione</th>
                                         <th>Data</th>
-                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {section name=index loop=$athletes}
                                     <tr>
-                                        <td>Internazionali d'Italia</td>
-                                        <td>10000m pista</td>
-                                        <td>Mar 25, 2016</td>
-                                        <td><a href="order.html" class="btn btn-default">View</a></td>
+                                        <td><a href="/Livent/Athlete/MainPage/{$athletes[index]->getId()}">{$athletes[index]->getName()} {$athletes[index]->getSurname()} ({$athletes[index]->getId()})</a></td>
+                                        <td><a href="/Livent/Event/MainPage/{$events[index]->getId()}">{$events[index]->getName()}</a></td>
+                                        <td><a href="/Livent/Competition/MainPage/{$competitions[index]->getId()}">{$competitions[index]->getName()} ({$competitions[index]->getSport()})</a></td>
+                                        <td>{$competitions[index]->getDataTime()->format("d/m/Y")}}</td>
                                     </tr>
+                                    {/section}
                                     </tbody>
                                 </table>
                             </div>

@@ -10,8 +10,20 @@ class VLogin extends View
 
     public function show()
     {
+
+
         $this->smarty->assign($this->assign);
         $this->smarty->display(self::$template);
+    }
+
+    public function getEmail(){
+        if(!empty($_POST['email']))return $_POST['email'];
+        else throw new Exception('email not setted');
+    }
+
+    public function getPassword(){
+        if(!empty($_POST['password']))return $_POST['password'];
+        else throw new Exception('password not setted');
     }
 }
 

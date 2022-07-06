@@ -66,7 +66,8 @@ function routing():Array{
         'ProfilePage'=>'CManageUser::profilePage',
         'Login'=>'CManageUser::login',
         'Signin'=>'CManageUser::signin',
-        'Logout'=>'CManageUser::logout'
+        'Logout'=>'CManageUser::logout',
+        'CompetitionPage'=>'CManagerUser::userCompetitionPage'
     ];
     //3 => 42
     $error=[
@@ -93,3 +94,4 @@ function routing():Array{
     return $routing;
 }
 $routing=routing();
+

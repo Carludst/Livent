@@ -155,7 +155,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                         </div>
                                         <div class="col-md-1">
                                             </br></br>
-                                            <a href="/Livent/Event/Chronology/Delate/{{$smarty.section.index.index}}/" class="remove"><i class="tf-ion-close"></i></a>
+                                            <a href="/Livent/Event/Chronology/Delate/{$smarty.section.index.index}/" class="remove"><i class="tf-ion-close"></i></a>
                                         </div>
                                     {/section}
                                 </div>

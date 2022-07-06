@@ -105,8 +105,8 @@ FACEBOOK: https://www.facebook.com/themefisher
         <div class="row">
             <div class="col-md-12">
                 <ul class="list-inline dashboard-menu text-center">
-                    <li><a class="active" href="userProfile.tpl">Profile</a></li>
-                    <li><a href="userCompetition.tpl">Competition</a></li>
+                    <li><a class="active" href="/Livent/User/ProfilePage/">Profile</a></li>
+                    <li><a href="/Livent/User/CompetitionPage/">Competition</a></li>
                 </ul>
                 <div class="dashboard-wrapper dashboard-user-profile">
                     <div class="media">

@@ -27,14 +27,17 @@ class VUserProfile extends View
     }
 
     /**
-     * @param array|null $registration
+     * @param array|null $competition
+     * @param array|null $athletes
+     * @param array|null $events
      * @throws SmartyException
      */
-    public function showCompetition(?Array $registration)
+    public function showCompetition(?Array $competition, ?Array $athletes, ?Array $events)
     {
         $assign = $this->assign;
-        $assign['competitions'] = array_keys($registration);
-        $assign['athlets'] = array_values($registration);
+        $assign['competitions'] = $competition;
+        $assign['athletes'] = $athletes;
+        $assign['events'] = $events;
 
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template['competition']);

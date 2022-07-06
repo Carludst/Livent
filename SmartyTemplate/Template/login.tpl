@@ -70,7 +70,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                         </svg>
                     </a>
                     <h2 class="text-center">Welcome</h2>
-                    <form method="post" class="text-left clearfix" action="/Livent/Login/" >
+                    <form method="post" class="text-left clearfix" action="/Livent/User/Login/" >
                         <div class="form-group">
                             <input type="email" name='email' class="form-control"  placeholder="Email">
                         </div>

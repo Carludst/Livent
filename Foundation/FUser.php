@@ -130,9 +130,10 @@ class FUser
     }
 
 
-    public static function login(EUser $user):?bool
+    public static function login(String $email, String $password):?bool
     {
-        $where=FDb::multiWhere(array('email','password'),array($user->getEmail(),$user->getPassword()));
+        $password=hash("sha3-256", $password);
+        $where=FDb::multiWhere(array('email','password'),array($email, $password));
         return FDb::exist(FDb::load(self::$table[0], $where));
     }
 
