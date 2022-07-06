@@ -81,9 +81,25 @@ FACEBOOK: https://www.facebook.com/themefisher
 				</div>
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
-				<!-- User -->
-
 				<ul class="top-menu text-right list-inline">
+					<!-- Home -->
+					<li class="dropdown ">
+						<a href="/Livent/" >Home</a>
+					</li>
+					<!-- / Home -->
+					<!-- / Search -->
+					<li class="dropdown dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
+									class="tf-ion-ios-arrow-down"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/Livent/Event/Search/">Evento</a></li>
+							<li><a href="/Livent/Athlete/Search/">Atleta</a></li>
+							<li><a href="/Livent/Competition/Search/">Competizione</a></li>
+						</ul>
+					</li>
+					<!-- / Search -->
+					<!-- User -->
 					{if '' != $user }
 					<li class="dropdown cart-nav dropdown-slide" >
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
@@ -118,7 +134,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</div>
 		</div>
 	</div>
-</section><!-- End Top Header Bar -->
+</section>
+<!-- End Top Header Bar -->
 
 
 <!-- Main Menu Section -->
@@ -140,24 +157,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<!-- Navbar Links -->
 			<div id="navbar" class="navbar-collapse collapse text-center">
 				<ul class="nav navbar-nav">
-
-					<!-- Home -->
-					<li class="dropdown ">
-						<a href="/Livent/" >Home</a>
-					</li><!-- / Home -->
-
-					<!-- / Search -->
-					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/Livent/Event/Search/">Evento</a></li>
-							<li><a href="/Livent/Athlete/Search/">Atleta</a></li>
-							<li><a href="/Livent/Competition/Search/">Competizione</a></li>
-						</ul>
-					</li>
-					<!-- / Search -->
 
 					<!-- / System -->
 					{if '' != $user && ''!=$profileImg && $user->getType() eq 'Administrator'}

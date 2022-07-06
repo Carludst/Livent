@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-06 15:34:16
+/* Smarty version 4.1.1, created on 2022-07-06 17:13:05
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c58f580bc861_15434368',
+  'unifunc' => 'content_62c5a68160f2c8_10332495',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '16515f38775ce7507f5d8fbf513ad2faaff27828' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\home.tpl',
-      1 => 1657114451,
+      1 => 1657120382,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c58f580bc861_15434368 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62c5a68160f2c8_10332495 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -94,7 +94,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
 				<div class="logo text-center">
-					<a href="/Livent/">
+					<a href="home.html">
 						<!-- replace logo here -->
 						<svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -111,9 +111,25 @@ FACEBOOK: https://www.facebook.com/themefisher
 				</div>
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
-				<!-- User -->
-
 				<ul class="top-menu text-right list-inline">
+					<!-- Home -->
+					<li class="dropdown ">
+						<a href="/Livent/" >Home</a>
+					</li>
+					<!-- / Home -->
+					<!-- / Search -->
+					<li class="dropdown dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
+									class="tf-ion-ios-arrow-down"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/Livent/Event/Search/">Evento</a></li>
+							<li><a href="/Livent/Athlete/Search/">Atleta</a></li>
+							<li><a href="/Livent/Competition/Search/">Competizione</a></li>
+						</ul>
+					</li>
+					<!-- / Search -->
+					<!-- User -->
 					<?php if ('' != $_smarty_tpl->tpl_vars['user']->value) {?>
 					<li class="dropdown cart-nav dropdown-slide" >
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
@@ -136,7 +152,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							<!-- Cart Item -->
 							<ul class="text-center cart-buttons">
 								<li><a href="/Livent/User/ProfilePage/" class="btn btn-small">View Profile</a></li>
-								<li><a href="checkout.html" class="btn btn-small btn-solid-border">Logout</a></li>
+								<li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
 							</ul>
 						</div>
 
@@ -152,7 +168,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</div>
 		</div>
 	</div>
-</section><!-- End Top Header Bar -->
+</section>
+<!-- End Top Header Bar -->
 
 
 <!-- Main Menu Section -->
@@ -174,24 +191,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<!-- Navbar Links -->
 			<div id="navbar" class="navbar-collapse collapse text-center">
 				<ul class="nav navbar-nav">
-
-					<!-- Home -->
-					<li class="dropdown ">
-						<a href="/Livent/" >Home</a>
-					</li><!-- / Home -->
-
-					<!-- / Search -->
-					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/Livent/Event/Search/">Evento</a></li>
-							<li><a href="/Livent/Athlete/Search/">Atleta</a></li>
-							<li><a href="/Livent/Competition/Search/">Competizione</a></li>
-						</ul>
-					</li>
-					<!-- / Search -->
 
 					<!-- / System -->
 					<?php if ('' != $_smarty_tpl->tpl_vars['user']->value && '' != $_smarty_tpl->tpl_vars['profileImg']->value && $_smarty_tpl->tpl_vars['user']->value->getType() == 'Administrator') {?>

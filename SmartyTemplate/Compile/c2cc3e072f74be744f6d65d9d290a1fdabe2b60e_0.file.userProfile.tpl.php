@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-06 15:52:49
+/* Smarty version 4.1.1, created on 2022-07-06 17:01:24
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\userProfile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c593b1a613b4_96310544',
+  'unifunc' => 'content_62c5a3c4cb7989_97256519',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c2cc3e072f74be744f6d65d9d290a1fdabe2b60e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\userProfile.tpl',
-      1 => 1657115567,
+      1 => 1657119671,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c593b1a613b4_96310544 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62c5a3c4cb7989_97256519 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -142,32 +142,89 @@ FACEBOOK: https://www.facebook.com/themefisher
 </section>
 <!-- End Top Header Bar -->
 
+<section class="page-header dashboard-wrapper dashboard-user-profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="media">
+                    <div class="pull-left text-center" href="#!">
+                        <img class="media-object user-img" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="Image">
+                        <a href="#x" class="btn btn-transparent mt-20">Change Profile</a>
+                    </div>
+                    <div class="media-body">
+                        <ul class="user-profile-list">
+                            <li><span>Username:</span><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
+</li>
+                            <li><span>Email:</span><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
+</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section class="user-dashboard page-wrapper">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <ul class="list-inline dashboard-menu text-center">
-                    <li><a class="active" href="/Livent/User/ProfilePage/">Profile</a></li>
-                    <li><a href="/Livent/User/CompetitionPage/">Competition</a></li>
-                </ul>
-                <div class="dashboard-wrapper dashboard-user-profile">
+                <?php if (empty($_smarty_tpl->tpl_vars['competitions']->value)) {?>
+                    <br>
+                    <br>
+                    <h1 class="my-allert-page" >Non sei inscritto a nessuna competizione</h1>
+                <?php } else { ?>
                     <div class="media">
-                        <div class="pull-left text-center" href="#!">
-                            <img class="media-object user-img" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
-" alt="Image">
-                            <a href="#x" class="btn btn-transparent mt-20">Change Profile</a>
-                        </div>
-                        <div class="media-body">
-                            <ul class="user-profile-list">
-                                <li><span>Username:</span><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
-</li>
-                                <li><span>Email:</span><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
-</li>
-                            </ul>
+                        <div class="dashboard-wrapper dashboard-user-profile">
+                            <div class="dashboard-wrapper user-dashboard">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>ID atleta</th>
+                                            <th>Atleta</th>
+                                            <th>Evento</th>
+                                            <th>Nome Competizione</th>
+                                            <th>Data</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+$__section_index_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['athletes']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_index_0_total = $__section_index_0_loop;
+$_smarty_tpl->tpl_vars['__smarty_section_index'] = new Smarty_Variable(array());
+if ($__section_index_0_total !== 0) {
+for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] = 0; $__section_index_0_iteration <= $__section_index_0_total; $__section_index_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']++){
+?>
+                                            <tr>
+                                                <td><a href="/Livent/Athlete/MainPage/<?php echo $_smarty_tpl->tpl_vars['athletes']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['athletes']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getName();?>
+ <?php echo $_smarty_tpl->tpl_vars['athletes']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getSurname();?>
+ (<?php echo $_smarty_tpl->tpl_vars['athletes']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+)</a></td>
+                                                <td><a href="/Livent/Event/MainPage/<?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getName();?>
+</a></td>
+                                                <td><a href="/Livent/Competition/MainPage/<?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getName();?>
+ (<?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getSport();?>
+)</a></td>
+                                                <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getDataTime()->format("d/m/Y");?>
+}</td>
+                                            </tr>
+                                        <?php
+}
+}
+?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php }?>
             </div>
         </div>
     </div>
