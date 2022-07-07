@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8560ff9e-73c5-4abf-b9a7-8c2b72121a5d" name="Changes" comment="profilo organizzatore">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/fb60188b4e43ef7a119b4963e7a31796dfc51399_0.file.organizerProfile.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/fb60188b4e43ef7a119b4963e7a31796dfc51399_0.file.organizerProfile.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" afterDir="false" />
-    </list>
+    <list default="true" id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="change user key" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,297 +11,515 @@
     <pharConfigPath>$PROJECT_DIR$/smarty-4.1.1/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="28Cnn3w990J1vWiG8Av7P7kozqx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Control/CFrontController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="28e7MwBUHQMiQDrAXOlz1VEwuY1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template" />
+      <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\Template" />
+      <recent name="C:\xampp\htdocs\Livent\Template" />
+      <recent name="C:\xampp\htdocs\Livent\Template\plugins" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lenovo\Web Project\Livent\Foundation" />
+      <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\Template" />
+      <recent name="C:\xampp\htdocs\Livent\Template" />
+      <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\js" />
+      <recent name="C:\xampp\htdocs\Livent" />
+      <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\Compile" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.run">
-    <configuration name="livent" type="JavascriptDebugType" uri="https://localhost/Livent">
+  <component name="RunManager" selected="JavaScript Debug.Livent">
+    <configuration name="Livent" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost/Livent">
       <method v="2" />
     </configuration>
-    <configuration name="run" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Control/main.php">
+    <configuration name="xampp" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Control/main.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="PHP" />
+          <option name="interpreterName" value="C:php" />
         </PhpTestInterpreterSettings>
       </CommandLine>
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JavaScript Debug.livent" />
-      <item itemvalue="PHP Script.run" />
+      <item itemvalue="JavaScript Debug.Livent" />
+      <item itemvalue="PHP Script.xampp" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8560ff9e-73c5-4abf-b9a7-8c2b72121a5d" name="Changes" comment="" />
-      <created>1650729600504</created>
+      <changelist id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="" />
+      <created>1651565158619</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1650729600504</updated>
-      <workItem from="1650729601861" duration="7347000" />
-      <workItem from="1650797540468" duration="453000" />
-      <workItem from="1651484921028" duration="722000" />
-      <workItem from="1651589076411" duration="283000" />
-      <workItem from="1651680992321" duration="997000" />
-      <workItem from="1651690092936" duration="180000" />
-      <workItem from="1651848627859" duration="2152000" />
-      <workItem from="1652103071421" duration="1616000" />
-      <workItem from="1652274287300" duration="4217000" />
-      <workItem from="1652629749472" duration="4575000" />
-      <workItem from="1653055533807" duration="1040000" />
-      <workItem from="1653579528464" duration="3346000" />
-      <workItem from="1653989853563" duration="7426000" />
-      <workItem from="1654682889261" duration="5672000" />
-      <workItem from="1655119240615" duration="7748000" />
-      <workItem from="1655212335041" duration="3423000" />
-      <workItem from="1655903501250" duration="7543000" />
-      <workItem from="1656335673774" duration="5037000" />
-      <workItem from="1656422860411" duration="712000" />
-      <workItem from="1656587503895" duration="52110000" />
-      <workItem from="1657185568288" duration="11027000" />
+      <updated>1651565158619</updated>
+      <workItem from="1651565161822" duration="3156000" />
+      <workItem from="1651573285333" duration="1166000" />
+      <workItem from="1651577293435" duration="1938000" />
+      <workItem from="1651683747454" duration="5013000" />
+      <workItem from="1651908578486" duration="10845000" />
+      <workItem from="1651934743863" duration="5296000" />
+      <workItem from="1651995627399" duration="7510000" />
+      <workItem from="1652003746870" duration="596000" />
+      <workItem from="1652115530450" duration="4462000" />
+      <workItem from="1652121382003" duration="260000" />
+      <workItem from="1652254373169" duration="14029000" />
+      <workItem from="1652433047669" duration="7981000" />
+      <workItem from="1652457457987" duration="1773000" />
+      <workItem from="1652631036798" duration="6697000" />
+      <workItem from="1652706057611" duration="6917000" />
+      <workItem from="1652730280424" duration="8132000" />
+      <workItem from="1652793351342" duration="2667000" />
+      <workItem from="1652971545024" duration="8148000" />
+      <workItem from="1653053208400" duration="3839000" />
+      <workItem from="1653064382045" duration="1442000" />
+      <workItem from="1653117322003" duration="17307000" />
+      <workItem from="1653213498920" duration="5536000" />
+      <workItem from="1653321704410" duration="4631000" />
+      <workItem from="1653383167565" duration="9830000" />
+      <workItem from="1653472218082" duration="5666000" />
+      <workItem from="1653578208713" duration="4774000" />
+      <workItem from="1653658169128" duration="7585000" />
+      <workItem from="1653667968640" duration="1737000" />
+      <workItem from="1653735324567" duration="165000" />
+      <workItem from="1653828553423" duration="11304000" />
+      <workItem from="1654011795988" duration="707000" />
+      <workItem from="1654017885087" duration="7460000" />
+      <workItem from="1654079661862" duration="4192000" />
+      <workItem from="1654620932045" duration="11350000" />
+      <workItem from="1654668735372" duration="4045000" />
+      <workItem from="1654682529187" duration="2236000" />
+      <workItem from="1654693863444" duration="19194000" />
+      <workItem from="1654879273772" duration="4041000" />
+      <workItem from="1654884352699" duration="1717000" />
+      <workItem from="1654931780831" duration="5816000" />
+      <workItem from="1654977460931" duration="397000" />
+      <workItem from="1655032453965" duration="1361000" />
+      <workItem from="1655036448312" duration="4546000" />
+      <workItem from="1655041451328" duration="19318000" />
+      <workItem from="1655210952344" duration="13812000" />
+      <workItem from="1655236792923" duration="4217000" />
+      <workItem from="1655274474310" duration="22123000" />
+      <workItem from="1655374636581" duration="20316000" />
+      <workItem from="1655406673397" duration="8926000" />
+      <workItem from="1655443068751" duration="5850000" />
+      <workItem from="1655471006004" duration="11720000" />
+      <workItem from="1655662041086" duration="5910000" />
+      <workItem from="1655902706875" duration="8766000" />
+      <workItem from="1655919439314" duration="4494000" />
+      <workItem from="1656077840740" duration="1126000" />
+      <workItem from="1656081089470" duration="6297000" />
+      <workItem from="1656087943842" duration="1004000" />
+      <workItem from="1656094839917" duration="6059000" />
+      <workItem from="1656145496927" duration="1388000" />
+      <workItem from="1656157812649" duration="1949000" />
+      <workItem from="1656168146421" duration="25102000" />
+      <workItem from="1656394080742" duration="7827000" />
+      <workItem from="1656424559420" duration="481000" />
+      <workItem from="1656425143423" duration="12900000" />
+      <workItem from="1656514843495" duration="4504000" />
+      <workItem from="1656519626688" duration="19421000" />
+      <workItem from="1656568314031" duration="5815000" />
+      <workItem from="1656584438488" duration="4173000" />
+      <workItem from="1656590947385" duration="20529000" />
+      <workItem from="1656656547600" duration="2264000" />
+      <workItem from="1656669857972" duration="22348000" />
+      <workItem from="1656755036005" duration="1548000" />
+      <workItem from="1656756761399" duration="18999000" />
+      <workItem from="1656843038530" duration="10266000" />
+      <workItem from="1656866525602" duration="12984000" />
+      <workItem from="1656939727510" duration="543000" />
+      <workItem from="1656945997083" duration="6870000" />
+      <workItem from="1656961265343" duration="7529000" />
+      <workItem from="1657026133437" duration="6339000" />
+      <workItem from="1657038828770" duration="9179000" />
+      <workItem from="1657112855524" duration="9453000" />
+      <workItem from="1657128617816" duration="164000" />
+      <workItem from="1657128901162" duration="160000" />
+      <workItem from="1657130231706" duration="13816000" />
+      <workItem from="1657174943251" duration="29523000" />
     </task>
-    <task id="LOCAL-00001" summary="user">
-      <created>1650730901083</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1650730901083</updated>
-    </task>
-    <task id="LOCAL-00002" summary="entity">
-      <created>1650732350375</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1650732350375</updated>
-    </task>
-    <task id="LOCAL-00003" summary="entity">
-      <created>1650736706384</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1650736706384</updated>
-    </task>
-    <task id="LOCAL-00004" summary="entity">
-      <created>1650736796724</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1650736796724</updated>
-    </task>
-    <task id="LOCAL-00005" summary="entity">
-      <created>1650736957647</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1650736957647</updated>
-    </task>
-    <task id="LOCAL-00006" summary="entity">
-      <created>1651589308798</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1651589308798</updated>
-    </task>
-    <task id="LOCAL-00007" summary="change name">
-      <created>1651681362109</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1651681362109</updated>
-    </task>
-    <task id="LOCAL-00008" summary="roberto rompe">
-      <created>1651690205592</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1651690205592</updated>
-    </task>
-    <task id="LOCAL-00009" summary="ciao">
-      <created>1651848797501</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1651848797501</updated>
-    </task>
-    <task id="LOCAL-00010" summary="ciao">
-      <created>1652275273580</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1652275273580</updated>
-    </task>
-    <task id="LOCAL-00011" summary="ciao">
-      <created>1652278340664</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1652278340664</updated>
-    </task>
-    <task id="LOCAL-00012" summary="fdbh">
-      <created>1652630961197</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1652630961197</updated>
-    </task>
-    <task id="LOCAL-00013" summary="fdbh">
-      <created>1652634108564</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1652634108564</updated>
-    </task>
-    <task id="LOCAL-00014" summary="getPathFile">
-      <created>1653579881695</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1653579881695</updated>
-    </task>
-    <task id="LOCAL-00015" summary="getPathFile">
-      <created>1653990340548</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1653990340548</updated>
-    </task>
-    <task id="LOCAL-00016" summary="control">
-      <created>1654077532223</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1654077532223</updated>
-    </task>
-    <task id="LOCAL-00017" summary="control">
-      <created>1654078747281</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1654078747281</updated>
-    </task>
-    <task id="LOCAL-00018" summary="control">
-      <created>1654081406628</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1654081406628</updated>
-    </task>
-    <task id="LOCAL-00019" summary="smarty">
-      <created>1654685959005</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1654685959005</updated>
-    </task>
-    <task id="LOCAL-00020" summary="main">
-      <created>1654693839393</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1654693839393</updated>
-    </task>
-    <task id="LOCAL-00021" summary="login">
-      <created>1655133687608</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1655133687608</updated>
-    </task>
-    <task id="LOCAL-00022" summary="login">
-      <created>1655137998799</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1655137998799</updated>
-    </task>
-    <task id="LOCAL-00023" summary="login error">
-      <created>1655215147548</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1655215147548</updated>
-    </task>
-    <task id="LOCAL-00024" summary="error">
-      <created>1655904852241</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1655904852241</updated>
-    </task>
-    <task id="LOCAL-00025" summary="non lo so">
-      <created>1656340987108</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1656340987108</updated>
-    </task>
-    <task id="LOCAL-00026" summary="non lo so">
-      <created>1657034934610</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1657034934610</updated>
-    </task>
-    <task id="LOCAL-00027" summary="login">
-      <created>1657107846340</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1657107846340</updated>
-    </task>
-    <task id="LOCAL-00028" summary="login">
-      <created>1657118078155</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1657118078155</updated>
-    </task>
-    <task id="LOCAL-00029" summary="login e profilo">
-      <created>1657120432211</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1657120432211</updated>
-    </task>
-    <task id="LOCAL-00030" summary="profilo organizzatore">
-      <created>1657201185629</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1657201185629</updated>
-    </task>
-    <task id="LOCAL-00031" summary="profilo organizzatore">
-      <created>1657201305198</created>
+    <task id="LOCAL-00031" summary="add control to strore method of Fondation class and auto set of id of entity class">
+      <created>1653474391476</created>
       <option name="number" value="00031" />
       <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1657201305198</updated>
+      <updated>1653474391476</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="add control to strore method of Fondation class and auto set of id of entity class">
+      <created>1653474691244</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1653474691244</updated>
+    </task>
+    <task id="LOCAL-00033" summary="same change">
+      <created>1653583776696</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1653583776696</updated>
+    </task>
+    <task id="LOCAL-00034" summary="same change">
+      <created>1653662058915</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1653662058915</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add CComment.php , CEvent.php">
+      <created>1653839946009</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1653839946009</updated>
+    </task>
+    <task id="LOCAL-00036" summary="add validation to EEvent.php,EUser.php,ETime.php">
+      <created>1654027221094</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1654027221094</updated>
+    </task>
+    <task id="LOCAL-00037" summary="completed code for validation data">
+      <created>1654102142710</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1654102142710</updated>
+    </task>
+    <task id="LOCAL-00038" summary="reorganizer control and add fondation file for managment Error.txt">
+      <created>1654634258350</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1654634258365</updated>
+    </task>
+    <task id="LOCAL-00039" summary="add autoload file">
+      <created>1654672828249</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1654672828249</updated>
+    </task>
+    <task id="LOCAL-00040" summary="add FSession and put shearch method to CSearch.php">
+      <created>1654778165513</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1654778165513</updated>
+    </task>
+    <task id="LOCAL-00041" summary="change load file">
+      <created>1654778417125</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1654778417125</updated>
+    </task>
+    <task id="LOCAL-00042" summary="same change to FSession.php">
+      <created>1654880306134</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1654880306134</updated>
+    </task>
+    <task id="LOCAL-00043" summary="same change to FSession.php">
+      <created>1654880517413</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1654880517413</updated>
+    </task>
+    <task id="LOCAL-00044" summary="add index.php">
+      <created>1655041602954</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1655041602954</updated>
+    </task>
+    <task id="LOCAL-00045" summary="same change necessary for CFrontController.php">
+      <created>1655134258678</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1655134258678</updated>
+    </task>
+    <task id="LOCAL-00046" summary="same change necessary for CFrontController.php">
+      <created>1655134383650</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1655134383650</updated>
+    </task>
+    <task id="LOCAL-00047" summary="change name function">
+      <created>1655214344808</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1655214344808</updated>
+    </task>
+    <task id="LOCAL-00048" summary="change name function">
+      <created>1655215018667</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1655215018667</updated>
+    </task>
+    <task id="LOCAL-00049" summary="add CFrontController.php">
+      <created>1655238231251</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1655238231251</updated>
+    </task>
+    <task id="LOCAL-00050" summary="add check login user to exec same method">
+      <created>1655240263307</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1655240263307</updated>
+    </task>
+    <task id="LOCAL-00051" summary="add autorizer method">
+      <created>1655292148301</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1655292148301</updated>
+    </task>
+    <task id="LOCAL-00052" summary="add call error">
+      <created>1655298023604</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1655298023620</updated>
+    </task>
+    <task id="LOCAL-00053" summary="separete registration and result and add resized method">
+      <created>1655402438035</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1655402438035</updated>
+    </task>
+    <task id="LOCAL-00054" summary="add resized method">
+      <created>1655447948653</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1655447948653</updated>
+    </task>
+    <task id="LOCAL-00055" summary="add defoultPath.php">
+      <created>1655473561172</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1655473561187</updated>
+    </task>
+    <task id="LOCAL-00056" summary="same change">
+      <created>1655634816621</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1655634816621</updated>
+    </task>
+    <task id="LOCAL-00057" summary="add method to upload and store file">
+      <created>1655670082768</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1655670082768</updated>
+    </task>
+    <task id="LOCAL-00058" summary="add template">
+      <created>1655902909986</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1655902909987</updated>
+    </task>
+    <task id="LOCAL-00059" summary="add template">
+      <created>1655905930422</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1655905930422</updated>
+    </task>
+    <task id="LOCAL-00060" summary="add template">
+      <created>1656336628921</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1656336628921</updated>
+    </task>
+    <task id="LOCAL-00061" summary="add template">
+      <created>1656336878113</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1656336878113</updated>
+    </task>
+    <task id="LOCAL-00062" summary="add template">
+      <created>1656336927274</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1656336927274</updated>
+    </task>
+    <task id="LOCAL-00063" summary="for run">
+      <created>1656337448106</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1656337448106</updated>
+    </task>
+    <task id="LOCAL-00064" summary="error view and .htaccess">
+      <created>1656406898458</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1656406898458</updated>
+    </task>
+    <task id="LOCAL-00065" summary="pag error.tpl">
+      <created>1656587750163</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1656587750163</updated>
+    </task>
+    <task id="LOCAL-00066" summary="add MappingPathFile.php">
+      <created>1656594194953</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1656594194953</updated>
+    </task>
+    <task id="LOCAL-00067" summary="search event">
+      <created>1656756882497</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1656756882497</updated>
+    </task>
+    <task id="LOCAL-00068" summary="search athlete">
+      <created>1656855091031</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1656855091031</updated>
+    </task>
+    <task id="LOCAL-00069" summary="search event">
+      <created>1656855326236</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1656855326236</updated>
+    </task>
+    <task id="LOCAL-00070" summary="search event">
+      <created>1656855490243</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1656855490243</updated>
+    </task>
+    <task id="LOCAL-00071" summary="tolto myStyle">
+      <created>1656855642694</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1656855642694</updated>
+    </task>
+    <task id="LOCAL-00072" summary="chronology athlete">
+      <created>1656856402248</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1656856402248</updated>
+    </task>
+    <task id="LOCAL-00073" summary="add searchCompetition.tpl and association method">
+      <created>1657042311884</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1657042311884</updated>
+    </task>
+    <task id="LOCAL-00074" summary="resize logo">
+      <created>1657117902759</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1657117902759</updated>
+    </task>
+    <task id="LOCAL-00075" summary="file inutili">
+      <created>1657120632909</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1657120632909</updated>
+    </task>
+    <task id="LOCAL-00076" summary="updateUser.tpl">
+      <created>1657148118690</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1657148118697</updated>
+    </task>
+    <task id="LOCAL-00077" summary="change user key">
+      <created>1657180104248</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1657180104248</updated>
+    </task>
+    <task id="LOCAL-00078" summary="change user key">
+      <created>1657185841765</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1657185841765</updated>
+    </task>
+    <task id="LOCAL-00079" summary="change user key">
+      <created>1657189111536</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1657189111536</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,36 +530,39 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="CUSTOM_BOOLEAN_PROPERTIES">
-                <map>
-                  <entry key="Show.Git.Branches" value="true" />
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user" />
-    <MESSAGE value="entity" />
-    <MESSAGE value="change name" />
-    <MESSAGE value="roberto rompe" />
-    <MESSAGE value="ciao" />
-    <MESSAGE value="fdbh" />
-    <MESSAGE value="getPathFile" />
-    <MESSAGE value="control" />
-    <MESSAGE value="smarty" />
-    <MESSAGE value="main" />
-    <MESSAGE value="login error" />
-    <MESSAGE value="error" />
-    <MESSAGE value="non lo so" />
-    <MESSAGE value="login" />
-    <MESSAGE value="login e profilo" />
-    <MESSAGE value="profilo organizzatore" />
-    <option name="LAST_COMMIT_MESSAGE" value="profilo organizzatore" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="same change necessary for CFrontController.php" />
+    <MESSAGE value="change name function" />
+    <MESSAGE value="add CFrontController.php" />
+    <MESSAGE value="add check login user to exec same method" />
+    <MESSAGE value="add autorizer method" />
+    <MESSAGE value="add call error" />
+    <MESSAGE value="separete registration and result and add resized method" />
+    <MESSAGE value="add resized method" />
+    <MESSAGE value="add defoultPath.php" />
+    <MESSAGE value="same change" />
+    <MESSAGE value="add method to upload and store file" />
+    <MESSAGE value="add template" />
+    <MESSAGE value="for run" />
+    <MESSAGE value="error view and .htaccess" />
+    <MESSAGE value="pag error.tpl" />
+    <MESSAGE value="add MappingPathFile.php" />
+    <MESSAGE value="search athlete" />
+    <MESSAGE value="search event" />
+    <MESSAGE value="tolto myStyle" />
+    <MESSAGE value="chronology athlete" />
+    <MESSAGE value="add searchCompetition.tpl and association method" />
+    <MESSAGE value="resize logo" />
+    <MESSAGE value="file inutili" />
+    <MESSAGE value="updateUser.tpl" />
+    <MESSAGE value="change user key" />
+    <option name="LAST_COMMIT_MESSAGE" value="change user key" />
   </component>
 </project>
