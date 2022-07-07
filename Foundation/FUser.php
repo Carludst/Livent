@@ -27,13 +27,14 @@ class FUser
 
     private static function getObjectByArray(Array $user):EUser
     {
-       return new EUser($user['email'],$user['username'],$user['password'],$user['type']);
+       return new EUser($user['email'],$user['username'],$user['password'],$user['type'],(int)$user['iduser']);
     }
 
     //resturn where clause for take a tuple by primarykey
-    private static function whereKey($valueKey):Array
+    private static function whereKey(int|String $valueKey):Array
     {
-        return FDb::where("email",$valueKey);
+        if(is_string($valueKey))return FDb::where("email",$valueKey);
+        else return FDb::where("iduser",$valueKey);
     }
 
     /**
@@ -49,6 +50,7 @@ class FUser
         $fieldValue=self::getArrayByObject($user);
         $fieldValue['created_at']=$created_at;
         FDb::store(self::$table[0],$fieldValue);
+        $user->setId((int)FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'iduser'))[0]['max']);
     }
 
     /**
@@ -57,7 +59,7 @@ class FUser
      * @return EUser|null null if not found
      * @throws Exception FDb exInterrogation exception
      */
-    public static function loadOne(string $key):?EUser{
+    public static function loadOne(int|String $key):?EUser{
         $query=FDb::load(self::$table[0],self::whereKey($key));
         $result=FDb::exInterrogation($query);
         if(count($result)==0)  return null;
@@ -111,17 +113,16 @@ class FUser
      */
     public static function updateOne(EUser $user):bool
     {
-        return FDb::update(self::$table[0],self::whereKey((String)$user->getEmail()),self::getArrayByObject($user));
+        return FDb::update(self::$table[0],self::whereKey((String)$user->getId()),self::getArrayByObject($user));
     }
 
     public static function getRegistration(EUser $user ):Array
     {
-        $where=FDb::where('email',$user->getEmail());
+        $where=FDb::where('iduser',$user->getId());
         $query=FDb::load(self::$table[1],$where);
         $resultQ=FDb::exInterrogation($query);
         $result=array();
         foreach ($resultQ as $c=>$v){
-            //righa successiva da modificare
             $competition=FCompetition::loadOne($v["idcompetition"]);
             $athlete=FAthlete::loadOne($v['idathlete']);
             $result[$competition]=$athlete;
@@ -139,7 +140,7 @@ class FUser
 
     public static function getPathFile(EUser $user):String
     {
-        return EUser::class."/".$user->getEmail();
+        return EUser::class."/".$user->getId();
     }
 
     public static function search(String|Null $username=NULL)

@@ -2,6 +2,7 @@
 
 class EUser
 {
+    private int $id;
     private string $email;
     public string $username;
     private string $password;
@@ -14,13 +15,30 @@ class EUser
      * @param string $type
      * @throws Exception
      */
-    public function __construct(string $email, string $username, string $password, string $type)
+    public function __construct(string $email, string $username, string $password, string $type,int $id=-1)
     {
         if(!filter_var($email, FILTER_VALIDATE_EMAIL))throw new Exception("the email passed is invalid");
         $this->email = $email;
+        $this->id=$id;
         $this->username = $username;
         $this->password = hash("sha3-256", $password);
         $this->type = $type;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     /**

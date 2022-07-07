@@ -21,7 +21,7 @@ class FDbH {
      * @param String $Eclass
      * @return EAthlete|EUser|EComment|ECompetition|EContact|EEvent
      */
-    public static function loadOne($key,String $Eclass):NULL|EAthlete|EUser|EComment|ECompetition|EContact|EEvent {
+    public static function loadOne( $key,String $Eclass):NULL|EAthlete|EUser|EComment|ECompetition|EContact|EEvent {
         $Fclass = "F".substr($Eclass,1);
         return $Fclass::loadOne($key);
     }
@@ -44,7 +44,7 @@ class FDbH {
      * @param $Fclass
      * @return mixed
      */
-    public static function deleteOne($key, String $Eclass):?bool {
+    public static function deleteOne(int $key, String $Eclass):?bool {
         $Fclass = "F".substr($Eclass,1);
         return $Fclass::deleteOne($key);
     }
@@ -54,7 +54,7 @@ class FDbH {
      * @param $Fclass
      * @return mixed
      */
-    public static function existOne($key, String $Eclass):?bool {
+    public static function existOne(int $key, String $Eclass):?bool {
         $Fclass = "F".substr($Eclass,1);
         return $Fclass::existOne($key);
     }

@@ -31,7 +31,8 @@ class VSignin extends View
     }
 
     private function getType(){
-        if(!empty($_POST['type']))return $_POST['type'];
+        if(!empty($_POST['type']) && $_POST['type']=='Organizatore' )return 'Organizer';
+        elseif(!empty($_POST['type']))return $_POST['type'];
         else throw new Exception('type not setted');
     }
 

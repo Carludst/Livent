@@ -72,7 +72,7 @@ class CManageUser
         try{
             $view=new VSignin();
             $user=$view->getUser();
-            if(!FDbH::existOne($user->getEmail(),EUser::class)){
+            if(!FDbH::existOne($user->getId(),EUser::class)){
                 FDbH::store($user);
                 if(FDbH::login($user->getEmail(),$user->getPassword(),false))FSession::login($user);
                 else throw new Exception('system signin error');
@@ -119,7 +119,7 @@ class CManageUser
     public static function delete(){
         try{
             if(self::callLogin()){
-                FDbH::deleteOne(FSession::getUserLogged()->getEmail(),EUser::class);
+                FDbH::deleteOne(FSession::getUserLogged()->getId(),EUser::class);
                 self::logout();
                 self::callLogin(false);
             }

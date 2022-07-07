@@ -6,7 +6,7 @@ class FEvent
     private static function getArrayByObject(EEvent $event):Array
     {
         $nome=$event->getName();
-        $email=$event->getOrganizer()->getEmail();
+        $iduser=$event->getOrganizer()->getId();
         $place=$event->getPlace();
         $description=$event->getDescription();
         $pubilc=$event->getPublic();
@@ -16,7 +16,7 @@ class FEvent
 
         $fieldValue=array(
             'namevent'=>$nome,
-            'emailorganizer'=>$email,
+            'idorganizer'=>$iduser,
             'place'=>$place,
             'description'=>$description,
             'public'=>$pubilc,
@@ -30,7 +30,7 @@ class FEvent
     {
         $id=$event['idevent'];
         $name=$event['namevent'];
-        $organizer=FUser::loadOne($event['emailorganizer']);
+        $organizer=FUser::loadOne($event['idorganizer']);
         $place=$event['place'];
         $description=$event['description'];
         $pubilc=$event['public'];
@@ -154,8 +154,8 @@ class FEvent
                 $ascending[]=true;
             }
             if(!is_null($user)){
-                $fields[]='emailorganizer';
-                $values[]=$user->getEmail();
+                $fields[]='idorganizer';
+                $values[]=$user->getId();
                 $opWhere[]='=';
             }
             if(!is_null($public)){

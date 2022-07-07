@@ -8,7 +8,7 @@ class FComment
     {
         $dateTime=new DateTime();
 
-        $user = $comment->getUser()->getEmail();
+        $user = $comment->getUser()->getId();
         $text = $comment->getText();
         $updated_at = $dateTime->format("Y-m-d H:i:s");
 
@@ -24,7 +24,7 @@ class FComment
     private static function getObjectByArray(Array $comment):EComment
     {
         $id=(int)$comment['idcomment'];
-        $user=FUser::loadOne($comment['emailorganizer']);
+        $user=FUser::loadOne($comment['idorganizer']);
         $text=$comment['text'];
         return new EComment($user,$text,$id);
 
@@ -150,8 +150,8 @@ class FComment
                $opWhere[]='LIKE';
            }
            if(!is_null($user)){
-               $fields[]='emailuser';
-               $values[]=$user->getEmail();
+               $fields[]='iduser';
+               $values[]=$user->getId();
                $opWhere[]='=';
            }
            $resultQ=FDb::exInterrogation(FDb::load(self::$table[0],FDb::multiWhere($fields,$values,'AND',$opWhere)));

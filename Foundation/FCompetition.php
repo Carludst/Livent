@@ -272,8 +272,8 @@ class FCompetition {
      */
     public static function RegisteredBy(ECompetition $competition,EAthlete $athlete):?EUser
     {
-        $resultQ=FDb::exInterrogation(FDb::load(self::$table[1],self::whereResult($competition,$athlete),'email'));
-        if(!empty($resultQ)) return FDbH::loadOne($resultQ[0],EUser::class);
+        $resultQ=FDb::exInterrogation(FDb::load(self::$table[1],self::whereResult($competition,$athlete),'iduser'));
+        if(!empty($resultQ)) return FDbH::loadOne((int)$resultQ[0]['iduser'],EUser::class);
         else return NULL;
     }
 
@@ -309,7 +309,7 @@ class FCompetition {
         $result=array();
         foreach ($resultQ as $c=>$v){
             $athlete=FAthlete::loadOne((int)$v["idathlete"]);
-            $iscriber=FUser::loadOne((String)$v["email"]);
+            $iscriber=FUser::loadOne((int)$v["iduser"]);
             $result[]=array($athlete,$iscriber);
         }
         return $result;
