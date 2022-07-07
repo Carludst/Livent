@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-06 17:01:24
+/* Smarty version 4.1.1, created on 2022-07-06 17:48:24
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\userProfile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c5a3c4cb7989_97256519',
+  'unifunc' => 'content_62c5aec8ab0c07_40636149',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c2cc3e072f74be744f6d65d9d290a1fdabe2b60e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\userProfile.tpl',
-      1 => 1657119671,
+      1 => 1657122501,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c5a3c4cb7989_97256519 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62c5aec8ab0c07_40636149 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -117,7 +117,8 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <!-- Home -->
                     <li class="dropdown ">
                         <a href="/Livent/" >Home</a>
-                    </li><!-- / Home -->
+                    </li>
+                    <!-- / Home -->
                     <!-- / Search -->
                     <li class="dropdown dropdown-slide">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
@@ -132,7 +133,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <!-- / Search -->
 
                     <li class="dropdown ">
-                        <a><i class="tf-ion-android-person"></i>Logout</a>
+                        <a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
                     </li>
 
                 </ul><!-- / .nav .navbar-nav .navbar-right -->

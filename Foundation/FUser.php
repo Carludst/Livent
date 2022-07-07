@@ -55,7 +55,7 @@ class FUser
 
     /**
      * -Method : return the frist object of the result of the query
-     * @param string $key key of the table
+     * @param int|String $key key of the table
      * @return EUser|null null if not found
      * @throws Exception FDb exInterrogation exception
      */
@@ -68,40 +68,21 @@ class FUser
     }
 
     /**
-     * -Method : return an array of object according with the query result
-     * @param String $where where clouse
-     * @param String|array $orderBy attribute to sort by
-     * @param bool|array $ascending order type (ascending/decreasing)
-     * @return array array of object
-     * @throws Exception FDb exInterrogation exception
-     */
-    public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array{
-        $where=FDb::where($fieldWhere,$valueWhere,$opWhere);
-        $query=FDb::load(self::$table[0],$where);
-        $resultQ=FDb::exInterrogation($query,$orderBy,$ascending);
-        $result=array();
-        foreach ($resultQ as $c=>$v){
-            $result[$c]=self::getObjectByArray($v);
-        }
-        return $result;
-    }
-
-    /**
      * -Method : search in database by primarykey
-     * @param string $key primarykey value
+     * @param int $key primarykey value
      * @return bool return true if find correspondence , null if occurs an exception
      */
-    public static function existOne(string $key):bool
+    public static function existOne(int $key):bool
     {
         return FDb::exist(FDb::load(self::$table[0],self::whereKey($key)));
     }
 
     /**
      * -Method : delate by primarykey
-     * @param string $key primarykey value
+     * @param int $key primarykey value
      * @return bool return true if find correspondence , null if occurs an exception , false if not found corrispondence
      */
-    public static function deleteOne(string $key): bool
+    public static function deleteOne(int $key): bool
     {
         return FDb::delate(self::$table[0],self::whereKey($key));
     }

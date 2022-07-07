@@ -424,7 +424,7 @@ class FDbH {
     /**
      * @param String|null $name
      * @param EUser|null $organizer
-     * @param String $place
+     * @param String|null $place
      * @return array
      */
     public static function searchEvent(?bool $public=NULL ,?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL  , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL , ?String $sport=NULL){

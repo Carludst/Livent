@@ -86,7 +86,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                 <ul class="top-menu text-right list-inline">
                     <!-- Home -->
                     <li class="dropdown ">
-                        <a href="/Livent/" >Home</a>
+                        <a href="/Livent/">Home</a>
                     </li>
                     <!-- / Home -->
                     <!-- / Search -->
@@ -103,7 +103,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <!-- / Search -->
 
                     <li class="dropdown ">
-                        <a><i class="tf-ion-android-person"></i>Logout</a>
+                        <a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
                     </li>
 
                 </ul><!-- / .nav .navbar-nav .navbar-right -->

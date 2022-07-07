@@ -176,10 +176,25 @@ class CManageUser
     public static function profilePage(){
         try{
             if(self::callLogin()){
-                $view = new VUserProfile();
-                $u = FSession::getUserLogged();
-                $profileImg=FDbH::loadMultiFile($u,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
-                $view->showProfile($u, $profileImg);
+                $user = FSession::getUserLogged();
+                $type = $user->getType();
+                if($type == 'Organizer'){
+                    $view = new VOrganizerProfile();
+                    $event = FDbH::searchEvent(NULL, NULL, $user);
+                    $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
+                    $eventImg=FDbH::loadMultiFile($event,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.2);
+                    $view->showProfile($user, $profileImg,$eventImg, $event );
+                }
+                else{
+                    $view = new VUserProfile();
+                    $registration = FDbH::getRegistrationUser($user);
+                    $competition = array_keys($registration);
+                    $athletes = array_values($registration);
+                    $events = FDbH::loadEventByCompetition($competition);
+                    $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
+                    $view->showProfile($user, $profileImg,$competition, $athletes, $events );
+                }
+
             }
             else throw new Exception("user logged don't have autorization");
         }
@@ -187,24 +202,4 @@ class CManageUser
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di profilo non è andata a buon fine");
         }
     }
-
-    public static function userCompetitionPage(){
-        try{
-            if(self::callLogin()){
-                $view = new VUserProfile();
-                $key=$view->getMyInput();
-                $registration = FDbH::getRegistrationUser(FSession::getUserLogged());
-                $competition = array_keys($registration);
-                $athletes = array_values($registration);
-                $events = FDbH::loadEventByCompetition($competition);
-                $view->showCompetition($competition, $athletes, $events);
-            }
-            else throw new Exception("user logged don't have autorization");
-
-        }
-        catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di profilo non è andata a buon fine");
-        }
-    }
-
 }

@@ -1,8 +1,9 @@
 <?php
 
-class VUserProfile extends View
+class VOrganizerProfile extends View
 {
-    private static String $template='userProfile.tpl';
+
+    private static String $template='organizerProfile.tpl';
 
     public function __construct()
     {
@@ -12,20 +13,22 @@ class VUserProfile extends View
     /**
      * @param EUser|null $user
      * @param String|null $profileImg
+     * @param String|null $eventImg
+     * @param array|null $events
      * @return void
      * @throws SmartyException
      */
-    public function showProfile(?EUser $user , ?String $profileImg, ?Array $competition, ?Array $athletes, ?Array $events)
+    public function showProfile(?EUser $user , ?String $profileImg, ?Array $eventImg, ?Array $events)
     {
         $assign = $this->assign;
         $assign['user'] = $user;
         $assign['profileImg'] = $profileImg;
-        $assign['competitions'] = $competition;
-        $assign['athletes'] = $athletes;
+        $assign['eventImg'] = $eventImg;
         $assign['events'] = $events;
 
 
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
     }
+
 }

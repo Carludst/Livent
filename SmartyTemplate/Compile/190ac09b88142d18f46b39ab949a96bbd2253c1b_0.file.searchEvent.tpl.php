@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-03 15:49:42
+/* Smarty version 4.1.1, created on 2022-07-07 12:14:40
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\searchEvent.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c19e76a85d30_05919275',
+  'unifunc' => 'content_62c6b2109d1c01_57889671',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '190ac09b88142d18f46b39ab949a96bbd2253c1b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\searchEvent.tpl',
-      1 => 1656855606,
+      1 => 1657181798,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c19e76a85d30_05919275 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62c6b2109d1c01_57889671 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -139,14 +139,14 @@ FACEBOOK: https://www.facebook.com/themefisher
                                 <table cellpadding="5">
                                     <tbody>
                                     <tr>
-                                        <td><h4>Da : </h4></td>
-                                        <td> <input type="date" name="dateMin" <?php if ($_smarty_tpl->tpl_vars['dateMin']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['dateMin']->value->format("Y-m-d");?>
-" onload="setDate(form)"<?php }?>  style="width: 225px" onchange="setDate(form)"></td>
+                                        <td class="my-td-title"><h4>Da : </h4></td>
+                                        <td class="my-td"> <input type="date" name="dateMin" <?php if ($_smarty_tpl->tpl_vars['dateMin']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['dateMin']->value->format("Y-m-d");?>
+" onload="setDate(form)"<?php }?>  style="width: 220px" onchange="setDate(form)"></td>
                                     </tr>
                                     <tr>
-                                        <td><h4>A : </h4></td>
-                                        <td> <input type="date" name="dateMax"  <?php if ($_smarty_tpl->tpl_vars['dateMax']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['dateMax']->value->format("Y-m-d");?>
-" onload="setDate(form)"<?php }?>  onchange="setDate(form)" style="width: 225px"> </td>
+                                        <td class="my-td-title"><h4>A : </h4></td>
+                                        <td class="my-td"> <input type="date" name="dateMax"  <?php if ($_smarty_tpl->tpl_vars['dateMax']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['dateMax']->value->format("Y-m-d");?>
+" onload="setDate(form)"<?php }?>  onchange="setDate(form)" style="width: 220px"> </td>
                                     </tr>
 
                                     </tbody>
@@ -161,12 +161,14 @@ FACEBOOK: https://www.facebook.com/themefisher
             <div class="col-md-9">
                 <div class="row">
                     <div class="list-group">
-                        <?php if (empty($_smarty_tpl->tpl_vars['events']->value) && $_smarty_tpl->tpl_vars['mood']->value == 'true') {?>
+                        <?php if (empty($_smarty_tpl->tpl_vars['events']->value) && $_smarty_tpl->tpl_vars['mood']->value == 'cronology') {?>
                             <h1 class="my-allert-page" > Non hai eventi in cronologia </h1>
-                        <?php } elseif (empty($_smarty_tpl->tpl_vars['events']->value)) {?>
+                        <?php } elseif (empty($_smarty_tpl->tpl_vars['events']->value) && $_smarty_tpl->tpl_vars['mood']->value == 'search') {?>
                             <h1 class="my-allert-page" > La ricerca non ha dato risultati </h1>
+                        <?php } elseif (empty($_smarty_tpl->tpl_vars['events']->value)) {?>
+                            <h1 class="my-allert-page" > Non ci sono eventi salvati </h1>
                         <?php } else { ?>
-                            <?php if ($_smarty_tpl->tpl_vars['mood']->value == 'true') {?>
+                            <?php if ($_smarty_tpl->tpl_vars['mood']->value == 'cronology') {?>
                                 <div class="row">
                                     <?php
 $__section_index_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['events']->value) ? count($_loop) : max(0, (int) $_loop));
@@ -201,10 +203,7 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
                                         </div>
                                         <div class="col-md-1">
                                             </br></br>
-                                            <a href="/Livent/Event/Chronology/Delate/<?php ob_start();
-echo (isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null);
-$_prefixVariable1 = ob_get_clean();
-echo $_prefixVariable1;?>
+                                            <a href="/Livent/Event/Chronology/Delate/<?php echo (isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null);?>
 /" class="remove"><i class="tf-ion-close"></i></a>
                                         </div>
                                     <?php

@@ -3,7 +3,7 @@ include_once "../Utility/defaultPath.php";
 include_once $GLOBALS['defaultPath']."/Utility/autoload.php";
 include_once $GLOBALS['defaultPath']."/Foundation/FDbH.php";
 
-$user=new EUser('roberto.distefano1@student.univaq.it','roberto','password','Organizer');
+$user=new EUser('carladistefano99@hotmail.com','Carla user','password','user');
 FDbH::store($user);
 //$e=new EEvent("Internazionali D'Italia","L'Aquila",$user,true);
 //FDbH::store($e);
@@ -11,7 +11,7 @@ FDbH::store($user);
 
 //$a=new EAthlete('r','d',new DateTime(),false);
 //FDbH::deleteFile('prova','r0');
-//FDbH::storeFile('System','logo','C:\Users\lenovo\Downloads\MicrosoftTeams-image.png','png');
+//FDbH::storeFile(MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),'C:\Users\lenovo\Desktop\WebImg\defoultProfile.jpg','jpg');
 //echo(FDbH::loadFile('System','logo'));
 //$blob=FDbH::loadFile('prova','r0',0.5,false);
 //FFile::write($blob);
