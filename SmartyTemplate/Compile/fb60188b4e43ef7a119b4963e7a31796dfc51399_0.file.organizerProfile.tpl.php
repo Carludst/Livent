@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-07 15:35:06
+/* Smarty version 4.1.1, created on 2022-07-07 16:47:41
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\organizerProfile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c6e10a6963a8_68765014',
+  'unifunc' => 'content_62c6f20d04e015_42442520',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fb60188b4e43ef7a119b4963e7a31796dfc51399' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\organizerProfile.tpl',
-      1 => 1657189174,
+      1 => 1657205194,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c6e10a6963a8_68765014 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62c6f20d04e015_42442520 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -159,7 +159,11 @@ FACEBOOK: https://www.facebook.com/themefisher
 </li>
                             <li><span>Email:</span><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
 </li>
+                            <br>
+                            <br>
+                            <li class="li"><a href="#!" class="btn btn-main btn-small btn-round-full">Nuovo Evento</a></li>
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -168,24 +172,21 @@ FACEBOOK: https://www.facebook.com/themefisher
 </section>
 
 
-<section class="products section bg-gray">
-    <?php if (empty($_smarty_tpl->tpl_vars['eventsOpen']->value) && empty($_smarty_tpl->tpl_vars['eventsFinished']->value)) {?>
+<section class="products section">
+    <?php if (empty($_smarty_tpl->tpl_vars['events']->value)) {?>
         <h1 class="my-allert-page" > Non ci sono eventi </h1>
     <?php } else { ?>
         <div class="container">
             <div class="row">
-                <?php if (empty($_smarty_tpl->tpl_vars['eventsOpen']->value)) {?>
+                <?php if (empty($_smarty_tpl->tpl_vars['events']->value)) {?>
                     <div class="title text-center">
-                        <h2>Eventi in programma</h2>
+                        <h2>Eventi</h2>
                     </div>
                 <?php }?>
             </div>
-
-
             <div class="row">
-
                 <?php
-$__section_i_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['eventsOpen']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_i_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['events']->value) ? count($_loop) : max(0, (int) $_loop));
 $__section_i_0_total = $__section_i_0_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_i'] = new Smarty_Variable(array());
 if ($__section_i_0_total !== 0) {
@@ -194,7 +195,7 @@ for ($__section_i_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
                     <div class="col-md-4">
                         <div class="product-item">
                             <div class="product-thumb">
-                                <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['eventsOpenImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)];?>
+                                <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['eventImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)];?>
 " alt="product-img" />
                                 <div class="preview-meta">
                                     <ul>
@@ -205,9 +206,9 @@ for ($__section_i_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h4><a href="product-single.html"><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
+                                <h4><a href="product-single.html"><?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
 </a></h4>
-                                <time><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
+                                <time><?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
 </time>
                             </div>
                         </div>
@@ -216,85 +217,7 @@ for ($__section_i_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 }
 }
 ?>
-
             </div>
-
-            <div class="row">
-                <?php if (empty($_smarty_tpl->tpl_vars['eventsFinished']->value)) {?>
-                    <div class="title text-center">
-                        <h2>Eventi terminati</h2>
-                    </div>
-                <?php }?>
-            </div>
-
-            <div class="row">
-
-                <?php
-$__section_i_1_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['eventsFinished']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_i_1_total = $__section_i_1_loop;
-$_smarty_tpl->tpl_vars['__smarty_section_i'] = new Smarty_Variable(array());
-if ($__section_i_1_total !== 0) {
-for ($__section_i_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] = 0; $__section_i_1_iteration <= $__section_i_1_total; $__section_i_1_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']++){
-?>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['eventsFinishedImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)];?>
-" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html"><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
-</a></h4>
-                                <time><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
-</time>
-                            </div>
-                        </div>
-                    </div>
-                <?php
-}
-}
-?>
-
-            </div>
-
-            <!-- Modal -->
-            <div class="modal product-modal fade" id="product-modal">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i class="tf-ion-close"></i>
-                </button>
-                <div class="modal-dialog " role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-6 col-xs-12">
-                                    <div class="modal-image">
-                                        <img class="img-responsive" src="../images/shop/products/modal-product.jpg" alt="product-img" />
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="product-short-details">
-                                        <h2 class="product-title">GM Pendant, Basalt Grey</h2>
-                                        <p class="product-price">$200</p>
-                                        <p class="product-short-description">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
-                                        </p>
-                                        <a href="cart.html" class="btn btn-main">Add To Cart</a>
-                                        <a href="product-single.html" class="btn btn-transparent">View Product Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.modal -->
-        </div>
         </div>
     <?php }?>
 </section>

@@ -126,7 +126,11 @@ FACEBOOK: https://www.facebook.com/themefisher
                         <ul class="user-profile-list">
                             <li><span>Username:</span>{$user->getUsername()}</li>
                             <li><span>Email:</span>{$user->getEmail()}</li>
+                            <br>
+                            <br>
+                            <li class="li"><a href="#!" class="btn btn-main btn-small btn-round-full">Nuovo Evento</a></li>
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -135,27 +139,24 @@ FACEBOOK: https://www.facebook.com/themefisher
 </section>
 
 
-<section class="products section bg-gray">
-    {if empty($eventsOpen) && empty($eventsFinished)}
+<section class="products section">
+    {if empty($events)}
         <h1 class="my-allert-page" > Non ci sono eventi </h1>
     {else}
         <div class="container">
             <div class="row">
-                {if empty($eventsOpen)}
+                {if empty($events)}
                     <div class="title text-center">
-                        <h2>Eventi in programma</h2>
+                        <h2>Eventi</h2>
                     </div>
                 {/if}
             </div>
-
-
             <div class="row">
-
-                {section name=i loop=$eventsOpen}
+                {section name=i loop=$events}
                     <div class="col-md-4">
                         <div class="product-item">
                             <div class="product-thumb">
-                                <img class="img-responsive" src="{$eventsOpenImg[i]}" alt="product-img" />
+                                <img class="img-responsive" src="{$eventImg[i]}" alt="product-img" />
                                 <div class="preview-meta">
                                     <ul>
                                         <li>
@@ -165,79 +166,13 @@ FACEBOOK: https://www.facebook.com/themefisher
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h4><a href="product-single.html">{$eventsOpen[i]->getName()}</a></h4>
-                                <time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
+                                <h4><a href="product-single.html">{$events[i]->getName()}</a></h4>
+                                <time>{$events[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
                             </div>
                         </div>
                     </div>
                 {/section}
-
             </div>
-
-            <div class="row">
-                {if empty($eventsFinished)}
-                    <div class="title text-center">
-                        <h2>Eventi terminati</h2>
-                    </div>
-                {/if}
-            </div>
-
-            <div class="row">
-
-                {section name=i loop=$eventsFinished}
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="{$eventsFinishedImg[i]}" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><a href="product-single.html">{$eventsFinished[i]->getName()}</a></h4>
-                                <time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
-                            </div>
-                        </div>
-                    </div>
-                {/section}
-
-            </div>
-
-            <!-- Modal -->
-            <div class="modal product-modal fade" id="product-modal">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i class="tf-ion-close"></i>
-                </button>
-                <div class="modal-dialog " role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-6 col-xs-12">
-                                    <div class="modal-image">
-                                        <img class="img-responsive" src="../images/shop/products/modal-product.jpg" alt="product-img" />
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="product-short-details">
-                                        <h2 class="product-title">GM Pendant, Basalt Grey</h2>
-                                        <p class="product-price">$200</p>
-                                        <p class="product-short-description">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
-                                        </p>
-                                        <a href="cart.html" class="btn btn-main">Add To Cart</a>
-                                        <a href="product-single.html" class="btn btn-transparent">View Product Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.modal -->
-        </div>
         </div>
     {/if}
 </section>
