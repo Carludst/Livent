@@ -41,9 +41,14 @@ class VSignin extends View
         else throw new Exception('password not setted');
     }
 
-    private function getConfirmPassword(){
+    private function getNewPassword():?String{
+        if(!empty($_POST['newPassword']))return $_POST['newPassword'];
+        else return null;
+    }
+
+    private function getConfirmPassword():?String{
         if(!empty($_POST['confirmPassword']))return $_POST['confirmPassword'];
-        else throw new Exception('confirm password not setted');
+        else return null;
     }
 
     private function getUsername(){

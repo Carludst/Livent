@@ -69,6 +69,14 @@ class FSession
         else return NULL;
     }
 
+    public static function updateUserLogged(EUser $user):void
+    {
+        if (session_status() == PHP_SESSION_NONE)session_start();
+        if($user->getId()==self::getUserLogged()->getId()){
+            $_SESSION['user'] = serialize($user);
+        }
+    }
+
     public static function addDataSession(String $key ,mixed $data)
     {
         if (session_status() == PHP_SESSION_NONE)session_start();

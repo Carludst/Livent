@@ -70,7 +70,7 @@ FACEBOOK: https://www.facebook.com/themefisher
             </svg>
           </a>
           <h2 class="text-center">Aggiorna il tuo Account</h2>
-          <form method="post" class="text-left clearfix" action="/Livent/User/Signin/">
+          <form method="post" class="text-left clearfix" action="/Livent/User/Update/" enctype="multipart/form-data">
             <h4 class="widget-title">Autentificazione</h4>
             <div class="form-group">
               <input type="email" class="form-control" name="email" placeholder="Email">
@@ -82,20 +82,23 @@ FACEBOOK: https://www.facebook.com/themefisher
             <div class="form-group">
               <input type="text" class="form-control" {if $user!=""}value="{$user->getUsername()}" {/if}name="username"  placeholder="Nuovo Username">
             </div>
+              <div class="form-group">
+                  <input type="email" class="form-control" {if $user!=""}value="{$user->getEmail()}" {/if} name="newEmail" placeholder="Email">
+              </div>
             <div class="form-group">
               <input type="password" class="form-control"  name="newPassword" placeholder="Nuova password">
             </div>
             <div class="form-group">
               <input type="password" class="form-control"  name="confirmPassword" placeholder="Conferma password">
             </div>
-            <input style="width: 100%" class="btn-solid-border "id='formfile' accept="image/png, image/jpeg" type="file">
+            <input style="width: 100%" class="btn-solid-border" name="image" accept="image/png, image/jpeg" type="file">
             <br>
             <div class="text-center">
               <button type="submit" class="btn btn-main text-center">Aggiorna</button>
             </div>
           </form>
           <br>
-          <p><a style="opacity: 0.4" href="forget-password.html"> torna alla home</a></p>
+          <p><a style="opacity: 0.4" href="/Livent/User/ProfailePage"> torna al profilo</a></p>
         </div>
       </div>
     </div>

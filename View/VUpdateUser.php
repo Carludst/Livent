@@ -2,7 +2,7 @@
 
 class VUpdateUser extends View
 {
-    private static String $template='login.tpl';
+    private static String $template='updateUser.tpl';
 
     public function __construct()
     {
@@ -34,8 +34,7 @@ class VUpdateUser extends View
 
     public function getConfirmPassword():?String{
         if(!empty($_POST['confirmPassword']))return $_POST['confirmPassword'];
-        elseif(empty($_POST['newPassword'])) return null;
-        else throw new Exception('confirm password not setted');
+        else return null;
     }
 
     public function getUsername():?String{
@@ -44,15 +43,23 @@ class VUpdateUser extends View
     }
 
     public function getPathFile():?String{
-        if(isset($_FILES[0]['name'])&&isset($_FILES[0]['tmp_name'])){
-            return $_FILES[0]['tmp_name'].'/'.$_FILES[0]['name'];
+        var_dump($_FILES);
+        if(isset($_FILES['image'])){
+            return $_FILES['image']['tmp_name'];
         }
         else return null;
     }
 
+    public function getNewEmail():?String{
+        if(!empty($_POST['newEmail']))return $_POST['newEmail'];
+        else return null;
+    }
+
     public function getTypeFile():?String{
-        if(isset($_FILES[0]['type']) && $_FILES[0]['type']=='jpeg')return 'jpg';
-        elseif(isset($_FILES[0]['type'])) return $_FILES[0]['type'];
+        if(isset($_FILES['image']['type']) && ($_FILES['image']['type']=='image/jpeg'||$_FILES['image']['type']=='image/jpg')){
+            return 'jpg';
+        }
+        elseif(isset($_FILES['image']['type']) && $_FILES['image']['type']=='image/png') return 'png';
         else return null;
     }
 

@@ -98,23 +98,30 @@ class CManageUser
                     if(!is_null($view->getPathFile()) && !is_null($view->getTypeFile())){
                         $dir=$view->getPathFile();
                         $type=$view->getTypeFile();
+                        FDbH::storeFile($logged,MappingPathFile::nameUserMain(),$dir,$type,true);
                     }
-                    if(!is_null($view->getNewPassword())){
+                    if(!is_null($view->getNewPassword())&& $view->getNewPassword()==$view->getConfirmPassword() ){
                         $logged->setPassword($view->getNewPassword());
                     }
+                    elseif(!is_null($view->getNewPassword())||!is_null($view->getConfirmPassword()))throw new Exception("confirm password don't chack");
                     if(!is_null($view->getUsername())){
                         $logged->setUsername($view->getUsername());
                     }
+                    if(!is_null($view->getNewEmail())){
+                        $logged->setUsername($view->getUsername());
+                    }
                     FDbH::updateOne($logged);
-                    FDbH::storeFile($logged,MappingPathFile::nameUserMain(),$dir,$type);
-                    header('Location: /Livent/User/MainPage');
+                    FSession::updateUserLogged($logged);
+                    header('Location: /Livent/User/ProfilePage/');
                 }
+                else throw new Exception("wrong credantial");
             }
         }
         catch (Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! L'aggiornamento dei dati dell'utente non è andato a buon fine");
         }
     }
+
 
     public static function delete(){
         try{
@@ -159,9 +166,9 @@ class CManageUser
         }
     }
 
-    public static function updatePage(EUser $user){
+    public static function updatePage(){
         try{
-            if(FSession::isLogged()){
+            if(self::callLogin()){
                 $view=new VUpdateUser();
                 $user=FSession::getUserLogged();
                 $view->show($user);
@@ -202,4 +209,5 @@ class CManageUser
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di profilo non è andata a buon fine");
         }
     }
+
 }

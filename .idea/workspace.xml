@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="change user key">
-      <change beforePath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/5c306374df9cc05f529fef3b208e865c0e49be8f_0.file.login.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2022_13_16_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2022_13_16__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FDbH.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FDbH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FSession.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/updateUser.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/updateUser.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/routing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VSignin.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VSignin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VUpdateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VUpdateUser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,14 +188,8 @@
       <workItem from="1657128617816" duration="164000" />
       <workItem from="1657128901162" duration="160000" />
       <workItem from="1657130231706" duration="13816000" />
-      <workItem from="1657174943251" duration="29895000" />
-    </task>
-    <task id="LOCAL-00032" summary="add control to strore method of Fondation class and auto set of id of entity class">
-      <created>1653474691244</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1653474691244</updated>
+      <workItem from="1657174943251" duration="32150000" />
+      <workItem from="1657217995041" duration="2411000" />
     </task>
     <task id="LOCAL-00033" summary="same change">
       <created>1653583776696</created>
@@ -521,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657214820895</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="change user key">
+      <created>1657215193393</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1657215193393</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -120,7 +120,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                 <div class="media">
                     <div class="pull-left text-center" href="#!">
                         <img class="media-object user-img" src="{$profileImg}" alt="Image">
-                        <a href="#x" class="btn btn-transparent mt-20">Change Profile</a>
+                        <a href="/Livent/User/UpdatePage/" class="btn btn-transparent mt-20">Change Profile</a>
                     </div>
                     <div class="media-body">
                         <ul class="user-profile-list">

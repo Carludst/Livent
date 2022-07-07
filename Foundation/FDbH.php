@@ -82,7 +82,11 @@ class FDbH {
      * @param int $size
      * @return void
      */
-    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type){
+    public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type,bool $upload=false){
+        if($upload){
+            move_uploaded_file($pathFile,$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type);
+            $pathFile=$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type;
+        }
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
@@ -90,6 +94,7 @@ class FDbH {
             $pathDB=$Fclass::getPathFile($objPath);
         }
         $blobFile=file_get_contents($pathFile) ;
+        if($upload)unlink($pathFile);
         $blobFile=addslashes($blobFile);
         $updated_at=date("Y-m-d H:i:s");
         $created_at=date("Y-m-d H:i:s");
@@ -424,7 +429,7 @@ class FDbH {
     /**
      * @param String|null $name
      * @param EUser|null $organizer
-     * @param String|null $place
+     * @param String $place
      * @return array
      */
     public static function searchEvent(?bool $public=NULL ,?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL  , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL , ?String $sport=NULL){
