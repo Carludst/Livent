@@ -30,7 +30,7 @@ class FEvent
     {
         $id=$event['idevent'];
         $name=$event['namevent'];
-        $organizer=FUser::loadOne($event['idorganizer']);
+        $organizer=FUser::loadOne((int)$event['idorganizer']);
         $place=$event['place'];
         $description=$event['description'];
         $pubilc=$event['public'];

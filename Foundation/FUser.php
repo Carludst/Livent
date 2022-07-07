@@ -33,8 +33,10 @@ class FUser
     //resturn where clause for take a tuple by primarykey
     private static function whereKey(int|String $valueKey):Array
     {
-        if(is_string($valueKey))return FDb::where("email",$valueKey);
-        else return FDb::where("iduser",$valueKey);
+        if(is_int($valueKey)||preg_match('/^(\d+)$/',$valueKey)){
+            return FDb::where("iduser",$valueKey);
+        }
+        else return FDb::where("email",$valueKey);
     }
 
     /**
