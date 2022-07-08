@@ -90,12 +90,8 @@
                             <table cellpadding="5">
                                 <tbody>
                                 <tr>
-                                    <td><h4>Data di inizio : </h4></td>
-                                    <td> <input type="date" name="dateMin" {if $dateMin!=""}value="{$dateMin->format("Y-m-d")}" onload="setDate(form)"{/if}  style="width: 225px" onchange="setDate(form)"></td>
-                                </tr>
-                                <tr>
-                                    <td><h4>Data di fine  : </h4></td>
-                                    <td> <input type="date" name="dateMax"  {if $dateMax!=""}value="{$dateMax->format("Y-m-d")}" onload="setDate(form)"{/if}  onchange="setDate(form)" style="width: 225px"> </td>
+                                    <td><h4>Data di inizio: </h4></td>
+                                    <td> <input type="datetime-local" name="dateTime" {if $dateTime!=""}value="{$dateTime->format("Y-m-d")}"{/if}></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -107,18 +103,26 @@
                             <option {if $sport=='F'}selected{/if}>Donna</option>
                         </select>
                         <br>
-                        <h2>contatti:</h2>
-                        <br>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="email" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
-                        </div>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="telephone" placeholder="Numero di telefono" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
-                        </div>
-                        <br>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td><h4>Unità di musura:</h4></td>
+                                <td>
+                                    <select class="form-control" name="unit">
+                                        <option>Km</option>
+                                        <option>m</option>
+                                        <option>mi</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="number" name="dist"></td>
+                            </tr>
+                            </tbody>
+                        </table>
                         <div>
                             <p>Descrizione:</p>
-                            <textarea name="description" cols="20" rows="4">Scrivi la descrizione...</textarea>
+                            <textarea {if $event!=""}value="{$event->getDescription()}"{/if} name="description" cols="20" rows="4">Scrivi la descrizione...</textarea>
                         </div>
                         <br>
                         <label for="avatar">Scegli una foto per la competizione:</label>

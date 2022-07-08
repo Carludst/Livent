@@ -75,11 +75,11 @@
                         </div>
                         <br>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="surname" placeholder="Cognome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" {if $athlete!=""}value="{$athlete->getSurname()}"{/if} name="surname" placeholder="Cognome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
                         <h4>sport praticato:</h4>
-                        <select class="form-control" name="sport">
+                        <select class="form-control" {if $athlete!=""}value="{$athlete->getSport()}"{/if} name="sport">
                             <option {if $sport=='Atletica'}selected{/if}>Atletica</option>
                             <option {if $sport=='Ciclismo'}selected{/if}>Ciclismo</option>
                             <option {if $sport=='Nuoto'}selected{/if}>Nuoto</option>
@@ -88,13 +88,13 @@
                         </select>
                         <br>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="team" placeholder="Team" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" {if $athlete!=""}value="{$athlete->getTeam()}"{/if} name="team" placeholder="Team" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
                         <div class="it-datepicker-wrapper">
                             <table cellpadding="5">
                                 <h4>Data di nascita : </h4>
-                                <input type="date" name="date" style="width: 225px">
+                                <input type="date" {if $athlete!=""}value="{$athlete->getBirthdate()}"{/if} name="date" style="width: 225px">
                             </table>
                         </div>
                         <br>

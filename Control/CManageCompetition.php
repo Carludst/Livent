@@ -63,9 +63,16 @@ class CManageCompetition
 
     public static function newPage(ECompetition $competition){
         try{
-            if(self::authorizer($competition)){
-                //Richiama  VEvent::showNewPage($competition);
+            $vCompetition=new VNewCompetition();
+            $myinput=$vCompetition->getMyInput();
+            if(is_null($myinput)){
+                if(CManageUser::callLogin()) $vCompetition->show(null);
             }
+            elseif(self::authorizer()){
+                $competition= FDbH::loadOne($myinput, ECompetition::class);
+                $vCompetition->show($competition);
+            }
+            else throw new Exception("you don't have autorization");
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");

@@ -71,28 +71,17 @@
                     <form method="post" action="#" name="createForm">
                         </br>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="name" class="form-control" placeholder="Nome evento" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" {if $event!=""}value="{$event->getName()}"{/if} name="name" class="form-control" placeholder="Nome evento" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
-                        <table>
-                            <td>
-                                <div class="input-group input-group-sm mb-3"><input type="text" name="city" class="form-control" placeholder="Città" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" ></div>
-                            </td>
-                            <td>
-                                <div class="input-group input-group-sm mb-3"><input type="text" name="street" class="form-control" placeholder="Via" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" ></div>
-                            </td>
-                            <td>
-                                <div class="input-group input-group-sm mb-3"><input type="text" name="civic number" class="form-control" placeholder="Numero Civico" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" ></div>
-                            </td>
-                        </table>
                         <div class="input-group-sm mb-3">
-                            <input type="text" {if $place!=""}value="{$place}"{/if} placeholder="Luogo"  name="place" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" {if $event!=""}value="{$event->getPlace()}"{/if} placeholder="Luogo"  name="place" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
                         <fieldset>
-                            <input type="radio" name="public?" value="pubblico">
+                            <input type="radio" name="public?" value="public" {if $event->getPublic()==true}checked{/if}>
                             <label for="pubblico">Pubblico</label><br>
-                            <input type="radio" name="public?" value="privato">
+                            <input type="radio" name="public?" value="private" {if $event->getPublic()==false}checked{/if}>
                             <label for="privato">Privato</label><br>
                         </fieldset>
                         <br>
@@ -100,40 +89,40 @@
                         <br>
                         <h3>contatto 1:</h3>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="nameContact1" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" {if $event !=""}value="{$event->getContact()['name']['nc1']}"{/if} name="nameContact1" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="email" name="email1" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="email" {if $event!=""}value="{$event->getContact()['email']['e1']}"{/if} name="email1" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="tel" name="telephone1" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                            <input type="tel" {if $event!=""}value="{$event->getContact()['telephone']['t1']}"{/if} name="telephone1" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
                         </div>
                         <br>
                         <h3>contatto 2:</h3>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="nameContact2" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" {if $event!=""}value="{$event->getContact()['name']['nc2']}"{/if} name="nameContact2" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="email" name="email2" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="email" {if $event!=""}value="{$event->getContact()['email']['e2']}"{/if} name="email2" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="tel" name="telephone2" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                            <input type="tel" {if $event!=""}value="{$event->getContact()['telephone']['t2']}"{/if} name="telephone2" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
                         </div>
                         <br>
                         <h3>contatto 3:</h3>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="nameContact2" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" {if $event!=""}value="{$event->getContact()['name']['nc3']}"{/if} name="nameContact2" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="email" name="email3" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="email" {if $event!=""}value="{$event->getContact()['email']['e3']}"{/if} name="email3" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="tel" name="telephone3" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                            <input type="tel" {if $event!=""}value="{$event->getContact()['telephone']['t3']}"{/if} name="telephone3" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
                         </div>
                         <br>
                         <div>
                             <p>Descrizione:</p>
-                            <textarea name="description" cols="20" rows="4">Scrivi la descrizione...</textarea>
+                            <textarea {if $event!=""}value="{$event->getDescription()}"{/if} name="description" cols="20" rows="4">Scrivi la descrizione...</textarea>
                         </div>
                         <br>
                         <label for="avatar">Scegli una foto per l'evento:</label>

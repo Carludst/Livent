@@ -9,19 +9,14 @@ class VNewEvent extends View
         parent::__construct();
     }
 
-    public function show()
+    public function show(EEvent|null $event)
     {
-        $assign=$this->assign;
-        $this->smarty->assign($assign);
-        $this->smarty->display(self::$template);
         $assign=$this->assign;
         if($this->getMood())$assign['mood']='true';
         else $assign['mood']='false';
-        $assign['name']=$this->getName();
-        $assign['place']=$this->getPlace();
-        $assign['sport']=$this->getSport();
-        $assign['public']=$this->getPublic();
-        $assign['contacts']=$this->getContacts();
+        $assign['event']=$event;
+        $this->smarty->assign($assign);
+        $this->smarty->display(self::$template);
     }
 
     public function getMood():bool{
@@ -49,8 +44,11 @@ class VNewEvent extends View
         else return null;
     }
 
-    public function getPublic():?String{
-        if(!empty($_POST['public?']))return $_POST['public?'];
+    public function getPublic():?bool{
+        if(!empty($_POST['public?'])){
+            if($_POST['public?']=='public') return true;
+            else return false;
+        }
         else return null;
     }
 
@@ -59,21 +57,37 @@ class VNewEvent extends View
         $name=array();
         $email=array();
         $telephone=array();
-        if(!empty($_POST['nameContact1'])) array_push($name, $_POST['nameContact1']);
-        if(!empty($_POST['nameContact2'])) array_push($name, $_POST['nameContact2']);
-        if(!empty($_POST['nameContact3'])) array_push($name, $_POST['nameContact3']);
-        if(!empty($_POST['email1'])) array_push($email, $_POST['email1']);
-        if(!empty($_POST['email2'])) array_push($email, $_POST['email2']);
-        if(!empty($_POST['email3'])) array_push($email, $_POST['email3']);
-        if(!empty($_POST['telephone1'])) array_push($telephone, $_POST['telephone1']);
-        if(!empty($_POST['telephone2'])) array_push($telephone, $_POST['telephone2']);
-        if(!empty($_POST['telephone3'])) array_push($telephone, $_POST['telephone3']);
+        if(!empty($_POST['nameContact1'])) $name['nc1']=$_POST['nameContact1'];
+        if(!empty($_POST['nameContact2'])) $name['nc2']=$_POST['nameContact2'];
+        if(!empty($_POST['nameContact3'])) $name['nc3']=$_POST['nameContact3'];
+        if(!empty($_POST['email1'])) $email['e1']=$_POST['email1'];
+        if(!empty($_POST['email2'])) $email['e2']=$_POST['email2'];
+        if(!empty($_POST['email3'])) $email['e3']=$_POST['email3'];
+        if(!empty($_POST['telephone1'])) $telephone['t1']=$_POST['telephone1'];
+        if(!empty($_POST['telephone2'])) $telephone['t2']=$_POST['telephone2'];
+        if(!empty($_POST['telephone3'])) $telephone['t3']=$_POST['telephone3'];
         if(var_dump(count($name))!=0 & var_dump(count($email))!=0 & var_dump(count($telephone))!=0){
-            array_push($contacts, $name);
-            array_push($contacts, $email);
-            array_push($contacts, $telephone);
+            $contacts['name']=$name;
+            $contacts['email']=$email;
+            $contacts['telephone']=$telephone;
             return $contacts;
         }else return null;
+    }
+
+    public function getDescription():?String{
+        if(!empty($_POST['description']))return $_POST['description'];
+        else return null;
+    }
+
+    public function createEvent():EEvent{
+        $name=$this->getName();
+        $place=$this->getPlace();
+        $sport=$this->getSport();
+        $public=$this->getPublic();
+        $contacts=$this->getContacts();
+        $description=$this->getDescription();
+        $events= new EAthlete($name, $place,$sport,$public,$contacts,$description);
+        return $events;
     }
 
 }

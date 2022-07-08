@@ -3,10 +3,10 @@
 class CManageEvent
 {
     private static function authorizer(EEvent $event):bool{
-
         if(FSession::isLogged() && $event->getOrganizer()->getEmail()!=FSession::getUserLogged()->getEmail())throw new Exception("you don'y have autorization");
         return CManageUser::callLogin();
     }
+
     public static function update(EEvent $event):void
     {
         try{
@@ -67,16 +67,22 @@ class CManageEvent
         }
     }
 
-    public static function newPage(NULL|EEvent $event){
+    public static function newPage(){
         try{
-            if((is_null($event) && FSession::getUserLogged()->getType()=='Organizer')||self::authorizer($event)){
-                //Richiama  VEvent::showNewPage($event);
+            $vEvent=new VNewEvent();
+            $myinput=$vEvent->getMyInput();
+            if(is_null($myinput)){
+                if(CManageUser::callLogin()) $vEvent->show(null);
             }
+            elseif(self::authorizer()){
+                $event= FDbH::loadOne($myinput, EEvent::class);
+                $vEvent->show($event);
+            }
+            else throw new Exception("you don't have autorization");
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina per creare/modificare un evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
-
 
 }
