@@ -56,10 +56,18 @@ FACEBOOK: https://www.facebook.com/themefisher
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-xs-12 col-sm-4">
+				{if '' != $user && $user->getType() eq 'Administrator'}
+				<ul class="top-menu text-left list-inline">
+					<li class="dropdown ">
+						<a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
+					</li>
+				</ul>
+				{else}
 				<div class="contact-number">
 					<i class="tf-ion-ios-telephone"></i>
 					<span>0129- 12323-123123</span>
 				</div>
+				{/if}
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
@@ -99,8 +107,21 @@ FACEBOOK: https://www.facebook.com/themefisher
 						</ul>
 					</li>
 					<!-- / Search -->
+					<!-- / System -->
+					{if '' != $user && $user->getType() eq 'Administrator'}
+					<li class="dropdown dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-ios-settings-strong"></i> System<span
+									class="tf-ion-ios-arrow-down"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="typography.html">Errori</a></li>
+							<li><a href="buttons.html">Imposta grafica</a></li>
+							<li><a href="alerts.html">Gestione utenti</a></li>
+						</ul>
+					</li>
+					<!-- / System -->
 					<!-- User -->
-					{if '' != $user }
+					{elseif '' != $user }
 					<li class="dropdown cart-nav dropdown-slide" >
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
 						<div class="dropdown-menu cart-dropdown">
@@ -136,49 +157,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 	</div>
 </section>
 <!-- End Top Header Bar -->
-
-
-<!-- Main Menu Section -->
-<section class="menu">
-	<nav class="navbar navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<h2 class="menu-title">Main Menu</h2>
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-					aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-
-			</div><!-- / .navbar-header -->
-
-			<!-- Navbar Links -->
-			<div id="navbar" class="navbar-collapse collapse text-center">
-				<ul class="nav navbar-nav">
-
-					<!-- / System -->
-					{if '' != $user && ''!=$profileImg && $user->getType() eq 'Administrator'}
-					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> System<span
-								class="tf-ion-ios-arrow-down"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="typography.html">Errori</a></li>
-							<li><a href="buttons.html">Imposta grafica</a></li>
-							<li><a href="alerts.html">Gestione utenti</a></li>
-						</ul>
-					</li>
-					{/if}
-					<!-- / System -->
-				</ul><!-- / .nav .navbar-nav -->
-
-			</div>
-			<!--/.navbar-collapse -->
-		</div><!-- / .container -->
-	</nav>
-</section>
 
 <div class="hero-slider">
 	{section name=index loop=$homeImg}
@@ -230,7 +208,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</div>
 							<div class="product-content">
 								<h4><a href="product-single.html">{$eventsOpen[i]->getName()}</a></h4>
-								<time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
+								<time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
 							</div>
 						</div>
 					</div>
@@ -263,7 +241,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</div>
 							<div class="product-content">
 								<h4><a href="product-single.html">{$eventsFinished[i]->getName()}</a></h4>
-								<time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
+								<time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
 							</div>
 						</div>
 					</div>

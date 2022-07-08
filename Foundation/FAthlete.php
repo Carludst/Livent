@@ -134,7 +134,7 @@ class FAthlete {
         foreach ($resultQ as $c=>$v){
             //righa successiva da modificare
             $competition=FCompetition::loadOne($v["idcompetition"]);
-            $result[$competition->getSport()][$competition->getName()][]=array($competition,new ETime((float)$v["time"]));
+            $result[$competition->getSport()][$competition->getName()][]=array('competition'=>$competition,'time'=>new ETime((float)$v["time"]));
         }
         $where1=FDb::multiWhere(array('idathlete','time','time'),array((String)$athlete->getId(),'NULL',0),"AND",array("=","<>","<="));
         $query1=FDb::load(self::$table[1],$where);
@@ -142,7 +142,7 @@ class FAthlete {
         foreach ($resultQ1 as $c=>$v){
             //righa successiva da modificare
             $competition=FCompetition::loadOne($v["idcompetition"]);
-            $result[$competition->getSport()][$competition->getName()][]=array($competition,new ETime((float)$v["time"]));
+            $result[$competition->getSport()][$competition->getName()][]=array('competition'=>$competition,'time'=>new ETime((float)$v["time"]));
         }
 
         return $result;

@@ -1,0 +1,15 @@
+.my-td-trasparent{
+    opacity: 0.7 ;
+    display: inline;
+}
+
+.my-option-title {
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.inline{
+    display: inline;
+}

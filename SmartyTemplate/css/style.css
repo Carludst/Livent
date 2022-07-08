@@ -121,6 +121,14 @@ FACEBOOK: https://www.facebook.com/themefisher
   font-weight: bold;
 }
 
+.inline{
+  display: inline;
+}
+
+
+
+
+
 
 
 .avatar {
@@ -2226,11 +2234,6 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   background-size: cover;
 }
 
-.bg-2 {
-  background-image: url("../images/page-header-1.jpg");
-  background-size: cover;
-}
-
 .bg-2:before {
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -2247,10 +2250,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   height: 100vh;
 }
 
-.bg-brand-identity {
-  background-image: url("../images/backgrounds/brand-identity-bg.jpg");
-  background-repeat: no-repeat;
-}
+
 
 .coming-soon {
   color: #fff;
