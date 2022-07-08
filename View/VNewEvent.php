@@ -20,7 +20,7 @@ class VNewEvent extends View
     }
 
     public function getMood():bool{
-        return empty($_GET);
+        return empty($_POST);
     }
 
     public function getMyInput():?int{
@@ -57,21 +57,34 @@ class VNewEvent extends View
         $name=array();
         $email=array();
         $telephone=array();
-        if(!empty($_POST['nameContact1'])) $name['nc1']=$_POST['nameContact1'];
-        if(!empty($_POST['nameContact2'])) $name['nc2']=$_POST['nameContact2'];
-        if(!empty($_POST['nameContact3'])) $name['nc3']=$_POST['nameContact3'];
-        if(!empty($_POST['email1'])) $email['e1']=$_POST['email1'];
-        if(!empty($_POST['email2'])) $email['e2']=$_POST['email2'];
-        if(!empty($_POST['email3'])) $email['e3']=$_POST['email3'];
-        if(!empty($_POST['telephone1'])) $telephone['t1']=$_POST['telephone1'];
-        if(!empty($_POST['telephone2'])) $telephone['t2']=$_POST['telephone2'];
-        if(!empty($_POST['telephone3'])) $telephone['t3']=$_POST['telephone3'];
-        if(var_dump(count($name))!=0 & var_dump(count($email))!=0 & var_dump(count($telephone))!=0){
-            $contacts['name']=$name;
-            $contacts['email']=$email;
-            $contacts['telephone']=$telephone;
-            return $contacts;
-        }else return null;
+        if(!empty($_POST['nameContact1'])&&!empty($_POST['email1'])&&!empty($_POST['telephone1'])){
+            $name=$_POST['nameContact1'];
+            $phone=$_POST['telephone1'];
+            $email=$_POST['email1'];
+            $contacts[]= new EContact($name, $phone, $email);
+        }
+        elseif (!empty($_POST['nameContact1'])||!empty($_POST['email1'])||!empty($_POST['telephone1'])){
+            throw new Exception('You have to compile all fields about a contact');
+        }
+        if(!empty($_POST['nameContact2'])&&!empty($_POST['email2'])&&!empty($_POST['telephone2'])){
+            $name=$_POST['nameContact2'];
+            $phone=$_POST['telephone2'];
+            $email=$_POST['email2'];
+            $contacts[]= new EContact($name, $phone, $email);
+        }
+        elseif (!empty($_POST['nameContact2'])||!empty($_POST['email2'])||!empty($_POST['telephone2'])){
+            throw new Exception('You have to compile all fields about a contact');
+        }
+        if(!empty($_POST['nameContact3'])&&!empty($_POST['email3'])&&!empty($_POST['telephone3'])){
+            $name=$_POST['nameContact3'];
+            $phone=$_POST['telephone3'];
+            $email=$_POST['email3'];
+            $contacts[]= new EContact($name, $phone, $email);
+        }
+        elseif (!empty($_POST['nameContact2'])||!empty($_POST['email2'])||!empty($_POST['telephone2'])){
+            throw new Exception('You have to compile all fields about a contact');
+        }
+        return $contacts;
     }
 
     public function getDescription():?String{
