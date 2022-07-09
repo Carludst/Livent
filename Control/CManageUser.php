@@ -14,12 +14,12 @@ class CManageUser
     public static function callLogin(bool $return=true):bool{
         if(!FSession::isLogged()){
             if($return){
-                FSession::addDataSession('requeredPath',CFrontController::getUrl());
-                header('Location: /Livent/User/LoginPage');
+                FSession::addDataSession('requiredPath',CFrontController::getUrl());
+                header('Location: /Livent/User/LoginPage/');
             }
             else{
                 FSession::addDataSession('requeredPath','/Livent/');
-                header('Location: /Livent/User/LoginPage');
+                header('Location: /Livent/User/LoginPage/');
             }
 
             return false;

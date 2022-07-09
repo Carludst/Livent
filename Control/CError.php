@@ -2,6 +2,11 @@
 
 class CError
 {
+    /**
+     * @param Exception $error
+     * @param string|NULL $message
+     * @return void
+     */
     public static function store(Exception $error, string $message=NULL){
         $view=new VError();
         FDbH::storeError($error);

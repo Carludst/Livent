@@ -71,27 +71,25 @@
                     <form method="post" action="#" name="createForm">
                         </br>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" name="name" class="form-control" placeholder="Nome competizione" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" {if $competition!=""}value="{$competition->getName()}"{/if} name="name" class="form-control" placeholder="Nome competizione" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
                         <h4>sport:</h4>
                         <select class="form-control" name="sport" id='sportList' onchange="setListCompetitionName('')">
                             <option>Qualsiasi Sport</option>
-                            <option {if $sport=='Atletica'}selected{/if}>Atletica</option>
-                            <option {if $sport=='Ciclismo'}selected{/if}>Ciclismo</option>
-                            <option {if $sport=='Nuoto'}selected{/if}>Nuoto</option>
-                            <option {if $sport=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
-                            <option {if $sport=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
+                            <option {if $competition->getSport()=='Atletica'}selected{/if}>Atletica</option>
+                            <option {if $competition->getSport()=='Ciclismo'}selected{/if}>Ciclismo</option>
+                            <option {if $competition->getSport()=='Nuoto'}selected{/if}>Nuoto</option>
+                            <option {if $competition->getSport()=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
+                            <option {if $competition->getSport()=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
                         </select>
-                        <br>
-                        <select class="form-control" id="nameCompetitionList" name="name" onload="setListCompetitionName({$name})"></select>
                         <br>
                         <div class="it-datepicker-wrapper">
                             <table cellpadding="5">
                                 <tbody>
                                 <tr>
                                     <td><h4>Data di inizio: </h4></td>
-                                    <td> <input type="datetime-local" name="dateTime" {if $dateTime!=""}value="{$dateTime->format("Y-m-d")}"{/if}></td>
+                                    <td> <input type="datetime-local" {if $competition!=""}value="{$competition->getDateTime()->format("Y-m-d H:i:s")}"{/if} name="dateTime"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -99,8 +97,8 @@
                         <br>
                         <select class="form-control">
                             <option>No Selected</option>
-                            <option {if $sport=='M'}selected{/if}>Uomo</option>
-                            <option {if $sport=='F'}selected{/if}>Donna</option>
+                            <option {if $competition->getGender()=='M'}selected{/if}>Uomo</option>
+                            <option {if $competition->getGender()=='F'}selected{/if}>Donna</option>
                         </select>
                         <br>
                         <table>
@@ -109,20 +107,20 @@
                                 <td><h4>Unità di musura:</h4></td>
                                 <td>
                                     <select class="form-control" name="unit">
-                                        <option>Km</option>
+                                        <option {if $competition!=""}selected{/if}>Km</option>
                                         <option>m</option>
                                         <option>mi</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <td><input type="number" name="dist"></td>
+                                <td><input type="number" {if $competition!=""}value="{$competition->getDistance()}"{/if} name="dist"></td>
                             </tr>
                             </tbody>
                         </table>
                         <div>
                             <p>Descrizione:</p>
-                            <textarea {if $event!=""}value="{$event->getDescription()}"{/if} name="description" cols="20" rows="4">Scrivi la descrizione...</textarea>
+                            <textarea {if $competition!=""}value="{$competition->getDescription()}"{/if} name="description" cols="20" rows="4">Scrivi la descrizione...</textarea>
                         </div>
                         <br>
                         <label for="avatar">Scegli una foto per la competizione:</label>
