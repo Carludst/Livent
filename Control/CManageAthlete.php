@@ -62,10 +62,11 @@ class CManageAthlete
                 }
                 $athlete=FDbH::loadOne($key,EAthlete::class);
                 $allResult = FDbH::getResultsAthlete($athlete);
-                if(!is_null($view->getSport())&& isset($allResult[$view->getSport()]))$result=$allResult[$view->getSport()];
-                elseif(isset($allResult[$athlete->getSport()])) $result=$allResult[$athlete->getSport()];
-                else $result=null;
-                $view->show($user,$profileImg,$athlete,$result);
+
+                if(!is_null($view->getSport())) $sport=$view->getSport();
+                else $sport=$athlete->getSport();
+                $result = $allResult[$sport] ?? array();
+                $view->show($user,$profileImg,$athlete,$result,$sport);
             }
             else throw new Exception("required athlete don't exist");
         }

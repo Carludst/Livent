@@ -98,7 +98,7 @@ FACEBOOK: https://www.facebook.com/themefisher
             </div>
           </form>
           <br>
-          <p><a style="opacity: 0.4" href="/Livent/User/ProfailePage"> torna al profilo</a></p>
+          <p><a style="opacity: 0.4" href="/Livent/User/ProfilePage/"> torna al profilo</a></p>
         </div>
       </div>
     </div>

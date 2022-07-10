@@ -15,7 +15,9 @@ class CFrontController
     public static function run(){
         try{
             $url=explode("/",self::$url);
-            $url=array_slice($url,1,-1);
+            if(preg_match('/^(\?)/',end($url))||empty(end($url))){
+                $url=array_slice($url,1,-1);
+            }
 
 
             require_once($GLOBALS['defaultPath']."/Utility/routing.php");

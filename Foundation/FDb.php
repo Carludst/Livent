@@ -180,7 +180,7 @@ class FDb{
         }
         catch (PDOException $e) {
             self::$pdoV->rollBack();
-            throw new Exception('exist error');
+            throw new Exception($e->getMessage());
         }
 
     }

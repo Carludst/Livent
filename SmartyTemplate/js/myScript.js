@@ -98,6 +98,10 @@ function setListCompetitionName(selected=''){
 
 }
 
+function requireMainAthletePage(){
+    document.getElementById('form').submit();
+}
+
 
 
 

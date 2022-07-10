@@ -118,7 +118,7 @@ class CManageUser
             }
         }
         catch (Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! L'aggiornamento dei dati dell'utente non è andato a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! L'aggiornamento dei dati dell'utente non è andato a buon fine , verificare di essersi autentificati");
         }
     }
 

@@ -84,6 +84,7 @@ class FDbH {
      */
     public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type,bool $upload=false){
         if($upload){
+            echo'si';
             move_uploaded_file($pathFile,$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type);
             $pathFile=$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type;
         }
@@ -111,8 +112,12 @@ class FDbH {
      * @return void
      * @throws Exception
      */
-    public static function updateFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , ?float $resize=NULL):bool
+    public static function updateFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type , bool $upload=false):bool
     {
+        if($upload){
+            move_uploaded_file($pathFile,$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type);
+            $pathFile=$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type;
+        }
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
@@ -120,6 +125,7 @@ class FDbH {
             $pathDB=$Fclass::getPathFile($objPath);
         }
         $blobFile=file_get_contents($pathFile) ;
+        if($upload)unlink($pathFile);
         $blobFile=addslashes($blobFile);
         $updated_at=date("Y-m-d H:i:s");
         return FDb::update('file',FDb::multiWhere(array('path','name'),array($pathDB,$name)),array('path'=>$pathDB,'name'=>$name,'type'=>$type,'file'=>$blobFile , 'updated_at'=>$updated_at));

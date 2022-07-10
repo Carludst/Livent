@@ -46,6 +46,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{$dir}/css/style.css">
+	<link rel="stylesheet" href="{$dir}/css/myStyle.css">
 
 </head>
 
@@ -72,7 +73,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
 				<div class="logo text-center">
-					<a href="home.html">
+					<a href="/Livent/">
 						<!-- replace logo here -->
 						<svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -115,7 +116,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 									class="tf-ion-ios-arrow-down"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="typography.html">Errori</a></li>
-							<li><a href="buttons.html">Imposta grafica</a></li>
+							<li><a href="/Livent/Graphics/">Imposta grafica</a></li>
 							<li><a href="alerts.html">Gestione utenti</a></li>
 						</ul>
 					</li>
@@ -127,18 +128,18 @@ FACEBOOK: https://www.facebook.com/themefisher
 						<div class="dropdown-menu cart-dropdown">
 							<!-- Cart Item -->
 							<div class="media">
-								<a class="pull-left" href="#!">
+								<a class="pull-left" href="/Livent/User/ProfilePage/">
 									<img class="media-object" src="{$profileImg}" alt="image" />
 								</a>
 								<div class="media-body">
-									<h4 class="media-heading"><a href="#!">{$user->getUsername()}</a></h4>
+									<h4 class="media-heading">{$user->getUsername()}</h4>
 									</br>
-									<h4 class="media-heading"><a href="#!">{$user->getEmail()}</a></h4>
+									<h4 class="media-heading">{$user->getEmail()}</h4>
 								</div>
 							</div><!-- / Cart Item -->
 							<!-- Cart Item -->
 							<ul class="text-center cart-buttons">
-								<li><a href="/Livent/User/ProfilePage/" class="btn btn-small">View Profile</a></li>
+								<li><a href="/Livent/User/UpdatePage/" class="btn btn-small btn-solid-border">Modifica</a></li>
 								<li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
 							</ul>
 						</div>
@@ -164,7 +165,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-offset-0">
-						<img class="media" src="{$homeImg[index]['file']}" alt="image" style="width: 1060px;height: 600px;"/>
+						<img class="media my-dimension-home-img" src="{$homeImg[index]['file']}" alt="image" />
 					</div>
 					<div class="col-lg-9 text-left ">
 						<p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">{$homeImg[index]['name']}</p>

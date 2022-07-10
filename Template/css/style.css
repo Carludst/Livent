@@ -73,6 +73,12 @@ FACEBOOK: https://www.facebook.com/themefisher
   letter-spacing: 2px;
 }
 
+.center-element{
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 .my-table{
   width: 100%;
   margin-left: auto;

@@ -74,7 +74,7 @@ FACEBOOK: https://www.facebook.com/themefisher
             <div class="col-md-4 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
-                    <a href="index.html">
+                    <a href="/Livent/">
                         <!-- replace logo here -->
                         <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -122,45 +122,47 @@ FACEBOOK: https://www.facebook.com/themefisher
                         </ul>
                     </li>
                     <!-- / System -->
-                    <!-- User -->
-                    {elseif '' != $user }
+                    <!-- / Setting -->
                     <li class="dropdown cart-nav dropdown-slide" >
-                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="tf-ion-android-settings"></i></a>
                         <div class="dropdown-menu cart-dropdown">
-                            <!-- Cart Item -->
-                            <div class="media">
-                                <a class="pull-left" href="#!">
-                                    <img class="media-object" src="{$profileImg}" alt="image" />
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#!">{$user->getUsername()}</a></h4>
-                                    </br>
-                                    <h4 class="media-heading"><a href="#!">{$user->getEmail()}</a></h4>
-                                </div>
-                            </div><!-- / Cart Item -->
-                            <!-- Cart Item -->
                             <ul class="text-center cart-buttons">
-                                <li><a href="/Livent/User/ProfilePage/" class="btn btn-small">View Profile</a></li>
-                                <li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
+                                <div><a href="/Livent/User/ProfilePage/" style="width: 100%" class="btn btn-small btn-solid-border">Modifica</a></div>
+                                <div><a href="/Livent/User/Logout/" style="width: 100%" class="btn btn-small btn-solid-border">Elimina</a></div>
                             </ul>
                         </div>
+                    </li>
+                        <!-- / Setting -->
+                    <!-- User -->
+                    {elseif '' != $user }
+                        <li class="dropdown cart-nav dropdown-slide" >
+                            <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
+                            <div class="dropdown-menu cart-dropdown">
+                                <!-- Cart Item -->
+                                <div class="media">
+                                    <a class="pull-left" href="/Livent/User/ProfilePage/">
+                                        <img class="media-object" src="{$profileImg}" alt="image" />
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">{$user->getUsername()}</h4>
+                                        </br>
+                                        <h4 class="media-heading">{$user->getEmail()}</h4>
+                                    </div>
+                                </div><!-- / Cart Item -->
+                                <!-- Cart Item -->
+                                <ul class="text-center cart-buttons">
+                                    <li><a href="/Livent/User/UpdatePage/" class="btn btn-small btn-solid-border">Modifica</a></li>
+                                    <li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
+                                </ul>
+                            </div>
 
-                    </li><!-- / User -->
+                        </li><!-- / User -->
 
                 {else}
                 <!-- / Login -->
                 <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
                 <!-- / Login -->
                 {/if}
-                <li class="dropdown cart-nav dropdown-slide" >
-                    <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="tf-ion-android-settings"></i></a>
-                    <div class="dropdown-menu cart-dropdown">
-                        <ul class="text-center cart-buttons">
-                            <div><a href="/Livent/User/ProfilePage/" style="width: 100%" class="btn btn-small btn-solid-border">Modifica</a></div>
-                            <div><a href="/Livent/User/Logout/" style="width: 100%" class="btn btn-small btn-solid-border">Elimina</a></div>
-                        </ul>
-                    </div>
-                </li>
                 </ul><!-- / .nav .navbar-nav .navbar-right -->
             </div>
         </div>
@@ -196,47 +198,46 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 <section class="products section ">
     <section class="menu">
-        <form method="post" action="#" name="searchForm" >
-            <select class="form-control my-option-title">
-                <option>Qualsiasi Sport</option>
-                <option>Atletica</option>
-                <option>Ciclismo</option>
-                <option>Nuoto</option>
-                <option>Pattinaggio a rotelle</option>
-                <option>Pattinaggio sul ghiaccio</option>
+        <form method='get' action="/Livent/Athlete/MainPage/{$athlete->getId()}/" id="form" >
+            <select class="form-control my-option-title" name="sport" onchange="requireMainAthletePage()">
+                <option {if $sport=='Atletica'}selected{/if}>Atletica</option>
+                <option {if $sport=='Ciclismo'}selected{/if}>Ciclismo</option>
+                <option {if $sport=='Nuoto'}selected{/if}>Nuoto</option>
+                <option {if $sport=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
+                <option {if $sport=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
             </select>
         </form>
     </section>
     <div class="container">
-        {section name=i loop=$results}
+        {foreach key=typeSport item=element from=$results}
         <div class="row">
             <div class="title text-center">
-                <h2>i tuoi eventi</h2>
+                <h2>{$typeSport}</h2>
             </div>
         </div>
 
         <div class="row">
-            <table class="table my-table">
+            <table class="table my-table" >
                 <thead>
                 <tr>
-                    <td><b>Data</b></td>
-                    <td><b>Distanza</b></td>
-                    <td><b>Tempo</b></td>
-                    <td></td>
+                    <td style="width: 25%"><b>Data</b></td>
+                    <td style="width: 25%"><b>Distanza</b></td>
+                    <td style="width: 25%"><b>Tempo</b></td>
+                    <td style="width: 25%"></td>
                 </tr>
                 </thead>
                 <tbody>
-                {section name=index loop=$results[i]}
+                {section name=index loop=$element}
                 <tr>
-                    <td>{$results[i][index]['competition']->getDateTime()->format("d/m/y")}</td>
-                    <td>{$results[i][index]['competition']->getDistance()}</td>
-                    <td>{$results[i][index]['time']->toString()}</td>
-                    <td><a href="/Livent/Competition/MainPage/" class="btn btn-default">Visualizza</a></td>
+                    <td>{$element[index]['competition']->getDateTime()->format("d/m/y")}</td>
+                    <td>{$element[index]['competition']->getDistance()->toString()}</td>
+                    <td>{$element[index]['time']->toString()}</td>
+                    <td><a href="/Livent/Competition/MainPage/{$element[index]['competition']->getId()}/" class="btn btn-default">Visualizza competizione</a></td>
                 </tr>
                 {/section}
                 </tbody>
             </table>
-            {/section}
+            {/foreach}
         </div>
     </div>
 </section>
@@ -268,6 +269,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
     <!-- Main Js File -->
     <script src="{$dir}/js/script.js"></script>
+    <script src="{$dir}/js/myScript.js"></script>
 
 
 

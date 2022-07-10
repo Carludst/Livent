@@ -76,6 +76,31 @@ function routing():Array{
         'Download'=>'CError::getFile'
     ];
 
+    $eventImg=[
+        'Set'=>'CSystem::setDefaultEventImg'
+    ];
+
+    $logoImg=[
+        'Set'=>'CSystem::setLogoImg'
+    ];
+
+    $profileImg=[
+        'Set'=>'CSystem::setDefaultProfileImg'
+    ];
+
+    $homeImg=[
+        'Set'=>'CSystem::setHomeImg',
+        'Delate'=>'CSystem::deleteHomeImg()'
+    ];
+
+    $graphics=[
+        ''=>'CSystem::showSetGraphicPage',
+        'HomeImg'=>$homeImg,
+        'DefaultProfile'=>$profileImg,
+        'DefaultEvent'=>$eventImg,
+        'Logo'=>$logoImg
+    ];
+
     //1 =>43
     $controller=[
         'Athlete'=>$athlete,
@@ -86,6 +111,7 @@ function routing():Array{
         'Result'=>$result,
         'User'=>$user,
         'Error'=>$error,
+        'Graphics'=>$graphics,
         ''=>'CSystem::HomePage'
     ];
     $routing=[

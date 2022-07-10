@@ -210,8 +210,8 @@ class FCompetition {
         $update_at=$now->format("Y-m-d h:i:s");
 
         if($info::class==EUser::class){
-            $email=$info->getEmail();
-            return array("idathlete"=>$idAthlete,"idcompetition"=>$idCompetition,"email"=>$email,"updated_at"=>$update_at);
+            $email=$info->getId();
+            return array("idathlete"=>$idAthlete,"idcompetition"=>$idCompetition,"iduser"=>$email,"updated_at"=>$update_at);
         }
         else{
             $time=(String)$info->getValue();
@@ -221,7 +221,7 @@ class FCompetition {
 
     public static function addResult(ECompetition $competition,EAthlete $athlete,ETime $time): bool
     {
-        return FDb::update(self::$table[0],self::whereResult($competition,$athlete),self::getArrByObjResult($competition,$athlete,$time));
+        return FDb::update(self::$table[1],self::whereResult($competition,$athlete),self::getArrByObjResult($competition,$athlete,$time));
     }
 
     /**

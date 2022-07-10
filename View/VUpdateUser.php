@@ -43,7 +43,6 @@ class VUpdateUser extends View
     }
 
     public function getPathFile():?String{
-        var_dump($_FILES);
         if(isset($_FILES['image'])){
             return $_FILES['image']['tmp_name'];
         }
