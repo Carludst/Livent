@@ -4,7 +4,7 @@ class CManageCompetition
 {
     private static function authorizer(ECompetition $competition):bool{
 
-        if(FSession::isLogged() && FDbH::loadEventByCompetition($competition)->getOrganizer()->getEmail()!=FSession::getUserLogged()->getEmail())throw new Exception("only the organizer can update competition");
+        if(FSession::isLogged() && FDbH::loadEventByCompetition($competition)->getOrganizer()->getEmail()!=FSession::getUserLogged()->getEmail()) throw new Exception("only the organizer can update competition");
         return CManageUser::callLogin();
     }
 
@@ -61,7 +61,7 @@ class CManageCompetition
         }
     }
 
-    public static function newPage(ECompetition $competition){
+    public static function newPage(){
         try{
             $vCompetition=new VNewCompetition();
             $myinput=$vCompetition->getMyInput();
@@ -74,7 +74,7 @@ class CManageCompetition
                 }
             }
             else{
-                $competition= FDbH::loadOne((int)$myinput, EEvent::class);
+                $competition= FDbH::loadOne((int)$myinput, ECompetition::class);
                 if(self::authorizer($competition)){
                     $vCompetition->show($competition);
                 }

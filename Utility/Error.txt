@@ -400,6 +400,16 @@ you can't login if you are just logged
 #3 {main}
 
 credential wrong
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(54): CManageUser::login()
+#1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+credential wrong
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(54): CManageUser::login()
+#1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+credential wrong
 #0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(54): CManageUser::login()
 #1 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
 #2 {main}

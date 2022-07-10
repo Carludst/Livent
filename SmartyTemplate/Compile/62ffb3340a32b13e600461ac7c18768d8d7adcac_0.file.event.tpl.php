@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-10 13:31:46
-  from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\organizerProfile.tpl' */
+/* Smarty version 4.1.1, created on 2022-07-10 13:44:15
+  from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\event.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cab8a20946d8_20204385',
+  'unifunc' => 'content_62cabb8fa40311_65074792',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'fb60188b4e43ef7a119b4963e7a31796dfc51399' => 
+    '62ffb3340a32b13e600461ac7c18768d8d7adcac' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\organizerProfile.tpl',
-      1 => 1657275833,
+      0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\event.tpl',
+      1 => 1657453452,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cab8a20946d8_20204385 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cabb8fa40311_65074792 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -80,7 +80,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 </head>
 
 <body id="body">
-<!-- Start Top Header Bar -->
 
 <!-- Start Top Header Bar -->
 <section class="top-header">
@@ -95,7 +94,7 @@ FACEBOOK: https://www.facebook.com/themefisher
             <div class="col-md-4 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
-                    <a href="/Livent/">
+                    <a href="home.html">
                         <!-- replace logo here -->
                         <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -112,11 +111,10 @@ FACEBOOK: https://www.facebook.com/themefisher
                 </div>
             </div>
             <div class="col-md-4 col-xs-12 col-sm-4">
-                <!-- Cart -->
                 <ul class="top-menu text-right list-inline">
                     <!-- Home -->
                     <li class="dropdown ">
-                        <a href="/Livent/">Home</a>
+                        <a href="/Livent/" >Home</a>
                     </li>
                     <!-- / Home -->
                     <!-- / Search -->
@@ -131,96 +129,120 @@ FACEBOOK: https://www.facebook.com/themefisher
                         </ul>
                     </li>
                     <!-- / Search -->
+                    <!-- User -->
+                    <?php if ('' != $_smarty_tpl->tpl_vars['user']->value) {?>
+                    <li class="dropdown cart-nav dropdown-slide" >
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="image" /></a>
+                        <div class="dropdown-menu cart-dropdown">
+                            <!-- Cart Item -->
+                            <div class="media">
+                                <a class="pull-left" href="#!">
+                                    <img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="image" />
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#!"><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
+</a></h4>
+                                    </br>
+                                    <h4 class="media-heading"><a href="#!"><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
+</a></h4>
+                                </div>
+                            </div><!-- / Cart Item -->
+                            <!-- Cart Item -->
+                            <ul class="text-center cart-buttons">
+                                <li><a href="/Livent/User/ProfilePage/" class="btn btn-small">View Profile</a></li>
+                                <li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
+                            </ul>
+                        </div>
 
-                    <li class="dropdown ">
-                        <a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
-                    </li>
+                    </li><!-- / User -->
+                </ul>
 
-                </ul><!-- / .nav .navbar-nav .navbar-right -->
+                <?php } else { ?>
+                <!-- / Login -->
+                <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
+                <!-- / Login -->
+                <?php }?>
+                <!-- / .nav .navbar-nav .navbar-right -->
             </div>
         </div>
     </div>
 </section>
 <!-- End Top Header Bar -->
 
-<section class="page-header dashboard-wrapper dashboard-user-profile">
+<section class="single-product">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="media">
-                    <div class="pull-left text-center" href="#!">
-                        <img class="media-object user-img" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
-" alt="Image">
-                        <a href="/Livent/User/UpdatePage/" class="btn btn-transparent mt-20">Change Profile</a>
-                    </div>
-                    <div class="media-body">
-                        <ul class="user-profile-list">
-                            <li><span>Username:</span><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
-</li>
-                            <li><span>Email:</span><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
-</li>
-                            <br>
-                            <br>
-                            <li class="li"><a href="#!" class="btn btn-main btn-small btn-round-full">Nuovo Evento</a></li>
-                        </ul>
-
-                    </div>
+        <div class="row mt-20">
+            <div class="col-md-4">
+                <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['eventImg']->value;?>
+" alt="product-img" />
+            </div>
+            <div class="col-md-7">
+                <div class="single-product-details">
+                    <h2><?php echo $_smarty_tpl->tpl_vars['event']->value->getName();?>
+</h2>
+                    <p class="product-price"><time><?php echo $_smarty_tpl->tpl_vars['event']->value->getCompetition(0)->getDateTime()->format("d-m-y");?>
+</time></p>
+                    <p class="product-description mt-20"><?php echo $_smarty_tpl->tpl_vars['event']->value->getDescription();?>
+</p>
                 </div>
             </div>
         </div>
     </div>
-</section>
 
-
-<section class="products section">
-    <?php if (empty($_smarty_tpl->tpl_vars['events']->value)) {?>
-        <h1 class="my-allert-page" > Non ci sono eventi </h1>
-    <?php } else { ?>
-        <div class="container">
-            <div class="row">
-                <?php if (empty($_smarty_tpl->tpl_vars['events']->value)) {?>
-                    <div class="title text-center">
-                        <h2>Eventi</h2>
-                    </div>
-                <?php }?>
-            </div>
-            <div class="row">
-                <?php
-$__section_i_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['events']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_i_0_total = $__section_i_0_loop;
-$_smarty_tpl->tpl_vars['__smarty_section_i'] = new Smarty_Variable(array());
-if ($__section_i_0_total !== 0) {
-for ($__section_i_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] = 0; $__section_i_0_iteration <= $__section_i_0_total; $__section_i_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']++){
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php if (empty($_smarty_tpl->tpl_vars['competitions']->value)) {?>
+                    <br>
+                    <br>
+                    <h1 class="my-allert-page" >Non ci sono competizioni</h1>
+                <?php } else { ?>
+                    <div class="media">
+                        <div class="dashboard-wrapper dashboard-user-profile">
+                            <div class="dashboard-wrapper user-dashboard">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Nome Competizione</th>
+                                            <th>Genere</th>
+                                            <th>Sport</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+$__section_index_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['competitions']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_index_0_total = $__section_index_0_loop;
+$_smarty_tpl->tpl_vars['__smarty_section_index'] = new Smarty_Variable(array());
+if ($__section_index_0_total !== 0) {
+for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] = 0; $__section_index_0_iteration <= $__section_index_0_total; $__section_index_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']++){
 ?>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['eventImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)];?>
-" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="/Livent/Event/MainPage/<?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getId();?>
-/" ><i class="tf-ion-ios-paper-outline"></i></a>
-                                        </li>
-                                    </ul>
+                                            <tr>
+                                                <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getName();?>
+</td>
+                                                <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getGender();?>
+</td>
+                                                <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getSport();?>
+</td>
+                                                <td><a href="cart.html" class="btn btn-main mt-20">Iscriviti</a></td>
+                                            </tr>
+                                        <?php
+}
+}
+?>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </div>
-                            <div class="product-content">
-                                <h4><?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
-</h4>
-                                <time><?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
-</time>
                             </div>
                         </div>
                     </div>
-                <?php
-}
-}
-?>
+                <?php }?>
             </div>
         </div>
-    <?php }?>
+    </div>
 </section>
 
 <!--

@@ -50,7 +50,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 </head>
 
 <body id="body">
-<!-- Start Top Header Bar -->
 
 <!-- Start Top Header Bar -->
 <section class="top-header">
@@ -65,7 +64,7 @@ FACEBOOK: https://www.facebook.com/themefisher
             <div class="col-md-4 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
-                    <a href="/Livent/">
+                    <a href="home.html">
                         <!-- replace logo here -->
                         <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -82,11 +81,10 @@ FACEBOOK: https://www.facebook.com/themefisher
                 </div>
             </div>
             <div class="col-md-4 col-xs-12 col-sm-4">
-                <!-- Cart -->
                 <ul class="top-menu text-right list-inline">
                     <!-- Home -->
                     <li class="dropdown ">
-                        <a href="/Livent/">Home</a>
+                        <a href="/Livent/" >Home</a>
                     </li>
                     <!-- / Home -->
                     <!-- / Search -->
@@ -101,80 +99,100 @@ FACEBOOK: https://www.facebook.com/themefisher
                         </ul>
                     </li>
                     <!-- / Search -->
+                    <!-- User -->
+                    {if '' != $user }
+                    <li class="dropdown cart-nav dropdown-slide" >
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
+                        <div class="dropdown-menu cart-dropdown">
+                            <!-- Cart Item -->
+                            <div class="media">
+                                <a class="pull-left" href="#!">
+                                    <img class="media-object" src="{$profileImg}" alt="image" />
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#!">{$user->getUsername()}</a></h4>
+                                    </br>
+                                    <h4 class="media-heading"><a href="#!">{$user->getEmail()}</a></h4>
+                                </div>
+                            </div><!-- / Cart Item -->
+                            <!-- Cart Item -->
+                            <ul class="text-center cart-buttons">
+                                <li><a href="/Livent/User/ProfilePage/" class="btn btn-small">View Profile</a></li>
+                                <li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
+                            </ul>
+                        </div>
 
-                    <li class="dropdown ">
-                        <a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
-                    </li>
+                    </li><!-- / User -->
+                </ul>
 
-                </ul><!-- / .nav .navbar-nav .navbar-right -->
+                {else}
+                <!-- / Login -->
+                <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
+                <!-- / Login -->
+                {/if}
+                <!-- / .nav .navbar-nav .navbar-right -->
             </div>
         </div>
     </div>
 </section>
 <!-- End Top Header Bar -->
 
-<section class="page-header dashboard-wrapper dashboard-user-profile">
+<section class="single-product">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="media">
-                    <div class="pull-left text-center" href="#!">
-                        <img class="media-object user-img" src="{$profileImg}" alt="Image">
-                        <a href="/Livent/User/UpdatePage/" class="btn btn-transparent mt-20">Change Profile</a>
-                    </div>
-                    <div class="media-body">
-                        <ul class="user-profile-list">
-                            <li><span>Username:</span>{$user->getUsername()}</li>
-                            <li><span>Email:</span>{$user->getEmail()}</li>
-                            <br>
-                            <br>
-                            <li class="li"><a href="#!" class="btn btn-main btn-small btn-round-full">Nuovo Evento</a></li>
-                        </ul>
-
-                    </div>
+        <div class="row mt-20">
+            <div class="col-md-4">
+                <img class="img-responsive" src="{$eventImg}" alt="product-img" />
+            </div>
+            <div class="col-md-7">
+                <div class="single-product-details">
+                    <h2>{$event->getName()}</h2>
+                    <p class="product-price"><time>{$event->getCompetition(0)->getDateTime()->format("d-m-y")}</time></p>
+                    <p class="product-description mt-20">{$event->getDescription()}</p>
                 </div>
             </div>
         </div>
     </div>
-</section>
 
-
-<section class="products section">
-    {if empty($events)}
-        <h1 class="my-allert-page" > Non ci sono eventi </h1>
-    {else}
-        <div class="container">
-            <div class="row">
-                {if empty($events)}
-                    <div class="title text-center">
-                        <h2>Eventi</h2>
-                    </div>
-                {/if}
-            </div>
-            <div class="row">
-                {section name=i loop=$events}
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-thumb">
-                                <img class="img-responsive" src="{$eventImg[i]}" alt="product-img" />
-                                <div class="preview-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="/Livent/Event/MainPage/{$events[i]->getId()}/" ><i class="tf-ion-ios-paper-outline"></i></a>
-                                        </li>
-                                    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {if empty($competitions)}
+                    <br>
+                    <br>
+                    <h1 class="my-allert-page" >Non ci sono competizioni</h1>
+                {else}
+                    <div class="media">
+                        <div class="dashboard-wrapper dashboard-user-profile">
+                            <div class="dashboard-wrapper user-dashboard">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Nome Competizione</th>
+                                            <th>Genere</th>
+                                            <th>Sport</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {section name=index loop=$competitions}
+                                            <tr>
+                                                <td>{$competitions[index]->getName()}</td>
+                                                <td>{$competitions[index]->getGender()}</td>
+                                                <td>{$competitions[index]->getSport()}</td>
+                                                <td><a href="cart.html" class="btn btn-main mt-20">Iscriviti</a></td>
+                                            </tr>
+                                        {/section}
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </div>
-                            <div class="product-content">
-                                <h4>{$events[i]->getName()}</h4>
-                                <time>{$events[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
                             </div>
                         </div>
                     </div>
-                {/section}
+                {/if}
             </div>
         </div>
-    {/if}
+    </div>
 </section>
 
 <!--

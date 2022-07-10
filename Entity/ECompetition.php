@@ -101,7 +101,7 @@ class ECompetition{
      }
 
     /**
-     * @param string $newgenere
+     * @param string $newgender
      */
     public function setGender(string $newgender) : void
     {

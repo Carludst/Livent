@@ -2,7 +2,7 @@
 
 class VNewAthlete extends View
 {
-    private static String $template='newEvent.tpl';
+    private static String $template='newAthlete.tpl';
 
     public function __construct()
     {

@@ -202,13 +202,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 								<div class="preview-meta">
 									<ul>
 										<li>
-											<a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
+											<a href="/Livent/Event/MainPage/{$eventsFinished[i]->getId()}/" ><i class="tf-ion-ios-paper-outline"></i></a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="product-content">
-								<h4><a href="product-single.html">{$eventsOpen[i]->getName()}</a></h4>
+								<h4>{$eventsOpen[i]->getName()}</h4>
 								<time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
 							</div>
 						</div>
@@ -235,13 +235,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 								<div class="preview-meta">
 									<ul>
 										<li>
-											<a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
+											<a href="/Livent/Event/MainPage/{$eventsOpen[i]->getId()}/" ><i class="tf-ion-ios-paper-outline"></i></a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="product-content">
-								<h4><a href="product-single.html">{$eventsFinished[i]->getName()}</a></h4>
+								<h4>{$eventsFinished[i]->getName()}</h4>
 								<time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
 							</div>
 						</div>

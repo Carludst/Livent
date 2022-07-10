@@ -66,8 +66,8 @@
 <section class="products section" >
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <div class="widget">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="block text-center">
                     <form method="post" action="#" name="createForm">
                         </br>
                         <div class="input-group input-group-sm mb-3">
@@ -79,12 +79,12 @@
                         </div>
                         <br>
                         <h4>sport praticato:</h4>
-                        <select class="form-control" {if $athlete!=""}value="{$athlete->getSport()}"{/if} name="sport">
-                            <option {if $sport=='Atletica'}selected{/if}>Atletica</option>
-                            <option {if $sport=='Ciclismo'}selected{/if}>Ciclismo</option>
-                            <option {if $sport=='Nuoto'}selected{/if}>Nuoto</option>
-                            <option {if $sport=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
-                            <option {if $sport=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
+                        <select class="form-control" name="sport">
+                            <option {if $athlete!="" && $athlete->getSport()=='Atletica'}selected{/if}>Atletica</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Ciclismo'}selected{/if}>Ciclismo</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Nuoto'}selected{/if}>Nuoto</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
                         </select>
                         <br>
                         <div class="input-group input-group-sm mb-3">
