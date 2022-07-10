@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-06 17:13:05
+/* Smarty version 4.1.1, created on 2022-07-08 12:22:02
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c5a68160f2c8_10332495',
+  'unifunc' => 'content_62c8054a09d887_28208368',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '16515f38775ce7507f5d8fbf513ad2faaff27828' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\home.tpl',
-      1 => 1657120382,
+      1 => 1657275719,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c5a68160f2c8_10332495 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62c8054a09d887_28208368 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -275,14 +275,15 @@ for ($__section_i_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 								<div class="preview-meta">
 									<ul>
 										<li>
-											<a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
+											<a href="/Livent/Event/MainPage/<?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getId();?>
+/" ><i class="tf-ion-ios-paper-outline"></i></a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="product-content">
-								<h4><a href="product-single.html"><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
-</a></h4>
+								<h4><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
+</h4>
 								<time><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
 </time>
 							</div>
@@ -320,14 +321,15 @@ for ($__section_i_2_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 								<div class="preview-meta">
 									<ul>
 										<li>
-											<a href="#!" ><i class="tf-ion-ios-paper-outline"></i></a>
+											<a href="/Livent/Event/MainPage/<?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getId();?>
+/" ><i class="tf-ion-ios-paper-outline"></i></a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="product-content">
-								<h4><a href="product-single.html"><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
-</a></h4>
+								<h4><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
+</h4>
 								<time><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
 </time>
 							</div>

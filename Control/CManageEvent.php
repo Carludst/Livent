@@ -56,11 +56,27 @@ class CManageEvent
 
     public static function mainPage(){
         try{
-            $key=(int)$GLOBALS['_MYINPUT'];
-            if(FDbH::existOne($key,EEvent::class))FSession::addChronology(EEvent::class,$key);
-            header("Location: /Livent/Event/Search/");//righa da eliminare
+            if(FSession::isLogged()){
+                $user=FSession::getUserLogged();
+                $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
+            }
+            else{
+                $user=null;
+                $profileImg=null;
+            }
 
-            //Richiama  VEvent::show($event);
+            $view = new VEvent();
+            $key = (int)$view->getMyInput();
+            if(FDbH::existOne($key,EEvent::class)){
+                FSession::addChronology(EEvent::class,$key);
+                $event = FDbH::loadOne($key, EEvent::class);
+                $eventImg=FDbH::loadMultiFile($event,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.2);
+                $id = $event->getId();
+                $competitions = $event->getCompetitions();
+                $view->show($event, $eventImg, $user, $profileImg, $competitions);
+            }
+
+            else throw new Exception("l'evento non esiste");
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");

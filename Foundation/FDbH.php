@@ -352,7 +352,7 @@ class FDbH {
     }
 
     /** -Method
-     * @param $competition
+     * @param ECompetition $competition
      * @return mixed
      */
     public static function getClassificationCompetition(ECompetition $competition):Array{
