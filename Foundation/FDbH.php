@@ -84,7 +84,6 @@ class FDbH {
      */
     public static function storeFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath, String $name , String $pathFile , String $type,bool $upload=false){
         if($upload){
-            echo'si';
             move_uploaded_file($pathFile,$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type);
             $pathFile=$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type;
         }
@@ -116,16 +115,17 @@ class FDbH {
     {
         if($upload){
             move_uploaded_file($pathFile,$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type);
-            $pathFile=$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type;
+            $path=$GLOBALS['defaultPath'].DIRECTORY_SEPARATOR.'file.'.$type;
         }
+        else $path=$pathFile;
         if(is_string($objPath))$pathDB=$objPath;
         else{
             $Eclass = get_class($objPath);
             $Fclass = "F".substr($Eclass,1);
             $pathDB=$Fclass::getPathFile($objPath);
         }
-        $blobFile=file_get_contents($pathFile) ;
-        if($upload)unlink($pathFile);
+        $blobFile=file_get_contents($path) ;
+        if($upload)unlink($path);
         $blobFile=addslashes($blobFile);
         $updated_at=date("Y-m-d H:i:s");
         return FDb::update('file',FDb::multiWhere(array('path','name'),array($pathDB,$name)),array('path'=>$pathDB,'name'=>$name,'type'=>$type,'file'=>$blobFile , 'updated_at'=>$updated_at));
@@ -286,8 +286,8 @@ class FDbH {
      * @param String $password
      * @return bool|null
      */
-    public static function login(String $email, String $password,bool $encrypt=true) :?bool{
-        return FUser::login($email, $password , $encrypt);
+    public static function login(String $email, String $password) :?bool{
+        return FUser::login($email, $password );
     }
 
     /**

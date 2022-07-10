@@ -21,7 +21,7 @@ class EUser
         $this->email = $email;
         $this->id=$id;
         $this->username = $username;
-        $this->password = hash("sha3-256", $password);
+        $this->password = $password;
         $this->type = $type;
     }
 
@@ -89,7 +89,7 @@ class EUser
      */
     public function setPassword(string $password): void
     {
-        $this->password = hash("sha3-256", $password);
+        $this->password = $password;
     }
 
     /**

@@ -74,7 +74,7 @@ class CManageUser
             $user=$view->getUser();
             if(!FDbH::existOne($user->getId(),EUser::class)){
                 FDbH::store($user);
-                if(FDbH::login($user->getEmail(),$user->getPassword(),false))FSession::login($user);
+                if(FDbH::login($user->getEmail(),$user->getPassword()))FSession::login($user);
                 else throw new Exception('system signin error');
                 header('Location: /Livent/');
             }
@@ -92,7 +92,7 @@ class CManageUser
             if(self::callLogin()){
                 $view=new VUpdateUser();
                 $logged=FSession::getUserLogged();
-                $password=hash("sha3-256", $view->getPassword());
+                $password= $view->getPassword();
                 $email=$view->getEmail();
                 if($password==$logged->getPassword() && $email==$logged->getEmail()){
                     if(!is_null($view->getPathFile()) && !is_null($view->getTypeFile())){

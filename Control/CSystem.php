@@ -50,9 +50,10 @@ class CSystem
                     $type=$view->getTypeHomeImg();
                 }
                 else throw new Exception("home image don't seted");
-                if(!FDbH::updateFile(MappingPathFile::dirHomeMain(),$name,$path,$type,true)){
-                    FDbH::storeFile(MappingPathFile::dirHomeMain(),$name,$path,$type,true);
+                if(FDbH::existFile(MappingPathFile::dirHomeMain(),$name)) {
+                    FDbH::updateFile(MappingPathFile::dirHomeMain(),$name, $path, $type, true);
                 }
+                else FDbH::storeFile(MappingPathFile::dirHomeMain(),$name,$path,$type,true);
                 header('Location: /Livent/Graphics/');
             }
             else throw new Exception("you don't have authorization");
@@ -91,11 +92,12 @@ class CSystem
                     $type=$view->getTypeProfileImg();
                 }
                 else throw new Exception("default profile image don't seted");
-                if(!FDbH::updateFile(MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),$path,$type,true)){
-                    echo ('carla');
-                    FDbH::storeFile(MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),$path,$type,true);
+                if(FDbH::existFile(MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain())) {
+                    FDbH::updateFile(MappingPathFile::dirUserDefault(), MappingPathFile::nameUserMain(), $path, $type, true);
                 }
-                //header('Location: /Livent/Graphics/');
+                else FDbH::storeFile(MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),$path,$type,true);
+
+                header('Location: /Livent/Graphics/');
             }
             else throw new Exception("you don't have authorization");
         }
@@ -113,9 +115,10 @@ class CSystem
                     $type=$view->getTypeLogoImg();
                 }
                 else throw new Exception("logo image don't seted");
-                if(!FDbH::updateFile(MappingPathFile::dirSystem(),MappingPathFile::nameLogoApp(),$path,$type,true)){
-                    FDbH::storeFile(MappingPathFile::dirSystem(),MappingPathFile::nameLogoApp(),$path,$type,true);
+                if(FDbH::existFile(MappingPathFile::dirSystem(),MappingPathFile::nameLogoApp())) {
+                    FDbH::updateFile(MappingPathFile::dirSystem(),MappingPathFile::nameLogoApp(), $path, $type, true);
                 }
+                else FDbH::storeFile(MappingPathFile::dirSystem(),MappingPathFile::nameLogoApp(),$path,$type,true);
                 header('Location: /Livent/Graphics/');
             }
             else throw new Exception("you don't have authorization");
@@ -134,9 +137,11 @@ class CSystem
                     $type=$view->getTypeEventImg();
                 }
                 else throw new Exception("event default image don't seted");
-                if(!FDbH::updateFile(MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),$path,$type,true)){
-                    FDbH::storeFile(MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),$path,$type,true);
+                if(FDbH::existFile(MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain())) {
+                    FDbH::updateFile(MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(), $path, $type, true);
                 }
+                else FDbH::storeFile(MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),$path,$type,true);
+
                 header('Location: /Livent/Graphics/');
             }
             else throw new Exception("you don't have authorization");

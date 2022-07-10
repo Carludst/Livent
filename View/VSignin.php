@@ -37,17 +37,12 @@ class VSignin extends View
     }
 
     private function getPassword(){
-        if(!empty($_POST['password']))return $_POST['password'];
+        if(!empty($_POST['password']))return hash("sha3-256", $_POST['password']);
         else throw new Exception('password not setted');
     }
 
-    private function getNewPassword():?String{
-        if(!empty($_POST['newPassword']))return $_POST['newPassword'];
-        else return null;
-    }
-
     private function getConfirmPassword():?String{
-        if(!empty($_POST['confirmPassword']))return $_POST['confirmPassword'];
+        if(!empty($_POST['confirmPassword']))return hash("sha3-256", $_POST['confirmPassword']);
         else return null;
     }
 

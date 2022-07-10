@@ -22,7 +22,7 @@ class VLogin extends View
     }
 
     public function getPassword(){
-        if(!empty($_POST['password']))return $_POST['password'];
+        if(!empty($_POST['password']))return hash("sha3-256",$_POST['password']);
         else throw new Exception('password not setted');
     }
 }

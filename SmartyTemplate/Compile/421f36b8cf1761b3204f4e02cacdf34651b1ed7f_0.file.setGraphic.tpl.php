@@ -1,4 +1,27 @@
-<!-- 
+<?php
+/* Smarty version 4.1.1, created on 2022-07-10 12:58:48
+  from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\setGraphic.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.1.1',
+  'unifunc' => 'content_62cab0e8d20168_77313863',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '421f36b8cf1761b3204f4e02cacdf34651b1ed7f' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\setGraphic.tpl',
+      1 => 1657450721,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_62cab0e8d20168_77313863 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
 AUTHOR: Themefisher
@@ -31,22 +54,30 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="generator" content="Themefisher Constra HTML Template v1.0">
   
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
+  <link rel="shortcut icon" type="image/x-icon" href="<?php echo $_smarty_tpl->tpl_vars['logo']->value;?>
+" />
   
   <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/themefisher-font/style.css">
   <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap/css/bootstrap.min.css">
   
   <!-- Animate css -->
-  <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/animate/animate.css">
   <!-- Slick Carousel -->
-  <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
-  <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick-theme.css">
   
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="{$dir}/css/style.css">
-	<link rel="stylesheet" href="{$dir}/css/myStyle.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/css/style.css">
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/css/myStyle.css">
 
 </head>
 
@@ -124,28 +155,39 @@ FACEBOOK: https://www.facebook.com/themefisher
 	<h2>immagini Home</h2>
 </div>
 <div class="hero-slider">
-	{section name=index loop=$homeImg}
+	<?php
+$__section_index_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['homeImg']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_index_0_total = $__section_index_0_loop;
+$_smarty_tpl->tpl_vars['__smarty_section_index'] = new Smarty_Variable(array());
+if ($__section_index_0_total !== 0) {
+for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] = 0; $__section_index_0_iteration <= $__section_index_0_total; $__section_index_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']++){
+?>
 	<div class="slider-item th-fullpage hero-area">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-offset-0">
-					<img class="media my-dimension-home-img" src="{$homeImg[index]['file']}" alt="image" />
+					<img class="media my-dimension-home-img" src="<?php echo $_smarty_tpl->tpl_vars['homeImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]['file'];?>
+" alt="image" />
 				</div>
 				<div class="col-lg-9 text-left ">
-					<p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">{$homeImg[index]['name']}</p>
+					<p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1"><?php echo $_smarty_tpl->tpl_vars['homeImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]['name'];?>
+</p>
 					<h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">La bellezza dello sport     <br> è la condivisione.     </h1>
 					<a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Elimina</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	{/section}
+	<?php
+}
+}
+?>
 </div>
 <form method="post" class="text-left clearfix form-inline" action="/Livent/Graphics/HomeImg/Set/" enctype="multipart/form-data">
 	<table class="my-table">
 		<tbody>
 		<td>
-			<input  class="btn-solid-border center-element" name="nameHomeImg" accept="image/png, image/jpeg" type="file">
+			<input  class="btn-solid-border center-element" name="imageHome" accept="image/png, image/jpeg" type="file">
 		</td>
 		<td>
 			<input type="text" class=" text-center center-element " placeholder="nome">
@@ -166,7 +208,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</div>
 		</div>
 		<div>
-			<img src="{$logoImg}" alt="" class="my-center-img" />
+			<img src="<?php echo $_smarty_tpl->tpl_vars['logoImg']->value;?>
+" alt="" class="my-center-img" />
 		</div>
 		<br>
 		<form method="post" class="text-left clearfix form-inline" action="/Livent/Graphics/Logo/Set/" enctype="multipart/form-data">
@@ -187,7 +230,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 		</div>
 	</div>
 	<div>
-		<img src="{$eventImg}" alt="" class="my-center-img" />
+		<img src="<?php echo $_smarty_tpl->tpl_vars['eventImg']->value;?>
+" alt="" class="my-center-img" />
 	</div>
 	<br>
 	<form method="post" class="text-left clearfix form-inline" action="/Livent/Graphics/DefaultEvent/Set/" enctype="multipart/form-data">
@@ -208,7 +252,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 	</div>
 	</div>
 	<div class="category-box">
-		<img src="{$userImg}" alt="" class="my-center-img" />
+		<img src="<?php echo $_smarty_tpl->tpl_vars['userImg']->value;?>
+" alt="" class="my-center-img" />
 	</div>
 	<form method="post" class="text-left clearfix form-inline" action="/Livent/Graphics/DefaultProfile/Set/" enctype="multipart/form-data">
 	<table class="my-table central-element-50">
@@ -232,30 +277,64 @@ FACEBOOK: https://www.facebook.com/themefisher
     =====================================-->
     
     <!-- Main jQuery -->
-    <script src="{$dir}/plugins/jquery/dist/jquery.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/jquery/dist/jquery.min.js"><?php echo '</script'; ?>
+>
     <!-- Bootstrap 3.1 -->
-    <script src="{$dir}/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
     <!-- Bootstrap Touchpin -->
-    <script src="{$dir}/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"><?php echo '</script'; ?>
+>
     <!-- Instagram Feed Js -->
-    <script src="{$dir}/plugins/instafeed/instafeed.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/instafeed/instafeed.min.js"><?php echo '</script'; ?>
+>
     <!-- Video Lightbox Plugin -->
-    <script src="{$dir}/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"><?php echo '</script'; ?>
+>
     <!-- Count Down Js -->
-    <script src="{$dir}/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/syo-timer/build/jquery.syotimer.min.js"><?php echo '</script'; ?>
+>
 
     <!-- slick Carousel -->
-    <script src="{$dir}/plugins/slick/slick.min.js"></script>
-    <script src="{$dir}/plugins/slick/slick-animation.min.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick-animation.min.js"><?php echo '</script'; ?>
+>
 
     <!-- Google Mapl -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-    <script type="text/javascript" src="{$dir}/plugins/google-map/gmap.js"></script>
+    <?php echo '<script'; ?>
+ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/google-map/gmap.js"><?php echo '</script'; ?>
+>
 
     <!-- Main Js File -->
-    <script src="{$dir}/js/script.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/js/script.js"><?php echo '</script'; ?>
+>
     
 
 
   </body>
   </html>
+<?php }
+}

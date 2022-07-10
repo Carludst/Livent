@@ -23,17 +23,17 @@ class VUpdateUser extends View
     }
 
     public function getPassword():String{
-        if(!empty($_POST['password']))return $_POST['password'];
+        if(!empty($_POST['password']))return  hash("sha3-256", $_POST['password']);
         else throw new Exception('password not setted');
     }
 
     public function getNewPassword():?String{
-        if(!empty($_POST['newPassword']))return $_POST['newPassword'];
+        if(!empty($_POST['newPassword']))return  hash("sha3-256", $_POST['newPassword']);
         else return null;
     }
 
     public function getConfirmPassword():?String{
-        if(!empty($_POST['confirmPassword']))return $_POST['confirmPassword'];
+        if(!empty($_POST['confirmPassword']))return  hash("sha3-256",$_POST['confirmPassword'] );
         else return null;
     }
 

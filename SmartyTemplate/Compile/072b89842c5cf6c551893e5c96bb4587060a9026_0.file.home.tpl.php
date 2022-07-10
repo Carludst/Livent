@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-07 19:22:11
+/* Smarty version 4.1.1, created on 2022-07-10 11:00:05
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c716431871d0_33299568',
+  'unifunc' => 'content_62ca95154173b9_50258703',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '072b89842c5cf6c551893e5c96bb4587060a9026' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\home.tpl',
-      1 => 1657214528,
+      1 => 1657443428,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c716431871d0_33299568 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62ca95154173b9_50258703 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -76,6 +76,8 @@ FACEBOOK: https://www.facebook.com/themefisher
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
 /css/style.css">
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/css/myStyle.css">
 
 </head>
 
@@ -89,7 +91,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 				<?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() == 'Administrator') {?>
 				<ul class="top-menu text-left list-inline">
 					<li class="dropdown ">
-						<a href="/Livent/User/Logout/" ><i class="tf-ion-android-person"></i>Logout</a>
+						<a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
 					</li>
 				</ul>
 				<?php } else { ?>
@@ -102,7 +104,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
 				<div class="logo text-center">
-					<a href="home.html">
+					<a href="/Livent/">
 						<!-- replace logo here -->
 						<svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -137,16 +139,16 @@ FACEBOOK: https://www.facebook.com/themefisher
 						</ul>
 					</li>
 					<!-- / Search -->
-					<?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() == 'Administrator') {?>
 					<!-- / System -->
-					<li class="dropdown dropdown-slide text-center" >
+					<?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() == 'Administrator') {?>
+					<li class="dropdown dropdown-slide">
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-ios-settings-strong"></i> Search<span
+						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-ios-settings-strong"></i> System<span
 									class="tf-ion-ios-arrow-down"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="/Livent/Event/Search/">Gestione Utenti</a></li>
-							<li><a href="/Livent/Athlete/Search/">Errori</a></li>
-							<li><a href="/Livent/Competition/Search/">Imposta Grafica</a></li>
+							<li><a href="typography.html">Errori</a></li>
+							<li><a href="/Livent/Graphics/">Imposta grafica</a></li>
+							<li><a href="alerts.html">Gestione utenti</a></li>
 						</ul>
 					</li>
 					<!-- / System -->
@@ -158,21 +160,21 @@ FACEBOOK: https://www.facebook.com/themefisher
 						<div class="dropdown-menu cart-dropdown">
 							<!-- Cart Item -->
 							<div class="media">
-								<a class="pull-left" href="#!">
+								<a class="pull-left" href="/Livent/User/ProfilePage/">
 									<img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
 " alt="image" />
 								</a>
 								<div class="media-body">
-									<h4 class="media-heading"><a href="#!"><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
-</a></h4>
+									<h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
+</h4>
 									</br>
-									<h4 class="media-heading"><a href="#!"><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
-</a></h4>
+									<h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
+</h4>
 								</div>
 							</div><!-- / Cart Item -->
 							<!-- Cart Item -->
 							<ul class="text-center cart-buttons">
-								<li><a href="/Livent/User/ProfilePage/" class="btn btn-small">View Profile</a></li>
+								<li><a href="/Livent/User/UpdatePage/" class="btn btn-small btn-solid-border">Modifica</a></li>
 								<li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
 							</ul>
 						</div>
@@ -204,8 +206,8 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-offset-0">
-						<img class="media" src="<?php echo $_smarty_tpl->tpl_vars['homeImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]['file'];?>
-" alt="image" style="width: 1060px;height: 600px;"/>
+						<img class="media my-dimension-home-img" src="<?php echo $_smarty_tpl->tpl_vars['homeImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]['file'];?>
+" alt="image" />
 					</div>
 					<div class="col-lg-9 text-left ">
 						<p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1"><?php echo $_smarty_tpl->tpl_vars['homeImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]['name'];?>
@@ -261,7 +263,7 @@ for ($__section_i_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 							<div class="product-content">
 								<h4><a href="product-single.html"><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
 </a></h4>
-								<time><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
+								<time><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d/m/y");?>
 </time>
 							</div>
 						</div>
@@ -306,7 +308,7 @@ for ($__section_i_2_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 							<div class="product-content">
 								<h4><a href="product-single.html"><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
 </a></h4>
-								<time><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
+								<time><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d/m/y");?>
 </time>
 							</div>
 						</div>
