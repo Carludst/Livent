@@ -13,8 +13,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 -->
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +46,6 @@ FACEBOOK: https://www.facebook.com/themefisher
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{$dir}/css/style.css">
-	<link rel="stylesheet" href="{$dir}/css/myStyle.css">
 
 </head>
 
@@ -58,21 +55,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 <section class="top-header">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-xs-12 col-sm-4">
-				{if '' != $user && $user->getType() eq 'Administrator'}
-				<ul class="top-menu text-left list-inline">
-					<li class="dropdown ">
-						<a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
-					</li>
-				</ul>
-				{else}
+			<div class="col-md-5 col-xs-12 col-sm-4">
 				<div class="contact-number">
 					<i class="tf-ion-ios-telephone"></i>
 					<span>0129- 12323-123123</span>
 				</div>
-				{/if}
 			</div>
-			<div class="col-md-4 col-xs-12 col-sm-4">
+			<div class="col-md-2 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
 				<div class="logo text-center">
 					<a href="/Livent/">
@@ -91,7 +80,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					</a>
 				</div>
 			</div>
-			<div class="col-md-4 col-xs-12 col-sm-4">
+			<div class="col-md-5 col-xs-12 col-sm-4">
 				<ul class="top-menu text-right list-inline">
 					<!-- Home -->
 					<li class="dropdown ">
@@ -99,7 +88,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					</li>
 					<!-- / Home -->
 					<!-- / Search -->
-					<li class="dropdown dropdown-slide">
+					<li class="dropdown dropdown-slide ">
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
 						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
 									class="tf-ion-ios-arrow-down"></span></a>
@@ -119,18 +108,39 @@ FACEBOOK: https://www.facebook.com/themefisher
 						<ul class="dropdown-menu">
 							<li><a href="typography.html">Errori</a></li>
 							<li><a href="/Livent/Graphics/">Imposta grafica</a></li>
-							<li><a href="alerts.html">Gestione utenti</a></li>
+							<li><a href="/Livent/User/Search/">Gestione utenti</a></li>
 						</ul>
 					</li>
 					<!-- / System -->
 					<!-- User -->
+					<li class="dropdown cart-nav dropdown-slide" >
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
+						<div class="dropdown-menu cart-dropdown center-element" >
+							<!-- Cart Item -->
+							<div class="media">
+								<img class="media-object" src="{$profileImg}" alt="image" />
+								<div class="media-body">
+									<h4 class="media-heading">{$user->getUsername()}</h4>
+									</br>
+									<h4 class="media-heading">{$user->getEmail()}</h4>
+								</div>
+							</div><!-- / Cart Item -->
+							<!-- Cart Item -->
+							<ul class="text-center cart-buttons">
+								<li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
+								<li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" >Logout</a></li>
+							</ul>
+						</div>
+
+					</li><!-- / User -->
+
 					{elseif '' != $user }
 					<li class="dropdown cart-nav dropdown-slide" >
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
 						<div class="dropdown-menu cart-dropdown">
 							<!-- Cart Item -->
 							<div class="media">
-								<a class="pull-left" href="/Livent/User/ProfilePage/">
+								<a class="pull-left" href="/Livent/User/Profile/">
 									<img class="media-object" src="{$profileImg}" alt="image" />
 								</a>
 								<div class="media-body">
@@ -141,8 +151,9 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</div><!-- / Cart Item -->
 							<!-- Cart Item -->
 							<ul class="text-center cart-buttons">
-								<li><a href="/Livent/User/UpdatePage/" class="btn btn-small btn-solid-border">Modifica</a></li>
-								<li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
+								<li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
+								<li><a href="/Livent/User/ProfilePage/" class="btn btn-small btn-solid-border">View Profile</a></li>
+								<a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" style="width: 100%">Logout</a>
 							</ul>
 						</div>
 
@@ -167,7 +178,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-offset-0">
-						<img class="media my-dimension-home-img" src="{$homeImg[index]['file']}" alt="image" />
+						<img class="media" src="{$homeImg[index]['file']}" alt="image" style="width: 1060px;height: 600px;"/>
 					</div>
 					<div class="col-lg-9 text-left ">
 						<p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">{$homeImg[index]['name']}</p>
@@ -204,13 +215,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 								<div class="preview-meta">
 									<ul>
 										<li>
-											<a href="/Livent/Event/MainPage/{$eventsFinished[i]->getId()}/" ><i class="tf-ion-ios-paper-outline"></i></a>
+											<a href="/Livent/Event/MainPage/{$eventsOpen[i]->getId()}/" ><i class="tf-ion-ios-paper-outline"></i></a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="product-content">
-								<h4>{$eventsOpen[i]->getName()}</h4>
+								<h4><a href="product-single.html">{$eventsOpen[i]->getName()}</a></h4>
 								<time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
 							</div>
 						</div>
@@ -237,13 +248,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 								<div class="preview-meta">
 									<ul>
 										<li>
-											<a href="/Livent/Event/MainPage/{$eventsOpen[i]->getId()}/" ><i class="tf-ion-ios-paper-outline"></i></a>
+											<a href="/Livent/Event/MainPage/{$eventsFinished[i]->getId()}/" ><i class="tf-ion-ios-paper-outline"></i></a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="product-content">
-								<h4>{$eventsFinished[i]->getName()}</h4>
+								<h4><a href="product-single.html">{$eventsFinished[i]->getName()}</a></h4>
 								<time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
 							</div>
 						</div>

@@ -55,16 +55,16 @@ FACEBOOK: https://www.facebook.com/themefisher
 <section class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-5 col-xs-12 col-sm-4">
                 <div class="contact-number">
                     <i class="tf-ion-ios-telephone"></i>
                     <span>0129- 12323-123123</span>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-2 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
-                    <a href="home.html">
+                    <a href="/Livent/">
                         <!-- replace logo here -->
                         <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -80,7 +80,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-5 col-xs-12 col-sm-4">
                 <ul class="top-menu text-right list-inline">
                     <!-- Home -->
                     <li class="dropdown ">
@@ -88,7 +88,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </li>
                     <!-- / Home -->
                     <!-- / Search -->
-                    <li class="dropdown dropdown-slide">
+                    <li class="dropdown dropdown-slide ">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                            role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
                                     class="tf-ion-ios-arrow-down"></span></a>
@@ -99,26 +99,26 @@ FACEBOOK: https://www.facebook.com/themefisher
                         </ul>
                     </li>
                     <!-- / Search -->
-                    <!-- User -->
                     {if '' != $user }
                     <li class="dropdown cart-nav dropdown-slide" >
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
                         <div class="dropdown-menu cart-dropdown">
                             <!-- Cart Item -->
                             <div class="media">
-                                <a class="pull-left" href="#!">
+                                <a class="pull-left" href="/Livent/User/Profile/">
                                     <img class="media-object" src="{$profileImg}" alt="image" />
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="#!">{$user->getUsername()}</a></h4>
+                                    <h4 class="media-heading">{$user->getUsername()}</h4>
                                     </br>
-                                    <h4 class="media-heading"><a href="#!">{$user->getEmail()}</a></h4>
+                                    <h4 class="media-heading">{$user->getEmail()}</h4>
                                 </div>
                             </div><!-- / Cart Item -->
                             <!-- Cart Item -->
                             <ul class="text-center cart-buttons">
-                                <li><a href="/Livent/User/ProfilePage/" class="btn btn-small">View Profile</a></li>
-                                <li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
+                                <li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
+                                <li><a href="/Livent/User/ProfilePage/" class="btn btn-small btn-solid-border">View Profile</a></li>
+                                <a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" style="width: 100%">Logout</a>
                             </ul>
                         </div>
 

@@ -53,16 +53,16 @@ FACEBOOK: https://www.facebook.com/themefisher
 <!-- Start Top Header Bar -->
 
 <!-- Start Top Header Bar -->
-<section class="top-header">
+<<section class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-5 col-xs-12 col-sm-4">
                 <div class="contact-number">
                     <i class="tf-ion-ios-telephone"></i>
                     <span>0129- 12323-123123</span>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-2 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
                     <a href="/Livent/">
@@ -81,16 +81,15 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
-                <!-- Cart -->
+            <div class="col-md-5 col-xs-12 col-sm-4">
                 <ul class="top-menu text-right list-inline">
                     <!-- Home -->
                     <li class="dropdown ">
-                        <a href="/Livent/">Home</a>
+                        <a href="/Livent/" >Home</a>
                     </li>
                     <!-- / Home -->
                     <!-- / Search -->
-                    <li class="dropdown dropdown-slide">
+                    <li class="dropdown dropdown-slide ">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                            role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
                                     class="tf-ion-ios-arrow-down"></span></a>
@@ -102,33 +101,39 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </li>
                     <!-- / Search -->
 
-                    <li class="dropdown ">
-                        <a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
-                    </li>
 
-                </ul><!-- / .nav .navbar-nav .navbar-right -->
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Top Header Bar -->
+                    {if '' != $user }
+                    <li class="dropdown cart-nav dropdown-slide" >
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
+                        <div class="dropdown-menu cart-dropdown">
+                            <!-- Cart Item -->
+                            <div class="media">
+                                <a class="pull-left" href="/Livent/User/Profile/">
+                                    <img class="media-object" src="{$profileImg}" alt="image" />
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">{$user->getUsername()}</h4>
+                                    </br>
+                                    <h4 class="media-heading">{$user->getEmail()}</h4>
+                                </div>
+                            </div><!-- / Cart Item -->
+                            <!-- Cart Item -->
+                            <ul class="text-center cart-buttons">
+                                <li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
+                                <li><a href="/Livent/User/ProfilePage/" class="btn btn-small btn-solid-border">View Profile</a></li>
+                                <a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" style="width: 100%">Logout</a>
+                            </ul>
+                        </div>
 
-<section class="page-header dashboard-wrapper dashboard-user-profile">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="media">
-                    <div class="pull-left text-center" href="#!">
-                        <img class="media-object user-img" src="{$profileImg}" alt="Image">
-                        <a href="#x" class="btn btn-transparent mt-20">Change Profile</a>
-                    </div>
-                    <div class="media-body">
-                        <ul class="user-profile-list">
-                            <li><span>Username:</span>{$user->getUsername()}</li>
-                            <li><span>Email:</span>{$user->getEmail()}</li>
-                        </ul>
-                    </div>
-                </div>
+                    </li><!-- / User -->
+                </ul>
+
+                {else}
+                <!-- / Login -->
+                <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
+                <!-- / Login -->
+                {/if}
+                <!-- / .nav .navbar-nav .navbar-right -->
             </div>
         </div>
     </div>

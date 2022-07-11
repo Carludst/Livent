@@ -153,6 +153,8 @@ class CSystem
 
     public static function showSetGraphicPage(){
         if(self::authorizer()){
+            $user=FSession::getUserLogged();
+            $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
             $homeImgName=FDbH::loadDirectory(MappingPathFile::dirHomeMain());
             $homeImg=array();
             for($i=0;$i<count($homeImgName);$i++)$homeImg[]=array('file'=>FDbH::loadFile( MappingPathFile::dirHomeMain(),$homeImgName[$i]),'name'=>$homeImgName[$i]);
@@ -169,7 +171,7 @@ class CSystem
             }
             else $defaultUser='';
             $view=new VSetGraphicPage();
-            $view->show($homeImg,$logo,$defaultEvent,$defaultUser);
+            $view->show($user,$profileImg,$homeImg,$logo,$defaultEvent,$defaultUser);
         }
     }
 

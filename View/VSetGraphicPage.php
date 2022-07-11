@@ -10,9 +10,11 @@ class VSetGraphicPage extends View
         parent::__construct();
     }
 
-    public function show(Array $homeImg,String $logoImg , String $eventImg , String $userImg)
+    public function show(EUser $user,String $profileImg,Array $homeImg,String $logoImg , String $eventImg , String $userImg)
     {
         $assign=$this->assign;
+        $assign['user']=$user;
+        $assign['profileImg']=$profileImg;
         $assign['homeImg']=$homeImg;
         $assign['logoImg']=$logoImg;
         $assign['eventImg']=$eventImg;

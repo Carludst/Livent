@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="home gay" />
+    <list default="true" id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="home gay">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CSystem.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CSystem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/072b89842c5cf6c551893e5c96bb4587060a9026_0.file.home.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/072b89842c5cf6c551893e5c96bb4587060a9026_0.file.home.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/34c0ab5fb22295bd71516d01949b2b1a5f8d3fd3_0.file.searchAthlete.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/34c0ab5fb22295bd71516d01949b2b1a5f8d3fd3_0.file.searchAthlete.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/421f36b8cf1761b3204f4e02cacdf34651b1ed7f_0.file.setGraphic.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/421f36b8cf1761b3204f4e02cacdf34651b1ed7f_0.file.setGraphic.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4371ac56d751c1f4e7cebe8a6f999756eaf07426_0.file.searchEvent.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4371ac56d751c1f4e7cebe8a6f999756eaf07426_0.file.searchEvent.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3_0.file.event.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3_0.file.event.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/814225f78156d90b0e9faeb6fff7ccdc3aba7ad9_0.file.organizerProfile.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/814225f78156d90b0e9faeb6fff7ccdc3aba7ad9_0.file.organizerProfile.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/f1e88d18635d015ff8972e017775a429ab5016f4_0.file.searchCompetition.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/f1e88d18635d015ff8972e017775a429ab5016f4_0.file.searchCompetition.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/home.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/home.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/setGraphic.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/setGraphic.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/userProfile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/userProfile.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VSetGraphicPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VSetGraphicPage.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,15 +62,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template" />
@@ -57,21 +75,21 @@
       <recent name="C:\xampp\htdocs\Livent\Template\plugins" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\public_html\Livent\Template" />
       <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\Template" />
       <recent name="C:\xampp\htdocs\Livent\Template" />
       <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\js" />
       <recent name="C:\xampp\htdocs\Livent" />
-      <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\Compile" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.Livent">
+  <component name="RunManager" selected="PHP Script.xampp">
     <configuration name="Livent" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost/Livent">
       <method v="2" />
     </configuration>
     <configuration name="xampp" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Control/main.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="PHP" />
+          <option name="interpreterName" value="C:php" />
         </PhpTestInterpreterSettings>
       </CommandLine>
       <method v="2" />
@@ -176,13 +194,6 @@
       <workItem from="1657174943251" duration="32150000" />
       <workItem from="1657217995041" duration="2411000" />
       <workItem from="1657451974165" duration="1332000" />
-    </task>
-    <task id="LOCAL-00035" summary="add CComment.php , CEvent.php">
-      <created>1653839946009</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1653839946009</updated>
     </task>
     <task id="LOCAL-00036" summary="add validation to EEvent.php,EUser.php,ETime.php">
       <created>1654027221094</created>
@@ -520,7 +531,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657528891839</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="home gay">
+      <created>1657529012094</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1657529012094</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

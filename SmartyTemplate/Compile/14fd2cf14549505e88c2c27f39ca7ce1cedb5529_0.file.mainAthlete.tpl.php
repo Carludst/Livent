@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-09 19:34:58
+/* Smarty version 4.1.1, created on 2022-07-11 15:06:45
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\mainAthlete.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c9bc4273f989_07878903',
+  'unifunc' => 'content_62cc20655cd3b7_37123188',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14fd2cf14549505e88c2c27f39ca7ce1cedb5529' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\mainAthlete.tpl',
-      1 => 1657388091,
+      1 => 1657544774,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c9bc4273f989_07878903 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cc20655cd3b7_37123188 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -82,27 +82,18 @@ FACEBOOK: https://www.facebook.com/themefisher
 </head>
 
 <body id="body">
-<!-- Start Top Header Bar -->
 
 <!-- Start Top Header Bar -->
 <section class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-4">
-                <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() == 'Administrator') {?>
-                    <ul class="top-menu text-left list-inline">
-                        <li class="dropdown ">
-                            <a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
-                        </li>
-                    </ul>
-                <?php } else { ?>
-                    <div class="contact-number">
-                        <i class="tf-ion-ios-telephone"></i>
-                        <span>0129- 12323-123123</span>
-                    </div>
-                <?php }?>
+            <div class="col-md-5 col-xs-12 col-sm-4">
+                <div class="contact-number">
+                    <i class="tf-ion-ios-telephone"></i>
+                    <span>0129- 12323-123123</span>
+                </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-2 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
                     <a href="/Livent/">
@@ -121,18 +112,18 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
-                <!-- Cart -->
+            <div class="col-md-5 col-xs-12 col-sm-4">
                 <ul class="top-menu text-right list-inline">
                     <!-- Home -->
                     <li class="dropdown ">
                         <a href="/Livent/" >Home</a>
-                    </li><!-- / Home -->
+                    </li>
+                    <!-- / Home -->
                     <!-- / Search -->
-                    <li class="dropdown dropdown-slide">
+                    <li class="dropdown dropdown-slide ">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                            role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
-                                class="tf-ion-ios-arrow-down"></span></a>
+                                    class="tf-ion-ios-arrow-down"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/Livent/Event/Search/">Evento</a></li>
                             <li><a href="/Livent/Athlete/Search/">Atleta</a></li>
@@ -148,11 +139,36 @@ FACEBOOK: https://www.facebook.com/themefisher
                                     class="tf-ion-ios-arrow-down"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="typography.html">Errori</a></li>
-                            <li><a href="buttons.html">Imposta grafica</a></li>
-                            <li><a href="alerts.html">Gestione utenti</a></li>
+                            <li><a href="/Livent/Graphics/">Imposta grafica</a></li>
+                            <li><a href="/Livent/User/Search/">Gestione utenti</a></li>
                         </ul>
                     </li>
                     <!-- / System -->
+                    <!-- User -->
+                    <li class="dropdown cart-nav dropdown-slide" >
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="image" /></a>
+                        <div class="dropdown-menu cart-dropdown center-element" >
+                            <!-- Cart Item -->
+                            <div class="media">
+                                <img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="image" />
+                                <div class="media-body">
+                                    <h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
+</h4>
+                                    </br>
+                                    <h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
+</h4>
+                                </div>
+                            </div><!-- / Cart Item -->
+                            <!-- Cart Item -->
+                            <ul class="text-center cart-buttons">
+                                <li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
+                                <li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" >Logout</a></li>
+                            </ul>
+                        </div>
+
+                    </li><!-- / User -->
                     <!-- / Setting -->
                     <li class="dropdown cart-nav dropdown-slide" >
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="tf-ion-android-settings"></i></a>
@@ -163,47 +179,50 @@ FACEBOOK: https://www.facebook.com/themefisher
                             </ul>
                         </div>
                     </li>
-                        <!-- / Setting -->
-                    <!-- User -->
-                    <?php } elseif ('' != $_smarty_tpl->tpl_vars['user']->value) {?>
-                        <li class="dropdown cart-nav dropdown-slide" >
-                            <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
-" alt="image" /></a>
-                            <div class="dropdown-menu cart-dropdown">
-                                <!-- Cart Item -->
-                                <div class="media">
-                                    <a class="pull-left" href="/Livent/User/ProfilePage/">
-                                        <img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
-" alt="image" />
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
-</h4>
-                                        </br>
-                                        <h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
-</h4>
-                                    </div>
-                                </div><!-- / Cart Item -->
-                                <!-- Cart Item -->
-                                <ul class="text-center cart-buttons">
-                                    <li><a href="/Livent/User/UpdatePage/" class="btn btn-small btn-solid-border">Modifica</a></li>
-                                    <li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border">Logout</a></li>
-                                </ul>
-                            </div>
+                    <!-- / Setting -->
 
-                        </li><!-- / User -->
+                    <?php } elseif ('' != $_smarty_tpl->tpl_vars['user']->value) {?>
+                    <li class="dropdown cart-nav dropdown-slide" >
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="image" /></a>
+                        <div class="dropdown-menu cart-dropdown">
+                            <!-- Cart Item -->
+                            <div class="media">
+                                <a class="pull-left" href="/Livent/User/Profile/">
+                                    <img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="image" />
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
+</h4>
+                                    </br>
+                                    <h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
+</h4>
+                                </div>
+                            </div><!-- / Cart Item -->
+                            <!-- Cart Item -->
+                            <ul class="text-center cart-buttons">
+                                <li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
+                                <li><a href="/Livent/User/ProfilePage/" class="btn btn-small btn-solid-border">View Profile</a></li>
+                                <a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" style="width: 100%">Logout</a>
+                            </ul>
+                        </div>
+
+                    </li><!-- / User -->
+                </ul>
 
                 <?php } else { ?>
                 <!-- / Login -->
                 <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
                 <!-- / Login -->
                 <?php }?>
-                </ul><!-- / .nav .navbar-nav .navbar-right -->
+                <!-- / .nav .navbar-nav .navbar-right -->
             </div>
         </div>
     </div>
 </section>
 <!-- End Top Header Bar -->
+
 
 
 <section class="page-header ">

@@ -73,7 +73,8 @@ class CManageEvent
                 $eventImg=FDbH::loadMultiFile($event,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.2);
                 $id = $event->getId();
                 $competitions = $event->getCompetitions();
-                $view->show($event, $eventImg, $user, $profileImg, $competitions);
+                $contacts=$event->getContacts();
+                $view->show($event, $eventImg, $user, $profileImg, $competitions,$contacts);
             }
 
             else throw new Exception("l'evento non esiste");

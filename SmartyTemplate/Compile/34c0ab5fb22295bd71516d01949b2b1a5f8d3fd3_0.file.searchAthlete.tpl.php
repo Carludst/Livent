@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-08 16:04:48
+/* Smarty version 4.1.1, created on 2022-07-11 15:03:42
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\searchAthlete.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c8398074a844_79021385',
+  'unifunc' => 'content_62cc1fae589760_05520476',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '34c0ab5fb22295bd71516d01949b2b1a5f8d3fd3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\searchAthlete.tpl',
-      1 => 1657137631,
+      1 => 1657528170,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c8398074a844_79021385 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cc1fae589760_05520476 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -166,7 +166,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</table>
 						</div>
 						<br>
-						<button type="submit"  class="btn btn-primary" style="width: 260px">Cerca</button>
+						<button type="submit"  class="btn btn-main btn-small btn-round" style="width: 260px">Cerca</button>
                     </form>
 	            </div>
 			</div>
