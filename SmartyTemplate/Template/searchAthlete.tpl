@@ -131,7 +131,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</table>
 						</div>
 						<br>
-						<button type="submit"  class="btn btn-primary" style="width: 260px">Cerca</button>
+						<button type="submit"  class="btn btn-main btn-small btn-round" style="width: 260px">Cerca</button>
                     </form>
 	            </div>
 			</div>

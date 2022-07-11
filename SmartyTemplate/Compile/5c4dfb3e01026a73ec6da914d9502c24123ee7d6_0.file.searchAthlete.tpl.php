@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-03 15:49:36
+/* Smarty version 4.1.1, created on 2022-07-10 13:47:16
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\searchAthlete.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c19e702f0387_54858602',
+  'unifunc' => 'content_62cabc44b9f198_56471659',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5c4dfb3e01026a73ec6da914d9502c24123ee7d6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\searchAthlete.tpl',
-      1 => 1656856171,
+      1 => 1657181798,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c19e702f0387_54858602 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cabc44b9f198_56471659 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -173,12 +173,14 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="col-md-9">
 				<div class="row">
 					<div class="list-group">
-						<?php if (empty($_smarty_tpl->tpl_vars['athletes']->value) && $_smarty_tpl->tpl_vars['mood']->value == 'true') {?>
+						<?php if (empty($_smarty_tpl->tpl_vars['athletes']->value) && $_smarty_tpl->tpl_vars['mood']->value == 'cronology') {?>
 							<h1 class="my-allert-page" > Non hai atleti in cronologia </h1>
-						<?php } elseif (empty($_smarty_tpl->tpl_vars['athletes']->value)) {?>
+						<?php } elseif (empty($_smarty_tpl->tpl_vars['athletes']->value) && $_smarty_tpl->tpl_vars['mood']->value == 'search') {?>
 							<h1 class="my-allert-page" > La ricerca non ha dato risultati </h1>
+						<?php } elseif (empty($_smarty_tpl->tpl_vars['athletes']->value)) {?>
+							<h1 class="my-allert-page" > Non ci sono atleti salvati </h1>
 						<?php } else { ?>
-							<?php if ($_smarty_tpl->tpl_vars['mood']->value == 'true') {?>
+							<?php if ($_smarty_tpl->tpl_vars['mood']->value == 'cronology') {?>
 								<div class="row">
 									<?php
 $__section_index_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['athletes']->value) ? count($_loop) : max(0, (int) $_loop));
@@ -212,6 +214,7 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
 													</div>
 												</div>
 											</a>
+											</br>
 										</div>
 										<div class="col-md-1">
 											</br></br>

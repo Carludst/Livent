@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-08 11:14:17
+/* Smarty version 4.1.1, created on 2022-07-10 16:27:53
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\updateUser.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c7f5699c2f03_04224238',
+  'unifunc' => 'content_62cae1e984a212_90460927',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'aed54a8bf85c43f95f55c201208b93d36b4ee6b3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\updateUser.tpl',
-      1 => 1657269532,
+      1 => 1657462479,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c7f5699c2f03_04224238 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cae1e984a212_90460927 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -130,7 +130,7 @@ FACEBOOK: https://www.facebook.com/themefisher
             </div>
           </form>
           <br>
-          <p><a style="opacity: 0.4" href="/Livent/User/ProfailePage"> torna al profilo</a></p>
+          <p><a style="opacity: 0.4" href="/Livent/User/ProfilePage/"> torna al profilo</a></p>
         </div>
       </div>
     </div>

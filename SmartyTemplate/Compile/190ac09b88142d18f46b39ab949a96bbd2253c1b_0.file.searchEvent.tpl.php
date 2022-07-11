@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-07 12:14:40
+/* Smarty version 4.1.1, created on 2022-07-11 10:06:36
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\searchEvent.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c6b2109d1c01_57889671',
+  'unifunc' => 'content_62cbda0c5ca548_70406325',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '190ac09b88142d18f46b39ab949a96bbd2253c1b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\searchEvent.tpl',
-      1 => 1657181798,
+      1 => 1657526796,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c6b2109d1c01_57889671 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cbda0c5ca548_70406325 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -148,13 +148,12 @@ FACEBOOK: https://www.facebook.com/themefisher
                                         <td class="my-td"> <input type="date" name="dateMax"  <?php if ($_smarty_tpl->tpl_vars['dateMax']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['dateMax']->value->format("Y-m-d");?>
 " onload="setDate(form)"<?php }?>  onchange="setDate(form)" style="width: 220px"> </td>
                                     </tr>
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <br>
-                        <button type="submit"  class="btn btn-primary" style="width: 260px">Cerca</button>
+                        <button type="submit"  class="btn btn-main btn-small btn-round" style="width: 260px">Cerca</button>
                     </form>
                 </div>
             </div>
@@ -235,6 +234,7 @@ for ($__section_index_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
                                                             <time> <?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getDateStart()->format("d/m/y");?>
  - <?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getDateFinish()->format("d/m/y");?>
 </time>
+                                                            </br>
                                                             <h7 class="mb-1"><?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getDescription();?>
 </h7>
                                                         </div>

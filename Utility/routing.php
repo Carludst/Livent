@@ -1,11 +1,11 @@
 <?php
 function routing():Array{
     $eventChronology=[
-        'Delate'=>'CSearch::popEventChronology()'
+        'Delete'=>'CSearch::popEventChronology()'
     ];
 
     $athleteChronology=[
-        'Delate'=>'CSearch::popAthleteChronology()'
+        'Delete'=>'CSearch::popAthleteChronology()'
     ];
     //8
     $athlete=[
@@ -67,7 +67,9 @@ function routing():Array{
         'Login'=>'CManageUser::login',
         'Signin'=>'CManageUser::signin',
         'Logout'=>'CManageUser::logout',
-        'Update'=>'CManageUser::update'
+        'Update'=>'CManageUser::update',
+        'Delete'=>'CManagerUser::delete',
+        'Search'=>'CManagerUser::search'
     ];
     //3 => 42
     $error=[

@@ -781,6 +781,11 @@ file format not supported
 #3 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
 #4 {main}
 
+credential wrong
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::login()
+#1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
 password not setted
 #0 C:\xampp\htdocs\public_html\Livent\Control\CManageUser.php(95): VUpdateUser->getPassword()
 #1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::update()
@@ -817,4 +822,9 @@ store error
 name home image don't seted
 #0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSystem::setHomeImg()
 #1 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+credential wrong
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::login()
+#1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
 #2 {main}

@@ -114,13 +114,12 @@ FACEBOOK: https://www.facebook.com/themefisher
                                         <td class="my-td-title"><h4>A : </h4></td>
                                         <td class="my-td"> <input type="date" name="dateMax"  {if $dateMax!=""}value="{$dateMax->format("Y-m-d")}" onload="setDate(form)"{/if}  onchange="setDate(form)" style="width: 220px"> </td>
                                     </tr>
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <br>
-                        <button type="submit"  class="btn btn-primary" style="width: 260px">Cerca</button>
+                        <button type="submit"  class="btn btn-main btn-small btn-round" style="width: 260px">Cerca</button>
                     </form>
                 </div>
             </div>
@@ -174,6 +173,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                                         <div class="col-md-7">
                                                             <h3 class="mb-1"><b>{$events[index]->getName()}</b></h3>
                                                             <time> {$events[index]->getDateStart()->format("d/m/y")} - {$events[index]->getDateFinish()->format("d/m/y")}</time>
+                                                            </br>
                                                             <h7 class="mb-1">{$events[index]->getDescription()}</h7>
                                                         </div>
                                                     </div>

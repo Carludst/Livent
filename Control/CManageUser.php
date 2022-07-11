@@ -210,4 +210,39 @@ class CManageUser
         }
     }
 
+    public static function search()
+    {
+        try{
+            $view=new VDeletUser();
+
+            $username=$view->getUsername();
+            $email=$view->getEmail();
+
+            if($view->getMood() && FSession::isLogged()){
+                $keys=FSession::getChronology(EUser::class);
+                $user=array();
+                $mood='cronology';
+                foreach ($keys as $k=>$v){
+                    if(!FDbH::existOne((int)$v,EUser::class))FSession::popChronology(EUser::class,$k);
+                    else $user[]=FDbH::loadOne($v,EUser::class);
+                }
+            }
+            elseif($view->getMood()){
+                $mood='notlogged';
+                $user=FDbH::search();
+            }
+            else{
+                $mood='notlogged';
+                $user=FDbH::search($username, $email);
+            }
+            if(count($user)>100) $user=array_slice($user,0,100);
+
+            $view->show($user,$mood);
+        }
+        catch (Exception $e){
+            CError::store($e,"La ricerca non è andata a buon fine");
+            return array();
+        }
+    }
+
 }
