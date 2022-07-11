@@ -134,7 +134,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 				<div class="col-lg-9 text-left ">
 					<p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">{$homeImg[index]['name']}</p>
 					<h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">La bellezza dello sport     <br> è la condivisione.     </h1>
-					<a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Elimina</a>
+					<a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="/Livent/Graphics/HomeImg/Delate/{$homeImg[index]['name']}/">Elimina</a>
 				</div>
 			</div>
 		</div>
@@ -145,10 +145,10 @@ FACEBOOK: https://www.facebook.com/themefisher
 	<table class="my-table">
 		<tbody>
 		<td>
-			<input  class="btn-solid-border center-element" name="nameHomeImg" accept="image/png, image/jpeg" type="file">
+			<input  class="btn-solid-border center-element" name="imageHome"  accept="image/png, image/jpeg" type="file">
 		</td>
 		<td>
-			<input type="text" class=" text-center center-element " placeholder="nome">
+			<input type="text" name="nameHomeImg" class=" text-center center-element " placeholder="nome">
 		</td>
 		<td>
 			<button type="submit" class="btn btn-main text-center center-element btn-solid-border">Carica</button>
