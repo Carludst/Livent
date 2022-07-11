@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="home gay">
+    <list default="true" id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="change user key">
+      <change afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/5c306374df9cc05f529fef3b208e865c0e49be8f_0.file.login.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2022_13_16_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2022_13_16__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/CManageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/CSystem.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CSystem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/072b89842c5cf6c551893e5c96bb4587060a9026_0.file.home.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/072b89842c5cf6c551893e5c96bb4587060a9026_0.file.home.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/34c0ab5fb22295bd71516d01949b2b1a5f8d3fd3_0.file.searchAthlete.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/34c0ab5fb22295bd71516d01949b2b1a5f8d3fd3_0.file.searchAthlete.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/421f36b8cf1761b3204f4e02cacdf34651b1ed7f_0.file.setGraphic.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/421f36b8cf1761b3204f4e02cacdf34651b1ed7f_0.file.setGraphic.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4371ac56d751c1f4e7cebe8a6f999756eaf07426_0.file.searchEvent.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4371ac56d751c1f4e7cebe8a6f999756eaf07426_0.file.searchEvent.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3_0.file.event.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3_0.file.event.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/814225f78156d90b0e9faeb6fff7ccdc3aba7ad9_0.file.organizerProfile.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/814225f78156d90b0e9faeb6fff7ccdc3aba7ad9_0.file.organizerProfile.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/f1e88d18635d015ff8972e017775a429ab5016f4_0.file.searchCompetition.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/f1e88d18635d015ff8972e017775a429ab5016f4_0.file.searchCompetition.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/home.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/home.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FDbH.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FDbH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FSession.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/setGraphic.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/setGraphic.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/userProfile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/userProfile.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/updateUser.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/updateUser.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VSetGraphicPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VSetGraphicPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/routing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VSignin.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VSignin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VUpdateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VUpdateUser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +42,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="28e7MwBUHQMiQDrAXOlz1VEwuY1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -62,11 +50,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template" />
@@ -75,14 +72,14 @@
       <recent name="C:\xampp\htdocs\Livent\Template\plugins" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\public_html\Livent\Template" />
       <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\Template" />
       <recent name="C:\xampp\htdocs\Livent\Template" />
       <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\js" />
       <recent name="C:\xampp\htdocs\Livent" />
+      <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\Compile" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.xampp">
+  <component name="RunManager" selected="JavaScript Debug.Livent">
     <configuration name="Livent" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost/Livent">
       <method v="2" />
     </configuration>
@@ -193,7 +190,27 @@
       <workItem from="1657130231706" duration="13816000" />
       <workItem from="1657174943251" duration="32150000" />
       <workItem from="1657217995041" duration="2411000" />
-      <workItem from="1657451974165" duration="1332000" />
+    </task>
+    <task id="LOCAL-00033" summary="same change">
+      <created>1653583776696</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1653583776696</updated>
+    </task>
+    <task id="LOCAL-00034" summary="same change">
+      <created>1653662058915</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1653662058915</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add CComment.php , CEvent.php">
+      <created>1653839946009</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1653839946009</updated>
     </task>
     <task id="LOCAL-00036" summary="add validation to EEvent.php,EUser.php,ETime.php">
       <created>1654027221094</created>
@@ -517,28 +534,7 @@
       <option name="project" value="LOCAL" />
       <updated>1657215193393</updated>
     </task>
-    <task id="LOCAL-00082" summary="home gay">
-      <created>1657528736905</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1657528736909</updated>
-    </task>
-    <task id="LOCAL-00083" summary="home gay">
-      <created>1657528891839</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1657528891839</updated>
-    </task>
-    <task id="LOCAL-00084" summary="home gay">
-      <created>1657529012094</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1657529012094</updated>
-    </task>
-    <option name="localTasksCounter" value="85" />
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,6 +553,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="same change necessary for CFrontController.php" />
     <MESSAGE value="change name function" />
     <MESSAGE value="add CFrontController.php" />
     <MESSAGE value="add check login user to exec same method" />
@@ -581,7 +578,6 @@
     <MESSAGE value="file inutili" />
     <MESSAGE value="updateUser.tpl" />
     <MESSAGE value="change user key" />
-    <MESSAGE value="home gay" />
-    <option name="LAST_COMMIT_MESSAGE" value="home gay" />
+    <option name="LAST_COMMIT_MESSAGE" value="change user key" />
   </component>
 </project>

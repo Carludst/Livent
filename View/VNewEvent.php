@@ -92,6 +92,16 @@ class VNewEvent extends View
         else return null;
     }
 
+    public function getEmail():?string{
+        if(!empty($_POST['email']))return $_POST['email'];
+        else return null;
+    }
+
+    public function getPassword():?string{
+        if(!empty($_POST['password']))return $_POST['password'];
+        else return null;
+    }
+
     public function createEvent():EEvent{
         $name=$this->getName();
         $place=$this->getPlace();

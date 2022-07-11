@@ -9,31 +9,39 @@ class CManageAthlete
     }
 
     public static function update(EAthlete $athlete):void
-    {//usare l'ogetto della view
+    {
         try{
             $vAthlete=new VNewAthlete();
+            $logged=FSession::getUserLogged();
             $myinput=$vAthlete->getMyInput();
             if(is_null($myinput)){
                 if(CManageUser::callLogin())FDbH::store($athlete);
             }
-            if(self::authorizer()){
+            elseif(self::authorizer() && $vAthlete->getEmail()==$logged->getEmail() && $vAthlete->getPassword()==$logged->getPassword()){
                 if(!FDbH::updateOne($athlete))throw new Exception("you can't update an athlete that don't exist");
             }
+            else throw new Exception("You don't have authorization");
         }
         catch (Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! ci sono stati errori con l'aggiornamento dei dati dell' atleta , verificare di possedere le autorizazioni necessarie");
         }
     }
 
+    /*
     public static function create(EAthlete $athlete):void
     {
+        $vAthlete=new VNewAthlete();
+        $logged=FSession::getUserLogged();
         try{
-            if(CManageUser::callLogin())FDbH::store($athlete);
+            if(CManageUser::callLogin() && $vAthlete->getEmail()==$logged->getPassword() && $vAthlete->getPassword()==$logged->getEmail()){
+                FDbH::store($athlete);
+            }
         }
         catch (Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! il salvataggio dei dati dell' Atleta non è andato a buon fine");
         }
     }
+    */
 
     public static function delete(EAthlete $athlete){
         try{
@@ -43,6 +51,7 @@ class CManageAthlete
             CError::store($e,"ci scusiamo per il disaggio !!! la cancellazione dei dati dell' atleta non è andata a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
+
 
 
 

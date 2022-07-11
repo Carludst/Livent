@@ -11,7 +11,13 @@ class CManageCompetition
     public static function update(ECompetition $competition):void
     {
         try{
-            if(self::authorizer($competition)){
+            $vCompetition=new VNewCompetition();
+            $logged=FSession::getUserLogged();
+            $myinput=$vCompetition->getMyInput();
+            if(is_null($myinput) && FSession::getUserLogged()->getType()=='Organizer'){
+                if(CManageUser::callLogin())FDbH::store($competition);
+            }
+            elseif(self::authorizer($competition) && FSession::getUserLogged()->getType()=='Organizer' && $vCompetition->getEmail()==$logged->getEmail() && $vCompetition->getPassword()==$logged->getPassword()){
                 if(!FDbH::updateOne($competition))throw new Exception("you can't update a competition that don't exist");
             }
         }
@@ -20,6 +26,7 @@ class CManageCompetition
         }
     }
 
+    /*
     public static function create(ECompetition $competition):void
     {
         //VERIFICA LOGIN E TIPO UTENTE
@@ -33,6 +40,7 @@ class CManageCompetition
             CError::store($e,"ci scusiamo per il disaggio !!! La creazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
+    */
 
     public static function delete(ECompetition $competition){
         try{
@@ -65,21 +73,21 @@ class CManageCompetition
         try{
             $vCompetition=new VNewCompetition();
             $myinput=$vCompetition->getMyInput();
-            if(is_null($myinput)){
-                if(CManageUser::callLogin() && FSession::getUserLogged()->getType()=='Organizer'){
-                    $vCompetition->show(null);
+                if(is_null($myinput)){
+                    if(CManageUser::callLogin() && FSession::getUserLogged()->getType()=='Organizer'){
+                        $vCompetition->show(null);
+                    }
+                    elseif(FSession::isLogged() && FSession::getUserLogged()->getType()!='Organizer'){
+                        throw new Exception("You don't have autorization");
+                    }
                 }
-                elseif(FSession::isLogged() && FSession::getUserLogged()->getType()!='Organizer'){
-                    throw new Exception("You don't have autorization");
+                else{
+                    $competition= FDbH::loadOne((int)$myinput, ECompetition::class);
+                    if(self::authorizer($competition)){
+                        $vCompetition->show($competition);
+                    }
+                    else throw new Exception("you don't have autorization");
                 }
-            }
-            else{
-                $competition= FDbH::loadOne((int)$myinput, ECompetition::class);
-                if(self::authorizer($competition)){
-                    $vCompetition->show($competition);
-                }
-                else throw new Exception("you don't have autorization");
-            }
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");

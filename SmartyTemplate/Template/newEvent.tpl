@@ -63,31 +63,33 @@
 </section>
 
 
-<section class="products section" >
+<section class="signin-page account" >
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
-                    <form method="post" action="#" name="createForm" enctype="multipart/form-data">
-                        </br>
+                    <h2 class="text-center"><b>Crea il nuovo Evento</b></h2>
+                    <form method="post" action="#" class="text-left clearfix" name="createForm">
+                        <br>
                         <div class="input-group input-group-sm mb-3">
+                            <h4>Nome dell'evento:</h4>
                             <input type="text" {if $event!=""}value="{$event->getName()}"{/if} name="name" class="form-control" placeholder="Nome evento" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
                         <div class="input-group-sm mb-3">
+                            <h4>Luogo:</h4>
                             <input type="text" {if $event!=""}value="{$event->getPlace()}"{/if} placeholder="Luogo"  name="place" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
-                        <fieldset>
-                            <input type="radio" name="public?" value="public" {if $event->getPublic()==true}checked{/if}>
-                            <label for="pubblico">Pubblico</label><br>
-                            <input type="radio" name="public?" value="private" {if $event->getPublic()==false}checked{/if}>
-                            <label for="privato">Privato</label><br>
-                        </fieldset>
                         <br>
-                        <h2>contatti:</h2>
+                        <div>
+                            <input type="radio" name="public?" value="public" {if $event!="" && $event->getPublic()==true}checked{/if}/><b>Pubblico</b>
+                            <input type="radio" name="public?" value="private" {if $event!="" && $event->getPublic()==false}checked{/if}/><b>Privato</b>
+                        </div>
                         <br>
-                        <h3>contatto 1:</h3>
+                        <h3>contatti:</h3>
+                        <br>
+                        <h4>contatto 1:</h4>
                         <div class="input-group input-group-sm mb-3">
                             <input type="text" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getName()}"{/if} name="nameContact1" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
@@ -98,7 +100,7 @@
                             <input type="tel" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getPhoneNumber()}"{/if} name="telephone1" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
                         </div>
                         <br>
-                        <h3>contatto 2:</h3>
+                        <h4>contatto 2:</h4>
                         <div class="input-group input-group-sm mb-3">
                             <input type="text" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getName()}"{/if} name="nameContact2" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
@@ -109,7 +111,7 @@
                             <input type="tel" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getPhoneNumber()}"{/if} name="telephone2" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
                         </div>
                         <br>
-                        <h3>contatto 3:</h3>
+                        <h4>contatto 3:</h4>
                         <div class="input-group input-group-sm mb-3">
                             <input type="text" {if $event !="" && $event->getContact(2)!=""}value="{$event->getContact(2)->getName()}"{/if} name="nameContact2" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
@@ -128,6 +130,7 @@
                         <label for="avatar">Scegli una foto per l'evento:</label>
                         <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
                     </form>
+                    <br>
                     <br>
                     <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                 </div>
