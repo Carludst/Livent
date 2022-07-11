@@ -889,3 +889,12 @@ Syntax error in template "file:C:\xampp\htdocs\public_html\Livent\SmartyTemplate
 #16 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::profilePage()
 #17 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
 #18 {main}
+
+Unable to load template 'file:mainAthlete.tpl'
+#0 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatebase.php(238): Smarty_Internal_Template->render(false, 1)
+#1 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatebase.php(134): Smarty_Internal_TemplateBase->_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#2 C:\xampp\htdocs\public_html\Livent\View\VMainAthlete.php(22): Smarty_Internal_TemplateBase->display('mainAthlete.tpl')
+#3 C:\xampp\htdocs\public_html\Livent\Control\CManageAthlete.php(78): VMainAthlete->show(Object(EUser), 'data:image/png;...', Object(EAthlete), Array, 'Atletica')
+#4 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageAthlete::mainPage()
+#5 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#6 {main}

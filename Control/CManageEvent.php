@@ -3,7 +3,7 @@
 class CManageEvent
 {
     private static function authorizer(EEvent $event):bool{
-        if(FSession::isLogged() && $event->getOrganizer()->getEmail()!=FSession::getUserLogged()->getEmail())throw new Exception("you don'y have autorization");
+        if(FSession::isLogged() && $event->getOrganizer()->getId()!=FSession::getUserLogged()->getId())throw new Exception("you don'y have autorization");
         return CManageUser::callLogin();
     }
 

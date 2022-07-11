@@ -1,540 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="change user key">
-      <change afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/5c306374df9cc05f529fef3b208e865c0e49be8f_0.file.login.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2022_13_16_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_06_2022_13_16__Changes_.xml" beforeDir="false" />
+    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_07_2022_17_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_07_2022_17_28__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_09_43__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_09_43__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_16_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_16_32__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_16_34__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_16_34__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_10_16__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_10_16__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_19_23__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_19_23__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_19_25__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_19_25__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_07_2022_21_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_07_2022_21_59__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_07_2022_13_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_07_2022_13_55__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2022_10_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2022_10_29__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2022_10_29__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2022_10_29__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/CManageUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foundation/FDbH.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FDbH.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foundation/FSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FSession.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/updateUser.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/updateUser.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FCompetition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utility/routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/routing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VSignin.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VSignin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VUpdateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VUpdateUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" notifyAboutMissingVendor="false">
+  <component name="ComposerSettings">
     <pharConfigPath>$PROJECT_DIR$/smarty-4.1.1/composer.json</pharConfigPath>
     <execution />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-        <option value="CSS File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Control/CFrontController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="28e7MwBUHQMiQDrAXOlz1VEwuY1" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2Bo0tqHsXWWPNk49spSgbOiurRT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template" />
-      <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\Template" />
-      <recent name="C:\xampp\htdocs\Livent\Template" />
-      <recent name="C:\xampp\htdocs\Livent\Template\plugins" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\Template" />
-      <recent name="C:\xampp\htdocs\Livent\Template" />
-      <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\js" />
-      <recent name="C:\xampp\htdocs\Livent" />
-      <recent name="C:\xampp\htdocs\Livent\SmartyTemplate\Compile" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.Livent">
-    <configuration name="Livent" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost/Livent">
+  <component name="RunManager">
+    <configuration name="web" type="JavascriptDebugType" uri="http://localhost\Livent\">
       <method v="2" />
     </configuration>
-    <configuration name="xampp" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Control/main.php">
-      <CommandLine>
-        <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="C:php" />
-        </PhpTestInterpreterSettings>
-      </CommandLine>
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="JavaScript Debug.Livent" />
-      <item itemvalue="PHP Script.xampp" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="" />
-      <created>1651565158619</created>
+      <changelist id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="" />
+      <created>1657557356686</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1651565158619</updated>
-      <workItem from="1651565161822" duration="3156000" />
-      <workItem from="1651573285333" duration="1166000" />
-      <workItem from="1651577293435" duration="1938000" />
-      <workItem from="1651683747454" duration="5013000" />
-      <workItem from="1651908578486" duration="10845000" />
-      <workItem from="1651934743863" duration="5296000" />
-      <workItem from="1651995627399" duration="7510000" />
-      <workItem from="1652003746870" duration="596000" />
-      <workItem from="1652115530450" duration="4462000" />
-      <workItem from="1652121382003" duration="260000" />
-      <workItem from="1652254373169" duration="14029000" />
-      <workItem from="1652433047669" duration="7981000" />
-      <workItem from="1652457457987" duration="1773000" />
-      <workItem from="1652631036798" duration="6697000" />
-      <workItem from="1652706057611" duration="6917000" />
-      <workItem from="1652730280424" duration="8132000" />
-      <workItem from="1652793351342" duration="2667000" />
-      <workItem from="1652971545024" duration="8148000" />
-      <workItem from="1653053208400" duration="3839000" />
-      <workItem from="1653064382045" duration="1442000" />
-      <workItem from="1653117322003" duration="17307000" />
-      <workItem from="1653213498920" duration="5536000" />
-      <workItem from="1653321704410" duration="4631000" />
-      <workItem from="1653383167565" duration="9830000" />
-      <workItem from="1653472218082" duration="5666000" />
-      <workItem from="1653578208713" duration="4774000" />
-      <workItem from="1653658169128" duration="7585000" />
-      <workItem from="1653667968640" duration="1737000" />
-      <workItem from="1653735324567" duration="165000" />
-      <workItem from="1653828553423" duration="11304000" />
-      <workItem from="1654011795988" duration="707000" />
-      <workItem from="1654017885087" duration="7460000" />
-      <workItem from="1654079661862" duration="4192000" />
-      <workItem from="1654620932045" duration="11350000" />
-      <workItem from="1654668735372" duration="4045000" />
-      <workItem from="1654682529187" duration="2236000" />
-      <workItem from="1654693863444" duration="19194000" />
-      <workItem from="1654879273772" duration="4041000" />
-      <workItem from="1654884352699" duration="1717000" />
-      <workItem from="1654931780831" duration="5816000" />
-      <workItem from="1654977460931" duration="397000" />
-      <workItem from="1655032453965" duration="1361000" />
-      <workItem from="1655036448312" duration="4546000" />
-      <workItem from="1655041451328" duration="19318000" />
-      <workItem from="1655210952344" duration="13812000" />
-      <workItem from="1655236792923" duration="4217000" />
-      <workItem from="1655274474310" duration="22123000" />
-      <workItem from="1655374636581" duration="20316000" />
-      <workItem from="1655406673397" duration="8926000" />
-      <workItem from="1655443068751" duration="5850000" />
-      <workItem from="1655471006004" duration="11720000" />
-      <workItem from="1655662041086" duration="5910000" />
-      <workItem from="1655902706875" duration="8766000" />
-      <workItem from="1655919439314" duration="4494000" />
-      <workItem from="1656077840740" duration="1126000" />
-      <workItem from="1656081089470" duration="6297000" />
-      <workItem from="1656087943842" duration="1004000" />
-      <workItem from="1656094839917" duration="6059000" />
-      <workItem from="1656145496927" duration="1388000" />
-      <workItem from="1656157812649" duration="1949000" />
-      <workItem from="1656168146421" duration="25102000" />
-      <workItem from="1656394080742" duration="7827000" />
-      <workItem from="1656424559420" duration="481000" />
-      <workItem from="1656425143423" duration="12900000" />
-      <workItem from="1656514843495" duration="4504000" />
-      <workItem from="1656519626688" duration="19421000" />
-      <workItem from="1656568314031" duration="5815000" />
-      <workItem from="1656584438488" duration="4173000" />
-      <workItem from="1656590947385" duration="20529000" />
-      <workItem from="1656656547600" duration="2264000" />
-      <workItem from="1656669857972" duration="22348000" />
-      <workItem from="1656755036005" duration="1548000" />
-      <workItem from="1656756761399" duration="18999000" />
-      <workItem from="1656843038530" duration="10266000" />
-      <workItem from="1656866525602" duration="12984000" />
-      <workItem from="1656939727510" duration="543000" />
-      <workItem from="1656945997083" duration="6870000" />
-      <workItem from="1656961265343" duration="7529000" />
-      <workItem from="1657026133437" duration="6339000" />
-      <workItem from="1657038828770" duration="9179000" />
-      <workItem from="1657112855524" duration="9453000" />
-      <workItem from="1657128617816" duration="164000" />
-      <workItem from="1657128901162" duration="160000" />
-      <workItem from="1657130231706" duration="13816000" />
-      <workItem from="1657174943251" duration="32150000" />
-      <workItem from="1657217995041" duration="2411000" />
+      <updated>1657557356686</updated>
+      <workItem from="1657557357720" duration="174000" />
+      <workItem from="1657557549751" duration="2908000" />
     </task>
-    <task id="LOCAL-00033" summary="same change">
-      <created>1653583776696</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1653583776696</updated>
-    </task>
-    <task id="LOCAL-00034" summary="same change">
-      <created>1653662058915</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1653662058915</updated>
-    </task>
-    <task id="LOCAL-00035" summary="add CComment.php , CEvent.php">
-      <created>1653839946009</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1653839946009</updated>
-    </task>
-    <task id="LOCAL-00036" summary="add validation to EEvent.php,EUser.php,ETime.php">
-      <created>1654027221094</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1654027221094</updated>
-    </task>
-    <task id="LOCAL-00037" summary="completed code for validation data">
-      <created>1654102142710</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1654102142710</updated>
-    </task>
-    <task id="LOCAL-00038" summary="reorganizer control and add fondation file for managment Error.txt">
-      <created>1654634258350</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1654634258365</updated>
-    </task>
-    <task id="LOCAL-00039" summary="add autoload file">
-      <created>1654672828249</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1654672828249</updated>
-    </task>
-    <task id="LOCAL-00040" summary="add FSession and put shearch method to CSearch.php">
-      <created>1654778165513</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1654778165513</updated>
-    </task>
-    <task id="LOCAL-00041" summary="change load file">
-      <created>1654778417125</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1654778417125</updated>
-    </task>
-    <task id="LOCAL-00042" summary="same change to FSession.php">
-      <created>1654880306134</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1654880306134</updated>
-    </task>
-    <task id="LOCAL-00043" summary="same change to FSession.php">
-      <created>1654880517413</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1654880517413</updated>
-    </task>
-    <task id="LOCAL-00044" summary="add index.php">
-      <created>1655041602954</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1655041602954</updated>
-    </task>
-    <task id="LOCAL-00045" summary="same change necessary for CFrontController.php">
-      <created>1655134258678</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1655134258678</updated>
-    </task>
-    <task id="LOCAL-00046" summary="same change necessary for CFrontController.php">
-      <created>1655134383650</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1655134383650</updated>
-    </task>
-    <task id="LOCAL-00047" summary="change name function">
-      <created>1655214344808</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1655214344808</updated>
-    </task>
-    <task id="LOCAL-00048" summary="change name function">
-      <created>1655215018667</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1655215018667</updated>
-    </task>
-    <task id="LOCAL-00049" summary="add CFrontController.php">
-      <created>1655238231251</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1655238231251</updated>
-    </task>
-    <task id="LOCAL-00050" summary="add check login user to exec same method">
-      <created>1655240263307</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1655240263307</updated>
-    </task>
-    <task id="LOCAL-00051" summary="add autorizer method">
-      <created>1655292148301</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1655292148301</updated>
-    </task>
-    <task id="LOCAL-00052" summary="add call error">
-      <created>1655298023604</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1655298023620</updated>
-    </task>
-    <task id="LOCAL-00053" summary="separete registration and result and add resized method">
-      <created>1655402438035</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1655402438035</updated>
-    </task>
-    <task id="LOCAL-00054" summary="add resized method">
-      <created>1655447948653</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1655447948653</updated>
-    </task>
-    <task id="LOCAL-00055" summary="add defoultPath.php">
-      <created>1655473561172</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1655473561187</updated>
-    </task>
-    <task id="LOCAL-00056" summary="same change">
-      <created>1655634816621</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1655634816621</updated>
-    </task>
-    <task id="LOCAL-00057" summary="add method to upload and store file">
-      <created>1655670082768</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1655670082768</updated>
-    </task>
-    <task id="LOCAL-00058" summary="add template">
-      <created>1655902909986</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1655902909987</updated>
-    </task>
-    <task id="LOCAL-00059" summary="add template">
-      <created>1655905930422</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1655905930422</updated>
-    </task>
-    <task id="LOCAL-00060" summary="add template">
-      <created>1656336628921</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1656336628921</updated>
-    </task>
-    <task id="LOCAL-00061" summary="add template">
-      <created>1656336878113</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1656336878113</updated>
-    </task>
-    <task id="LOCAL-00062" summary="add template">
-      <created>1656336927274</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1656336927274</updated>
-    </task>
-    <task id="LOCAL-00063" summary="for run">
-      <created>1656337448106</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1656337448106</updated>
-    </task>
-    <task id="LOCAL-00064" summary="error view and .htaccess">
-      <created>1656406898458</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1656406898458</updated>
-    </task>
-    <task id="LOCAL-00065" summary="pag error.tpl">
-      <created>1656587750163</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1656587750163</updated>
-    </task>
-    <task id="LOCAL-00066" summary="add MappingPathFile.php">
-      <created>1656594194953</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1656594194953</updated>
-    </task>
-    <task id="LOCAL-00067" summary="search event">
-      <created>1656756882497</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1656756882497</updated>
-    </task>
-    <task id="LOCAL-00068" summary="search athlete">
-      <created>1656855091031</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1656855091031</updated>
-    </task>
-    <task id="LOCAL-00069" summary="search event">
-      <created>1656855326236</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1656855326236</updated>
-    </task>
-    <task id="LOCAL-00070" summary="search event">
-      <created>1656855490243</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1656855490243</updated>
-    </task>
-    <task id="LOCAL-00071" summary="tolto myStyle">
-      <created>1656855642694</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1656855642694</updated>
-    </task>
-    <task id="LOCAL-00072" summary="chronology athlete">
-      <created>1656856402248</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1656856402248</updated>
-    </task>
-    <task id="LOCAL-00073" summary="add searchCompetition.tpl and association method">
-      <created>1657042311884</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1657042311884</updated>
-    </task>
-    <task id="LOCAL-00074" summary="resize logo">
-      <created>1657117902759</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1657117902759</updated>
-    </task>
-    <task id="LOCAL-00075" summary="file inutili">
-      <created>1657120632909</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1657120632909</updated>
-    </task>
-    <task id="LOCAL-00076" summary="updateUser.tpl">
-      <created>1657148118690</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1657148118697</updated>
-    </task>
-    <task id="LOCAL-00077" summary="change user key">
-      <created>1657180104248</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1657180104248</updated>
-    </task>
-    <task id="LOCAL-00078" summary="change user key">
-      <created>1657185841765</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1657185841765</updated>
-    </task>
-    <task id="LOCAL-00079" summary="change user key">
-      <created>1657189111536</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1657189111536</updated>
-    </task>
-    <task id="LOCAL-00080" summary="change user key">
-      <created>1657214820895</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1657214820895</updated>
-    </task>
-    <task id="LOCAL-00081" summary="change user key">
-      <created>1657215193393</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1657215193393</updated>
-    </task>
-    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,34 +89,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="same change necessary for CFrontController.php" />
-    <MESSAGE value="change name function" />
-    <MESSAGE value="add CFrontController.php" />
-    <MESSAGE value="add check login user to exec same method" />
-    <MESSAGE value="add autorizer method" />
-    <MESSAGE value="add call error" />
-    <MESSAGE value="separete registration and result and add resized method" />
-    <MESSAGE value="add resized method" />
-    <MESSAGE value="add defoultPath.php" />
-    <MESSAGE value="same change" />
-    <MESSAGE value="add method to upload and store file" />
-    <MESSAGE value="add template" />
-    <MESSAGE value="for run" />
-    <MESSAGE value="error view and .htaccess" />
-    <MESSAGE value="pag error.tpl" />
-    <MESSAGE value="add MappingPathFile.php" />
-    <MESSAGE value="search athlete" />
-    <MESSAGE value="search event" />
-    <MESSAGE value="tolto myStyle" />
-    <MESSAGE value="chronology athlete" />
-    <MESSAGE value="add searchCompetition.tpl and association method" />
-    <MESSAGE value="resize logo" />
-    <MESSAGE value="file inutili" />
-    <MESSAGE value="updateUser.tpl" />
-    <MESSAGE value="change user key" />
-    <option name="LAST_COMMIT_MESSAGE" value="change user key" />
   </component>
 </project>
