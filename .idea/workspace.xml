@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="athlete page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/setGraphic.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/setGraphic.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
-    </list>
+    <list default="true" id="d2cd932a-f165-40c6-9af2-a42735c69fbb" name="Changes" comment="home gay" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,20 +176,6 @@
       <workItem from="1657174943251" duration="32150000" />
       <workItem from="1657217995041" duration="2411000" />
       <workItem from="1657451974165" duration="1332000" />
-    </task>
-    <task id="LOCAL-00033" summary="same change">
-      <created>1653583776696</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1653583776696</updated>
-    </task>
-    <task id="LOCAL-00034" summary="same change">
-      <created>1653662058915</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1653662058915</updated>
     </task>
     <task id="LOCAL-00035" summary="add CComment.php , CEvent.php">
       <created>1653839946009</created>
@@ -524,7 +506,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657215193393</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="home gay">
+      <created>1657528736905</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1657528736909</updated>
+    </task>
+    <task id="LOCAL-00083" summary="home gay">
+      <created>1657528891839</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1657528891839</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +539,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="same change necessary for CFrontController.php" />
     <MESSAGE value="change name function" />
     <MESSAGE value="add CFrontController.php" />
     <MESSAGE value="add check login user to exec same method" />
@@ -568,6 +563,7 @@
     <MESSAGE value="file inutili" />
     <MESSAGE value="updateUser.tpl" />
     <MESSAGE value="change user key" />
-    <option name="LAST_COMMIT_MESSAGE" value="change user key" />
+    <MESSAGE value="home gay" />
+    <option name="LAST_COMMIT_MESSAGE" value="home gay" />
   </component>
 </project>
