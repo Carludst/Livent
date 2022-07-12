@@ -11,15 +11,19 @@ class CManageCompetition
     public static function update():void
     {
         try{
-            $vCompetition=new VNewCompetition();
+            $view=new VNewCompetition();
             $logged=FSession::getUserLogged();
-            $competition=$vCompetition->createCompetition();
-            $myinput=$vCompetition->getMyInput();
+            $myinput=$view->getMyInput();
+
             if(is_null($myinput) && FSession::getUserLogged()->getType()=='Organizer'){
+                $competition=$view->createCompetition();
                 if(CManageUser::callLogin())FDbH::store($competition);
             }
-            elseif(self::authorizer($competition) && FSession::getUserLogged()->getType()=='Organizer' && $vCompetition->getEmail()==$logged->getEmail() && $vCompetition->getPassword()==$logged->getPassword()){
-                if(!FDbH::updateOne($competition))throw new Exception("you can't update a competition that don't exist");
+            else{
+                $competition=$view->createCompetition();
+                if(self::authorizer($competition) && FSession::getUserLogged()->getType()=='Organizer' && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
+                    if(!FDbH::updateOne($competition))throw new Exception("you can't update a competition that don't exist");
+                }
             }
         }
         catch (Exception $e){

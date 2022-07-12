@@ -292,7 +292,7 @@ class FCompetition {
         foreach ($resultQ as $c=>$v){
             $athlete=FAthlete::loadOne((int)$v["idathlete"]);
             $time=new ETime((float)$v["time"]);
-            $result[]=array($athlete,$time);
+            $result[]=array('athlete'=>$athlete,'time'=>$time);
         }
         $where1=FDb::multiWhere(array('idcompetition','time'),array((String)$competition->getId(),'NULL'),"AND",array("=","<>"));
         $query1=FDb::load(self::$table[1],$where1);
@@ -300,7 +300,7 @@ class FCompetition {
         foreach ($resultQ1 as $c=>$v){
             $athlete=FAthlete::loadOne((int)$v["idathlete"]);
             $time=new ETime((float)$v["time"]);
-            $result[]=array($athlete,$time);
+            $result[]=array('athlete'=>$athlete,'time'=>$time);
         }
         return $result;
     }
