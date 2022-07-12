@@ -55,18 +55,34 @@ class CManageCompetition
     }
 
     public static function mainPage(){
+        if(FSession::isLogged()){
+            $user=FSession::getUserLogged();
+            $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
+        }
+        else{
+            $user=null;
+            $profileImg=null;
+        }
         try{
-            $key=(int)$GLOBALS['_MYINPUT'];
-            if(FDbH::existOne($key,ECompetition::class))FSession::addChronology(ECompetition::class,$key);
-            header("Location: /Livent/Competition/Search/");//righa da eliminare
-            /*
-            $registration=$competition->getRegistrations();
-            $result=$competition->getClassification();
-            //Richiama  view competition
-            */
+            $view = new VCompetition();
+            $key = (int)$view->getMyInput();
+            if(FDbH::existOne($key,ECompetition::class)){
+                FSession::addChronology(ECompetition::class,$key);
+                $competition = FDbH::loadOne($key, ECompetition::class);
+                $name = $competition->getName();
+                //$eventImg=FDbH::loadMultiFile($event,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.2);
+                $athletes = $competition->getRegistrations();
+                $startDate = $competition->getDateTime();
+                $sport = $competition->getSport();
+                $distance = $competition->getDistance();
+                $gender = $competition->getGender();
+                //$description = $competition->getDescription();
+                $view->show($user, $profileImg, $name, $athletes , $startDate, $sport ,$distance ,$gender);
+            }
+            else throw new Exception("l'evento non esiste");
         }
         catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina della competizione non è andato a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
