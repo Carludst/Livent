@@ -8,11 +8,12 @@ class CManageCompetition
         return CManageUser::callLogin();
     }
 
-    public static function update(ECompetition $competition):void
+    public static function update():void
     {
         try{
             $vCompetition=new VNewCompetition();
             $logged=FSession::getUserLogged();
+            $competition=$vCompetition->createCompetition();
             $myinput=$vCompetition->getMyInput();
             if(is_null($myinput) && FSession::getUserLogged()->getType()=='Organizer'){
                 if(CManageUser::callLogin())FDbH::store($competition);
@@ -73,21 +74,21 @@ class CManageCompetition
         try{
             $vCompetition=new VNewCompetition();
             $myinput=$vCompetition->getMyInput();
-                if(is_null($myinput)){
-                    if(CManageUser::callLogin() && FSession::getUserLogged()->getType()=='Organizer'){
-                        $vCompetition->show(null);
-                    }
-                    elseif(FSession::isLogged() && FSession::getUserLogged()->getType()!='Organizer'){
-                        throw new Exception("You don't have autorization");
-                    }
+            if(is_null($myinput)){
+                if(CManageUser::callLogin() && FSession::getUserLogged()->getType()=='Organizer'){
+                    $vCompetition->show(null);
                 }
-                else{
-                    $competition= FDbH::loadOne((int)$myinput, ECompetition::class);
-                    if(self::authorizer($competition)){
-                        $vCompetition->show($competition);
-                    }
-                    else throw new Exception("you don't have autorization");
+                elseif(FSession::isLogged() && FSession::getUserLogged()->getType()!='Organizer'){
+                    throw new Exception("You don't have autorization");
                 }
+            }
+            else{
+                $competition= FDbH::loadOne((int)$myinput, ECompetition::class);
+                if(self::authorizer($competition)){
+                    $vCompetition->show($competition);
+                }
+                else throw new Exception("you don't have autorization");
+            }
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");

@@ -71,13 +71,13 @@
                     <h2 class="text-center"><b>Crea la nuova competizione</b></h2>
                     <form method="post" class="text-left clearfix" action="#" name="createForm">
                         <h4>Nome:</h4>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $competition!=""}value="{$competition->getName()}"{/if} name="name" class="form-control" placeholder="Nome competizione" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="text" {if $competition!=""}value="{$competition->getName()}"{/if} name="name" class="form-control" placeholder="Nome competizione">
                         </div>
                         <br>
-                        <div class="input-group input-group-sm mb-3">
+                        <div class="form-group">
                             <h4>Data di inizio: </h4>
-                            <input type="datetime-local" {if $competition!=""}value="{$competition->getDateTime()->format("Y-m-d H:i:s")}"{/if} name="dateTime">
+                            <input type="datetime-local" {if $competition!=""}value="{$competition->getDateTime()->format("Y-m-d H:i:s")}"{/if} class="form-control" name="dateTime">
                         </div>
                         <br>
                         <br>
@@ -105,30 +105,38 @@
                         <h4>Sport:</h4>
                         <select class="form-control" name="sport">
                             <option>Qualsiasi Sport</option>
-                            <option {if $competition->getSport()=='Atletica'}selected{/if}>Atletica</option>
-                            <option {if $competition->getSport()=='Ciclismo'}selected{/if}>Ciclismo</option>
-                            <option {if $competition->getSport()=='Nuoto'}selected{/if}>Nuoto</option>
-                            <option {if $competition->getSport()=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
-                            <option {if $competition->getSport()=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
+                            <option {if $competition!="" && $competition->getSport()=='Atletica'}selected{/if}>Atletica</option>
+                            <option {if $competition!="" && $competition->getSport()=='Ciclismo'}selected{/if}>Ciclismo</option>
+                            <option {if $competition!="" && $competition->getSport()=='Nuoto'}selected{/if}>Nuoto</option>
+                            <option {if $competition!="" && $competition->getSport()=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
+                            <option {if $competition!="" && $competition->getSport()=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
                         </select>
                         <br>
                         <h4>Genere:</h4>
                         <select class="form-control" name="gender">
                             <option>No Selected</option>
-                            <option {if $competition->getGender()=='M'}selected{/if}>Uomo</option>
-                            <option {if $competition->getGender()=='F'}selected{/if}>Donna</option>
+                            <option {if $competition!="" && $competition->getGender()=='M'}selected{/if}>Uomo</option>
+                            <option {if $competition!="" && $competition->getGender()=='F'}selected{/if}>Donna</option>
                         </select>
                         <br>
-                        <div>
-                            <p>Descrizione:</p>
-                            <textarea {if $competition!=""}value="{$competition->getDescription()}"{/if} name="description" cols="20" rows="4">Scrivi la descrizione...</textarea>
+                        <div class="form-group">
+                            <h4>Descrizione:</h4>
+                            <textarea {if $competition!=""}value="{$competition->getDescription()}"{/if} name="description" class="form-control" cols="20" rows="4">Scrivi la descrizione...</textarea>
                         </div>
                         <br>
                         <label for="avatar">Scegli una foto per la competizione:</label>
                         <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                        <br>
+                        <h3><b>Autenticazione:</b></h3>
+                        <div class="form-group">
+                            <input type="email" name='email' class="form-control"  placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name='password' class="form-control" placeholder="Password">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Conferma</button>
                     </form>
-                    <br>
-                    <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                 </div>
             </div>
         </div>

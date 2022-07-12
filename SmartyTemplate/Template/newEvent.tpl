@@ -71,14 +71,14 @@
                     <h2 class="text-center"><b>Crea il nuovo Evento</b></h2>
                     <form method="post" action="#" class="text-left clearfix" name="createForm">
                         <br>
-                        <div class="input-group input-group-sm mb-3">
+                        <div class="form-group">
                             <h4>Nome dell'evento:</h4>
-                            <input type="text" {if $event!=""}value="{$event->getName()}"{/if} name="name" class="form-control" placeholder="Nome evento" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" {if $event!=""}value="{$event->getName()}"{/if} name="name" class="form-control" placeholder="Nome evento">
                         </div>
                         <br>
-                        <div class="input-group-sm mb-3">
+                        <div class="form-group">
                             <h4>Luogo:</h4>
-                            <input type="text" {if $event!=""}value="{$event->getPlace()}"{/if} placeholder="Luogo"  name="place" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" {if $event!=""}value="{$event->getPlace()}"{/if} placeholder="Luogo"  name="place" class="form-control">
                         </div>
                         <br>
                         <br>
@@ -87,52 +87,59 @@
                             <input type="radio" name="public?" value="private" {if $event!="" && $event->getPublic()==false}checked{/if}/><b>Privato</b>
                         </div>
                         <br>
-                        <h3>contatti:</h3>
+                        <h3>Contatti:</h3>
                         <br>
                         <h4>contatto 1:</h4>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getName()}"{/if} name="nameContact1" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="text" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getName()}"{/if} name="nameContact1" placeholder="nome" class="form-control">
                         </div>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="email" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getEmail()}"{/if} name="email1" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="email" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getEmail()}"{/if} name="email1" placeholder="Email" class="form-control">
                         </div>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="tel" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getPhoneNumber()}"{/if} name="telephone1" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                        <div class="form-group">
+                            <input type="tel" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getPhoneNumber()}"{/if} name="telephone1" placeholder="Es. +39..." class="form-control">
                         </div>
                         <br>
                         <h4>contatto 2:</h4>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getName()}"{/if} name="nameContact2" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="text" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getName()}"{/if} name="nameContact2" placeholder="nome" class="form-control">
                         </div>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="email" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getEmail()}"{/if} name="email2" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="email" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getEmail()}"{/if} name="email2" placeholder="Email" class="form-control">
                         </div>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="tel" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getPhoneNumber()}"{/if} name="telephone2" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                        <div class="form-group">
+                            <input type="tel" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getPhoneNumber()}"{/if} name="telephone2" placeholder="Es. +39..." class="form-control">
                         </div>
                         <br>
                         <h4>contatto 3:</h4>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $event !="" && $event->getContact(2)!=""}value="{$event->getContact(2)->getName()}"{/if} name="nameContact2" placeholder="nome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="text" {if $event !="" && $event->getContact(2)!=""}value="{$event->getContact(2)->getName()}"{/if} name="nameContact2" placeholder="nome" class="form-control">
                         </div>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="email" {if $event !="" && $event->getContact(2)!=""}value="{$event->getContact(2)->getEmail()}"{/if} name="email3" placeholder="Email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="email" {if $event !="" && $event->getContact(2)!=""}value="{$event->getContact(2)->getEmail()}"{/if} name="email3" placeholder="Email" class="form-control">
                         </div>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="tel" {if $event !="" && $event->getContact(2)!=""}value="{$event->getContact(2)->getPhoneNumber()}"{/if} name="telephone3" placeholder="Es. +39..." class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm"  />
+                        <div class="form-group">
+                            <input type="tel" {if $event !="" && $event->getContact(2)!=""}value="{$event->getContact(2)->getPhoneNumber()}"{/if} name="telephone3" placeholder="Es. +39..." class="form-control">
                         </div>
                         <br>
-                        <div>
-                            <p>Descrizione:</p>
-                            <textarea {if $event!=""}value="{$event->getDescription()}"{/if} name="description" cols="20" rows="4">Scrivi la descrizione...</textarea>
+                        <div class="form-group">
+                            <h4>Descrizione:</h4>
+                            <textarea {if $event!=""}value="{$event->getDescription()}"{/if} name="description" class="form-control" cols="20" rows="4">Scrivi la descrizione...</textarea>
                         </div>
                         <br>
                         <label for="avatar">Scegli una foto per l'evento:</label>
                         <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                        <br>
+                        <h3><b>Autenticazione:</b></h3>
+                        <div class="form-group">
+                            <input type="email" name='email' class="form-control"  placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name='password' class="form-control" placeholder="Password">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Conferma</button>
                     </form>
-                    <br>
-                    <br>
-                    <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                 </div>
             </div>
         </div>

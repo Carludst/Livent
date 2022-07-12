@@ -7,12 +7,13 @@ class CManageEvent
         return CManageUser::callLogin();
     }
 
-    public static function update(EEvent $event):void
+    public static function update():void
     {
         try{
-            $vEvent=new VNewCompetition();
+            $vEvent=new VNewEvent();
             $logged=FSession::getUserLogged();
             $myinput=$vEvent->getMyInput();
+            $event= $vEvent->createEvent();
             if(is_null($myinput) && FSession::getUserLogged()->getType()=='Organizer'){
                 if(CManageUser::callLogin())FDbH::store($event);
             }

@@ -69,7 +69,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
                     <h2 class="text-center"><b>Crea il nuovo Atleta</b></h2>
-                    <form method="post" class="text-left clearfix" action="#" name="createForm">
+                    <form method="post" class="text-left clearfix" {if $athlete!=""}action="/Livent/Athlete/Update/"{/if} name="createForm">
                         <h3>Inserimento dati:</h3>
                         <div class="input-group input-group-sm mb-3">
                             <input type="text" {if $athlete!=""}value="{$athlete->getName()}"{/if} name="name" class="form-control" placeholder="Nome" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
@@ -104,9 +104,6 @@
                             <input type="radio" name="gender" value="man"/><b> M</b>
                             <input type="radio" name="gender" value="woman"/><b> F</b>
                         </div>
-                        <br>
-                        <label for="avatar">Scegli una foto profilo:</label>
-                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
                         <br>
                         <h3>Autentificazione:</h3>
                         <div class="form-group">

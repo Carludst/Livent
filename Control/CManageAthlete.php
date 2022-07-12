@@ -2,18 +2,19 @@
 
 class CManageAthlete
 {
-    private static function authorizer():bool{
-
+    private static function authorizer():bool
+    {
         if(FSession::isLogged() && FSession::getUserLogged()->getType()!='Administrator')throw new Exception("you must be an administrator to update an Athlete");
         return CManageUser::callLogin();
     }
 
-    public static function update(EAthlete $athlete):void
+    public static function update():void
     {
         try{
             $vAthlete=new VNewAthlete();
             $logged=FSession::getUserLogged();
             $myinput=$vAthlete->getMyInput();
+            $athlete= $vAthlete->createAthlete();
             if(is_null($myinput)){
                 if(CManageUser::callLogin())FDbH::store($athlete);
             }
@@ -101,5 +102,4 @@ class CManageAthlete
             CError::store($e,"ci scusiamo per il disaggio !!! la visualizzazione della pagina di crezione/aggiornamento dati dell'Atleta non è andata a buon fine");
         }
     }
-
 }

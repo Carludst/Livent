@@ -112,7 +112,7 @@ class ECompetition{
     /**
      * @return string
      */
-     public function getSport() : string
+     public function getSport() :?string
      {
       return $this->sport;
      }

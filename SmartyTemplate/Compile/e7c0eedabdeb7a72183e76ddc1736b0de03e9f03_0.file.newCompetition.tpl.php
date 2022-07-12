@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-11 16:08:09
+/* Smarty version 4.1.1, created on 2022-07-12 08:31:36
   from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/newCompetition.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cc4ae92d77e5_46609489',
+  'unifunc' => 'content_62cd31688d7678_26710858',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e7c0eedabdeb7a72183e76ddc1736b0de03e9f03' => 
     array (
       0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/newCompetition.tpl',
-      1 => 1657555683,
+      1 => 1657614692,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cc4ae92d77e5_46609489 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cd31688d7678_26710858 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,15 +101,15 @@ function content_62cc4ae92d77e5_46609489 (Smarty_Internal_Template $_smarty_tpl)
                     <h2 class="text-center"><b>Crea la nuova competizione</b></h2>
                     <form method="post" class="text-left clearfix" action="#" name="createForm">
                         <h4>Nome:</h4>
-                        <div class="input-group input-group-sm mb-3">
+                        <div class="form-group">
                             <input type="text" <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['competition']->value->getName();?>
-"<?php }?> name="name" class="form-control" placeholder="Nome competizione" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+"<?php }?> name="name" class="form-control" placeholder="Nome competizione">
                         </div>
                         <br>
-                        <div class="input-group input-group-sm mb-3">
+                        <div class="form-group">
                             <h4>Data di inizio: </h4>
                             <input type="datetime-local" <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['competition']->value->getDateTime()->format("Y-m-d H:i:s");?>
-"<?php }?> name="dateTime">
+"<?php }?> class="form-control" name="dateTime">
                         </div>
                         <br>
                         <br>
@@ -138,31 +138,39 @@ function content_62cc4ae92d77e5_46609489 (Smarty_Internal_Template $_smarty_tpl)
                         <h4>Sport:</h4>
                         <select class="form-control" name="sport">
                             <option>Qualsiasi Sport</option>
-                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Atletica') {?>selected<?php }?>>Atletica</option>
-                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Ciclismo') {?>selected<?php }?>>Ciclismo</option>
-                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Nuoto') {?>selected<?php }?>>Nuoto</option>
-                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Pattinaggio a rotelle') {?>selected<?php }?>>Pattinaggio a rotelle</option>
-                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Pattinaggio sul ghiaccio') {?>selected<?php }?>>Pattinaggio sul ghiaccio</option>
+                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Atletica') {?>selected<?php }?>>Atletica</option>
+                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Ciclismo') {?>selected<?php }?>>Ciclismo</option>
+                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Nuoto') {?>selected<?php }?>>Nuoto</option>
+                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Pattinaggio a rotelle') {?>selected<?php }?>>Pattinaggio a rotelle</option>
+                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Pattinaggio sul ghiaccio') {?>selected<?php }?>>Pattinaggio sul ghiaccio</option>
                         </select>
                         <br>
                         <h4>Genere:</h4>
                         <select class="form-control" name="gender">
                             <option>No Selected</option>
-                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value->getGender() == 'M') {?>selected<?php }?>>Uomo</option>
-                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value->getGender() == 'F') {?>selected<?php }?>>Donna</option>
+                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getGender() == 'M') {?>selected<?php }?>>Uomo</option>
+                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getGender() == 'F') {?>selected<?php }?>>Donna</option>
                         </select>
                         <br>
-                        <div>
-                            <p>Descrizione:</p>
+                        <div class="form-group">
+                            <h4>Descrizione:</h4>
                             <textarea <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['competition']->value->getDescription();?>
-"<?php }?> name="description" cols="20" rows="4">Scrivi la descrizione...</textarea>
+"<?php }?> name="description" class="form-control" cols="20" rows="4">Scrivi la descrizione...</textarea>
                         </div>
                         <br>
                         <label for="avatar">Scegli una foto per la competizione:</label>
                         <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                        <br>
+                        <h3><b>Autenticazione:</b></h3>
+                        <div class="form-group">
+                            <input type="email" name='email' class="form-control"  placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name='password' class="form-control" placeholder="Password">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Conferma</button>
                     </form>
-                    <br>
-                    <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                 </div>
             </div>
         </div>
