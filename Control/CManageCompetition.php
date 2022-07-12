@@ -4,7 +4,7 @@ class CManageCompetition
 {
     private static function authorizer(ECompetition $competition):bool{
 
-        if(FSession::isLogged() && FDbH::loadEventByCompetition($competition)->getOrganizer()->getEmail()!=FSession::getUserLogged()->getEmail()) throw new Exception("only the organizer can update competition");
+        if(FSession::isLogged() && FDbH::loadEventByCompetition($competition)->getOrganizer()->getId()!=FSession::getUserLogged()->getId()) throw new Exception("only the organizer can update competition");
         return CManageUser::callLogin();
     }
 
@@ -21,7 +21,8 @@ class CManageCompetition
             }
             else{
                 $competition=$view->createCompetition();
-                if(self::authorizer($competition) && FSession::getUserLogged()->getType()=='Organizer' && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
+                $competition->setId((int)$myinput);
+                if(self::authorizer($competition)  && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
                     if(!FDbH::updateOne($competition))throw new Exception("you can't update a competition that don't exist");
                 }
             }

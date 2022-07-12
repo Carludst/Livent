@@ -17,13 +17,15 @@ class CManageAthlete
             $athlete= $view->createAthlete();
             if(is_null($myinput)){
                 if(CManageUser::callLogin())FDbH::store($athlete);
+                $id=FDbH::loadLastStore(EAthlete::class)->getId();
+                header('Location: /Livent/Athlete/MainPage/'.$id.'/');
             }
             elseif(self::authorizer() && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
                 $athlete->setId($myinput);
                 if(!FDbH::updateOne($athlete))throw new Exception("you can't update an athlete that don't exist");
+                header('Location: /Livent/Athlete/MainPage/'.$myinput.'/');
             }
             else throw new Exception("You don't have authorization");
-            header('Location: /Livent/');
         }
         catch (Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! ci sono stati errori con l'aggiornamento dei dati dell' atleta , verificare di possedere le autorizazioni necessarie");
