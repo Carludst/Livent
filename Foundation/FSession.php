@@ -7,7 +7,10 @@ class FSession
         if (session_status() == PHP_SESSION_NONE)session_start();
         if(array_key_exists('user',$_SESSION)){
             if(FDbH::existOne(self::getUserLogged()->getId(),EUser::class)) return true;
-            else return false;
+            else {
+                self::logout();
+                return false;
+            }
         }
         else return false;
     }
@@ -69,7 +72,7 @@ class FSession
         if(!is_null($_SESSION['user'])){
             return unserialize($_SESSION['user']);
         }
-        else return NULL;
+        else throw new Exception("you aren't logged");
     }
 
     public static function updateUserLogged(EUser $user):void
