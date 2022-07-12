@@ -1786,3 +1786,33 @@ Unable to load template 'file:mainAthlete.tpl'
 #4 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageAthlete::mainPage()
 #5 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
 #6 {main}
+
+You don't have authorization
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageAthlete::update()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+You don't have authorization
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageAthlete::update()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+file error
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::update()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+file error
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::update()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+file error
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::update()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+file error
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::update()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#2 {main}

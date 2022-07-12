@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_07_2022_17_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_07_2022_17_28__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_09_43__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_09_43__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_16_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_16_32__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_16_34__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_07_2022_16_34__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_10_16__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_10_16__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_19_23__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_19_23__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_19_25__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_19_25__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_07_2022_21_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_07_2022_21_59__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_07_2022_13_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_07_2022_13_55__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2022_10_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2022_10_29__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2022_10_29__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2022_10_29__Changes_1.xml" afterDir="false" />
+    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="registration change">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_07_2022_17_28_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_07_2022_17_28__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageAthlete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageAthlete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/CManageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FAthlete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FAthlete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Foundation/FCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FCompetition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FDbH.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FDbH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FSession.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/072b89842c5cf6c551893e5c96bb4587060a9026_0.file.home.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/072b89842c5cf6c551893e5c96bb4587060a9026_0.file.home.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3_0.file.event.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3_0.file.event.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/814225f78156d90b0e9faeb6fff7ccdc3aba7ad9_0.file.organizerProfile.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/814225f78156d90b0e9faeb6fff7ccdc3aba7ad9_0.file.organizerProfile.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/deleteUser.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/deleteUser.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/home.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/home.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/newAthlete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/newAthlete.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/newEvent.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/newEvent.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/organizerProfile.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/routing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VNewAthlete.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VNewAthlete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VNewEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VNewEvent.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,15 +51,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template" />
@@ -72,8 +80,16 @@
       <option name="presentableId" value="Default" />
       <updated>1657557356686</updated>
       <workItem from="1657557357720" duration="174000" />
-      <workItem from="1657557549751" duration="2908000" />
+      <workItem from="1657557549751" duration="18310000" />
     </task>
+    <task id="LOCAL-00001" summary="registration change">
+      <created>1657565744652</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657565744652</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,5 +105,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="registration change" />
+    <option name="LAST_COMMIT_MESSAGE" value="registration change" />
   </component>
 </project>

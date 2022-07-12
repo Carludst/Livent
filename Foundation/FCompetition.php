@@ -66,6 +66,11 @@ class FCompetition {
         return self::getObjectByArray($arrayObject);
     }
 
+    public static function loadLastStore():?ECompetition{
+        $id=FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'idcompetition'))[0]['max'];
+        return self::loadOne($id);
+    }
+
     public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array{
         $where=FDb::where($fieldWhere,$valueWhere,$opWhere);
         $query=FDb::load(self::$table[0],$where);

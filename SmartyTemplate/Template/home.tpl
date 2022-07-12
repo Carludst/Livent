@@ -109,6 +109,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							<li><a href="typography.html">Errori</a></li>
 							<li><a href="/Livent/Graphics/">Imposta grafica</a></li>
 							<li><a href="/Livent/User/Search/">Gestione utenti</a></li>
+							<li><a href="/Livent/Athlete/NewPage/">Crea Atleta</a></li>
 						</ul>
 					</li>
 					<!-- / System -->

@@ -9,11 +9,9 @@ class VNewAthlete extends View
         parent::__construct();
     }
 
-    public function show(EAthlete|null $athlete)
+    public function show(EAthlete|null $athlete=NULL)
     {
         $assign=$this->assign;
-        if($this->getMood())$assign['mood']='true';
-        else $assign['mood']='false';
         $assign['athlete']=$athlete;
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
@@ -30,7 +28,9 @@ class VNewAthlete extends View
     }
 
     private function getBirthDate():?DateTime{
-        if(!empty($_POST['date']))return $_POST['date'];
+        if(!empty($_POST['date'])){
+            return DateTime::createFromFormat('Y-m-d',$_POST['date']);
+        }
         else return null;
     }
 
@@ -58,7 +58,7 @@ class VNewAthlete extends View
     }
 
     public function getPassword():?string{
-        if(!empty($_POST['password']))return $_POST['password'];
+        if(!empty($_POST['password']))return hash("sha3-256", $_POST['password']);
         else return null;
     }
 
@@ -73,8 +73,6 @@ class VNewAthlete extends View
         return $athlete;
     }
 
-    public function getMood():bool{
-        return empty($_GET);
-    }
+
 
 }

@@ -110,6 +110,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                             <li><a href="typography.html">Errori</a></li>
                             <li><a href="/Livent/Graphics/">Imposta grafica</a></li>
                             <li><a href="/Livent/User/Search/">Gestione utenti</a></li>
+                            <li><a href="/Livent/Athlete/NewPage/">Crea Atleta</a></li>
                         </ul>
                     </li>
                     <!-- / System -->
@@ -184,8 +185,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <!-- / Setting -->
                     {if '' != $user && $user->getType() eq 'Administrator'}
                         <ul class="text-center">
-                            <li class="inline"><a class="btn btn-transparent mt-20" href="typography.html">Modifica</a></li>
-                            <li class="inline"><a class="btn btn-transparent mt-20" href="/Livent/Graphics/">Elimina</a></li>
+                            <li class="inline"><a class="btn btn-transparent mt-20" href="/Livent/Athlete/NewPage/{$athlete->getId()}/">Modifica</a></li>
                         </ul>
                     {/if}
                     <!-- / Setting -->

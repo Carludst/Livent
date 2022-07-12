@@ -16,7 +16,7 @@ class FDbH {
 
 
     /**
-     * Method : return the frist object of the result of the query
+     * Method : return the object with the key passed like parameter
      * @param $key
      * @param String $Eclass
      * @return EAthlete|EUser|EComment|ECompetition|EContact|EEvent
@@ -24,6 +24,16 @@ class FDbH {
     public static function loadOne( $key,String $Eclass):NULL|EAthlete|EUser|EComment|ECompetition|EContact|EEvent {
         $Fclass = "F".substr($Eclass,1);
         return $Fclass::loadOne($key);
+    }
+
+    /**
+     * Method : return the last object stored
+     * @param String $Eclass
+     * @return EAthlete|EUser|EComment|ECompetition|EContact|EEvent|NULL
+     */
+    public static function loadLastStore(String $Eclass):NULL|EAthlete|EUser|EComment|ECompetition|EContact|EEvent {
+        $Fclass = "F".substr($Eclass,1);
+        return $Fclass::loadLastStore();
     }
 
     /** -Method : return an array of object according with the query result

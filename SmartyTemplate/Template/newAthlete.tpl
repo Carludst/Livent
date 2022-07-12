@@ -44,23 +44,6 @@
 
 <!-- Main Menu Section -->
 
-<!--COPIA DA HOME-->
-
-<section class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="content">
-                    <h1 class="page-name">Nuovo atleta</h1>
-                    <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Nuovo atleta</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <section class="signin-page account" >
@@ -68,9 +51,30 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
+                    <a class="logo" href="/Livent/">
+                        <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
+                               font-family="AustinBold, Austin" font-weight="bold">
+                                <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
+                                    <text id="AVIATO">
+                                        <tspan x="125" y="325">Livent</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
                     <h2 class="text-center"><b>Crea il nuovo Atleta</b></h2>
-                    <form method="post" class="text-left clearfix" {if $athlete!=""}action="/Livent/Athlete/Update/"{/if} name="createForm">
-                        <h3>Inserimento dati:</h3>
+                    <form method="post" class="text-left clearfix" name="createForm" {if $athlete!=""}action="/Livent/Athlete/Update/{$athlete->getId()}/"{else} action="/Livent/Athlete/Update/" {/if} >
+                        <h3>Autentificazione:</h3>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control"  name="password" placeholder="Password" required>
+                        </div>
+                        <br>
+                        <h3>Inserimento dati :</h3>
                         <div class="form-group">
                             <input type="text" {if $athlete!=""}value="{$athlete->getName()}"{/if} name="name" class="form-control" placeholder="Nome">
                         </div>
@@ -81,11 +85,11 @@
                         <br>
                         <h4>Sport praticato:</h4>
                         <select class="form-control" name="sport">
-                            <option {if $athlete!="" && $athlete->getSport()=='Atletica'}selected{/if} value="atletica">Atletica</option>
-                            <option {if $athlete!="" && $athlete->getSport()=='Ciclismo'}selected{/if} value="ciclismo">Ciclismo</option>
-                            <option {if $athlete!="" && $athlete->getSport()=='Nuoto'}selected{/if} value="nuoto">Nuoto</option>
-                            <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio a rotelle'}selected{/if} value="pattrot">Pattinaggio a rotelle</option>
-                            <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio sul ghiaccio'}selected{/if} value="pattghi">Pattinaggio sul ghiaccio</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Atletica'}selected{/if} >Atletica</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Ciclismo'}selected{/if} >Ciclismo</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Nuoto'}selected{/if} >Nuoto</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio a rotelle'}selected{/if} >Pattinaggio a rotelle</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio sul ghiaccio'}selected{/if} >Pattinaggio sul ghiaccio</option>
                         </select>
                         <br>
                         <div class="form-group">
@@ -94,26 +98,22 @@
                         <br>
                         <div class="form-group">
                             <table cellpadding="5">
-                                <h4>Data di nascita : </h4>
-                                <input type="date" {if $athlete!=""}value="{$athlete->getBirthdate()}"{/if} name="date" class="form-control">
+                                <tbody>
+                                <tr>
+                                    <td class="my-td-title"><h4>Data di nascita : </h4></td>
+                                    <td class="my-td"><input type="date" {if $athlete!=""}value="{$athlete->getBirthdate()->format("Y-m-d")}"{/if} name="date" class="form-control"></td>
+                                </tr>
+                                </tbody>
                             </table>
                         </div>
                         <br>
                         <div>
                             <h4>Seleziona il genere:</h4>
-                            <input type="radio" name="gender" value="man"/><b> M</b>
-                            <input type="radio" name="gender" value="woman"/><b> F</b>
+                            <input type="radio" name="gender" {if $athlete!="" && !$athlete->getFamale()} checked="checked"{/if} value="man"/><b> M</b>
+                            <input type="radio" name="gender" {if $athlete!="" && $athlete->getFamale()} checked="checked"{/if} value="woman"/><b> F</b>
                         </div>
                         <br>
-                        <h3>Autentificazione:</h3>
-                        <div class="form-group">
-                            <input type="email" class="form-control" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control"  name="password" placeholder="Password" required>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
+                        <button type="submit"  class="btn btn-main text-center">Conferma</button>
                     </form>
                 </div>
             </div>

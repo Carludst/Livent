@@ -89,6 +89,11 @@ class FAthlete {
         return $result;
     }
 
+    public static function loadLastStore():?EAthlete{
+        $id=FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'idathlete'))[0]['max'];
+        return self::loadOne($id);
+    }
+
     /**
      * -Method : search in database by primarykey
      * @param int $key primarykey value

@@ -10,15 +10,41 @@ class CManageEvent
     public static function update():void
     {
         try{
-            $vEvent=new VNewEvent();
+            $view=new VNewEvent();
             $logged=FSession::getUserLogged();
-            $myinput=$vEvent->getMyInput();
-            $event= $vEvent->createEvent();
-            if(is_null($myinput) && FSession::getUserLogged()->getType()=='Organizer'){
+            $myinput=$view->getMyInput();
+
+            if(is_null($myinput) && $logged->getType()=='Organizer'){
+                $event= $view->createEvent($logged);
                 if(CManageUser::callLogin())FDbH::store($event);
+                $id=FDbH::loadLastStore(EEvent::class)->getId();
+                header('Location: /Livent/Event/MainPage/'.$id.'/');
             }
-            elseif(self::authorizer($event) && FSession::getUserLogged()->getType()=='Organizer' && $vEvent->getEmail()==$logged->getEmail() && $vEvent->getPassword()==$logged->getPassword()){
-                if(!FDbH::updateOne($event))throw new Exception("you can't update an event that don't exist");
+            else{
+
+                $event=$view->createEvent($logged);
+                $event->setId($myinput);
+                if(self::authorizer($event) && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
+                    if(!FDbH::updateOne($event))throw new Exception("you can't update an event that don't exist");
+
+
+                    if(!is_null($view->getPathImg())&&!is_null($view->getTypeImg())){
+                        $path=$view->getPathImg();
+                        $type=$view->getTypeImg();
+                        if(FDbH::existFile($event,MappingPathFile::nameEventMain())) {
+                            FDbH::updateFile($event,MappingPathFile::nameEventMain(), $path, $type, true);
+                        }
+                        else FDbH::storeFile($event,MappingPathFile::nameEventMain(),$path,$type,true);
+                    }
+                    elseif (!is_null($view->getPathImg())||!is_null($view->getTypeImg())){
+                        var_dump($view->getPathImg());
+                        var_dump($view->getTypeImg());
+                        throw new Exception('file error');
+                    }
+
+                    header('Location: /Livent/Event/MainPage/'.$myinput.'/');
+                }
+                else throw new Exception("you don't have authorization");
             }
         }
         catch (Exception $e){
@@ -97,20 +123,18 @@ class CManageEvent
 
     public static function newPage(){
         try{
-            $vEvent=new VNewEvent();
-            $myinput=$vEvent->getMyInput();
+            $view=new VNewEvent();
+            $myinput=$view->getMyInput();
                 if(is_null($myinput)){
                     if(CManageUser::callLogin() && FSession::getUserLogged()->getType()=='Organizer'){
-                        $vEvent->show(null);
+                        $view->show();
                     }
-                    elseif(FSession::isLogged() && FSession::getUserLogged()->getType()!='Organizer'){
-                        throw new Exception("You don't have autorization");
-                    }
+                    else throw new Exception("You don't have autorization");
                 }
                 else{
                     $event= FDbH::loadOne((int)$myinput, EEvent::class);
                     if(self::authorizer($event)){
-                        $vEvent->show($event);
+                        $view->show($event);
                     }
                     else throw new Exception("you don't have autorization");
                 }

@@ -5,7 +5,10 @@ class FSession
     public static function isLogged():bool
     {
         if (session_status() == PHP_SESSION_NONE)session_start();
-        if(array_key_exists('user',$_SESSION))return true;
+        if(array_key_exists('user',$_SESSION)){
+            if(FDbH::existOne(self::getUserLogged()->getId(),EUser::class)) return true;
+            else return false;
+        }
         else return false;
     }
 

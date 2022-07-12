@@ -133,7 +133,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                             <li><span>Email:</span>{$user->getEmail()}</li>
                             <br>
                             <br>
-                            <li class="li"><a href="#!" class="btn btn-main btn-small btn-round-full">Nuovo Evento</a></li>
+                            <li class="li"><a href="/Livent/Event/NewPage/" class="btn btn-main btn-small btn-round-full">Nuovo Evento</a></li>
                         </ul>
 
                     </div>
@@ -172,7 +172,8 @@ FACEBOOK: https://www.facebook.com/themefisher
                             </div>
                             <div class="product-content">
                                 <h4>{$events[i]->getName()}</h4>
-                                <time>{$events[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
+                                {if !empty($events[i]->getCompetitions())}<time>{$events[i]->getCompetition(0)->getDateTime()->format("d-m-y")}</time>
+                                {else}<time>data da stabile</time>{/if}
                             </div>
                         </div>
                     </div>

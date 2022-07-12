@@ -99,7 +99,43 @@ FACEBOOK: https://www.facebook.com/themefisher
                         </ul>
                     </li>
                     <!-- / Search -->
-                    {if '' != $user }
+                    <!-- / System -->
+                    {if '' != $user && $user->getType() eq 'Administrator'}
+                    <li class="dropdown dropdown-slide">
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                           role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-ios-settings-strong"></i> System<span
+                                    class="tf-ion-ios-arrow-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="typography.html">Errori</a></li>
+                            <li><a href="/Livent/Graphics/">Imposta grafica</a></li>
+                            <li><a href="/Livent/User/Search/">Gestione utenti</a></li>
+                            <li><a href="/Livent/Athlete/NewPage/">Crea Atleta</a></li>
+                        </ul>
+                    </li>
+                    <!-- / System -->
+                    <!-- User -->
+                    <li class="dropdown cart-nav dropdown-slide" >
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
+                        <div class="dropdown-menu cart-dropdown center-element" >
+                            <!-- Cart Item -->
+                            <div class="media">
+                                <img class="media-object" src="{$profileImg}" alt="image" />
+                                <div class="media-body">
+                                    <h4 class="media-heading">{$user->getUsername()}</h4>
+                                    </br>
+                                    <h4 class="media-heading">{$user->getEmail()}</h4>
+                                </div>
+                            </div><!-- / Cart Item -->
+                            <!-- Cart Item -->
+                            <ul class="text-center cart-buttons">
+                                <li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
+                                <li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" >Logout</a></li>
+                            </ul>
+                        </div>
+
+                    </li><!-- / User -->
+
+                    {elseif '' != $user }
                     <li class="dropdown cart-nav dropdown-slide" >
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
                         <div class="dropdown-menu cart-dropdown">
@@ -148,7 +184,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                             <a href="#!" class="dropdown-toggle btn btn-transparent mt-20" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
                             <ul class="dropdown-menu">
-                                <li><a href="/Livent/Event/Update/">Modifica Profilo</a></li>
+                                <li><a href="/Livent/Event/NewPage/{$event->getId()}/">Modifica Profilo</a></li>
                                 <li><a href="/Livent/Event/Delete/">Cancella Profilo</a></li>
                             </ul>
                         </li>
@@ -158,7 +194,8 @@ FACEBOOK: https://www.facebook.com/themefisher
             <div class="col-md-7">
                 <div class="single-product-details">
                     <h2>{$event->getName()}</h2>
-                    <p class="product-price"><time>{$event->getCompetition(0)->getDateTime()->format("d-m-y")}</time></p>
+                    {if !empty($event->getCompetitions())}<p class="product-price"><time>{$event->getCompetition(0)->getDateTime()->format("d-m-y")}</time></p>
+                    {else}<p class="product-price"><time>data da stabilire</time>{/if}
                     <p class="product-description mt-20">{$event->getDescription()}</p>
                     {if $user->getType() == 'Organizer' && $mood eq 'permit'}
                         <a href="" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
