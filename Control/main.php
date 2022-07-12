@@ -3,11 +3,7 @@ include_once "../Utility/defaultPath.php";
 include_once $GLOBALS['defaultPath']."/Utility/autoload.php";
 include_once $GLOBALS['defaultPath']."/Foundation/FDbH.php";
 
-$e=FDbH::loadOne(7,EEvent::class);
-$contact=new EContact('Roberto','3515787678','roberto.distefano@gmail.com');
-FDbH::store($contact,$e->getId());
-$password = hash("sha3-256", 'password');
-$user=new EUser('carladistefano99@hotmail.it','Carla amministratore',$password,'Administrator');
+$user=new EUser('carladistefano99@hotmail.com','Carla user','password','user');
 FDbH::store($user);
 //$e=new EEvent("Internazionali D'Italia","L'Aquila",$user,true);
 //FDbH::store($e);

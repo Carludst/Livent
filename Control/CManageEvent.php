@@ -3,14 +3,21 @@
 class CManageEvent
 {
     private static function authorizer(EEvent $event):bool{
-        if(FSession::isLogged() && $event->getOrganizer()->getEmail()!=FSession::getUserLogged()->getEmail())throw new Exception("you don'y have autorization");
+        if(FSession::isLogged() && $event->getOrganizer()->getId()!=FSession::getUserLogged()->getId())throw new Exception("you don'y have autorization");
         return CManageUser::callLogin();
     }
 
-    public static function update(EEvent $event):void
+    public static function update():void
     {
         try{
-            if(self::authorizer($event)){
+            $vEvent=new VNewEvent();
+            $logged=FSession::getUserLogged();
+            $myinput=$vEvent->getMyInput();
+            $event= $vEvent->createEvent();
+            if(is_null($myinput) && FSession::getUserLogged()->getType()=='Organizer'){
+                if(CManageUser::callLogin())FDbH::store($event);
+            }
+            elseif(self::authorizer($event) && FSession::getUserLogged()->getType()=='Organizer' && $vEvent->getEmail()==$logged->getEmail() && $vEvent->getPassword()==$logged->getPassword()){
                 if(!FDbH::updateOne($event))throw new Exception("you can't update an event that don't exist");
             }
         }
@@ -19,6 +26,7 @@ class CManageEvent
         }
     }
 
+    /*
     public static function create(EEvent $event):void
     {
         try{
@@ -30,6 +38,7 @@ class CManageEvent
             CError::store($e,"ci scusiamo per il disaggio !!! La creazione dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
+    */
 
     public static function delete(EEvent $event){
         try{
@@ -90,21 +99,21 @@ class CManageEvent
         try{
             $vEvent=new VNewEvent();
             $myinput=$vEvent->getMyInput();
-            if(is_null($myinput)){
-                if(CManageUser::callLogin() && FSession::getUserLogged()->getType()=='Organizer'){
-                    $vEvent->show(null);
+                if(is_null($myinput)){
+                    if(CManageUser::callLogin() && FSession::getUserLogged()->getType()=='Organizer'){
+                        $vEvent->show(null);
+                    }
+                    elseif(FSession::isLogged() && FSession::getUserLogged()->getType()!='Organizer'){
+                        throw new Exception("You don't have autorization");
+                    }
                 }
-                elseif(FSession::isLogged() && FSession::getUserLogged()->getType()!='Organizer'){
-                    throw new Exception("You don't have autorization");
+                else{
+                    $event= FDbH::loadOne((int)$myinput, EEvent::class);
+                    if(self::authorizer($event)){
+                        $vEvent->show($event);
+                    }
+                    else throw new Exception("you don't have autorization");
                 }
-            }
-            else{
-                $event= FDbH::loadOne((int)$myinput, EEvent::class);
-                if(self::authorizer($event)){
-                    $vEvent->show($event);
-                }
-                else throw new Exception("you don't have autorization");
-            }
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina per creare/modificare un evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");

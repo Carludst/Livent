@@ -309,8 +309,7 @@ class FCompetition {
         $result=array();
         foreach ($resultQ as $c=>$v){
             $athlete=FAthlete::loadOne((int)$v["idathlete"]);
-            $iscriber=FUser::loadOne((int)$v["iduser"]);
-            $result[]=array($athlete,$iscriber);
+            $result[]=$athlete;
         }
         return $result;
     }

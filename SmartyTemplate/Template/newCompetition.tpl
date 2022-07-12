@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Aviato | E-commerce template</title>
+    <title>Livent</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -16,26 +16,26 @@
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
 
     <!-- Themefisher Icon font -->
-    <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
 
     <!-- Animate css -->
-    <link rel="stylesheet" href="plugins/animate/animate.css">
+    <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
     <!-- Slick Carousel -->
-    <link rel="stylesheet" href="plugins/slick/slick.css">
-    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
+    <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{$dir}/css/style.css">
 
 
 </head>
 
-<body id="body" onload="setDate(document.searchForm) ; setListCompetitionName({$name})">
+<body>
 
 <!-- Start Top Header Bar -->
 <!--COPIA DA HOME-->
@@ -63,48 +63,29 @@
 </section>
 
 
-<section class="products section" >
+<section class="signin-page account" >
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
-                    <form method="post" action="#" name="createForm">
-                        </br>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $competition!=""}value="{$competition->getName()}"{/if} name="name" class="form-control" placeholder="Nome competizione" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                    <h2 class="text-center"><b>Crea la nuova competizione</b></h2>
+                    <form method="post" class="text-left clearfix" action="/Livent/Competition/Update/" name="createForm">
+                        <h4>Nome:</h4>
+                        <div class="form-group">
+                            <input type="text" {if $competition!=""}value="{$competition->getName()}"{/if} name="name" class="form-control" placeholder="Nome competizione">
                         </div>
                         <br>
-                        <h4>sport:</h4>
-                        <select class="form-control" name="sport" id='sportList' onchange="setListCompetitionName('')">
-                            <option>Qualsiasi Sport</option>
-                            <option {if $competition->getSport()=='Atletica'}selected{/if}>Atletica</option>
-                            <option {if $competition->getSport()=='Ciclismo'}selected{/if}>Ciclismo</option>
-                            <option {if $competition->getSport()=='Nuoto'}selected{/if}>Nuoto</option>
-                            <option {if $competition->getSport()=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
-                            <option {if $competition->getSport()=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
-                        </select>
-                        <br>
-                        <div class="it-datepicker-wrapper">
-                            <table cellpadding="5">
-                                <tbody>
-                                <tr>
-                                    <td><h4>Data di inizio: </h4></td>
-                                    <td> <input type="datetime-local" {if $competition!=""}value="{$competition->getDateTime()->format("Y-m-d H:i:s")}"{/if} name="dateTime"></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div class="form-group">
+                            <h4>Data di inizio: </h4>
+                            <input type="datetime-local" {if $competition!=""}value="{$competition->getDateTime()->format("Y-m-d H:i:s")}"{/if} class="form-control" name="dateTime">
                         </div>
                         <br>
-                        <select class="form-control">
-                            <option>No Selected</option>
-                            <option {if $competition->getGender()=='M'}selected{/if}>Uomo</option>
-                            <option {if $competition->getGender()=='F'}selected{/if}>Donna</option>
-                        </select>
                         <br>
                         <table>
                             <tbody>
                             <tr>
                                 <td><h4>Unità di musura:</h4></td>
+                                <td> </td>
                                 <td>
                                     <select class="form-control" name="unit">
                                         <option {if $competition!=""}selected{/if}>Km</option>
@@ -114,20 +95,48 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td><h4>Distanza:</h4></td>
+                                <td> </td>
                                 <td><input type="number" {if $competition!=""}value="{$competition->getDistance()}"{/if} name="dist"></td>
                             </tr>
                             </tbody>
                         </table>
-                        <div>
-                            <p>Descrizione:</p>
-                            <textarea {if $competition!=""}value="{$competition->getDescription()}"{/if} name="description" cols="20" rows="4">Scrivi la descrizione...</textarea>
+                        <br>
+                        <h4>Sport:</h4>
+                        <select class="form-control" name="sport">
+                            <option>Qualsiasi Sport</option>
+                            <option {if $competition!="" && $competition->getSport()=='Atletica'}selected{/if}>Atletica</option>
+                            <option {if $competition!="" && $competition->getSport()=='Ciclismo'}selected{/if}>Ciclismo</option>
+                            <option {if $competition!="" && $competition->getSport()=='Nuoto'}selected{/if}>Nuoto</option>
+                            <option {if $competition!="" && $competition->getSport()=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
+                            <option {if $competition!="" && $competition->getSport()=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
+                        </select>
+                        <br>
+                        <h4>Genere:</h4>
+                        <select class="form-control" name="gender">
+                            <option>No Selected</option>
+                            <option {if $competition!="" && $competition->getGender()=='M'}selected{/if}>Uomo</option>
+                            <option {if $competition!="" && $competition->getGender()=='F'}selected{/if}>Donna</option>
+                        </select>
+                        <br>
+                        <div class="form-group">
+                            <h4>Descrizione:</h4>
+                            <textarea {if $competition!=""}value="{$competition->getDescription()}"{/if} name="description" class="form-control" cols="20" rows="4">Scrivi la descrizione...</textarea>
                         </div>
                         <br>
                         <label for="avatar">Scegli una foto per la competizione:</label>
                         <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                        <br>
+                        <h3><b>Autenticazione:</b></h3>
+                        <div class="form-group">
+                            <input type="email" name='email' class="form-control"  placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name='password' class="form-control" placeholder="Password">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                     </form>
-                    <br>
-                    <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                 </div>
             </div>
         </div>
@@ -175,7 +184,6 @@ Essential Scripts
 <script src="{$dir}/js/script.js"></script>
 <!--MyJavaScript -->
 <script src="{$dir}/js/myScript.js"></script>
-
 
 
 

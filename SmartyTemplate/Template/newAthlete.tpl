@@ -63,53 +63,58 @@
 </section>
 
 
-<section class="products section" >
+<section class="signin-page account" >
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
-                    <form method="post" action="#" name="createForm">
-                        </br>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $athlete!=""}value="{$athlete->getName()}"{/if} name="name" class="form-control" placeholder="Nome" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                    <h2 class="text-center"><b>Crea il nuovo Atleta</b></h2>
+                    <form method="post" class="text-left clearfix" {if $athlete!=""}action="/Livent/Athlete/Update/"{/if} name="createForm">
+                        <h3>Inserimento dati:</h3>
+                        <div class="form-group">
+                            <input type="text" {if $athlete!=""}value="{$athlete->getName()}"{/if} name="name" class="form-control" placeholder="Nome">
                         </div>
                         <br>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $athlete!=""}value="{$athlete->getSurname()}"{/if} name="surname" placeholder="Cognome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="text" {if $athlete!=""}value="{$athlete->getSurname()}"{/if} name="surname" placeholder="Cognome" class="form-control">
                         </div>
                         <br>
-                        <h4>sport praticato:</h4>
+                        <h4>Sport praticato:</h4>
                         <select class="form-control" name="sport">
-                            <option {if $athlete!="" && $athlete->getSport()=='Atletica'}selected{/if}>Atletica</option>
-                            <option {if $athlete!="" && $athlete->getSport()=='Ciclismo'}selected{/if}>Ciclismo</option>
-                            <option {if $athlete!="" && $athlete->getSport()=='Nuoto'}selected{/if}>Nuoto</option>
-                            <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio a rotelle'}selected{/if}>Pattinaggio a rotelle</option>
-                            <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Atletica'}selected{/if} value="atletica">Atletica</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Ciclismo'}selected{/if} value="ciclismo">Ciclismo</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Nuoto'}selected{/if} value="nuoto">Nuoto</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio a rotelle'}selected{/if} value="pattrot">Pattinaggio a rotelle</option>
+                            <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio sul ghiaccio'}selected{/if} value="pattghi">Pattinaggio sul ghiaccio</option>
                         </select>
                         <br>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $athlete!=""}value="{$athlete->getTeam()}"{/if} name="team" placeholder="Team" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="text" {if $athlete!=""}value="{$athlete->getTeam()}"{/if} name="team" placeholder="Team" class="form-control">
                         </div>
                         <br>
-                        <div class="it-datepicker-wrapper">
+                        <div class="form-group">
                             <table cellpadding="5">
                                 <h4>Data di nascita : </h4>
-                                <input type="date" {if $athlete!=""}value="{$athlete->getBirthdate()}"{/if} name="date" style="width: 225px">
+                                <input type="date" {if $athlete!=""}value="{$athlete->getBirthdate()}"{/if} name="date" class="form-control">
                             </table>
                         </div>
                         <br>
-                        <select class="form-control">
-                            <p>Seleziona il genere:</p>
-                            <br>
-                            <input type="radio" name="gender" value="man"/>Uomo
-                            <input type="radio" name="gender" value="woman"/>Donna
-                        </select>
+                        <div>
+                            <h4>Seleziona il genere:</h4>
+                            <input type="radio" name="gender" value="man"/><b> M</b>
+                            <input type="radio" name="gender" value="woman"/><b> F</b>
+                        </div>
                         <br>
-                        <label for="avatar">Scegli una foto profilo:</label>
-                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                        <h3>Autentificazione:</h3>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control"  name="password" placeholder="Password" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                     </form>
-                    <br>
-                    <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                 </div>
             </div>
         </div>

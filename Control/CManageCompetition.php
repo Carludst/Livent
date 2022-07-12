@@ -8,10 +8,17 @@ class CManageCompetition
         return CManageUser::callLogin();
     }
 
-    public static function update(ECompetition $competition):void
+    public static function update():void
     {
         try{
-            if(self::authorizer($competition)){
+            $vCompetition=new VNewCompetition();
+            $logged=FSession::getUserLogged();
+            $competition=$vCompetition->createCompetition();
+            $myinput=$vCompetition->getMyInput();
+            if(is_null($myinput) && FSession::getUserLogged()->getType()=='Organizer'){
+                if(CManageUser::callLogin())FDbH::store($competition);
+            }
+            elseif(self::authorizer($competition) && FSession::getUserLogged()->getType()=='Organizer' && $vCompetition->getEmail()==$logged->getEmail() && $vCompetition->getPassword()==$logged->getPassword()){
                 if(!FDbH::updateOne($competition))throw new Exception("you can't update a competition that don't exist");
             }
         }
@@ -20,6 +27,7 @@ class CManageCompetition
         }
     }
 
+    /*
     public static function create(ECompetition $competition):void
     {
         //VERIFICA LOGIN E TIPO UTENTE
@@ -33,6 +41,7 @@ class CManageCompetition
             CError::store($e,"ci scusiamo per il disaggio !!! La creazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
+    */
 
     public static function delete(ECompetition $competition){
         try{

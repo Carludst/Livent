@@ -17,35 +17,35 @@ FACEBOOK: https://www.facebook.com/themefisher
 <html lang="en">
 <head>
 
-  <!-- Basic Page Needs
-  ================================================== -->
-  <meta charset="utf-8">
-  <title>Livent</title>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Livent</title>
 
-  <!-- Mobile Specific Metas
-  ================================================== -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Construction Html5 Template">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="Themefisher">
-  <meta name="generator" content="Themefisher Constra HTML Template v1.0">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="author" content="Themefisher">
+    <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
 
-  <!-- Themefisher Icon font -->
-  <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
-  <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Themefisher Icon font -->
+    <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
 
-  <!-- Animate css -->
-  <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
-  <!-- Slick Carousel -->
-  <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
-  <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
+    <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="{$dir}/css/style.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{$dir}/css/style.css">
     <link rel="stylesheet" href="{$dir}/css/myStyle.css">
 
 </head>
@@ -134,17 +134,6 @@ FACEBOOK: https://www.facebook.com/themefisher
                         </div>
 
                     </li><!-- / User -->
-                    <!-- / Setting -->
-                    <li class="dropdown cart-nav dropdown-slide" >
-                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="tf-ion-android-settings"></i></a>
-                        <div class="dropdown-menu cart-dropdown">
-                            <ul class="text-center cart-buttons">
-                                <div><a href="/Livent/User/ProfilePage/" style="width: 100%" class="btn btn-small btn-solid-border">Modifica</a></div>
-                                <div><a href="/Livent/User/Logout/" style="width: 100%" class="btn btn-small btn-solid-border">Elimina</a></div>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- / Setting -->
 
                     {elseif '' != $user }
                     <li class="dropdown cart-nav dropdown-slide" >
@@ -187,26 +176,39 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 
 <section class="page-header ">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
                 <div>
+
+                    <!-- / Setting -->
+                    {if '' != $user && $user->getType() eq 'Administrator'}
+                        <ul class="text-center">
+                            <li class="inline"><a class="btn btn-transparent mt-20" href="typography.html">Modifica</a></li>
+                            <li class="inline"><a class="btn btn-transparent mt-20" href="/Livent/Graphics/">Elimina</a></li>
+                        </ul>
+                    {/if}
+                    <!-- / Setting -->
+
                     <div class="row">
                         <h2 class="text-center">{$athlete->getName()} {$athlete->getSurname()} ({$athlete->getId()})</h2>
                         <br>
-                            <table class="my-table" >
-                                <tbody>
-                                <td><h5 class="my-td-trasparent" >Data di nascita : </h5><h4 class="inline">{$athlete->getBirthDate()->format("d/m/y")}</h4></td>
-                                <td><h5 class="my-td-trasparent" >Sport praticato : </h5><h4 class="inline">{$athlete->getSport()}</h4></td>
-                                <td><h5 class="my-td-trasparent" >Società : </h5><h4 class="inline">{$athlete->getTeam()}</h4></td>
-                                </tbody>
-                            </table>
+                        <table class="my-table" >
+                            <tbody>
+                            <td><h5 class="my-td-trasparent" >Data di nascita : </h5><h4 class="inline">{$athlete->getBirthDate()->format("d/m/y")}</h4></td>
+                            <td><h5 class="my-td-trasparent" >Sport praticato : </h5><h4 class="inline">{$athlete->getSport()}</h4></td>
+                            <td><h5 class="my-td-trasparent" >Società : </h5><h4 class="inline">{$athlete->getTeam()}</h4></td>
+                            </tbody>
+                        </table>
                     </div>
+
                 </div>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </section>
+
+
 
 
 
@@ -243,12 +245,12 @@ FACEBOOK: https://www.facebook.com/themefisher
                 </thead>
                 <tbody>
                 {section name=index loop=$element}
-                <tr>
-                    <td>{$element[index]['competition']->getDateTime()->format("d/m/y")}</td>
-                    <td>{$element[index]['competition']->getDistance()->toString()}</td>
-                    <td>{$element[index]['time']->toString()}</td>
-                    <td><a href="/Livent/Competition/MainPage/{$element[index]['competition']->getId()}/" class="btn btn-default">Visualizza competizione</a></td>
-                </tr>
+                    <tr>
+                        <td>{$element[index]['competition']->getDateTime()->format("d/m/y")}</td>
+                        <td>{$element[index]['competition']->getDistance()->toString()}</td>
+                        <td>{$element[index]['time']->toString()}</td>
+                        <td><a href="/Livent/Competition/MainPage/{$element[index]['competition']->getId()}/" class="btn btn-default">Visualizza competizione</a></td>
+                    </tr>
                 {/section}
                 </tbody>
             </table>
@@ -257,36 +259,36 @@ FACEBOOK: https://www.facebook.com/themefisher
     </div>
 </section>
 
-    <!--
-    Essential Scripts
-    =====================================-->
+<!--
+Essential Scripts
+=====================================-->
 
-    <!-- Main jQuery -->
-    <script src="{$dir}/plugins/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.1 -->
-    <script src="{$dir}/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Bootstrap Touchpin -->
-    <script src="{$dir}/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-    <!-- Instagram Feed Js -->
-    <script src="{$dir}/plugins/instafeed/instafeed.min.js"></script>
-    <!-- Video Lightbox Plugin -->
-    <script src="{$dir}/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
-    <!-- Count Down Js -->
-    <script src="{$dir}/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+<!-- Main jQuery -->
+<script src="{$dir}/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.1 -->
+<script src="{$dir}/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- Bootstrap Touchpin -->
+<script src="{$dir}/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<!-- Instagram Feed Js -->
+<script src="{$dir}/plugins/instafeed/instafeed.min.js"></script>
+<!-- Video Lightbox Plugin -->
+<script src="{$dir}/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+<!-- Count Down Js -->
+<script src="{$dir}/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
 
-    <!-- slick Carousel -->
-    <script src="{$dir}/plugins/slick/slick.min.js"></script>
-    <script src="{$dir}/plugins/slick/slick-animation.min.js"></script>
+<!-- slick Carousel -->
+<script src="{$dir}/plugins/slick/slick.min.js"></script>
+<script src="{$dir}/plugins/slick/slick-animation.min.js"></script>
 
-    <!-- Google Mapl -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-    <script type="text/javascript" src="{$dir}/plugins/google-map/gmap.js"></script>
+<!-- Google Mapl -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+<script type="text/javascript" src="{$dir}/plugins/google-map/gmap.js"></script>
 
-    <!-- Main Js File -->
-    <script src="{$dir}/js/script.js"></script>
-    <script src="{$dir}/js/myScript.js"></script>
+<!-- Main Js File -->
+<script src="{$dir}/js/script.js"></script>
+<script src="{$dir}/js/myScript.js"></script>
 
 
 
-  </body>
-  </html>
+</body>
+</html>
