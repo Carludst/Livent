@@ -142,12 +142,27 @@ FACEBOOK: https://www.facebook.com/themefisher
         <div class="row mt-20">
             <div class="col-md-4">
                 <img class="img-responsive" src="{$eventImg}" alt="product-img" />
+                {if $user->getType() == 'Organizer' && $mood eq 'permit'}
+                    <ul class="top-menu">
+                        <li class="dropdown dropdown-slide ">
+                            <a href="#!" class="dropdown-toggle btn btn-transparent mt-20" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                               role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Livent/Event/Update/">Modifica Profilo</a></li>
+                                <li><a href="/Livent/Event/Delete/">Cancella Profilo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                {/if}
             </div>
             <div class="col-md-7">
                 <div class="single-product-details">
                     <h2>{$event->getName()}</h2>
                     <p class="product-price"><time>{$event->getCompetition(0)->getDateTime()->format("d-m-y")}</time></p>
                     <p class="product-description mt-20">{$event->getDescription()}</p>
+                    {if $user->getType() == 'Organizer' && $mood eq 'permit'}
+                        <a href="" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
+                    {/if}
                 </div>
             </div>
         </div>
@@ -159,7 +174,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                 {if empty($competitions)}
                     <br>
                     <br>
-                    <h1 class="my-allert-page" >Non ci sono competizioni</h1>
+                    <h1 class="my-allert-page">Non ci sono competizioni</h1>
                 {else}
                     <div class="media">
                         <div class="dashboard-wrapper dashboard-user-profile">
@@ -180,7 +195,10 @@ FACEBOOK: https://www.facebook.com/themefisher
                                                 <td>{$competitions[index]->getName()}</td>
                                                 <td>{$competitions[index]->getGender()}</td>
                                                 <td>{$competitions[index]->getSport()}</td>
-                                                <td><a href="cart.html" class="btn btn-main mt-20">Iscriviti</a></td>
+                                                <td class="text-right">
+                                                    <a href="" class="btn btn-main btn-small btn-round-full">Iscrizioni</a>
+                                                    <a href="" class="btn btn-main btn-small btn-round-full">Risultati</a>
+                                                </td>
                                             </tr>
                                         {/section}
                                         </tbody>

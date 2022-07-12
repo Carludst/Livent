@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-10 13:30:46
+/* Smarty version 4.1.1, created on 2022-07-11 16:51:20
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\userProfile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cab8666bf9c7_95281707',
+  'unifunc' => 'content_62cc38e82e2df6_30112711',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c2cc3e072f74be744f6d65d9d290a1fdabe2b60e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\userProfile.tpl',
-      1 => 1657290904,
+      1 => 1657551080,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cab8666bf9c7_95281707 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cc38e82e2df6_30112711 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -86,13 +86,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 <section class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-5 col-xs-12 col-sm-4">
                 <div class="contact-number">
                     <i class="tf-ion-ios-telephone"></i>
                     <span>0129- 12323-123123</span>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-2 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
                     <a href="/Livent/">
@@ -111,16 +111,15 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
-                <!-- Cart -->
+            <div class="col-md-5 col-xs-12 col-sm-4">
                 <ul class="top-menu text-right list-inline">
                     <!-- Home -->
                     <li class="dropdown ">
-                        <a href="/Livent/">Home</a>
+                        <a href="/Livent/" >Home</a>
                     </li>
                     <!-- / Home -->
                     <!-- / Search -->
-                    <li class="dropdown dropdown-slide">
+                    <li class="dropdown dropdown-slide ">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                            role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
                                     class="tf-ion-ios-arrow-down"></span></a>
@@ -131,17 +130,13 @@ FACEBOOK: https://www.facebook.com/themefisher
                         </ul>
                     </li>
                     <!-- / Search -->
-
                     <li class="dropdown ">
-                        <a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
+                        <a href="/Livent/User/Logout/"><i class="tf-ion-android-person"></i> Logout</a>
                     </li>
-
-                </ul><!-- / .nav .navbar-nav .navbar-right -->
             </div>
         </div>
     </div>
 </section>
-<!-- End Top Header Bar -->
 
 <section class="page-header dashboard-wrapper dashboard-user-profile">
     <div class="container">
@@ -151,7 +146,16 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <div class="pull-left text-center" href="#!">
                         <img class="media-object user-img" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
 " alt="Image">
-                        <a href="#x" class="btn btn-transparent mt-20">Change Profile</a>
+                        <ul class="top-menu">
+                            <li class="dropdown dropdown-slide ">
+                                <a href="#!" class="dropdown-toggle btn btn-transparent mt-20" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                                   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Livent/User/UpdatePage/">Modifica Profilo</a></li>
+                                    <li><a href="/Livent/User/Delete/">Cancella Profilo</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                     <div class="media-body">
                         <ul class="user-profile-list">
@@ -166,7 +170,6 @@ FACEBOOK: https://www.facebook.com/themefisher
         </div>
     </div>
 </section>
-
 
 <section class="user-dashboard page-wrapper">
     <div class="container">

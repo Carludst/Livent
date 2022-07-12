@@ -68,8 +68,9 @@ function routing():Array{
         'Signin'=>'CManageUser::signin',
         'Logout'=>'CManageUser::logout',
         'Update'=>'CManageUser::update',
-        'Delete'=>'CManagerUser::delete',
-        'Search'=>'CManagerUser::search'
+        'Delete'=>'CManageUser::delete',
+        'DeleteAdmin'=>'CManageUser::deleteAdmin()',
+        'Search'=>'CManageUser::search'
     ];
     //3 => 42
     $error=[

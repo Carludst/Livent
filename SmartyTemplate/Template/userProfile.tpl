@@ -53,7 +53,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 <!-- Start Top Header Bar -->
 
 <!-- Start Top Header Bar -->
-<<section class="top-header">
+<section class="top-header">
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-xs-12 col-sm-4">
@@ -100,45 +100,43 @@ FACEBOOK: https://www.facebook.com/themefisher
                         </ul>
                     </li>
                     <!-- / Search -->
-
-
-                    {if '' != $user }
-                    <li class="dropdown cart-nav dropdown-slide" >
-                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
-                        <div class="dropdown-menu cart-dropdown">
-                            <!-- Cart Item -->
-                            <div class="media">
-                                <a class="pull-left" href="/Livent/User/Profile/">
-                                    <img class="media-object" src="{$profileImg}" alt="image" />
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">{$user->getUsername()}</h4>
-                                    </br>
-                                    <h4 class="media-heading">{$user->getEmail()}</h4>
-                                </div>
-                            </div><!-- / Cart Item -->
-                            <!-- Cart Item -->
-                            <ul class="text-center cart-buttons">
-                                <li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
-                                <li><a href="/Livent/User/ProfilePage/" class="btn btn-small btn-solid-border">View Profile</a></li>
-                                <a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" style="width: 100%">Logout</a>
-                            </ul>
-                        </div>
-
-                    </li><!-- / User -->
-                </ul>
-
-                {else}
-                <!-- / Login -->
-                <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
-                <!-- / Login -->
-                {/if}
-                <!-- / .nav .navbar-nav .navbar-right -->
+                    <li class="dropdown ">
+                        <a href="/Livent/User/Logout/"><i class="tf-ion-android-person"></i> Logout</a>
+                    </li>
             </div>
         </div>
     </div>
 </section>
 
+<section class="page-header dashboard-wrapper dashboard-user-profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="media">
+                    <div class="pull-left text-center" href="#!">
+                        <img class="media-object user-img" src="{$profileImg}" alt="Image">
+                        <ul class="top-menu">
+                            <li class="dropdown dropdown-slide ">
+                                <a href="#!" class="dropdown-toggle btn btn-transparent mt-20" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                                   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Livent/User/UpdatePage/">Modifica Profilo</a></li>
+                                    <li><a href="/Livent/User/Delete/">Cancella Profilo</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="media-body">
+                        <ul class="user-profile-list">
+                            <li><span>Username:</span>{$user->getUsername()}</li>
+                            <li><span>Email:</span>{$user->getEmail()}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="user-dashboard page-wrapper">
     <div class="container">

@@ -1,4 +1,27 @@
-<!--
+<?php
+/* Smarty version 4.1.1, created on 2022-07-11 15:54:44
+  from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\deleteUser.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.1.1',
+  'unifunc' => 'content_62cc2ba4a20742_69795949',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '59654fbecb042264d682cac5db71f1d712c21c97' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\deleteUser.tpl',
+      1 => 1657547669,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_62cc2ba4a20742_69795949 (Smarty_Internal_Template $_smarty_tpl) {
+?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
 AUTHOR: Themefisher
@@ -31,22 +54,30 @@ FACEBOOK: https://www.facebook.com/themefisher
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo $_smarty_tpl->tpl_vars['logo']->value;?>
+" />
 
     <!-- Themefisher Icon font -->
-    <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/themefisher-font/style.css">
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap/css/bootstrap.min.css">
 
     <!-- Animate css -->
-    <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/animate/animate.css">
     <!-- Slick Carousel -->
-    <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
-    <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick-theme.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{$dir}/css/style.css">
-    <link rel="stylesheet" href="{$dir}/css/myStyle.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/css/style.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/css/myStyle.css">
 
 </head>
 
@@ -131,11 +162,13 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <h4 class="widget-title">Ricerca</h4>
                     <form method="get" action="/Livent/User/Search/" name="searchForm">
                         <div class="form-group-sm mb-3">
-                            <input type="text" class="form-control" {if $username!=""}value="{$username}"{/if} name="username" placeholder="Username" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" class="form-control" <?php if ($_smarty_tpl->tpl_vars['username']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+"<?php }?> name="username" placeholder="Username" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
                         <div class="input-group-sm mb-3">
-                            <input type="text" {if $email!=""}value="{$email}"{/if} placeholder="Email"  name="email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                            <input type="text" <?php if ($_smarty_tpl->tpl_vars['email']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['email']->value;?>
+"<?php }?> placeholder="Email"  name="email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
                         </div>
                         <br>
                         <button type="submit"  class="btn btn-main btn-small btn-round" style="width: 260px">Cerca</button>
@@ -145,33 +178,46 @@ FACEBOOK: https://www.facebook.com/themefisher
             <div class="col-md-9">
                 <div class="row">
                     <div class="list-group">
-                        {if empty($users) && $mood=='search'}
+                        <?php if (empty($_smarty_tpl->tpl_vars['users']->value) && $_smarty_tpl->tpl_vars['mood']->value == 'search') {?>
                             <h1 class="my-allert-page" > La ricerca non ha dato risultati </h1>
-                        {elseif empty($users)}
+                        <?php } elseif (empty($_smarty_tpl->tpl_vars['users']->value)) {?>
                             <h1 class="my-allert-page" > Non ci sono utenti salvati </h1>
-                        {else}
+                        <?php } else { ?>
                             <div class="row">
-                                {section name=index loop=$users}
+                                <?php
+$__section_index_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['users']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_index_0_total = $__section_index_0_loop;
+$_smarty_tpl->tpl_vars['__smarty_section_index'] = new Smarty_Variable(array());
+if ($__section_index_0_total !== 0) {
+for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] = 0; $__section_index_0_iteration <= $__section_index_0_total; $__section_index_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']++){
+?>
                                     <div class="col-md-12">
-                                        <a href="/Livent/User/DeleteAdmin/{$users[index]->getId()}/" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <a href="/Livent/User/DeleteAdmin/<?php echo $_smarty_tpl->tpl_vars['users']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+/" class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="d-flex w-100 justify-content-between">
                                                 <div class="row">
                                                     <div class="col-md-2">
-                                                        <img class="img-responsive" src="{$profileImg[index]}" alt="product-img" width="100" height="150" />
+                                                        <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)];?>
+" alt="product-img" width="100" height="150" />
                                                     </div>
                                                     <div class="col-md-7">
-                                                        <h3 class="mb-1"><b>{$users[index]->getUsername()}</b></h3>
+                                                        <h3 class="mb-1"><b><?php echo $_smarty_tpl->tpl_vars['users']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getUsername();?>
+</b></h3>
                                                         <br>
-                                                        <h7 class="mb-1">{$users[index]->getEmail()}</h7>
+                                                        <h7 class="mb-1"><?php echo $_smarty_tpl->tpl_vars['users']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getEmail();?>
+</h7>
                                                     </div>
                                                 </div>
                                             </div>
                                         </a>
                                         </br>
                                     </div>
-                                {/section}
+                                <?php
+}
+}
+?>
                             </div>
-                        {/if}
+                        <?php }?>
                     </div><!-- /.modal -->
                 </div>
             </div>
@@ -189,30 +235,64 @@ Essential Scripts
 =====================================-->
 
 <!-- Main jQuery -->
-<script src="{$dir}/plugins/jquery/dist/jquery.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/jquery/dist/jquery.min.js"><?php echo '</script'; ?>
+>
 <!-- Bootstrap 3.1 -->
-<script src="{$dir}/plugins/bootstrap/js/bootstrap.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 <!-- Bootstrap Touchpin -->
-<script src="{$dir}/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"><?php echo '</script'; ?>
+>
 <!-- Instagram Feed Js -->
-<script src="{$dir}/plugins/instafeed/instafeed.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/instafeed/instafeed.min.js"><?php echo '</script'; ?>
+>
 <!-- Video Lightbox Plugin -->
-<script src="{$dir}/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"><?php echo '</script'; ?>
+>
 <!-- Count Down Js -->
-<script src="{$dir}/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/syo-timer/build/jquery.syotimer.min.js"><?php echo '</script'; ?>
+>
 
 <!-- slick Carousel -->
-<script src="{$dir}/plugins/slick/slick.min.js"></script>
-<script src="{$dir}/plugins/slick/slick-animation.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick-animation.min.js"><?php echo '</script'; ?>
+>
 
 <!-- Google Mapl -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script type="text/javascript" src="{$dir}/plugins/google-map/gmap.js"></script>
+<?php echo '<script'; ?>
+ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/google-map/gmap.js"><?php echo '</script'; ?>
+>
 
 <!-- Main Js File -->
-<script src="{$dir}/js/script.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/js/script.js"><?php echo '</script'; ?>
+>
 
 
 
 </body>
 </html>
+<?php }
+}

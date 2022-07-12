@@ -480,8 +480,8 @@ class FDbH {
      * @param String|Null $username
      * @return array
      */
-    public static function searchUser(String|Null $username=NULL ){
-        return FContact::search($username);
+    public static function searchUser(String|Null $username=NULL, String|Null $email=NULL  ){
+        return FUser::search($username,$email);
     }
 
     /**

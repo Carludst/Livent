@@ -125,7 +125,7 @@ class FUser
         return EUser::class."/".$user->getId();
     }
 
-    public static function search(String|Null $username=NULL)
+    public static function search(String|Null $username=NULL, String|Null $email=NULL)
     {
         $fields = array();
         $values = array();
@@ -134,7 +134,7 @@ class FUser
         $orderBy=array();
         $ascending=array();
 
-        if (is_null($username)) {
+        if (is_null($username) && is_null($email)) {
             $resultQ = FDb::exInterrogation(FDb::load(self::$table[0]));
             foreach ($resultQ as $c => $v) {
                 $result[$c] = self::getObjectByArray($v);
@@ -142,11 +142,20 @@ class FUser
             return $result;
         }
         else {
-            $fields[] = 'username';
-            $values[] = $username . '%';
-            $opWhere[] = 'LIKE';
-            $orderBy[]='username';
-            $ascending[]=true;
+            if(!is_null($username)){
+                $fields[] = 'username';
+                $values[] = $username . '%';
+                $opWhere[] = 'LIKE';
+                $orderBy[]='username';
+                $ascending[]=true;
+            }
+            if(!is_null($email)){
+                $fields[] = 'email';
+                $values[] = $email . '%';
+                $opWhere[] = 'LIKE';
+                $orderBy[]='email';
+                $ascending[]=true;
+            }
 
             $resultQ = FDb::exInterrogation(FDb::load(self::$table[0], FDb::multiWhere($fields, $values, 'AND', $opWhere)),$orderBy,$ascending);
             foreach ($resultQ as $c => $v) {

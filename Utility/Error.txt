@@ -844,6 +844,47 @@ credential wrong
 #1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
 #2 {main}
 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'where clause'
+#0 C:\xampp\htdocs\Livent\Foundation\FContact.php(127): FDb::exInterrogation(Array, Array, Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(484): FContact::search('', '')
+#2 C:\xampp\htdocs\Livent\Control\CManageUser.php(230): FDbH::searchUser('', '')
+#3 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::search()
+#4 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#5 {main}
+
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'where clause'
+#0 C:\xampp\htdocs\Livent\Foundation\FContact.php(127): FDb::exInterrogation(Array, Array, Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(484): FContact::search('', NULL)
+#2 C:\xampp\htdocs\Livent\Control\CManageUser.php(230): FDbH::searchUser('', NULL)
+#3 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::search()
+#4 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#5 {main}
+
+credential wrong
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::login()
+#1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+credential wrong
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::login()
+#1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+credential wrong
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::login()
+#1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+credential wrong
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::login()
+#1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
+credential wrong
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::login()
+#1 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#2 {main}
+
 SQLSTATE[HY000]: General error: 2006 MySQL server has gone away
 #0 C:\xampp\htdocs\public_html\Livent\Foundation\FDb.php(115): PDO->rollBack()
 #1 C:\xampp\htdocs\public_html\Livent\Foundation\FDbH.php(131): FDb::update('file', Array, Array)
@@ -872,3 +913,23 @@ Syntax error in template "file:C:\xampp\htdocs\public_html\Livent\SmartyTemplate
 #16 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::profilePage()
 #17 C:\xampp\htdocs\public_html\Livent\index.php(6): CFrontController::run()
 #18 {main}
+
+Syntax error in template "file:C:\xampp\htdocs\Livent\SmartyTemplate\Template\event.tpl"  on line 151 "{if($user->getType() == 'Organizer' && $mood eq 'permit')}" unknown function 'if'
+#0 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatecompilerbase.php(649): Smarty_Internal_TemplateCompilerBase->trigger_template_error('unknown functio...')
+#1 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templateparser.php(2601): Smarty_Internal_TemplateCompilerBase->compilePHPFunctionCall('if', Array)
+#2 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templateparser.php(2777): Smarty_Internal_Templateparser->yy_r143()
+#3 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templateparser.php(2872): Smarty_Internal_Templateparser->yy_reduce(143)
+#4 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_smartytemplatecompiler.php(128): Smarty_Internal_Templateparser->doParse(13, '}')
+#5 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatecompilerbase.php(469): Smarty_Internal_SmartyTemplateCompiler->doCompile('<!--\r\nTHEME: Av...', true)
+#6 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatecompilerbase.php(395): Smarty_Internal_TemplateCompilerBase->compileTemplateSource(Object(Smarty_Internal_Template), false, NULL)
+#7 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_template_compiled.php(184): Smarty_Internal_TemplateCompilerBase->compileTemplate(Object(Smarty_Internal_Template))
+#8 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_template_compiled.php(141): Smarty_Template_Compiled->compileTemplateSource(Object(Smarty_Internal_Template))
+#9 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_template_compiled.php(105): Smarty_Template_Compiled->process(Object(Smarty_Internal_Template))
+#10 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_template.php(216): Smarty_Template_Compiled->render(Object(Smarty_Internal_Template))
+#11 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatebase.php(238): Smarty_Internal_Template->render(false, 1)
+#12 C:\xampp\htdocs\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatebase.php(134): Smarty_Internal_TemplateBase->_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#13 C:\xampp\htdocs\Livent\View\VEvent.php(32): Smarty_Internal_TemplateBase->display('event.tpl')
+#14 C:\xampp\htdocs\Livent\Control\CManageEvent.php(79): VEvent->show(Object(EEvent), 'data:image/png;...', Object(EUser), 'data:image/jpg;...', Array, Array, 'noPermit')
+#15 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageEvent::mainPage()
+#16 C:\xampp\htdocs\Livent\index.php(6): CFrontController::run()
+#17 {main}

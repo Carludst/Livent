@@ -128,7 +128,21 @@ class CManageUser
             if(self::callLogin()){
                 FDbH::deleteOne(FSession::getUserLogged()->getId(),EUser::class);
                 self::logout();
-                self::callLogin(false);
+                header('Location: /Livent/');
+            }
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione dell'utente non è andato a buon fine");
+        }
+    }
+
+    public static function deleteAdmin(){
+        try{
+            if(self::callLogin()){
+                $view = new VDeleteUser();
+                $id = $view->getMyInput();
+                FDbH::deleteOne($id,EUser::class);
+                header('Location: /Livent/User/Search/');
             }
         }
         catch(Exception $e){
@@ -212,35 +226,30 @@ class CManageUser
 
     public static function search()
     {
-        try{
-            $view=new VDeletUser();
+        try {
+            if(FSession::getUserLogged()->getType()=='Administrator'){
+                $view = new VDeleteUser();
 
-            $username=$view->getUsername();
-            $email=$view->getEmail();
+                $username = $view->getUsername();
+                $email = $view->getEmail();
 
-            if($view->getMood() && FSession::isLogged()){
-                $keys=FSession::getChronology(EUser::class);
-                $user=array();
-                $mood='cronology';
-                foreach ($keys as $k=>$v){
-                    if(!FDbH::existOne((int)$v,EUser::class))FSession::popChronology(EUser::class,$k);
-                    else $user[]=FDbH::loadOne($v,EUser::class);
+                if($view->getMood()){
+                    $mood = 'start';
                 }
+                else{
+                    $mood = 'search';
+                }
+                $users = FDbH::searchUser($username, $email);
+                $img = FDbH::loadMultiFile($users, MappingPathFile::nameUserMain(), MappingPathFile::dirUserDefault(), MappingPathFile::nameUserMain(), 0.4);
+                $view->show($users, $img, $mood);
             }
-            elseif($view->getMood()){
-                $mood='notlogged';
-                $user=FDbH::search();
-            }
-            else{
-                $mood='notlogged';
-                $user=FDbH::search($username, $email);
-            }
-            if(count($user)>100) $user=array_slice($user,0,100);
+            else throw new Exception("you don't have authorization");
 
-            $view->show($user,$mood);
+
         }
-        catch (Exception $e){
-            CError::store($e,"La ricerca non è andata a buon fine");
+
+        catch (Exception $e) {
+            CError::store($e, "La ricerca non è andata a buon fine");
             return array();
         }
     }

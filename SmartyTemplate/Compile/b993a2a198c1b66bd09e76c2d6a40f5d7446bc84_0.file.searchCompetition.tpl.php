@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-05 19:23:28
+/* Smarty version 4.1.1, created on 2022-07-11 15:43:43
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\searchCompetition.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c473901305f2_28228851',
+  'unifunc' => 'content_62cc290f866ae3_21917189',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b993a2a198c1b66bd09e76c2d6a40f5d7446bc84' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\searchCompetition.tpl',
-      1 => 1657041804,
+      1 => 1657466396,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c473901305f2_28228851 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cc290f866ae3_21917189 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -188,19 +188,21 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</table>
 						</div>
 						<br>
-						<button type="submit"  class="btn btn-primary" style="width: 260px">Cerca</button>
+						<button type="submit"  class="btn btn-main btn-small btn-round" style="width: 260px">Cerca</button>
                     </form>
 	            </div>
 			</div>
 			<div class="col-md-9">
 				<div class="row">
 					<div class="list-group">
-						<?php if (empty($_smarty_tpl->tpl_vars['competitions']->value) && $_smarty_tpl->tpl_vars['mood']->value == 'true') {?>
+						<?php if (empty($_smarty_tpl->tpl_vars['competitions']->value) && $_smarty_tpl->tpl_vars['mood']->value == 'cronology') {?>
 							<h1 class="my-allert-page" > Non hai competizioni in cronologia </h1>
-						<?php } elseif (empty($_smarty_tpl->tpl_vars['competitions']->value)) {?>
+						<?php } elseif (empty($_smarty_tpl->tpl_vars['competitions']->value) && $_smarty_tpl->tpl_vars['mood']->value == 'search') {?>
 							<h1 class="my-allert-page" > La ricerca non ha dato risultati </h1>
+						<?php } elseif (empty($_smarty_tpl->tpl_vars['competitions']->value)) {?>
+							<h1 class="my-allert-page" > Non ci sono competizioni salvate </h1>
 						<?php } else { ?>
-							<?php if ($_smarty_tpl->tpl_vars['mood']->value == 'true') {?>
+							<?php if ($_smarty_tpl->tpl_vars['mood']->value == 'cronology') {?>
 								<div class="row">
 									<?php
 $__section_index_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['competitions']->value) ? count($_loop) : max(0, (int) $_loop));

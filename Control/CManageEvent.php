@@ -70,11 +70,13 @@ class CManageEvent
             if(FDbH::existOne($key,EEvent::class)){
                 FSession::addChronology(EEvent::class,$key);
                 $event = FDbH::loadOne($key, EEvent::class);
+                if($event->getOrganizer()->getId()==FSession::getUserLogged()->getId())$mood='permit';
+                else $mood='noPermit';
                 $eventImg=FDbH::loadMultiFile($event,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.2);
                 $id = $event->getId();
                 $competitions = $event->getCompetitions();
                 $contacts=$event->getContacts();
-                $view->show($event, $eventImg, $user, $profileImg, $competitions,$contacts);
+                $view->show($event, $eventImg, $user, $profileImg, $competitions,$contacts,$mood);
             }
 
             else throw new Exception("l'evento non esiste");
