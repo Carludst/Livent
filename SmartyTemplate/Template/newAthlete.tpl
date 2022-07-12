@@ -112,9 +112,9 @@
                         <div class="form-group">
                             <input type="password" class="form-control"  name="password" placeholder="Password" required>
                         </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                     </form>
-                    <br>
-                    <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                 </div>
             </div>
         </div>
