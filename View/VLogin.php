@@ -10,8 +10,6 @@ class VLogin extends View
 
     public function show()
     {
-
-
         $this->smarty->assign($this->assign);
         $this->smarty->display(self::$template);
     }

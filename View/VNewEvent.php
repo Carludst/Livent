@@ -36,11 +36,7 @@ class VNewEvent extends View
     }
 
     public function getPlace(){
-        $place=array();
-        if(!empty($_POST['city'])) $place['city']=$_POST['city'];
-        if(!empty($_POST['street'])) $place['street']=$_POST['street'];
-        if(!empty($_POST['civic number'])) $place['civicnumber']=$_POST['city'];
-        if($place['city'] & $place['street'] & $place['civicnumber']) return $place;
+        if(!empty($_POST['place'])) return $_POST['place'];
         else return null;
     }
 
@@ -49,6 +45,11 @@ class VNewEvent extends View
             if($_POST['public?']=='public') return true;
             else return false;
         }
+        else return null;
+    }
+
+    public function getSport():?string{
+        if(!empty($_POST['sport'])) return $_POST['sport'];
         else return null;
     }
 
@@ -89,6 +90,16 @@ class VNewEvent extends View
 
     public function getDescription():?String{
         if(!empty($_POST['description']))return $_POST['description'];
+        else return null;
+    }
+
+    public function getEmail():?string{
+        if(!empty($_POST['email']))return $_POST['email'];
+        else return null;
+    }
+
+    public function getPassword():?string{
+        if(!empty($_POST['password']))return $_POST['password'];
         else return null;
     }
 
