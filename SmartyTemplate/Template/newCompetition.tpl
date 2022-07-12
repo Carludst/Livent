@@ -69,7 +69,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
                     <h2 class="text-center"><b>Crea la nuova competizione</b></h2>
-                    <form method="post" class="text-left clearfix" action="#" name="createForm">
+                    <form method="post" class="text-left clearfix" action="/Livent/Competition/Update/" name="createForm">
                         <h4>Nome:</h4>
                         <div class="form-group">
                             <input type="text" {if $competition!=""}value="{$competition->getName()}"{/if} name="name" class="form-control" placeholder="Nome competizione">
@@ -135,7 +135,7 @@
                             <input type="password" name='password' class="form-control" placeholder="Password">
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary">Conferma</button>
+                        <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                     </form>
                 </div>
             </div>

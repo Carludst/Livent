@@ -71,12 +71,12 @@
                     <h2 class="text-center"><b>Crea il nuovo Atleta</b></h2>
                     <form method="post" class="text-left clearfix" {if $athlete!=""}action="/Livent/Athlete/Update/"{/if} name="createForm">
                         <h3>Inserimento dati:</h3>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $athlete!=""}value="{$athlete->getName()}"{/if} name="name" class="form-control" placeholder="Nome" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="text" {if $athlete!=""}value="{$athlete->getName()}"{/if} name="name" class="form-control" placeholder="Nome">
                         </div>
                         <br>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $athlete!=""}value="{$athlete->getSurname()}"{/if} name="surname" placeholder="Cognome" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="text" {if $athlete!=""}value="{$athlete->getSurname()}"{/if} name="surname" placeholder="Cognome" class="form-control">
                         </div>
                         <br>
                         <h4>Sport praticato:</h4>
@@ -88,14 +88,14 @@
                             <option {if $athlete!="" && $athlete->getSport()=='Pattinaggio sul ghiaccio'}selected{/if} value="pattghi">Pattinaggio sul ghiaccio</option>
                         </select>
                         <br>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" {if $athlete!=""}value="{$athlete->getTeam()}"{/if} name="team" placeholder="Team" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
+                        <div class="form-group">
+                            <input type="text" {if $athlete!=""}value="{$athlete->getTeam()}"{/if} name="team" placeholder="Team" class="form-control">
                         </div>
                         <br>
-                        <div class="it-datepicker-wrapper">
+                        <div class="form-group">
                             <table cellpadding="5">
                                 <h4>Data di nascita : </h4>
-                                <input type="date" {if $athlete!=""}value="{$athlete->getBirthdate()}"{/if} name="date" style="width: 225px">
+                                <input type="date" {if $athlete!=""}value="{$athlete->getBirthdate()}"{/if} name="date" class="form-control">
                             </table>
                         </div>
                         <br>

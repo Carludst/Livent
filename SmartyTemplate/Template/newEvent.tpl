@@ -69,7 +69,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
                     <h2 class="text-center"><b>Crea il nuovo Evento</b></h2>
-                    <form method="post" action="#" class="text-left clearfix" name="createForm">
+                    <form method="post" action="/Livent/Event/Update/" class="text-left clearfix" name="createForm">
                         <br>
                         <div class="form-group">
                             <h4>Nome dell'evento:</h4>
