@@ -159,6 +159,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                             <th>Evento</th>
                                             <th>Nome Competizione</th>
                                             <th>Data</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -168,6 +169,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                                 <td><a href="/Livent/Event/MainPage/{$events[index]->getId()}">{$events[index]->getName()}</a></td>
                                                 <td><a href="/Livent/Competition/MainPage/{$competitions[index]->getId()}">{$competitions[index]->getName()} ({$competitions[index]->getSport()})</a></td>
                                                 <td>{$competitions[index]->getDataTime()->format("d/m/Y")}}</td>
+                                                <td><a href="" class="btn btn-main btn-small btn-round-full">Cancella Iscrizioni</a></td>
                                             </tr>
                                         {/section}
                                         </tbody>
