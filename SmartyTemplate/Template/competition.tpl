@@ -160,25 +160,25 @@
             <br>
             <h4>Atleti iscritti:</h4>
             <br>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>ID atleta</th>
-                    <th>Atleta</th>
-                </tr>
-                </thead>
-                <tbody>
-                {foreach from=$athletes item=athlete}
+            <form method="post" class="text-left clearfix" action="/Livent/Registration/Delete">
+                <table class="table">
+                    <thead>
                     <tr>
-                        <form method="post" class="text-left clearfix" action="/Livent/Registration/Delete">
+                        <th>ID atleta</th>
+                        <th>Atleta</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach from=$athletes item=athlete}
+                        <tr>
                             <td>{$athlete->getId()}</td>
                             <td>{$athlete->getName()}</td>
                             <td><a href="/Livent/Registration/Delate/{$athlete->getId()}I{$competition->getId()}" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
-                        </form>
-                    </tr>
-                {/foreach}
-                </tbody>
-            </table>
+                        </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+            </form>
             <br>
             <br>
             {if(1===1)}
