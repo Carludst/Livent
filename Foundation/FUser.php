@@ -69,6 +69,11 @@ class FUser
         return self::getObjectByArray($arrayObject);
     }
 
+    public static function loadLastStore():?EUser{
+        $id=(int)FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'iduser'))[0]['max'];
+        return self::loadOne($id);
+    }
+
     /**
      * -Method : search in database by primarykey
      * @param int $key primarykey value

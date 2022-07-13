@@ -11,15 +11,19 @@ class CManageAthlete
     public static function update():void
     {
         try{
-            $vAthlete=new VNewAthlete();
+            $view=new VNewAthlete();
             $logged=FSession::getUserLogged();
-            $myinput=$vAthlete->getMyInput();
-            $athlete= $vAthlete->createAthlete();
+            $myinput=$view->getMyInput();
+            $athlete= $view->createAthlete();
             if(is_null($myinput)){
                 if(CManageUser::callLogin())FDbH::store($athlete);
+                $id=FDbH::loadLastStore(EAthlete::class)->getId();
+                header('Location: /Livent/Athlete/MainPage/'.$id.'/');
             }
-            elseif(self::authorizer() && $vAthlete->getEmail()==$logged->getEmail() && $vAthlete->getPassword()==$logged->getPassword()){
+            elseif(self::authorizer() && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
+                $athlete->setId($myinput);
                 if(!FDbH::updateOne($athlete))throw new Exception("you can't update an athlete that don't exist");
+                header('Location: /Livent/Athlete/MainPage/'.$myinput.'/');
             }
             else throw new Exception("You don't have authorization");
         }
@@ -87,14 +91,15 @@ class CManageAthlete
 
     public static function newPage(){
         try{
-            $vAthlete=new VNewAthlete();
-            $myinput=$vAthlete->getMyInput();
-            if(is_null($myinput)){
-                if(CManageUser::callLogin()) $vAthlete->show(null);
-            }
-            elseif(self::authorizer()){
-                $athlete= FDbH::loadOne($myinput, EAthlete::class);
-                $vAthlete->show($athlete);
+            $view=new VNewAthlete();
+            $myinput=$view->getMyInput();
+            if(self::authorizer()){
+                if(is_null($myinput)) $view->show();
+
+                else{
+                    $athlete= FDbH::loadOne($myinput, EAthlete::class);
+                    $view->show($athlete);
+                }
             }
             else throw new Exception("you don't have autorization");
         }

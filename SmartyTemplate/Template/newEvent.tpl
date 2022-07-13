@@ -37,30 +37,6 @@
 
 <body>
 
-<!-- Start Top Header Bar -->
-<!--COPIA DA HOME-->
-<!-- End Top Header Bar -->
-
-
-<!-- Main Menu Section -->
-
-<!--COPIA DA HOME-->
-
-<section class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="content">
-                    <h1 class="page-name">Nuovo Evento</h1>
-                    <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Nuovo Evento</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <section class="signin-page account" >
@@ -68,58 +44,44 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
+                    <a class="logo" href="/Livent/">
+                        <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
+                               font-family="AustinBold, Austin" font-weight="bold">
+                                <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
+                                    <text id="AVIATO">
+                                        <tspan x="125" y="325">Livent</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
                     <h2 class="text-center"><b>Crea il nuovo Evento</b></h2>
-                    <form method="post" action="/Livent/Event/Update/" class="text-left clearfix" name="createForm">
+                    <form method="post" {if $event!=""}action="/Livent/Event/Update/{$event->getId()}/"{else} action="/Livent/Event/Update/" {/if} class="text-left clearfix" name="createForm" enctype="multipart/form-data">
+                        <br>
+                        <h3><b>Autenticazione:</b></h3>
+                        <div class="form-group">
+                            <input type="email" name='email' class="form-control"  placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name='password' class="form-control" placeholder="Password" required>
+                        </div>
                         <br>
                         <div class="form-group">
                             <h4>Nome dell'evento:</h4>
-                            <input type="text" {if $event!=""}value="{$event->getName()}"{/if} name="name" class="form-control" placeholder="Nome evento">
+                            <input type="text" {if $event!=""}value="{$event->getName()}"{/if} name="name" class="form-control" placeholder="Nome evento" required>
                         </div>
                         <br>
                         <div class="form-group">
                             <h4>Luogo:</h4>
-                            <input type="text" {if $event!=""}value="{$event->getPlace()}"{/if} placeholder="Luogo"  name="place" class="form-control">
+                            <input type="text" {if $event!=""}value="{$event->getPlace()}"{/if} placeholder="Luogo"  name="place" class="form-control" required>
                         </div>
                         <br>
                         <br>
                         <div>
-                            <input type="radio" name="public?" value="public" {if $event!="" && $event->getPublic()==true}checked{/if}/><b>Pubblico</b>
-                            <input type="radio" name="public?" value="private" {if $event!="" && $event->getPublic()==false}checked{/if}/><b>Privato</b>
-                        </div>
-                        <br>
-                        <h3>Contatti:</h3>
-                        <br>
-                        <h4>contatto 1:</h4>
-                        <div class="form-group">
-                            <input type="text" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getName()}"{/if} name="nameContact1" placeholder="nome" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getEmail()}"{/if} name="email1" placeholder="Email" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" {if $event !="" && $event->getContact(0)!=""}value="{$event->getContact(0)->getPhoneNumber()}"{/if} name="telephone1" placeholder="Es. +39..." class="form-control">
-                        </div>
-                        <br>
-                        <h4>contatto 2:</h4>
-                        <div class="form-group">
-                            <input type="text" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getName()}"{/if} name="nameContact2" placeholder="nome" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getEmail()}"{/if} name="email2" placeholder="Email" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" {if $event !="" && $event->getContact(1)!=""}value="{$event->getContact(1)->getPhoneNumber()}"{/if} name="telephone2" placeholder="Es. +39..." class="form-control">
-                        </div>
-                        <br>
-                        <h4>contatto 3:</h4>
-                        <div class="form-group">
-                            <input type="text" {if $event !="" && $event->getContact(2)!=""}value="{$event->getContact(2)->getName()}"{/if} name="nameContact2" placeholder="nome" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" {if $event !="" && $event->getContact(2)!=""}value="{$event->getContact(2)->getEmail()}"{/if} name="email3" placeholder="Email" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" {if $event !="" && $event->getContact(2)!=""}value="{$event->getContact(2)->getPhoneNumber()}"{/if} name="telephone3" placeholder="Es. +39..." class="form-control">
+                            <input type="radio" name="public?" value="public" {if $event!="" && $event->getPublic()}checked{/if}/><b>Pubblico</b>
+                            <input type="radio" name="public?" value="private" {if $event!="" && !$event->getPublic()}checked{/if}/><b>Privato</b>
                         </div>
                         <br>
                         <div class="form-group">
@@ -128,17 +90,9 @@
                         </div>
                         <br>
                         <label for="avatar">Scegli una foto per l'evento:</label>
-                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                        <input class="btn-solid-border center-element" style="width: 100%" type="file" id="front" name="front" accept="image/png, image/jpeg">
                         <br>
-                        <h3><b>Autenticazione:</b></h3>
-                        <div class="form-group">
-                            <input type="email" name='email' class="form-control"  placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name='password' class="form-control" placeholder="Password">
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Conferma</button>
+                        <button type="submit" class="btn btn-main text-center">Conferma</button>
                     </form>
                 </div>
             </div>

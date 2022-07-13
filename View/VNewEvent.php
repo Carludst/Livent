@@ -9,25 +9,22 @@ class VNewEvent extends View
         parent::__construct();
     }
 
-    public function show(EEvent|null $event)
+    public function show(EEvent|null $event=NULL)
     {
         $assign=$this->assign;
-        if($this->getMood())$assign['mood']='true';
-        else $assign['mood']='false';
         $assign['event']=$event;
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
     }
 
-    public function getMood():bool{
-        return empty($_POST);
+    public function getEmail():?string{
+        if(!empty($_POST['email']))return $_POST['email'];
+        else return null;
     }
 
-    public function getMyInput():?int{
-        if(isset($GLOBALS['_MYINPUT'])){
-            return (int)$GLOBALS['_MYINPUT'];
-        }
-        else return NULL;
+    public function getPassword():?string{
+        if(!empty($_POST['password']))return hash("sha3-256", $_POST['password']);
+        else return null;
     }
 
     public function getName():?String{
@@ -48,69 +45,32 @@ class VNewEvent extends View
         else return null;
     }
 
-    public function getSport():?string{
-        if(!empty($_POST['sport'])) return $_POST['sport'];
-        else return null;
-    }
-
-    public function getContacts():?array{
-        $contacts=array();
-        $name=array();
-        $email=array();
-        $telephone=array();
-        if(!empty($_POST['nameContact1'])&&!empty($_POST['email1'])&&!empty($_POST['telephone1'])){
-            $name=$_POST['nameContact1'];
-            $phone=$_POST['telephone1'];
-            $email=$_POST['email1'];
-            $contacts[]= new EContact($name, $phone, $email);
-        }
-        elseif (!empty($_POST['nameContact1'])||!empty($_POST['email1'])||!empty($_POST['telephone1'])){
-            throw new Exception('You have to compile all fields about a contact');
-        }
-        if(!empty($_POST['nameContact2'])&&!empty($_POST['email2'])&&!empty($_POST['telephone2'])){
-            $name=$_POST['nameContact2'];
-            $phone=$_POST['telephone2'];
-            $email=$_POST['email2'];
-            $contacts[]= new EContact($name, $phone, $email);
-        }
-        elseif (!empty($_POST['nameContact2'])||!empty($_POST['email2'])||!empty($_POST['telephone2'])){
-            throw new Exception('You have to compile all fields about a contact');
-        }
-        if(!empty($_POST['nameContact3'])&&!empty($_POST['email3'])&&!empty($_POST['telephone3'])){
-            $name=$_POST['nameContact3'];
-            $phone=$_POST['telephone3'];
-            $email=$_POST['email3'];
-            $contacts[]= new EContact($name, $phone, $email);
-        }
-        elseif (!empty($_POST['nameContact2'])||!empty($_POST['email2'])||!empty($_POST['telephone2'])){
-            throw new Exception('You have to compile all fields about a contact');
-        }
-        return $contacts;
-    }
-
     public function getDescription():?String{
         if(!empty($_POST['description']))return $_POST['description'];
         else return null;
     }
 
-    public function getEmail():?string{
-        if(!empty($_POST['email']))return $_POST['email'];
+    public function getPathImg():?String{
+        if(isset($_FILES['front']) && !empty($_FILES['front']['tmp_name'])){
+            return $_FILES['front']['tmp_name'];
+        }
         else return null;
     }
 
-    public function getPassword():?string{
-        if(!empty($_POST['password']))return $_POST['password'];
+    public function getTypeImg():?String{
+        if(isset($_FILES['front']['type']) && ($_FILES['front']['type']=='image/jpeg'||$_FILES['front']['type']=='image/jpg')){
+            return 'jpg';
+        }
+        elseif(isset($_FILES['front']['type']) && $_FILES['front']['type']=='image/png') return 'png';
         else return null;
     }
 
-    public function createEvent():EEvent{
+    public function createEvent(EUser $organizer):EEvent{
         $name=$this->getName();
         $place=$this->getPlace();
-        $sport=$this->getSport();
         $public=$this->getPublic();
-        $contacts=$this->getContacts();
         $description=$this->getDescription();
-        $events= new EAthlete($name, $place,$sport,$public,$contacts,$description);
+        $events= new EEvent($name, $place,$organizer,$public,$description);
         return $events;
     }
 

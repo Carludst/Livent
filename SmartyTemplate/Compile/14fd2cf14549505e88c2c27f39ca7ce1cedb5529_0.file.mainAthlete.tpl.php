@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-11 19:07:25
+/* Smarty version 4.1.1, created on 2022-07-12 20:17:30
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\mainAthlete.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cc58cda70ae7_34206608',
+  'unifunc' => 'content_62cdbabac006f1_96146169',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14fd2cf14549505e88c2c27f39ca7ce1cedb5529' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\mainAthlete.tpl',
-      1 => 1657559242,
+      1 => 1657647329,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cc58cda70ae7_34206608 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cdbabac006f1_96146169 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -141,6 +141,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                             <li><a href="typography.html">Errori</a></li>
                             <li><a href="/Livent/Graphics/">Imposta grafica</a></li>
                             <li><a href="/Livent/User/Search/">Gestione utenti</a></li>
+                            <li><a href="/Livent/Athlete/NewPage/">Crea Atleta</a></li>
                         </ul>
                     </li>
                     <!-- / System -->
@@ -223,8 +224,8 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <!-- / Setting -->
                     <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() == 'Administrator') {?>
                         <ul class="text-center">
-                            <li class="inline"><a class="btn btn-transparent mt-20" href="typography.html">Modifica</a></li>
-                            <li class="inline"><a class="btn btn-transparent mt-20" href="/Livent/Graphics/">Elimina</a></li>
+                            <li class="inline"><a class="btn btn-transparent mt-20" href="/Livent/Athlete/NewPage/<?php echo $_smarty_tpl->tpl_vars['athlete']->value->getId();?>
+/">Modifica</a></li>
                         </ul>
                     <?php }?>
                     <!-- / Setting -->

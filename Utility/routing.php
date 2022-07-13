@@ -9,7 +9,7 @@ function routing():Array{
     ];
     //8
     $athlete=[
-        'Update'=>'CManageAthlete::update',
+        'Update'=>'CManageAthlete::update()',
         'Create'=>'CManageAthlete::create',
         'Delete'=> 'CManageAthlete::delete()',
         'MainPage'=>'CManageAthlete::mainPage()',
@@ -39,7 +39,7 @@ function routing():Array{
     ];
     //7 => 28
     $event=[
-        'Update'=>'CManageEvent::update',
+        'Update'=>'CManageEvent::update()',
         'Create'=>'CManageEvent::create',
         'Delete'=>'CManageEvent::delete()',
         'MainPage'=>'CManageEvent::mainPage()',

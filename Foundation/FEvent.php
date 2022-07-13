@@ -51,7 +51,7 @@ class FEvent
      */
     public static function store(EEvent $event):void
     {
-        if(!FUser::existOne($event->getOrganizer()->getEmail()))throw new Exception("the organizer of the event don't exist on DB");
+        if(!FUser::existOne($event->getOrganizer()->getId()))throw new Exception("the organizer of the event don't exist on DB");
         $dateTime=new DateTime();
         $created_at=$dateTime->format("Y-m-d H:i:s");
         $fieldValue=self::getArrayByObject($event);
@@ -67,6 +67,11 @@ class FEvent
         if(count($result)==0)  return null;
         $arrayObject=$result[0];
         return self::getObjectByArray($arrayObject);
+    }
+
+    public static function loadLastStore():?EEvent{
+        $id=FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'idevent'))[0]['max'];
+        return self::loadOne($id);
     }
 
     public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array{
@@ -97,7 +102,7 @@ class FEvent
 
     public static function getCompetitions(EEvent $event):Array
     {
-       return FCompetition::load('idevent',$event->getId(),'=','datetime');
+       return FCompetition::search($event);
     }
 
     public static function getContacts(EEvent $event):Array
