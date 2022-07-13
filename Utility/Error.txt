@@ -1816,3 +1816,49 @@ file error
 #0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::update()
 #1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
 #2 {main}
+
+invalid unit
+#0 C:\xampp\htdocs\public_html\Livent\View\VNewCompetition.php(61): EDistance->toString('Km')
+#1 C:\xampp\htdocs\public_html\Livent\View\VNewCompetition.php(82): VNewCompetition->getDistance()
+#2 C:\xampp\htdocs\public_html\Livent\Control\CManageCompetition.php(41): VNewCompetition->createCompetition()
+#3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageCompetition::create()
+#4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#5 {main}
+
+the string passed is not a distance
+#0 C:\xampp\htdocs\public_html\Livent\Entity\EDistance.php(15): EDistance->stringToFloat('21.1Km')
+#1 C:\xampp\htdocs\public_html\Livent\View\VNewCompetition.php(60): EDistance->__construct('21.1Km')
+#2 C:\xampp\htdocs\public_html\Livent\View\VNewCompetition.php(81): VNewCompetition->getDistance()
+#3 C:\xampp\htdocs\public_html\Livent\Control\CManageCompetition.php(41): VNewCompetition->createCompetition()
+#4 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageCompetition::create()
+#5 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+the string passed is not a distance
+#0 C:\xampp\htdocs\public_html\Livent\Entity\EDistance.php(15): EDistance->stringToFloat('21.1Km')
+#1 C:\xampp\htdocs\public_html\Livent\View\VNewCompetition.php(61): EDistance->__construct('21.1Km')
+#2 C:\xampp\htdocs\public_html\Livent\View\VNewCompetition.php(82): VNewCompetition->getDistance()
+#3 C:\xampp\htdocs\public_html\Livent\Control\CManageCompetition.php(41): VNewCompetition->createCompetition()
+#4 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageCompetition::create()
+#5 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+value not allowed
+#0 C:\xampp\htdocs\public_html\Livent\Control\CSearch.php(84): VSearchCompetition->getGender()
+#1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSearch::searchCompetition()
+#2 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#3 {main}
+
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'where clause'
+#0 C:\xampp\htdocs\public_html\Livent\Foundation\FCompetition.php(183): FDb::exInterrogation(Array, Array, Array)
+#1 C:\xampp\htdocs\public_html\Livent\Foundation\FDbH.php(509): FCompetition::search(NULL, 'Qualsiasi tipo', 'M', 'Atletica', NULL, NULL, NULL, NULL)
+#2 C:\xampp\htdocs\public_html\Livent\Control\CSearch.php(103): FDbH::searchCompetition(NULL, 'Qualsiasi tipo', 'M', 'Atletica', NULL, NULL, NULL, NULL)
+#3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSearch::searchCompetition()
+#4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#5 {main}
+
+value not allowed
+#0 C:\xampp\htdocs\public_html\Livent\Control\CSearch.php(84): VSearchCompetition->getGender()
+#1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSearch::searchCompetition()
+#2 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#3 {main}

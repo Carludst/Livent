@@ -50,7 +50,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 </head>
 
-<body id="body" onload="setDate(document.searchForm) ; setListCompetitionName({$name})"  onchange="setDate(document.searchForm)">
+<body id="body" onload="setDate(document.searchForm) ; setListCompetitionName('{$name}')"  onchange="setDate(document.searchForm)">
 
 <!-- Start Top Header Bar -->
 <!--COPIA DA HOME-->
@@ -86,7 +86,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					<h4 class="widget-title">Ricerca</h4>
 					<form method="get" action="/Livent/Competition/Search/" name="searchForm" >
                         <select class="form-control" name="sport" id='sportList' onchange="setListCompetitionName('')">
-							option>Qualsiasi Sport</option>
+							<option>Qualsiasi Sport</option>
 							<option {if $sport=='Atletica'}selected{/if}>Atletica</option>
 							<option {if $sport=='Ciclismo'}selected{/if}>Ciclismo</option>
 							<option {if $sport=='Nuoto'}selected{/if}>Nuoto</option>
@@ -94,19 +94,15 @@ FACEBOOK: https://www.facebook.com/themefisher
 							<option {if $sport=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
                         </select>
 						</br>
-						<select class="form-control" id="nameCompetitionList" name="name" onload="setListCompetitionName({$name})"></select>
+						<select class="form-control" id="nameCompetitionList" name="name" onload="setListCompetitionName('{$name}')"></select>
 						</br>
-						<select class="form-control">
+						<select class="form-control" name="gender">
 							<option>No Selected</option>
 							<option {if $gender=='M'}selected{/if}>Uomo</option>
 							<option {if $gender=='F'}selected{/if}>Donna</option>
 							<option {if $gender=='M/F'}selected{/if}>Uomo e Donna</option>
 						</select>
 						</br>
-						<div class="input-group-sm mb-3" style="width: 100%">
-							<input type="text" class="form-control" {if $name!=""}value="{$name}"{/if} name="name" placeholder="Nome" aria-label="Default" style="width: 100%" aria-describedby="inputGroup-sizing-sm" >
-						</div>
-						<br>
 						<div>
 							<table cellpadding="5">
 								<tbody>
@@ -117,7 +113,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 									<td class="my-td-title" style="width: 40px"><h5>min : </h5></td>
 									<td class="my-td">
 										<span class="input-number">
-											<input type="number" id="disMin" name="minDistance" step="0.1"  min="0" data-digits="2"  onload="setDistanceMin()" onchange="setDistanceMin()"/>
+											<input type="number" id="disMin" name="minDistance" step="0.1" {if $distanceMin!=''}value={$distanceMin->getValue()} {/if}  min="0" data-digits="2"  onload="setDistanceMin()" onchange="setDistanceMin()"/>
 										</span>
 									</td>
 									<td class="my-td"> Km</td>
@@ -126,7 +122,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 									<td class="my-td-title"><h5>max : </h5></td>
 									<td class="my-td">
 										<span class="input-number">
-											<input type="number" id="disMax" name="maxDistance" step="0.1" min="0" data-digits="2" onload="setDistanceMax()" onchange="setDistanceMax()"/>
+											<input type="number" id="disMax" name="maxDistance" step="0.1" {if $distanceMax!=''}value={$distanceMax->getValue()} {/if} min="0" data-digits="2" onload="setDistanceMax()" onchange="setDistanceMax()"/>
 										</span>
 									</td>
 									<td class="my-td"> Km</td>

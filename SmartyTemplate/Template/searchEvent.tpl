@@ -145,7 +145,8 @@ FACEBOOK: https://www.facebook.com/themefisher
                                                         </div>
                                                         <div class="col-md-10">
                                                             <h3 class="mb-1"><b>{$events[index]->getName()}</b></h3>
-                                                            <time> {$events[index]->getDateStart()->format("d/m/y")} - {$events[index]->getDateFinish()->format("d/m/y")}</time>
+                                                            {if !empty($events[index]->getCompetitions())}<time>{$events[index]->getDateStart()->format("d/m/y")} - {$events[index]->getDateFinish()->format("d/m/y")}</time>
+                                                            {else}<time>data da stabile</time>{/if}
                                                             </br>
                                                             <h7 class="mb-1">{$events[index]->getDescription()}</h7>
                                                         </div>
@@ -172,7 +173,8 @@ FACEBOOK: https://www.facebook.com/themefisher
                                                         </div>
                                                         <div class="col-md-7">
                                                             <h3 class="mb-1"><b>{$events[index]->getName()}</b></h3>
-                                                            <time> {$events[index]->getDateStart()->format("d/m/y")} - {$events[index]->getDateFinish()->format("d/m/y")}</time>
+                                                            {if !empty($events[index]->getCompetitions())}<time>{$events[index]->getDateStart()->format("d/m/y")} - {$events[index]->getDateFinish()->format("d/m/y")}</time>
+                                                            {else}<time>data da stabile</time>{/if}
                                                             </br>
                                                             <h7 class="mb-1">{$events[index]->getDescription()}</h7>
                                                         </div>

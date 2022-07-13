@@ -32,6 +32,7 @@ function routing():Array{
         'Delete'=>'CManageCompetition::delete()',
         'MainPage'=>'CManageCompetition::mainPage()',
         'NewPage'=>'CManageCompetition::newPage()',
+        'UpdatePage'=>'CManageCompetition::UpdatePage()',
         'AddRegistration'=> 'CManageRegistration::addRegistration()',
         'AddResult'=>'CManageResult::addResult()',
         'SearchPage'=>'CSearch::searchPageCompetition',

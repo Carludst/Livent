@@ -142,10 +142,10 @@ class FCompetition {
                 else $opWhere[]='>=';
             }
             if(!is_null($name)){
-                $fields[]='name';
+                $fields[]='namecompetition';
                 $values[]=$name;
                 $opWhere[]='=';
-                $orderBy[]='name';
+                $orderBy[]='namecompetition';
                 $ascending[]=true;
             }
             if(!is_null($gender)){
@@ -237,8 +237,9 @@ class FCompetition {
      */
     public static function addRegistration(ECompetition $competition, EAthlete $athlete, EUser $user): bool
     {
-        if($athlete->getFamale()&& $competition=='M' || !$athlete->getFamale() && $competition=='F')throw new Exception('sesso non compatibile');
+        if($athlete->getFamale()&& $competition->getGender()=='M' || !$athlete->getFamale() && $competition->getGender()=='F')throw new Exception("invalid gender");
         $now=new DateTime();
+        if($now>$competition->getDateTime())throw new Exception("competition just started");
         $created_at=$now->format("Y-m-d h:i:s");
         $fieldValue=self::getArrByObjResult($competition,$athlete,$user);
         $fieldValue["created_at"]= $created_at;

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-11 15:18:57
+/* Smarty version 4.1.1, created on 2022-07-13 14:41:32
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\searchCompetition.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cc234127f782_88294087',
+  'unifunc' => 'content_62cebd7cabac45_45003128',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f1e88d18635d015ff8972e017775a429ab5016f4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\searchCompetition.tpl',
-      1 => 1657528170,
+      1 => 1657716085,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cc234127f782_88294087 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cebd7cabac45_45003128 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -80,8 +80,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 </head>
 
-<body id="body" onload="setDate(document.searchForm) ; setListCompetitionName(<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
-)"  onchange="setDate(document.searchForm)">
+<body id="body" onload="setDate(document.searchForm) ; setListCompetitionName('<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+')"  onchange="setDate(document.searchForm)">
 
 <!-- Start Top Header Bar -->
 <!--COPIA DA HOME-->
@@ -117,7 +117,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					<h4 class="widget-title">Ricerca</h4>
 					<form method="get" action="/Livent/Competition/Search/" name="searchForm" >
                         <select class="form-control" name="sport" id='sportList' onchange="setListCompetitionName('')">
-							option>Qualsiasi Sport</option>
+							<option>Qualsiasi Sport</option>
 							<option <?php if ($_smarty_tpl->tpl_vars['sport']->value == 'Atletica') {?>selected<?php }?>>Atletica</option>
 							<option <?php if ($_smarty_tpl->tpl_vars['sport']->value == 'Ciclismo') {?>selected<?php }?>>Ciclismo</option>
 							<option <?php if ($_smarty_tpl->tpl_vars['sport']->value == 'Nuoto') {?>selected<?php }?>>Nuoto</option>
@@ -125,21 +125,16 @@ FACEBOOK: https://www.facebook.com/themefisher
 							<option <?php if ($_smarty_tpl->tpl_vars['sport']->value == 'Pattinaggio sul ghiaccio') {?>selected<?php }?>>Pattinaggio sul ghiaccio</option>
                         </select>
 						</br>
-						<select class="form-control" id="nameCompetitionList" name="name" onload="setListCompetitionName(<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
-)"></select>
+						<select class="form-control" id="nameCompetitionList" name="name" onload="setListCompetitionName('<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+')"></select>
 						</br>
-						<select class="form-control">
+						<select class="form-control" name="gender">
 							<option>No Selected</option>
 							<option <?php if ($_smarty_tpl->tpl_vars['gender']->value == 'M') {?>selected<?php }?>>Uomo</option>
 							<option <?php if ($_smarty_tpl->tpl_vars['gender']->value == 'F') {?>selected<?php }?>>Donna</option>
 							<option <?php if ($_smarty_tpl->tpl_vars['gender']->value == 'M/F') {?>selected<?php }?>>Uomo e Donna</option>
 						</select>
 						</br>
-						<div class="input-group-sm mb-3" style="width: 100%">
-							<input type="text" class="form-control" <?php if ($_smarty_tpl->tpl_vars['name']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
-"<?php }?> name="name" placeholder="Nome" aria-label="Default" style="width: 100%" aria-describedby="inputGroup-sizing-sm" >
-						</div>
-						<br>
 						<div>
 							<table cellpadding="5">
 								<tbody>
@@ -150,7 +145,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 									<td class="my-td-title" style="width: 40px"><h5>min : </h5></td>
 									<td class="my-td">
 										<span class="input-number">
-											<input type="number" id="disMin" name="minDistance" step="0.1"  min="0" data-digits="2"  onload="setDistanceMin()" onchange="setDistanceMin()"/>
+											<input type="number" id="disMin" name="minDistance" step="0.1" <?php if ($_smarty_tpl->tpl_vars['distanceMin']->value != '') {?>value=<?php echo $_smarty_tpl->tpl_vars['distanceMin']->value->getValue();?>
+ <?php }?>  min="0" data-digits="2"  onload="setDistanceMin()" onchange="setDistanceMin()"/>
 										</span>
 									</td>
 									<td class="my-td"> Km</td>
@@ -159,7 +155,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 									<td class="my-td-title"><h5>max : </h5></td>
 									<td class="my-td">
 										<span class="input-number">
-											<input type="number" id="disMax" name="maxDistance" step="0.1" min="0" data-digits="2" onload="setDistanceMax()" onchange="setDistanceMax()"/>
+											<input type="number" id="disMax" name="maxDistance" step="0.1" <?php if ($_smarty_tpl->tpl_vars['distanceMax']->value != '') {?>value=<?php echo $_smarty_tpl->tpl_vars['distanceMax']->value->getValue();?>
+ <?php }?> min="0" data-digits="2" onload="setDistanceMax()" onchange="setDistanceMax()"/>
 										</span>
 									</td>
 									<td class="my-td"> Km</td>

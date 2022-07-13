@@ -89,8 +89,8 @@ function setListCompetitionName(selected=''){
         if(sport in NameCompetition){
             for(i=0;i<NameCompetition[sport].length;i++) {
                 document.getElementById('nameCompetitionList').options[i+1] = new Option(NameCompetition[sport][i]);
-                if(NameCompetition[sport][i]===selected)indexSelected=i;
-            };
+                if(NameCompetition[sport][i]===selected)indexSelected=i+1;
+            }
         }
     }
 

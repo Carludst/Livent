@@ -35,7 +35,9 @@ class VSearchCompetition extends View
     }
 
     public function getName():?String{
-        if(!empty($_GET['name']) && $_GET['sport']!='Qualsiasi tipo')return $_GET['name'];
+        if(!empty($_GET['name']) && $_GET['name']!='Qualsiasi tipo'){
+            return $_GET['name'];
+        }
         else return null;
     }
 
@@ -65,9 +67,10 @@ class VSearchCompetition extends View
      */
     public function getGender():?String{
         if(!empty($_GET['gender'])){
-            if($_GET['gender']=='F'|| $_GET['gender']=='M' || $_GET['gender']=='M/F'){
-                return $_GET['gender'];
-            }
+            if($_GET['gender']=='Uomo')return 'M';
+            elseif($_GET['gender']=='Donna')return 'F';
+            elseif($_GET['gender']=='Uomo e Donna')return 'M/F';
+            elseif($_GET['gender']=='No Selected')return NULL;
             else throw new Exception('value not allowed');
         }
         else return null;
@@ -77,8 +80,8 @@ class VSearchCompetition extends View
      * @throws Exception
      */
     public function getMinDistance():?EDistance{
-        if(!empty($_GET['distanceMin'])){
-            return new EDistance((float)$_GET['distanceMin']);
+        if(!empty($_GET['minDistance'])){
+            return new EDistance((float)$_GET['minDistance']);
         }
         else return null;
     }
@@ -87,8 +90,8 @@ class VSearchCompetition extends View
      * @throws Exception
      */
     public function getMaxDistance():?EDistance{
-        if(!empty($_GET['distanceMax'])){
-            return new EDistance((float)$_GET['distanceMax']);
+        if(!empty($_GET['maxDistance'])){
+            return new EDistance((float)$_GET['maxDistance']);
         }
         else return null;
     }

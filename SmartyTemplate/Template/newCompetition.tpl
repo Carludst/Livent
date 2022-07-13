@@ -35,32 +35,7 @@
 
 </head>
 
-<body>
-
-<!-- Start Top Header Bar -->
-<!--COPIA DA HOME-->
-<!-- End Top Header Bar -->
-
-
-<!-- Main Menu Section -->
-
-<!--COPIA DA HOME-->
-
-<section class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="content">
-                    <h1 class="page-name">Nuova Competizione</h1>
-                    <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Nuova Competizione</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<body {if $competition!=""}onload=" setListCompetitionName('{$competition->getName()}')" {else}onload="setListCompetitionName()"{/if}>
 
 
 <section class="signin-page account" >
@@ -68,43 +43,31 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
+                    <a class="logo" href="/Livent/">
+                        <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
+                               font-family="AustinBold, Austin" font-weight="bold">
+                                <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
+                                    <text id="AVIATO">
+                                        <tspan x="125" y="325">Livent</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
                     <h2 class="text-center"><b>Crea la nuova competizione</b></h2>
-                    <form method="post" class="text-left clearfix" action="/Livent/Competition/Update/" name="createForm">
-                        <h4>Nome:</h4>
+                    <form method="post" class="text-left clearfix" {if $competition!=''}action="/Livent/Competition/Update/{$competition->getId()}/"{else}action="/Livent/Competition/Create/{$idevent}/"{/if} name="createForm">
+                        <h3><b>Autenticazione:</b></h3>
                         <div class="form-group">
-                            <input type="text" {if $competition!=""}value="{$competition->getName()}"{/if} name="name" class="form-control" placeholder="Nome competizione">
+                            <input type="email" name='email' class="form-control"  placeholder="Email" required>
                         </div>
-                        <br>
                         <div class="form-group">
-                            <h4>Data di inizio: </h4>
-                            <input type="datetime-local" {if $competition!=""}value="{$competition->getDateTime()->format("Y-m-d H:i:s")}"{/if} class="form-control" name="dateTime">
+                            <input type="password" name='password' class="form-control" placeholder="Password" required>
                         </div>
-                        <br>
-                        <br>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td><h4>Unità di musura:</h4></td>
-                                <td> </td>
-                                <td>
-                                    <select class="form-control" name="unit">
-                                        <option {if $competition!=""}selected{/if}>Km</option>
-                                        <option>m</option>
-                                        <option>mi</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><h4>Distanza:</h4></td>
-                                <td> </td>
-                                <td><input type="number" {if $competition!=""}value="{$competition->getDistance()}"{/if} name="dist"></td>
-                            </tr>
-                            </tbody>
-                        </table>
                         <br>
                         <h4>Sport:</h4>
-                        <select class="form-control" name="sport">
-                            <option>Qualsiasi Sport</option>
+                        <select class="form-control" name="sport" id="sportList" {if $competition!=""}onchange="setListCompetitionName('')"{else}onchange="setListCompetitionName('')"{/if}>
                             <option {if $competition!="" && $competition->getSport()=='Atletica'}selected{/if}>Atletica</option>
                             <option {if $competition!="" && $competition->getSport()=='Ciclismo'}selected{/if}>Ciclismo</option>
                             <option {if $competition!="" && $competition->getSport()=='Nuoto'}selected{/if}>Nuoto</option>
@@ -112,30 +75,43 @@
                             <option {if $competition!="" && $competition->getSport()=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
                         </select>
                         <br>
+                        <h4>Nome:</h4>
+                        <select class="form-control" id="nameCompetitionList" name="name" {if $competition!=""}onload="setListCompetitionName('{$competition->getName()}')"{else}onload="setListCompetitionName()"{/if}></select>
+                        <br>
+                        <div class="form-group">
+                            <h4>Data e Ora di inizio: </h4>
+                            <input type="datetime-local" {if $competition!=""}value="{$competition->getDateTime()->format("Y-m-d H:i:s")}"{/if} class="form-control" name="dateTime">
+                        </div>
+                        <br>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td class="my-td-title"><h4>Distanza:</h4></td>
+                                <td class="my-td">
+                                    <input type="number" min='0' step="0.1" {if $competition!="" && $competition->getDistance()->getValue()>1}value="{$competition->getDistance()->getValue()}" {elseif $competition!=""} value="{$competition->getDistance()->getValue('m')}" {/if} name="dist"></td>
+                                <td  class="my-td">
+                                    <select class="form-control" name="unit">
+                                        <option {if $competition!="" && $competition->getDistance()->getValue()<=1}selected{/if}>m</option>
+                                        <option {if $competition!="" && $competition->getDistance()->getValue()>1}selected{/if}>Km</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br>
                         <h4>Genere:</h4>
                         <select class="form-control" name="gender">
-                            <option>No Selected</option>
+                            <option {if $competition!="" && $competition->getGender()=='M/F'}selected{/if}>Uomo e Donna</option>
                             <option {if $competition!="" && $competition->getGender()=='M'}selected{/if}>Uomo</option>
                             <option {if $competition!="" && $competition->getGender()=='F'}selected{/if}>Donna</option>
                         </select>
                         <br>
                         <div class="form-group">
                             <h4>Descrizione:</h4>
-                            <textarea {if $competition!=""}value="{$competition->getDescription()}"{/if} name="description" class="form-control" cols="20" rows="4">Scrivi la descrizione...</textarea>
+                            <textarea placeholder="Scrivi la descrizione..."  name="description" class="form-control" cols="20" rows="4">{if $competition!=""}{$competition->getDescription()}{/if}</textarea>
                         </div>
                         <br>
-                        <label for="avatar">Scegli una foto per la competizione:</label>
-                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
-                        <br>
-                        <h3><b>Autenticazione:</b></h3>
-                        <div class="form-group">
-                            <input type="email" name='email' class="form-control"  placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name='password' class="form-control" placeholder="Password">
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
+                        <button type="submit" class="btn btn-primary" >Conferma</button>
                     </form>
                 </div>
             </div>

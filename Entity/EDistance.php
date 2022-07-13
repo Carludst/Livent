@@ -17,19 +17,19 @@ class EDistance
 
 
     private function stringToFloat(String $stringValue):float{
-        if(str_ends_with($stringValue,"km")){
+        if(str_ends_with(strtolower($stringValue),"km")){
             $sValue=substr($stringValue,0,-2);
             $conversion=1;
         }
-        elseif(str_ends_with($stringValue,"mi")){
+        elseif(str_ends_with(strtolower($stringValue),"mi")){
             $sValue=substr($stringValue,0,-2);
             $conversion=1000/1609.34;
         }
-        elseif(str_ends_with($stringValue,"cm")){
+        elseif(str_ends_with(strtolower($stringValue),"cm")){
             $sValue=substr($stringValue,0,-2);
             $conversion=1000/0.01;
         }
-        elseif(str_ends_with($stringValue,"m")){
+        elseif(str_ends_with(strtolower($stringValue),"m")){
             $sValue=substr($stringValue,0,-1);
             $conversion=1000;
         }
@@ -40,11 +40,16 @@ class EDistance
 
     /**
      * @return float
+     * @throws Exception
      */
-    public function getValue(?int $precision=3): float
+    public function getValue(String $unit='Km',?int $precision=3 ): float
     {
-        if(is_null($precision))return $this->value;
-        else return round($this->value,$precision);
+        if($unit=='Km')$value=$this->value;
+        elseif($unit=='mi')$value=$this->value*(1000/0.01);
+        elseif($unit=='m')$value=$this->value*1000;
+        else throw new Exception('invalid unit');
+        if(is_null($precision))return $value;
+        else return round($value,$precision);
     }
 
     /**

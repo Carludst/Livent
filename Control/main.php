@@ -3,8 +3,15 @@ include_once "../Utility/defaultPath.php";
 include_once $GLOBALS['defaultPath']."/Utility/autoload.php";
 include_once $GLOBALS['defaultPath']."/Foundation/FDbH.php";
 
-$user=new EUser('carladistefano99@hotmail.com','Carla user','password','user');
-FDbH::store($user);
+
+$d=new DateTime();
+$int=new DateInterval('P3D');
+$d1=new DateTime();
+$d->add($int);
+$b=$d>$d1;
+var_dump($b);
+//$user=new EUser('carladistefano99@hotmail.com','Carla user','password','user');
+//FDbH::store($user);
 //$e=new EEvent("Internazionali D'Italia","L'Aquila",$user,true);
 //FDbH::store($e);
 //$e->addCompetition(new ECompetition('5000m a punti',new DateTime(),'M','Pattinaggio',new EDistance(5000)));
