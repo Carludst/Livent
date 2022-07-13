@@ -95,6 +95,16 @@ class FEvent
         return FDb::delate(self::$table[0],self::whereKey($key));
     }
 
+    /**
+     * @throws Exception
+     */
+    public static function delateReference(int $key):bool
+    {
+        $competition=FDb::delate(self::$table[1],FDb::where('idevent',$key));
+        $event=self::deleteOne($key);
+        return $competition && $event ;
+    }
+
     public static function updateOne(EEvent $event):bool
     {
         return FDb::update(self::$table[0],self::whereKey((String)$event->getId()),self::getArrayByObject($event));

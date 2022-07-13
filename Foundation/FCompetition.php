@@ -92,6 +92,13 @@ class FCompetition {
         return FDb::delate(self::$table[0],self::whereKey($key));
     }
 
+    public static function delateReference(int $key):bool
+    {
+        $result=FDb::delate(self::$table[1],FDb::where('idcompetition',$key));
+        $competition=self::deleteOne($key);
+        return $result && $competition;
+    }
+
     public static function updateOne(ECompetition $competition):bool
     {
         return FDb::update(self::$table[0],self::whereKey($competition->getId()),self::getArrayByObject($competition));

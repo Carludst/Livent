@@ -2,7 +2,7 @@
 
 class FUser
 {
-    private static array $table=array("user","result");
+    private static array $table=array("user","result","event");
 
     private static function getArrayByObject(EUser $user):Array
     {
@@ -92,6 +92,17 @@ class FUser
     public static function deleteOne(int $key): bool
     {
         return FDb::delate(self::$table[0],self::whereKey($key));
+    }
+
+    /**
+     * @throws Exception
+     */
+    public static function delateReference(int $key):bool
+    {
+        $events=FDb::delate(self::$table[2],FDb::where('idorganizer',$key));
+        $result=FDb::update(self::$table[1],FDb::multiWhere(array('iduser','time'),array($key,'NULL'),array('=','<>')),array('time'=>'NULL'));
+        $user=self::deleteOne($key);
+        return $user && $events ;
     }
 
     /**

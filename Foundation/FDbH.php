@@ -59,6 +59,12 @@ class FDbH {
         return $Fclass::deleteOne($key);
     }
 
+    public static function delateReference(int $key,String $Eclass):bool
+    {
+        $Fclass = "F".substr($Eclass,1);
+        return $Fclass::deleteReference($key);
+    }
+
     /**  Method : search in database by primarykey
      * @param $key
      * @param $Fclass

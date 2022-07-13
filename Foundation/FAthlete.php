@@ -114,6 +114,13 @@ class FAthlete {
         return FDb::delate(self::$table[0],self::whereKey($key));
     }
 
+    public static function delateReference(int $key):bool
+    {
+        $result=FDb::delate(self::$table[1],FDb::where('idathlete',$key));
+        $athlete=self::deleteOne($key);
+        return $result && $athlete;
+    }
+
     /**
      * -Method : update EAthlete data by primarykey saved into object passed
      * @param EAthlete $athlete  EAthlete data to update
