@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-12 09:13:18
+/* Smarty version 4.1.1, created on 2022-07-13 15:41:20
   from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/newCompetition.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cd3b2ed95c64_74059346',
+  'unifunc' => 'content_62cee7a0835465_70852953',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e7c0eedabdeb7a72183e76ddc1736b0de03e9f03' => 
     array (
       0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/newCompetition.tpl',
-      1 => 1657617162,
+      1 => 1657722305,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cd3b2ed95c64_74059346 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cee7a0835465_70852953 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,32 +65,8 @@ function content_62cd3b2ed95c64_74059346 (Smarty_Internal_Template $_smarty_tpl)
 
 </head>
 
-<body>
-
-<!-- Start Top Header Bar -->
-<!--COPIA DA HOME-->
-<!-- End Top Header Bar -->
-
-
-<!-- Main Menu Section -->
-
-<!--COPIA DA HOME-->
-
-<section class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="content">
-                    <h1 class="page-name">Nuova Competizione</h1>
-                    <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Nuova Competizione</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<body <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>onload=" setListCompetitionName('<?php echo $_smarty_tpl->tpl_vars['competition']->value->getName();?>
+')" <?php } else { ?>onload="setListCompetitionName()"<?php }?>>
 
 
 <section class="signin-page account" >
@@ -98,46 +74,34 @@ function content_62cd3b2ed95c64_74059346 (Smarty_Internal_Template $_smarty_tpl)
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="block text-center">
+                    <a class="logo" href="/Livent/">
+                        <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
+                               font-family="AustinBold, Austin" font-weight="bold">
+                                <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
+                                    <text id="AVIATO">
+                                        <tspan x="125" y="325">Livent</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
                     <h2 class="text-center"><b>Crea la nuova competizione</b></h2>
-                    <form method="post" class="text-left clearfix" action="#" name="createForm">
-                        <h4>Nome:</h4>
+                    <form method="post" class="text-left clearfix" <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>action="/Livent/Competition/Update/<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
+/"<?php } else { ?>action="/Livent/Competition/Create/<?php echo $_smarty_tpl->tpl_vars['idevent']->value;?>
+/"<?php }?> name="createForm">
+                        <h3><b>Autenticazione:</b></h3>
                         <div class="form-group">
-                            <input type="text" <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['competition']->value->getName();?>
-"<?php }?> name="name" class="form-control" placeholder="Nome competizione">
+                            <input type="email" name='email' class="form-control"  placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name='password' class="form-control" placeholder="Password" required>
                         </div>
                         <br>
-                        <div class="form-group">
-                            <h4>Data di inizio: </h4>
-                            <input type="datetime-local" <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['competition']->value->getDateTime()->format("Y-m-d H:i:s");?>
-"<?php }?> class="form-control" name="dateTime">
-                        </div>
-                        <br>
-                        <br>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td><h4>Unità di musura:</h4></td>
-                                <td> </td>
-                                <td>
-                                    <select class="form-control" name="unit">
-                                        <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>selected<?php }?>>Km</option>
-                                        <option>m</option>
-                                        <option>mi</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><h4>Distanza:</h4></td>
-                                <td> </td>
-                                <td><input type="number" <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['competition']->value->getDistance();?>
-"<?php }?> name="dist"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <br>
+                        <h3><b>Inserimento dati :</b></h3>
                         <h4>Sport:</h4>
-                        <select class="form-control" name="sport">
-                            <option>Qualsiasi Sport</option>
+                        <select class="form-control" name="sport" id="sportList" <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>onchange="setListCompetitionName('')"<?php } else { ?>onchange="setListCompetitionName('')"<?php }?>>
                             <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Atletica') {?>selected<?php }?>>Atletica</option>
                             <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Ciclismo') {?>selected<?php }?>>Ciclismo</option>
                             <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Nuoto') {?>selected<?php }?>>Nuoto</option>
@@ -145,31 +109,49 @@ function content_62cd3b2ed95c64_74059346 (Smarty_Internal_Template $_smarty_tpl)
                             <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getSport() == 'Pattinaggio sul ghiaccio') {?>selected<?php }?>>Pattinaggio sul ghiaccio</option>
                         </select>
                         <br>
+                        <h4>Nome:</h4>
+                        <select class="form-control" id="nameCompetitionList" name="name" <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>onload="setListCompetitionName('<?php echo $_smarty_tpl->tpl_vars['competition']->value->getName();?>
+')"<?php } else { ?>onload="setListCompetitionName()"<?php }?>></select>
+                        <br>
+                        <div class="form-group">
+                            <h4>Data e Ora di inizio: </h4>
+                            <input type="datetime-local" <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['competition']->value->getDateTime()->format("Y-m-d H:i:s");?>
+"<?php }?> class="form-control" name="dateTime">
+                        </div>
+                        <br>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td class="my-td-title"><h4>Distanza:</h4></td>
+                                <td class="my-td">
+                                    <input type="number" min='0' step="0.1" <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getDistance()->getValue() > 1) {?>value="<?php echo $_smarty_tpl->tpl_vars['competition']->value->getDistance()->getValue();?>
+" <?php } elseif ($_smarty_tpl->tpl_vars['competition']->value != '') {?> value="<?php echo $_smarty_tpl->tpl_vars['competition']->value->getDistance()->getValue('m');?>
+" <?php }?> name="dist"></td>
+                                <td  class="my-td">
+                                    <select class="form-control" name="unit">
+                                        <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getDistance()->getValue() <= 1) {?>selected<?php }?>>m</option>
+                                        <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getDistance()->getValue() > 1) {?>selected<?php }?>>Km</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br>
                         <h4>Genere:</h4>
                         <select class="form-control" name="gender">
-                            <option>No Selected</option>
+                            <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getGender() == 'M/F') {?>selected<?php }?>>Uomo e Donna</option>
                             <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getGender() == 'M') {?>selected<?php }?>>Uomo</option>
                             <option <?php if ($_smarty_tpl->tpl_vars['competition']->value != '' && $_smarty_tpl->tpl_vars['competition']->value->getGender() == 'F') {?>selected<?php }?>>Donna</option>
                         </select>
                         <br>
                         <div class="form-group">
                             <h4>Descrizione:</h4>
-                            <textarea <?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {?>value="<?php echo $_smarty_tpl->tpl_vars['competition']->value->getDescription();?>
-"<?php }?> name="description" class="form-control" cols="20" rows="4">Scrivi la descrizione...</textarea>
+                            <textarea placeholder="Scrivi la descrizione..."  name="description" class="form-control" cols="20" rows="4"><?php if ($_smarty_tpl->tpl_vars['competition']->value != '') {
+echo $_smarty_tpl->tpl_vars['competition']->value->getDescription();
+}?></textarea>
                         </div>
                         <br>
-                        <label for="avatar">Scegli una foto per la competizione:</label>
-                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
-                        <br>
-                        <h3><b>Autenticazione:</b></h3>
-                        <div class="form-group">
-                            <input type="email" name='email' class="form-control"  placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name='password' class="form-control" placeholder="Password">
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
+                        <button type="submit" class="btn btn-main text-center" >Conferma</button>
                     </form>
                 </div>
             </div>

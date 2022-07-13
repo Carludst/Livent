@@ -39,7 +39,39 @@ class CManageResult
 
     }
 
+    public static function mainPage(){
+        if(FSession::isLogged()){
+            $user=FSession::getUserLogged();
+            $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
+        }
+        else{
+            $user=null;
+            $profileImg=null;
+        }
+        try{
+            $view = new VResult();
+            $key = (int)$view->getMyInput();
+            if(FDbH::existOne($key,ECompetition::class)){
+                FSession::addChronology(ECompetition::class,$key);
+                $competition = FDbH::loadOne($key, ECompetition::class);
+                $name = $competition->getName();
+                //$eventImg=FDbH::loadMultiFile($event,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.2);
+                $athletes = $competition->getRegistrations();
+                $startDate = $competition->getDateTime();
+                $sport = $competition->getSport();
+                $distance = $competition->getDistance();
+                $gender = $competition->getGender();
+                $description = $competition->getDescription();
+                $view->show($user, $profileImg, $name, $athletes , $startDate, $sport ,$distance ,$gender,$description);
+            }
+            else throw new Exception("l'evento non esiste");
+        }
+        catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+        }
+    }
 
+    /*
     public static function newPage(?ECompetition $competition , ?EAthlete $athlete){
         try{
             if(self::authorizer($competition)){
@@ -51,5 +83,5 @@ class CManageResult
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizazzione della pagina per inserire un risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
-
+    */
 }

@@ -87,7 +87,7 @@ class CManageCompetition
             else throw new Exception("l'evento non esiste");
         }
         catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andata a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -117,22 +117,6 @@ class CManageCompetition
             else throw new Exception("You don't have autorization");
         }
         catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
-        }
-    }
-
-    public static function newIscription(){
-        try{
-            $view=new VCompetition();
-            $logged=FSession::getUserLogged();
-            $key=$view->getMyInput();
-            $competition= FDbH::loadOne($key, "ECompetition");
-            $athlete= FDbH::loadOne($view->getId(), "EAthlete");
-            $iscription=$view->addNewIscription($athlete->getName(),$athlete->getSurname(),$athlete->getBirthdate(),$athlete->getFamale(),$athlete->getTeam(),$athlete->getSport());
-            if(self::authorizer($competition)  && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
-                if(!FCompetition::addResult($competition, $iscription, "nd"))throw new Exception("you can't update a competition that don't exist");
-            }
-        }catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }

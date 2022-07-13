@@ -54,7 +54,7 @@ function routing():Array{
     //2 => 30
     $registration=[
         'NewPage'=>'CManageRegistration::newPageRegistration()',
-        'Delete'=>'CManageRegistration::delete()'
+        'Delete'=>'CManageRegistration::deleteRegistration()'
     ];
     //2 => 32
     $result=[

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-13 11:02:18
+/* Smarty version 4.1.1, created on 2022-07-13 14:59:38
   from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cea63af33417_32233750',
+  'unifunc' => 'content_62cedddaeff941_63508432',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4d912736163bb07ef7fd4b2551305976fdf51f6e' => 
     array (
       0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl',
-      1 => 1657710135,
+      1 => 1657724375,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cea63af33417_32233750 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cedddaeff941_63508432 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,7 +199,9 @@ function content_62cea63af33417_32233750 (Smarty_Internal_Template $_smarty_tpl)
                 </tbody>
             </table>
             <br>
+            <br>
             <h4>Atleti iscritti:</h4>
+            <br>
             <table class="table">
                 <thead>
                 <tr>
@@ -226,20 +228,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </tbody>
             </table>
             <br>
-            <h2 class="text-center">Iscrivi un atleta</h2>
-            <form method="post" class="text-left clearfix" action="/Livent/User/Signin/">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="name"  placeholder="Nome">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="surname" placeholder="Cognome">
-                </div>
-                <div class="form-group">
-                    <input type="int" class="form-control"  name="id" placeholder="Id dell'atleta" required>
-                </div>
-                    <button type="submit" class="btn btn-main text-center">Sign In</button>
-                </div>
-            </form>
+            <br>
+            <a href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a>
         </div>
     </div>
 </section>

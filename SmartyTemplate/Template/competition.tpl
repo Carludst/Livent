@@ -16,7 +16,7 @@
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{$dir}/images/favicon.png" />
 
     <!-- Themefisher Icon font -->
     <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
@@ -127,7 +127,6 @@
         <div class="row mt-20">
             <div class="single-product-details">
                 <h2><b>{$name}</b></h2>
-                <!--<p class="product-description mt-20">{$description}</p>-->
             </div>
         </div>
     </div>
@@ -158,7 +157,9 @@
                 </tbody>
             </table>
             <br>
+            <br>
             <h4>Atleti iscritti:</h4>
+            <br>
             <table class="table">
                 <thead>
                 <tr>
@@ -169,27 +170,20 @@
                 <tbody>
                 {foreach from=$athletes item=athlete}
                     <tr>
-                        <td>{$athlete->getId()}</td>
-                        <td>{$athlete->getName()}</td>
+                        <form method="post" class="text-left clearfix" action="/Livent/Registration/Delete>
+                            <td>{$athlete->getId()}</td>
+                            <td>{$athlete->getName()}</td>
+                            <td><a href="/Livent/Registration/Delate/{$athlete->getId()}I{$competition->getId()}" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
+                        </form>
                     </tr>
                 {/foreach}
                 </tbody>
             </table>
             <br>
-            <h2 class="text-center">Iscrivi un atleta</h2>
-            <form method="post" class="text-left clearfix" action="/Livent/User/Signin/">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="name"  placeholder="Nome">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="surname" placeholder="Cognome">
-                </div>
-                <div class="form-group">
-                    <input type="int" class="form-control"  name="id" placeholder="Id dell'atleta" required>
-                </div>
-                    <button type="submit" class="btn btn-main text-center">Sign In</button>
-                </div>
-            </form>
+            <br>
+            {if(1===1)}
+                <a href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a>
+            {/if}
         </div>
     </div>
 </section>

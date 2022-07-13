@@ -1,8 +1,8 @@
 <?php
 
-class VCompetition extends View
+class VResult extends View
 {
-    private static String $template='competition.tpl';
+    private static String $template='results.tpl';
 
     public function __construct()
     {
@@ -15,7 +15,6 @@ class VCompetition extends View
      * @return void
      * @throws SmartyException
      */
-
     public function show(?EUser $user , ?String $profileImg, ?String $name, ?Array $athletes , ?DateTime $startDate, ?string $sport, ?EDistance $distance, ?string $gender, ?string $description)
     {
         $assign = $this->assign;
