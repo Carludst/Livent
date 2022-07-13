@@ -10,24 +10,6 @@ class VNewRegCompetition extends View
         parent::__construct();
     }
 
-    public function getMyInputCompetition(): ?int
-    {
-        if(isset($GLOBALS['_MYINPUT'])){
-            $myinput=explode('I',$GLOBALS['_MYINPUT']);
-            return (int)$myinput[1];
-        }
-        else return NULL;
-    }
-
-    public function getMyInputAthlete(): ?int
-    {
-        if(isset($GLOBALS['_MYINPUT'])){
-            $myinput=explode('I',$GLOBALS['_MYINPUT']);
-            return (int)$myinput[0];
-        }
-        else return NULL;
-    }
-
     public function show()
     {
         $this->smarty->display(self::$template);
