@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="competition">
+    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="searchCompetition.tpl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/CManageCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageCompetition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entity/EDistance.php" beforeDir="false" afterPath="$PROJECT_DIR$/Entity/EDistance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foundation/FCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FCompetition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4371ac56d751c1f4e7cebe8a6f999756eaf07426_0.file.searchEvent.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4371ac56d751c1f4e7cebe8a6f999756eaf07426_0.file.searchEvent.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/f1e88d18635d015ff8972e017775a429ab5016f4_0.file.searchCompetition.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/f1e88d18635d015ff8972e017775a429ab5016f4_0.file.searchCompetition.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3_0.file.event.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3_0.file.event.tpl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/newCompetition.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/newCompetition.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/searchCompetition.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/searchCompetition.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/searchEvent.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/searchEvent.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/js/myScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/js/myScript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VSearchCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VSearchCompetition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/routing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VNewCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VNewCompetition.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +64,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657702048419</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="searchCompetition.tpl">
+      <created>1657716546897</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657716546897</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,6 +90,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="testo" />
-    <option name="LAST_COMMIT_MESSAGE" value="testo" />
+    <MESSAGE value="searchCompetition.tpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="searchCompetition.tpl" />
   </component>
 </project>

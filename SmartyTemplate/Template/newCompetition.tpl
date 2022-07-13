@@ -66,6 +66,7 @@
                             <input type="password" name='password' class="form-control" placeholder="Password" required>
                         </div>
                         <br>
+                        <h3><b>Inserimento dati :</b></h3>
                         <h4>Sport:</h4>
                         <select class="form-control" name="sport" id="sportList" {if $competition!=""}onchange="setListCompetitionName('')"{else}onchange="setListCompetitionName('')"{/if}>
                             <option {if $competition!="" && $competition->getSport()=='Atletica'}selected{/if}>Atletica</option>
@@ -111,7 +112,7 @@
                             <textarea placeholder="Scrivi la descrizione..."  name="description" class="form-control" cols="20" rows="4">{if $competition!=""}{$competition->getDescription()}{/if}</textarea>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary" >Conferma</button>
+                        <button type="submit" class="btn btn-main text-center" >Conferma</button>
                     </form>
                 </div>
             </div>

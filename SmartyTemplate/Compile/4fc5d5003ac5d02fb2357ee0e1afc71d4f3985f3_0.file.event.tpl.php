@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-12 19:15:18
+/* Smarty version 4.1.1, created on 2022-07-13 15:17:44
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\event.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cdac260af9c2_76632091',
+  'unifunc' => 'content_62cec5f85a9e79_67003758',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\event.tpl',
-      1 => 1657646115,
+      1 => 1657712566,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cdac260af9c2_76632091 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cec5f85a9e79_67003758 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -241,7 +241,8 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <p class="product-description mt-20"><?php echo $_smarty_tpl->tpl_vars['event']->value->getDescription();?>
 </p>
                     <?php if ($_smarty_tpl->tpl_vars['user']->value->getType() == 'Organizer' && $_smarty_tpl->tpl_vars['mood']->value == 'permit') {?>
-                        <a href="" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
+                        <a href="/Livent/Competition/NewPage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
+/" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
                     <?php }?>
                 </div>
             </div>

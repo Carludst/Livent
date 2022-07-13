@@ -9,12 +9,17 @@ class VNewCompetition extends View
         parent::__construct();
     }
 
-    public function show(ECompetition|null $competition)
+    public function show(ECompetition|int $competition)
     {
         $assign=$this->assign;
-        if($this->getMood())$assign['mood']='true';
-        else $assign['mood']='false';
-        $assign['competition']=$competition;
+        if(is_int($competition)){
+            $assign['idevent']=$competition;
+            $assign['competition']='';
+        }
+        else{
+            $assign['idevent']='';
+            $assign['competition']=$competition;
+        }
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
     }
@@ -25,19 +30,28 @@ class VNewCompetition extends View
     }
 
     private function getDateTime():?DateTime{
-        if(!empty($_POST['dateTime']))return $_POST['dateTime'];
+        if(!empty($_POST['dateTime'])){
+            $dateTime=str_replace('T',' ',$_POST['dateTime']);
+            echo($dateTime);
+            return DateTime::createFromFormat('Y-m-d H:i',$dateTime);
+        }
         else return null;
     }
 
     private function getDescription():?String{
         if(!empty($_POST['description']))return $_POST['description'];
-        else return null;
+        else return '';
     }
 
-    private function getGender():?bool{
+    /**
+     * @throws Exception
+     */
+    private function getGender():?String{
         if(!empty($_POST['gender'])){
-            if($_POST['gender']=="woman") return true;
-            else return false;
+            if($_POST['gender']=="Uomo") return 'M';
+            elseif ($_POST['gender']=="Donna") return 'F';
+            elseif($_POST['gender']=='Uomo e Donna')return 'M/F';
+            else throw new Exception('invalid value');
         }
         else return null;
     }
@@ -47,11 +61,12 @@ class VNewCompetition extends View
         else return null;
     }
 
+    /**
+     * @throws Exception
+     */
     private function getDistance():?EDistance{
         if(!empty($_POST['dist'])){
-            $distance=new EDistance($_POST['dist']);
-            $distance->toString($_POST['unit']);
-            return $distance;
+            return new EDistance($_POST['dist'].$_POST['unit']);
         }
         else return null;
     }
@@ -62,24 +77,21 @@ class VNewCompetition extends View
     }
 
     public function getPassword():?string{
-        if(!empty($_POST['password']))return $_POST['password'];
+        if(!empty($_POST['password']))return hash("sha3-256", $_POST['password']);
         else return null;
     }
 
+    /**
+     * @throws Exception
+     */
     public function createCompetition():ECompetition{
         $name=$this->getName();
         $dateTime=$this->getDateTime();
-        $birthdate=$this->getBirthDate();
         $sport=$this->getSport();
         $gender=$this->getGender();
         $distance=$this->getDistance();
         $description=$this->getDescription();
-        $competition= new EAthlete($name,$dateTime,$birthdate,$gender,$distance,$sport,$description);
-        return $competition;
-    }
-
-    public function getMood():bool{
-        return empty($_GET);
+        return new ECompetition($name,$dateTime,$gender,$sport,$distance,$description);
     }
 
 }

@@ -31,7 +31,7 @@ class EDistance
         }
         elseif(str_ends_with(strtolower($stringValue),"m")){
             $sValue=substr($stringValue,0,-1);
-            $conversion=1000;
+            $conversion=1/1000;
         }
         else throw new Exception("the string passed is not a distance or not have a valid unit of measure");
         if(is_numeric($sValue)==false)throw new Exception("the string passed is not a distance");
@@ -45,7 +45,7 @@ class EDistance
     public function getValue(String $unit='Km',?int $precision=3 ): float
     {
         if($unit=='Km')$value=$this->value;
-        elseif($unit=='mi')$value=$this->value*(1000/0.01);
+        elseif($unit=='mi')$value=$this->value*(1000/1609.34);
         elseif($unit=='m')$value=$this->value*1000;
         else throw new Exception('invalid unit');
         if(is_null($precision))return $value;

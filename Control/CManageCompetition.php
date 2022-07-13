@@ -30,8 +30,6 @@ class CManageCompetition
 
     public static function create():void
     {
-        //VERIFICA LOGIN E TIPO UTENTE
-        //if(filter_var($organizerEmail,FILTER_VALIDATE_EMAIL)!=false)
         try{
             $view=new VNewCompetition();
             $myinput=$view->getMyInput();

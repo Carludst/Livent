@@ -27,8 +27,8 @@ function routing():Array{
     ];
     //9 => 21
     $competition=[
-        'Update'=>'CManageCompetition::update',
-        'Create'=>'CManageCompetition::create',
+        'Update'=>'CManageCompetition::update()',
+        'Create'=>'CManageCompetition::create()',
         'Delete'=>'CManageCompetition::delete()',
         'MainPage'=>'CManageCompetition::mainPage()',
         'NewPage'=>'CManageCompetition::newPage()',
