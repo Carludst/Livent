@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-12 18:44:44
+/* Smarty version 4.1.1, created on 2022-07-13 17:07:46
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\organizerProfile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cda4fc1f2294_90791774',
+  'unifunc' => 'content_62cedfc27f3238_04238690',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '814225f78156d90b0e9faeb6fff7ccdc3aba7ad9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\organizerProfile.tpl',
-      1 => 1657644277,
+      1 => 1657724454,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cda4fc1f2294_90791774 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cedfc27f3238_04238690 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -216,7 +216,7 @@ for ($__section_i_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 </h4>
                                 <?php if (!empty($_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetitions())) {?><time><?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
 </time>
-                                <?php } else { ?><time>Data da stabile</time><?php }?>
+                                <?php } else { ?><time>data da stabile</time><?php }?>
                             </div>
                         </div>
                     </div>

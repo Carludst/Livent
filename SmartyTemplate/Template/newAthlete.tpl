@@ -65,7 +65,7 @@
                         </svg>
                     </a>
                     <h2 class="text-center"><b>Crea il nuovo Atleta</b></h2>
-                    <form method="post" class="text-left clearfix" name="createForm" {if $athlete!=""}action="/Livent/Athlete/Update/{$athlete->getId()}/"{else} action="/Livent/Athlete/Update/" {/if} >
+                    <form method="post" class="text-left clearfix" name="createForm" {if $athlete!=""}action="/Livent/Athlete/Update/{$athlete->getId()}/"{else} action="/Livent/Athlete/Create/" {/if} >
                         <h3>Autentificazione:</h3>
                         <div class="form-group">
                             <input type="email" class="form-control" name="email" placeholder="Email" required>

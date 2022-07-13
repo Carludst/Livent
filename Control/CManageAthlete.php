@@ -13,14 +13,9 @@ class CManageAthlete
         try{
             $view=new VNewAthlete();
             $logged=FSession::getUserLogged();
-            $myinput=$view->getMyInput();
-            $athlete= $view->createAthlete();
-            if(is_null($myinput)){
-                if(CManageUser::callLogin())FDbH::store($athlete);
-                $id=FDbH::loadLastStore(EAthlete::class)->getId();
-                header('Location: /Livent/Athlete/MainPage/'.$id.'/');
-            }
-            elseif(self::authorizer() && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
+            if(self::authorizer() && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
+                $myinput=$view->getMyInput();
+                $athlete= $view->createAthlete();
                 $athlete->setId($myinput);
                 if(!FDbH::updateOne($athlete))throw new Exception("you can't update an athlete that don't exist");
                 header('Location: /Livent/Athlete/MainPage/'.$myinput.'/');
@@ -32,21 +27,25 @@ class CManageAthlete
         }
     }
 
-    /*
-    public static function create(EAthlete $athlete):void
+
+    public static function create():void
     {
-        $vAthlete=new VNewAthlete();
-        $logged=FSession::getUserLogged();
         try{
-            if(CManageUser::callLogin() && $vAthlete->getEmail()==$logged->getPassword() && $vAthlete->getPassword()==$logged->getEmail()){
+            $view=new VNewAthlete();
+            $logged=FSession::getUserLogged();
+            if(self::authorizer() && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
+                $athlete= $view->createAthlete();
                 FDbH::store($athlete);
+                $id=FDbH::loadLastStore(EAthlete::class)->getId();
+                header('Location: /Livent/Athlete/MainPage/'.$id.'/');
             }
+            else throw new Exception("You don't have authorization");
         }
         catch (Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! il salvataggio dei dati dell' Atleta non è andato a buon fine");
+            CError::store($e,"ci scusiamo per il disaggio !!! il salvataggio dei dati dell' Atleta non è andato a buon fine , verificare di aver inserito le credenziali corrette e di avere le autorizazioni");
         }
     }
-    */
+
 
     public static function delete(EAthlete $athlete){
         try{
@@ -92,19 +91,23 @@ class CManageAthlete
     public static function newPage(){
         try{
             $view=new VNewAthlete();
-            $myinput=$view->getMyInput();
             if(self::authorizer()){
-                if(is_null($myinput)) $view->show();
-
-                else{
-                    $athlete= FDbH::loadOne($myinput, EAthlete::class);
-                    $view->show($athlete);
-                }
+                $view->show();
             }
             else throw new Exception("you don't have autorization");
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! la visualizzazione della pagina di crezione/aggiornamento dati dell'Atleta non è andata a buon fine");
         }
+    }
+
+    public static function updatePage(){
+        if(self::authorizer()){
+            $view=new VNewAthlete();
+            $myinput=$view->getMyInput();
+            $athlete= FDbH::loadOne($myinput, EAthlete::class);
+            $view->show($athlete);
+        }
+        else throw new Exception("you don't have autorization");
     }
 }

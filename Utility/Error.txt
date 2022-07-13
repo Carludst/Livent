@@ -1862,3 +1862,17 @@ value not allowed
 #1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSearch::searchCompetition()
 #2 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
 #3 {main}
+
+only the organizer can update competition
+#0 C:\xampp\htdocs\public_html\Livent\Control\CManageCompetition.php(99): CManageCompetition::authorizer(Object(ECompetition))
+#1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageCompetition::updatePage()
+#2 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#3 {main}
+
+SQLSTATE[HY000]: General error: 2006 MySQL server has gone away
+#0 C:\xampp\htdocs\public_html\Livent\Foundation\FDb.php(115): PDO->rollBack()
+#1 C:\xampp\htdocs\public_html\Livent\Foundation\FDbH.php(141): FDb::update('file', Array, Array)
+#2 C:\xampp\htdocs\public_html\Livent\Control\CManageEvent.php(28): FDbH::updateFile(Object(EEvent), 'front', 'C:\\xampp\\tmp\\ph...', 'jpg', true)
+#3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::update()
+#4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#5 {main}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-13 15:17:44
+/* Smarty version 4.1.1, created on 2022-07-13 17:08:38
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\event.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cec5f85a9e79_67003758',
+  'unifunc' => 'content_62cedff630da14_03189278',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\event.tpl',
-      1 => 1657712566,
+      1 => 1657724911,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cec5f85a9e79_67003758 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cedff630da14_03189278 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -223,7 +223,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                             <a href="#!" class="dropdown-toggle btn btn-transparent mt-20" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
                             <ul class="dropdown-menu">
-                                <li><a href="/Livent/Event/NewPage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
+                                <li><a href="/Livent/Event/UpdatePage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
 /">Modifica Profilo</a></li>
                                 <li><a href="/Livent/Event/Delete/">Cancella Profilo</a></li>
                             </ul>
@@ -241,7 +241,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <p class="product-description mt-20"><?php echo $_smarty_tpl->tpl_vars['event']->value->getDescription();?>
 </p>
                     <?php if ($_smarty_tpl->tpl_vars['user']->value->getType() == 'Organizer' && $_smarty_tpl->tpl_vars['mood']->value == 'permit') {?>
-                        <a href="/Livent/Competition/NewPage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
+                        <a href="/Livent/Competition/UpdatePage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
 /" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
                     <?php }?>
                 </div>

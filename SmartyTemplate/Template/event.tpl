@@ -184,7 +184,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                             <a href="#!" class="dropdown-toggle btn btn-transparent mt-20" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
                             <ul class="dropdown-menu">
-                                <li><a href="/Livent/Event/NewPage/{$event->getId()}/">Modifica Profilo</a></li>
+                                <li><a href="/Livent/Event/UpdatePage/{$event->getId()}/">Modifica Profilo</a></li>
                                 <li><a href="/Livent/Event/Delete/">Cancella Profilo</a></li>
                             </ul>
                         </li>
@@ -198,7 +198,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     {else}<p class="product-price"><time>data da stabilire</time>{/if}
                     <p class="product-description mt-20">{$event->getDescription()}</p>
                     {if $user->getType() == 'Organizer' && $mood eq 'permit'}
-                        <a href="/Livent/Competition/NewPage/{$event->getId()}/" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
+                        <a href="/Livent/Competition/UpdatePage/{$event->getId()}/" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
                     {/if}
                 </div>
             </div>

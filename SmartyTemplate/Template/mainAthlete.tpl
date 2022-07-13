@@ -185,7 +185,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <!-- / Setting -->
                     {if '' != $user && $user->getType() eq 'Administrator'}
                         <ul class="text-center">
-                            <li class="inline"><a class="btn btn-transparent mt-20" href="/Livent/Athlete/NewPage/{$athlete->getId()}/">Modifica</a></li>
+                            <li class="inline"><a class="btn btn-transparent mt-20" href="/Livent/Athlete/UpdatePage/{$athlete->getId()}/">Modifica</a></li>
                         </ul>
                     {/if}
                     <!-- / Setting -->

@@ -13,7 +13,8 @@ function routing():Array{
         'Create'=>'CManageAthlete::create',
         'Delete'=> 'CManageAthlete::delete()',
         'MainPage'=>'CManageAthlete::mainPage()',
-        'NewPage'=> 'CManageAthlete::newPage()',
+        'NewPage'=> 'CManageAthlete::newPage',
+        'UpdatePage'=>'CManageAthlete::UpdatePage()',
         'GetResult'=> 'CManageRegistration::getResultAthlete()',
         'Search'=> 'Csearch::searchAthlete',
         'Chronology'=>$athleteChronology
@@ -44,7 +45,8 @@ function routing():Array{
         'Create'=>'CManageEvent::create',
         'Delete'=>'CManageEvent::delete()',
         'MainPage'=>'CManageEvent::mainPage()',
-        'NewPage'=>'CManageEvent::newPage()',
+        'UpdatePage'=>'CManageEvent::UpdatePage()',
+        'NewPage'=>'CManageEvent::newPage',
         'SearchPage'=>'CSearch::searchPageEvent',
         'Search'=>'CSearch::searchEvent',
         'Chronology'=>$eventChronology

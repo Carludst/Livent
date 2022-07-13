@@ -58,7 +58,7 @@
                         </svg>
                     </a>
                     <h2 class="text-center"><b>Crea il nuovo Evento</b></h2>
-                    <form method="post" {if $event!=""}action="/Livent/Event/Update/{$event->getId()}/"{else} action="/Livent/Event/Update/" {/if} class="text-left clearfix" name="createForm" enctype="multipart/form-data">
+                    <form method="post" {if $event!=""}action="/Livent/Event/Update/{$event->getId()}/"{else} action="/Livent/Event/Create/" {/if} class="text-left clearfix" name="createForm" enctype="multipart/form-data">
                         <br>
                         <h3><b>Autenticazione:</b></h3>
                         <div class="form-group">
@@ -86,7 +86,7 @@
                         <br>
                         <div class="form-group">
                             <h4>Descrizione:</h4>
-                            <textarea {if $event!=""}value="{$event->getDescription()}"{/if} name="description" class="form-control" cols="20" rows="4">Scrivi la descrizione...</textarea>
+                            <textarea placeholder="Scrivi la descrizione..." name="description" class="form-control" cols="20" rows="4">{if $event!=""}{$event->getDescription()}{/if}</textarea>
                         </div>
                         <br>
                         <label for="avatar">Scegli una foto per l'evento:</label>
