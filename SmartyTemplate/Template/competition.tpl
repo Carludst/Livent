@@ -170,7 +170,7 @@
                 <tbody>
                 {foreach from=$athletes item=athlete}
                     <tr>
-                        <form method="post" class="text-left clearfix" action="/Livent/Registration/Delete>
+                        <form method="post" class="text-left clearfix" action="/Livent/Registration/Delete">
                             <td>{$athlete->getId()}</td>
                             <td>{$athlete->getName()}</td>
                             <td><a href="/Livent/Registration/Delate/{$athlete->getId()}I{$competition->getId()}" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
