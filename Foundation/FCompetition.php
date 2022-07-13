@@ -215,8 +215,8 @@ class FCompetition {
         $update_at=$now->format("Y-m-d h:i:s");
 
         if($info::class==EUser::class){
-            $email=$info->getId();
-            return array("idathlete"=>$idAthlete,"idcompetition"=>$idCompetition,"iduser"=>$email,"updated_at"=>$update_at);
+            $id=$info->getId();
+            return array("idathlete"=>$idAthlete,"idcompetition"=>$idCompetition,"iduser"=>$id,"updated_at"=>$update_at);
         }
         else{
             $time=(String)$info->getValue();
@@ -224,7 +224,10 @@ class FCompetition {
         }
     }
 
-    public static function addResult(ECompetition $competition,EAthlete $athlete,ETime $time): bool
+    /**
+     * @throws Exception
+     */
+    public static function addResult(ECompetition $competition, EAthlete $athlete, ETime $time): bool
     {
         return FDb::update(self::$table[1],self::whereResult($competition,$athlete),self::getArrByObjResult($competition,$athlete,$time));
     }
@@ -247,6 +250,7 @@ class FCompetition {
      * @param ECompetition $competition
      * @param EAthlete $athlete
      * @return bool
+     * @throws Exception
      */
     public static function deleteRegistration(ECompetition $competition,EAthlete $athlete): bool
     {
@@ -261,7 +265,7 @@ class FCompetition {
      */
     public static function deleteResult(ECompetition $competition,EAthlete $athlete): bool
     {
-        return FDb::delate(self::$table[1],FDb::multiWhere(array('idcompetition','idathlete','time'),array((string)$competition->getId(),(string)$athlete->getId(),NULL),array('=','=','<>')));
+        return FDb::update(self::$table[1],FDb::multiWhere(array('idcompetition','idathlete','time'),array((string)$competition->getId(),(string)$athlete->getId(),NULL),array('=','=','<>')),array('time'=>'NULL'));
     }
 
     public static function existRegistration(ECompetition $competition,EAthlete $athlete):bool
