@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-12 08:31:36
+/* Smarty version 4.1.1, created on 2022-07-12 09:13:18
   from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/newCompetition.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cd31688d7678_26710858',
+  'unifunc' => 'content_62cd3b2ed95c64_74059346',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e7c0eedabdeb7a72183e76ddc1736b0de03e9f03' => 
     array (
       0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/newCompetition.tpl',
-      1 => 1657614692,
+      1 => 1657617162,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cd31688d7678_26710858 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cd3b2ed95c64_74059346 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,7 +169,7 @@ function content_62cd31688d7678_26710858 (Smarty_Internal_Template $_smarty_tpl)
                             <input type="password" name='password' class="form-control" placeholder="Password">
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary">Conferma</button>
+                        <button type="submit" class="btn btn-primary" style="width: 260px">Conferma</button>
                     </form>
                 </div>
             </div>

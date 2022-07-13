@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.1.1, created on 2022-07-13 11:02:18
+  from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.1.1',
+  'unifunc' => 'content_62cea63af33417_32233750',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '4d912736163bb07ef7fd4b2551305976fdf51f6e' => 
+    array (
+      0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl',
+      1 => 1657710135,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_62cea63af33417_32233750 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -16,21 +39,28 @@
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo $_smarty_tpl->tpl_vars['logo']->value;?>
+" />
 
     <!-- Themefisher Icon font -->
-    <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/themefisher-font/style.css">
     <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="{$dir}/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap/css/bootstrap.min.css">
 
     <!-- Animate css -->
-    <link rel="stylesheet" href="{$dir}/plugins/animate/animate.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/animate/animate.css">
     <!-- Slick Carousel -->
-    <link rel="stylesheet" href="{$dir}/plugins/slick/slick.css">
-    <link rel="stylesheet" href="{$dir}/plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick-theme.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{$dir}/css/style.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/css/style.css">
 
 </head>
 
@@ -84,19 +114,23 @@
                         </ul>
                     </li>
                     <!-- / Search -->
-                    {if '' != $user }
+                    <?php if ('' != $_smarty_tpl->tpl_vars['user']->value) {?>
                     <li class="dropdown cart-nav dropdown-slide" >
-                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="image" /></a>
                         <div class="dropdown-menu cart-dropdown">
                             <!-- Cart Item -->
                             <div class="media">
                                 <a class="pull-left" href="/Livent/User/Profile/">
-                                    <img class="media-object" src="{$profileImg}" alt="image" />
+                                    <img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="image" />
                                 </a>
                                 <div class="media-body">
-                                    <h4 class="media-heading">{$user->getUsername()}</h4>
+                                    <h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
+</h4>
                                     </br>
-                                    <h4 class="media-heading">{$user->getEmail()}</h4>
+                                    <h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
+</h4>
                                 </div>
                             </div><!-- / Cart Item -->
                             <!-- Cart Item -->
@@ -110,11 +144,11 @@
                     </li><!-- / User -->
                 </ul>
 
-                {else}
+                <?php } else { ?>
                 <!-- / Login -->
                 <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
                 <!-- / Login -->
-                {/if}
+                <?php }?>
                 <!-- / .nav .navbar-nav .navbar-right -->
             </div>
         </div>
@@ -126,8 +160,10 @@
     <div class="container">
         <div class="row mt-20">
             <div class="single-product-details">
-                <h2><b>{$name}</b></h2>
-                <!--<p class="product-description mt-20">{$description}</p>-->
+                <h2><b><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</b></h2>
+                <!--<p class="product-description mt-20"><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
+</p>-->
             </div>
         </div>
     </div>
@@ -149,11 +185,16 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>{$startDate->format('d-m-y H:i:s')}</td>
-                    <td>{$sport}</td>
-                    <td>{$gender}</td>
-                    <td>{$distance->toString()}</td><!--distance-->
-                    <td>{$description}</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['startDate']->value->format('d-m-y H:i:s');?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['sport']->value;?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['gender']->value;?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['distance']->value->toString();?>
+</td><!--distance-->
+                    <td><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
+</td>
                 </tr>
                 </tbody>
             </table>
@@ -167,12 +208,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                {foreach from=$athletes item=athlete}
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['athletes']->value, 'athlete');
+$_smarty_tpl->tpl_vars['athlete']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['athlete']->value) {
+$_smarty_tpl->tpl_vars['athlete']->do_else = false;
+?>
                     <tr>
-                        <td>{$athlete->getId()}</td>
-                        <td>{$athlete->getName()}</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getId();?>
+</td>
+                        <td><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getName();?>
+</td>
                     </tr>
-                {/foreach}
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </tbody>
             </table>
             <br>
@@ -199,30 +249,63 @@ Essential Scripts
 =====================================-->
 
 <!-- Main jQuery -->
-<script src="{$dir}/plugins/jquery/dist/jquery.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/jquery/dist/jquery.min.js"><?php echo '</script'; ?>
+>
 <!-- Bootstrap 3.1 -->
-<script src="{$dir}/plugins/bootstrap/js/bootstrap.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 <!-- Bootstrap Touchpin -->
-<script src="{$dir}/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"><?php echo '</script'; ?>
+>
 <!-- Instagram Feed Js -->
-<script src="{$dir}/plugins/instafeed/instafeed.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/instafeed/instafeed.min.js"><?php echo '</script'; ?>
+>
 <!-- Video Lightbox Plugin -->
-<script src="{$dir}/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"><?php echo '</script'; ?>
+>
 <!-- Count Down Js -->
-<script src="{$dir}/plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/syo-timer/build/jquery.syotimer.min.js"><?php echo '</script'; ?>
+>
 
 <!-- slick Carousel -->
-<script src="{$dir}/plugins/slick/slick.min.js"></script>
-<script src="{$dir}/plugins/slick/slick-animation.min.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick-animation.min.js"><?php echo '</script'; ?>
+>
 
 <!-- Google Mapl -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script type="text/javascript" src="{$dir}/plugins/google-map/gmap.js"></script>
+<?php echo '<script'; ?>
+ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/google-map/gmap.js"><?php echo '</script'; ?>
+>
 
 <!-- Main Js File -->
-<script src="{$dir}/js/script.js"></script>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/js/script.js"><?php echo '</script'; ?>
+>
 
 
 
 </body>
-</html>
+</html><?php }
+}
