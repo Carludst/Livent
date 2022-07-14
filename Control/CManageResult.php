@@ -71,6 +71,29 @@ class CManageResult
         }
     }
 
+
+    public static function deletePage(){
+        try{
+            $view=new VDelete();
+            $myinputC=$view->getMyInputCompetition();
+            $myinputA=$view->getMyInputAthlete();
+            if(is_null($myinputA)||is_null($myinputC))throw new Exception("myinput don't setted");
+            $competition=FDbH::loadOne($myinputC,ECompetition::class);
+            $athlete=FDbH::loadOne($myinputA,EAthlete::class);
+            if(self::authorizer($competition))
+            {
+                $message='sei sicuro di voler cancellare la registrazione ?  i dati non potranno essere recuperati';
+                $action='/Livent/Result/Delete/'.$athlete->getId().'I'.$competition->getId().'/';
+                $return='/Livent/Result/MainPage/'.$competition->getId().'/';
+                $what='Risultato';
+                $view->show($action,$what,$return,$message);
+            }
+        }
+        catch (Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di eliminazione della registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+        }
+    }
+
     /*
     public static function newPage(?ECompetition $competition , ?EAthlete $athlete){
         try{

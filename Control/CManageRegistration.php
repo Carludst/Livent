@@ -3,13 +3,14 @@
 class CManageRegistration
 {
 
-    private static function authorizer(ECompetition $competition , EAthlete $athlete):bool{
-
-        $emailLOgged=FSession::getUserLogged()->getEmail();
-        $emailRegisterBy=$competition->RegisteredBy($athlete)->getEmail();
-        $emailOrganaizerEvent=FDbH::loadEventByCompetition($competition)->getOrganizer()->getEmail();
-
-        if(FSession::isLogged() && ($emailLOgged!=$emailRegisterBy && $emailLOgged!=$emailOrganaizerEvent))throw new Exception("you must be the register or the oganizer of the event");
+    private static function authorizer(ECompetition $competition , EAthlete|NUll $athlete=NULL):bool{
+        if(is_null($athlete)  && FDbH::loadEventByCompetition($competition)->getOrganizer()->getId()!=FSession::getUserLogged()->getId())throw new Exception("you must be the oganizer of the event");
+        else{
+            $emailLOgged=FSession::getUserLogged()->getEmail();
+            $emailRegisterBy=$competition->RegisteredBy($athlete)->getEmail();
+            $emailOrganaizerEvent=FDbH::loadEventByCompetition($competition)->getOrganizer()->getEmail();
+            if(FSession::isLogged() && ($emailLOgged!=$emailRegisterBy && $emailLOgged!=$emailOrganaizerEvent))throw new Exception("you must be the register or the oganizer of the event");
+        }
         return CManageUser::callLogin();
     }
 
@@ -70,6 +71,29 @@ class CManageRegistration
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizazzione della pagina per inserire una nuova registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+        }
+    }
+
+    public static function deletePage(){
+        try{
+            $view=new VDelete();
+            $myinputC=$view->getMyInputCompetition();
+            $myinputA=$view->getMyInputAthlete();
+            if(is_null($myinputA)||is_null($myinputC))throw new Exception("myinput don't setted");
+            if(CManageUser::callLogin())$logged=FSession::getUserLogged();
+            $competition=FDbH::loadOne($myinputC,ECompetition::class);
+            $athlete=FDbH::loadOne($myinputA,EAthlete::class);
+            if(self::authorizer($competition,$athlete))
+            {
+                $message='sei sicuro di voler cancellare la registrazione ?  i dati non potranno essere recuperati';
+                $action='/Livent/Registration/Delete/'.$athlete->getId().'I'.$competition->getId().'/';
+                $return='/Livent/Competition/MainPage/'.$competition->getId().'/';
+                $what='Registrazione';
+                $view->show($action,$what,$return,$message);
+            }
+        }
+        catch (Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di eliminazione della registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 

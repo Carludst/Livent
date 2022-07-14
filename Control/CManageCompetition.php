@@ -100,7 +100,6 @@ class CManageCompetition
             $competition=FDbH::loadOne($myinput,ECompetition::class);
             if(self::authorizer($competition) && $view->getPassword()==$logged->getPassword() && $view->getEmail()==$logged->getEmail())
             {
-                FDbH::deleteReference($competition->getId(),ECompetition::class);
                 $message='sei sicuro di voler cancellare la competizione? la cancellazione della competizione comporta anche la cancellazione di tutte le registrazioni e risultati della stessa , i dati non potranno essere recuperati';
                 $action='/Livent/Competition/Delete/'.$competition->getId().'/';
                 $return='/Livent/Competition/MainPage/'.$competition->getId().'/';

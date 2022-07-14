@@ -262,7 +262,6 @@ class CManageUser
             $user=FDbH::loadOne($myinput,EUser::class);
             if((self::authorizer($user) || $logged->getType()=='Administrator')&& $view->getPassword()==$logged->getPassword() && $view->getEmail()==$logged->getEmail())
             {
-                FDbH::deleteReference($user->getId(),EEvent::class);
                 if($user->getType()=='Organizer')$message="sei sicuro di voler cancellare l' utente ? la cancellazione di un utente organizzatore comporta anche la cancellazione di tutti gli eventi ad esso associati  , i dati non potranno essere recuperati";
                 else $message="sei sicuro di voler cancellare l'utente , i dati non potranno essere recuperati";
                 $action='/Livent/User/Delete/'.$user->getId().'/';

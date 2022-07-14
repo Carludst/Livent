@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="add delate reference method">
-      <change afterPath="$PROJECT_DIR$/SmartyTemplate/Template/delete.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/VDelete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/CManageAthlete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageAthlete.php" afterDir="false" />
+    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="deletePage">
       <change beforePath="$PROJECT_DIR$/Control/CManageCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageCompetition.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/CManageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageRegistration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageResult.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/CManageUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/CSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CSearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foundation/FAthlete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FAthlete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foundation/FDbH.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FDbH.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foundation/FEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foundation/FUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/css/myStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/css/myStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VDelete.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VDelete.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +62,7 @@
       <updated>1657557356686</updated>
       <workItem from="1657557357720" duration="174000" />
       <workItem from="1657557549751" duration="2908000" />
-      <workItem from="1657776312309" duration="2714000" />
+      <workItem from="1657776312309" duration="4422000" />
     </task>
     <task id="LOCAL-00001" summary="testo">
       <created>1657702048419</created>
@@ -108,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657728135077</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="deletePage">
+      <created>1657779110806</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657779110806</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +129,7 @@
     <MESSAGE value="newCompetition.tpl" />
     <MESSAGE value="finite le new" />
     <MESSAGE value="add delate reference method" />
-    <option name="LAST_COMMIT_MESSAGE" value="add delate reference method" />
+    <MESSAGE value="deletePage" />
+    <option name="LAST_COMMIT_MESSAGE" value="deletePage" />
   </component>
 </project>
