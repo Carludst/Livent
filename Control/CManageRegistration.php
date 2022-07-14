@@ -16,17 +16,22 @@ class CManageRegistration
 
     public static function addRegistration(){
         try{
-            $view=new VNewRegCompetition();
-            $logged=FSession::getUserLogged();
-            $key=$view->getMyInput();
-            $competition= FDbH::loadOne($key, "ECompetition");
-            $athlete= FDbH::loadOne($view->getId(), "EAthlete");
-            if($athlete->getName()===$view->getName() && $athlete->getSurname()===$view->getSurname()){
-                $iscription=$view->addNewIscription($athlete->getName(),$athlete->getSurname(),$athlete->getBirthdate(),$athlete->getFamale(),$athlete->getTeam(),$athlete->getSport());
-                if(self::authorizer($competition, $athlete)  && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
-                    if(!FCompetition::addResult($competition, $iscription, "nd"))throw new Exception("you can't update a competition that don't exist");
-                }
-            }else throw new Exception("nome, cognome e id dell'atleta inseriti non corrispondono, riprovare");
+            if(CManageUser::callLogin()){
+                $view=new VNewRegCompetition();
+                $logged=FSession::getUserLogged();
+                $key=$view->getMyInput();
+                $competition= FDbH::loadOne($key, "ECompetition");
+                $athlete= FDbH::loadOne($view->getId(), "EAthlete");
+                $event=FDbH::loadEventByCompetition($competition);
+                if((FSession::getUserLogged()->getType()=='Organizer' && $event->getOrganizer()===FSession::getUserLogged())||FSession::getUserLogged()->getType()=='User'){
+                    if($athlete->getName()===$view->getName() && $athlete->getSurname()===$view->getSurname()){
+                        $iscription=$view->addNewIscription($athlete->getName(),$athlete->getSurname(),$athlete->getBirthdate(),$athlete->getFamale(),$athlete->getTeam(),$athlete->getSport());
+                        if(self::authorizer($competition, $athlete)  && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
+                            if(!FCompetition::addRegistration($competition, $iscription, $logged))throw new Exception("you can't update a competition that don't exist");
+                        }
+                    }else throw new Exception("nome, cognome e id dell'atleta inseriti non corrispondono, riprovare");
+                }else throw new Exception("you haven't the authorization to add a registration");
+            }else throw new Exception('you have to be logged to add a registration');
         }catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }

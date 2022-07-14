@@ -156,17 +156,8 @@ class CManageCompetition
             $athlete= FDbH::loadOne($view->getId(), "EAthlete");
             $iscription=$view->addNewIscription($athlete->getName(),$athlete->getSurname(),$athlete->getBirthdate(),$athlete->getFamale(),$athlete->getTeam(),$athlete->getSport());
             if(self::authorizer($competition)  && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
-                if(!FCompetition::addResult($competition, $iscription, "nd"))throw new Exception("you can't update a competition that don't exist");
+                if(!FCompetition::addRegistration($competition, $iscription, $logged))throw new Exception("you can't update a competition that don't exist");
             }
-        }catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
-        }
-    }
-
-    public static function results(){
-        try{
-            $view=new VCompetition();
-            $key=$view->getMyInput();
         }catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }

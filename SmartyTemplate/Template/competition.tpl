@@ -181,9 +181,14 @@
             </form>
             <br>
             <br>
-            {if(1===1)}
-                <a href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a>
-            {/if}
+            <table>
+                <thead>
+                <tr>
+                    <th><a href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a></th>
+                    <th><a href="/Livent/Result/NewPage/"><b>Visualizza i risultati</b></a></th>
+                </tr>
+                </thead>
+            </table>
         </div>
     </div>
 </section>

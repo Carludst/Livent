@@ -14,8 +14,14 @@ class CManageResult
 
 
 
-    public static function addResult(ECompetition $competition,EAthlete $athlete, ETime $time){
+    public static function addResult(){
         try{
+            $view=new VResult();
+            $viewcomp=new VCompetition();
+            $key=$viewcomp->getMyInput();
+            $competition= FDbH::loadOne($key, "ECompetition");
+            $athlete= FDbH::loadOne($view->getId(), "EAthlete");
+            $time= FDbH::loadOne($view->getTime(), "ETime");
             if(self::authorizer($competition)){
                 if(!$competition->addResult($athlete,$time))throw new Exception("loading result is failed");
             }
@@ -24,6 +30,7 @@ class CManageResult
             CError::store($e,"ci scusiamo per il disaggio !!! L'inserimento del risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
+
 
 
     public static function delate()
@@ -46,7 +53,7 @@ class CManageResult
 
     }
 
-    public static function mainPage(){
+    public static function newPageResult(){
         if(FSession::isLogged()){
             $user=FSession::getUserLogged();
             $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
@@ -57,47 +64,17 @@ class CManageResult
         }
         try{
             $view = new VResult();
-            $key = (int)$view->getMyInput();
-            if(FDbH::existOne($key,ECompetition::class)){
-                FSession::addChronology(ECompetition::class,$key);
+            $viewcomp = new VCompetition();
+            $key = $viewcomp->getMyInput();
+            if(FDbH::existOne((int)$key,ECompetition::class)){
                 $competition = FDbH::loadOne($key, ECompetition::class);
-                $name = $competition->getName();
-                //$eventImg=FDbH::loadMultiFile($event,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.2);
-                $athletes = $competition->getRegistrations();
-                $startDate = $competition->getDateTime();
-                $sport = $competition->getSport();
-                $distance = $competition->getDistance();
-                $gender = $competition->getGender();
-                $description = $competition->getDescription();
-                $view->show($user, $profileImg, $name, $athletes , $startDate, $sport ,$distance ,$gender,$description);
+                $results=FCompetition::getClassification($competition);
+                $view->show($user, $profileImg,$results);
             }
             else throw new Exception("l'evento non esiste");
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
-        }
-    }
-
-
-    public static function deletePage(){
-        try{
-            $view=new VDelete();
-            $myinputC=$view->getMyInputCompetition();
-            $myinputA=$view->getMyInputAthlete();
-            if(is_null($myinputA)||is_null($myinputC))throw new Exception("myinput don't setted");
-            $competition=FDbH::loadOne($myinputC,ECompetition::class);
-            $athlete=FDbH::loadOne($myinputA,EAthlete::class);
-            if(self::authorizer($competition))
-            {
-                $message='sei sicuro di voler cancellare la registrazione ?  i dati non potranno essere recuperati';
-                $action='/Livent/Result/Delete/'.$athlete->getId().'I'.$competition->getId().'/';
-                $return='/Livent/Result/MainPage/'.$competition->getId().'/';
-                $what='Risultato';
-                $view->show($action,$what,$return,$message);
-            }
-        }
-        catch (Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di eliminazione della registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
