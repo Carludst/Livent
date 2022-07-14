@@ -56,14 +56,13 @@ FACEBOOK: https://www.facebook.com/themefisher
 <section class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-4">
-                    <ul class="top-menu text-left list-inline">
-                        <li class="dropdown ">
-                            <a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
-                        </li>
-                    </ul>
+            <div class="col-md-5 col-xs-12 col-sm-4">
+                <div class="contact-number">
+                    <i class="tf-ion-ios-telephone"></i>
+                    <span>0129- 12323-123123</span>
+                </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-2 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
                     <a href="/Livent/">
@@ -82,7 +81,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-5 col-xs-12 col-sm-4">
                 <ul class="top-menu text-right list-inline">
                     <!-- Home -->
                     <li class="dropdown ">
@@ -90,7 +89,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </li>
                     <!-- / Home -->
                     <!-- / Search -->
-                    <li class="dropdown dropdown-slide">
+                    <li class="dropdown dropdown-slide ">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                            role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
                                     class="tf-ion-ios-arrow-down"></span></a>
@@ -102,15 +101,15 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </li>
                     <!-- / Search -->
                     <!-- / System -->
-
+                    {if '' != $user && $user->getType() eq 'Administrator'}
                     <li class="dropdown dropdown-slide">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                            role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-ios-settings-strong"></i> System<span
                                     class="tf-ion-ios-arrow-down"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="typography.html">Errori</a></li>
+                            <li><a href="/Livent/Error/">Errori</a></li>
                             <li><a href="/Livent/Graphics/">Imposta grafica</a></li>
-                            <li><a href="alerts.html">Gestione utenti</a></li>
+                            <li><a href="/Livent/User/Search/">Gestione utenti</a></li>
                             <li><a href="/Livent/Athlete/NewPage/">Crea Atleta</a></li>
                         </ul>
                     </li>
@@ -135,7 +134,39 @@ FACEBOOK: https://www.facebook.com/themefisher
                             </ul>
                         </div>
 
-                    </li>
+                    </li><!-- / User -->
+
+                    {elseif '' != $user }
+                    <li class="dropdown cart-nav dropdown-slide" >
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
+                        <div class="dropdown-menu cart-dropdown">
+                            <!-- Cart Item -->
+                            <div class="media">
+                                <a class="pull-left" href="/Livent/User/Profile/">
+                                    <img class="media-object" src="{$profileImg}" alt="image" />
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">{$user->getUsername()}</h4>
+                                    </br>
+                                    <h4 class="media-heading">{$user->getEmail()}</h4>
+                                </div>
+                            </div><!-- / Cart Item -->
+                            <!-- Cart Item -->
+                            <ul class="text-center cart-buttons">
+                                <li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
+                                <li><a href="/Livent/User/ProfilePage/" class="btn btn-small btn-solid-border">View Profile</a></li>
+                                <a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" style="width: 100%">Logout</a>
+                            </ul>
+                        </div>
+
+                    </li><!-- / User -->
+                </ul>
+
+                {else}
+                <!-- / Login -->
+                <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
+                <!-- / Login -->
+                {/if}
                 <!-- / .nav .navbar-nav .navbar-right -->
             </div>
         </div>
@@ -143,56 +174,20 @@ FACEBOOK: https://www.facebook.com/themefisher
 </section>
 <!-- End Top Header Bar -->
 
-<section class="products section" >
+<section class="user-dashboard page-wrapper">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <div class="widget">
-                    <h4 class="widget-title">Ricerca</h4>
-                    <form method="get" action="/Livent/User/Search/" name="searchForm">
-                        <div class="form-group-sm mb-3">
-                            <input type="text" class="form-control" {if $username!=""}value="{$username}"{/if} name="username" placeholder="Username" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
-                        </div>
-                        <br>
-                        <div class="input-group-sm mb-3">
-                            <input type="text" {if $email!=""}value="{$email}"{/if} placeholder="Email"  name="email" class="form-control" aria-label="Default" style="width: 260px" aria-describedby="inputGroup-sizing-sm" >
-                        </div>
-                        <br>
-                        <button type="submit"  class="btn btn-main btn-small btn-round" style="width: 260px">Cerca</button>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="list-group">
-                        {if empty($users) && $mood=='search'}
-                            <h1 class="my-allert-page" > La ricerca non ha dato risultati </h1>
-                        {elseif empty($users)}
-                            <h1 class="my-allert-page" > Non ci sono utenti salvati </h1>
-                        {else}
-                            <div class="row">
-                                {section name=index loop=$users}
-                                    <div class="col-md-12">
-                                        <a href="/Livent/User/DeleteAdmin/{$users[index]->getId()}/" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                        <img class="img-responsive" src="{$profileImg[index]}" alt="product-img" width="100" height="150" />
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <h3 class="mb-1"><b>{$users[index]->getUsername()}</b></h3>
-                                                        <br>
-                                                        <h7 class="mb-1">{$users[index]->getEmail()}</h7>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        </br>
-                                    </div>
-                                {/section}
-                            </div>
-                        {/if}
-                    </div><!-- /.modal -->
+            <div class="col-md-12">
+                <ul class="list-inline dashboard-menu text-center">
+                    <li><a href="/Livent/Error/Delete/" class="btn btn-main btn-medium">Cancella</a></li>
+                    <li><a href="/Livent/Error/Download/" class="btn btn-main btn-medium">Download</a></li>
+                </ul>
+                <div class="dashboard-wrapper">
+                    <div class="media-body">
+                        <p>
+                            {$errors}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-13 11:13:17
+/* Smarty version 4.1.1, created on 2022-07-14 11:31:24
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62ce8cadcd0fa3_33680966',
+  'unifunc' => 'content_62cfe26c3e1de8_70673531',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '16515f38775ce7507f5d8fbf513ad2faaff27828' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\home.tpl',
-      1 => 1657701761,
+      1 => 1657791082,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62ce8cadcd0fa3_33680966 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cfe26c3e1de8_70673531 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -136,7 +136,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-ios-settings-strong"></i> System<span
 									class="tf-ion-ios-arrow-down"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="typography.html">Errori</a></li>
+							<li><a href="/Livent/Error/">Errori</a></li>
 							<li><a href="/Livent/Graphics/">Imposta grafica</a></li>
 							<li><a href="/Livent/User/Search/">Gestione utenti</a></li>
 							<li><a href="/Livent/Athlete/NewPage/">Crea Atleta</a></li>

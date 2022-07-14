@@ -48,19 +48,9 @@ class FFile
      * @param int|null $row
      * @return String
      */
-    public static function read(?int $row=NULL):String
+    public static function read():String
     {
-        if(is_null($row))return file(self::$path);
-        else{
-            $file=fopen(self::getPath(),'r');
-            $result="";
-            if($row<0)$row=count(file(self::$path))+1-$row;
-            for($i=0;$i<$row;$i++) {
-                $result = fgets($file);
-            }
-            fclose($file);
-            return $result;
-        }
+        return file_get_contents(self::$path);
     }
 
     /**

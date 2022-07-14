@@ -106,7 +106,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-ios-settings-strong"></i> System<span
 									class="tf-ion-ios-arrow-down"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="typography.html">Errori</a></li>
+							<li><a href="/Livent/Error/">Errori</a></li>
 							<li><a href="/Livent/Graphics/">Imposta grafica</a></li>
 							<li><a href="/Livent/User/Search/">Gestione utenti</a></li>
 							<li><a href="/Livent/Athlete/NewPage/">Crea Atleta</a></li>
