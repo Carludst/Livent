@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="file Error.txt">
-      <change beforePath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" afterDir="false" />
+    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="deletePage">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4b13dc191826d6d1e053844f557fad3a7a7ee0e4_0.file.event.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4b13dc191826d6d1e053844f557fad3a7a7ee0e4_0.file.event.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VNewCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VNewCompetition.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +38,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/public_html/Livent/Control/main.php&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -42,22 +47,10 @@
       <recent name="C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.main">
+  <component name="RunManager">
     <configuration name="web" type="JavascriptDebugType" uri="http://localhost\Livent\">
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Control/main.php">
-      <CommandLine>
-        <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="C:php" />
-        </PhpTestInterpreterSettings>
-      </CommandLine>
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="JavaScript Debug.web" />
-      <item itemvalue="PHP Script.main" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -69,7 +62,7 @@
       <updated>1657557356686</updated>
       <workItem from="1657557357720" duration="174000" />
       <workItem from="1657557549751" duration="2908000" />
-      <workItem from="1657776312309" duration="8295000" />
+      <workItem from="1657776312309" duration="5023000" />
     </task>
     <task id="LOCAL-00001" summary="testo">
       <created>1657702048419</created>
@@ -120,21 +113,7 @@
       <option name="project" value="LOCAL" />
       <updated>1657780794121</updated>
     </task>
-    <task id="LOCAL-00008" summary="delete">
-      <created>1657781436729</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1657781436729</updated>
-    </task>
-    <task id="LOCAL-00009" summary="file Error.txt">
-      <created>1657795818533</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1657795818533</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,8 +137,6 @@
     <MESSAGE value="finite le new" />
     <MESSAGE value="add delate reference method" />
     <MESSAGE value="deletePage" />
-    <MESSAGE value="delete" />
-    <MESSAGE value="file Error.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="file Error.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="deletePage" />
   </component>
 </project>

@@ -199,7 +199,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     {else}<p class="product-price"><time>data da stabilire</time>{/if}
                     <p class="product-description mt-20">{$event->getDescription()}</p>
                     {if $user->getType() == 'Organizer' && $mood eq 'permit'}
-                        <a href="/Livent/Competition/UpdatePage/{$event->getId()}/" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
+                        <a href="/Livent/Competition/NewPage/{$event->getId()}/" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
                     {/if}
                 </div>
             </div>
