@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-13 14:59:38
+/* Smarty version 4.1.1, created on 2022-07-14 09:08:16
   from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cedddaeff941_63508432',
+  'unifunc' => 'content_62cfdd00d3a2d8_70244426',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4d912736163bb07ef7fd4b2551305976fdf51f6e' => 
     array (
       0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl',
-      1 => 1657724375,
+      1 => 1657789692,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cedddaeff941_63508432 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cfdd00d3a2d8_70244426 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,8 +39,8 @@ function content_62cedddaeff941_63508432 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo $_smarty_tpl->tpl_vars['logo']->value;?>
-" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/images/favicon.png" />
 
     <!-- Themefisher Icon font -->
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
@@ -162,8 +162,6 @@ function content_62cedddaeff941_63508432 (Smarty_Internal_Template $_smarty_tpl)
             <div class="single-product-details">
                 <h2><b><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 </b></h2>
-                <!--<p class="product-description mt-20"><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
-</p>-->
             </div>
         </div>
     </div>
@@ -202,34 +200,46 @@ function content_62cedddaeff941_63508432 (Smarty_Internal_Template $_smarty_tpl)
             <br>
             <h4>Atleti iscritti:</h4>
             <br>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>ID atleta</th>
-                    <th>Atleta</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
+            <form method="post" class="text-left clearfix" action="/Livent/Registration/Delete">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID atleta</th>
+                        <th>Atleta</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['athletes']->value, 'athlete');
 $_smarty_tpl->tpl_vars['athlete']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['athlete']->value) {
 $_smarty_tpl->tpl_vars['athlete']->do_else = false;
 ?>
-                    <tr>
-                        <td><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getId();?>
+                        <tr>
+                            <td><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getId();?>
 </td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getName();?>
+                            <td><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getName();?>
 </td>
-                    </tr>
-                <?php
+                            <td><a href="/Livent/Registration/Delate/<?php echo $_smarty_tpl->tpl_vars['athlete']->value->getId();?>
+I<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
+" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
+                        </tr>
+                    <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                </tbody>
+                    </tbody>
+                </table>
+            </form>
+            <br>
+            <br>
+            <table>
+                <thead>
+                <tr>
+                    <th><a href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a></th>
+                    <th><a href="/Livent/Result/NewPage/"><b>Visualizza i risultati</b></a></th>
+                </tr>
+                </thead>
             </table>
-            <br>
-            <br>
-            <a href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a>
         </div>
     </div>
 </section>

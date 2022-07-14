@@ -9,27 +9,49 @@ class VResult extends View
         parent::__construct();
     }
 
-    /**
-     * @param EEvent|null $event
-     * @param String|null $eventImg
-     * @return void
-     * @throws SmartyException
-     */
-    public function show(?EUser $user , ?String $profileImg, ?String $name, ?Array $athletes , ?DateTime $startDate, ?string $sport, ?EDistance $distance, ?string $gender, ?string $description)
+    public function getName(){
+        if(!empty($_POST['name']))return $_POST['name'];
+        else return null;
+    }
+
+    public function getSurname(){
+        if(!empty($_POST['surname']))return $_POST['surname'];
+        else return null;
+    }
+
+    public function getId(){
+        if(!empty($_POST['id']))return $_POST['id'];
+        else return null;
+    }
+
+    public function getEmail(){
+        if(!empty($_POST['email']))return $_POST['email'];
+        else return null;
+    }
+
+    public function getPassword(){
+        if(!empty($_POST['password']))return $_POST['password'];
+        else return null;
+    }
+
+    public function getTime(){
+        if(!empty($_POST['time']))return $_POST['time'];
+        else return null;
+    }
+
+    public function addNewResult(string $name, string $surname, DateTime $birthdate, bool $famale, string $team = "", string $sport = ""): EAthlete
+    {
+        $id = self::getId();
+        $athlete = new EAthlete($name, $surname, $birthdate, $famale, $team, $sport, $id);
+        return $athlete;
+    }
+
+    public function show(?EUser $user , ?String $profileImg, ?Array $results)
     {
         $assign = $this->assign;
-        //$assign['eventImg'] = $eventImg;
         $assign['user']=$user;
         $assign['profileImg']=$profileImg;
-        $assign['athletes']=$athletes;
-        //$assign['result']=$result;
-        $assign['name']=$name;
-        $assign['startDate'] = $startDate;
-        $assign['sport'] = $sport;
-        $assign['distance'] = $distance;
-        $assign['gender'] = $gender;
-        $assign['description'] = $description;
-
+        $assign['results']=$results;
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
     }

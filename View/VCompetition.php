@@ -9,13 +9,6 @@ class VCompetition extends View
         parent::__construct();
     }
 
-    /**
-     * @param EEvent|null $event
-     * @param String|null $eventImg
-     * @return void
-     * @throws SmartyException
-     */
-
     public function show(?EUser $user , ?String $profileImg, ?String $name, ?Array $athletes , ?DateTime $startDate, ?string $sport, ?EDistance $distance, ?string $gender, ?string $description)
     {
         $assign = $this->assign;
@@ -33,24 +26,6 @@ class VCompetition extends View
 
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
-    }
-
-    public function getMyInputCompetition(): ?int
-    {
-        if(isset($GLOBALS['_MYINPUT'])){
-            $myinput=explode('I',$GLOBALS['_MYINPUT']);
-            return (int)$myinput[1];
-        }
-        else return NULL;
-    }
-
-    public function getMyInputAthlete(): ?int
-    {
-        if(isset($GLOBALS['_MYINPUT'])){
-            $myinput=explode('I',$GLOBALS['_MYINPUT']);
-            return (int)$myinput[0];
-        }
-        else return NULL;
     }
 
 }
