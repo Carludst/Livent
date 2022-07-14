@@ -84,7 +84,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                             <button type="submit" class="btn btn-main text-center" >Elimina {$what}</button>
                         </div>
                     </form>
-                    <p class="mt-20">New in this site ?<a href="{$return}">annulla</a></p>
+                    <p class="mt-20">Vuoi tornare alla pagina del {$what} ?<a href="{$return}">annulla</a></p>
                 </div>
             </div>
         </div>
