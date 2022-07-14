@@ -168,7 +168,7 @@ class CManageEvent
             if(is_null($myinput))throw new Exception("myinput don't setted");
             $logged=FSession::getUserLogged();
             $event=FDbH::loadOne($myinput,EEvent::class);
-            if(self::authorizer($event) && $view->getPassword()==$logged->getPassword() && $view->getEmail()==$logged->getEmail())
+            if(self::authorizer($event) )
             {
                 $message="sei sicuro di voler cancellare l' evento ? la cancellazione del evento comporta anche la cancellazione di tutte le competizioni e le registrazioni , risultati ad esse associate  , i dati non potranno essere recuperati";
                 $action='/Livent/Event/Delete/'.$event->getId().'/';

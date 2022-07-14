@@ -185,8 +185,8 @@ FACEBOOK: https://www.facebook.com/themefisher
                             <a href="#!" class="dropdown-toggle btn btn-transparent mt-20" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                                role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
                             <ul class="dropdown-menu">
-                                <li><a href="/Livent/Event/UpdatePage/{$event->getId()}/">Modifica Profilo</a></li>
-                                <li><a href="/Livent/Event/Delete/">Cancella Profilo</a></li>
+                                <li><a href="/Livent/Event/UpdatePage/{$event->getId()}/">Modifica Evento</a></li>
+                                <li><a href="/Livent/Event/DeletePage/{$event->getId()}/">Cancella Evento</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -239,9 +239,11 @@ FACEBOOK: https://www.facebook.com/themefisher
                                                 <td class="text-right">
                                                     <a href="#!" class="btn btn-main btn-small btn-round-full">Visualizza</a>
                                                 </td>
+                                                {if $user->getType() == 'Organizer' && $mood eq 'permit'}
                                                 <td>
-                                                    <a href="#!" class="btn btn-main btn-big btn-transparent"><i class="tf-ion-ios-trash-outline my-icon-size"></i></a>
+                                                    <a href="/Livent/Competition/DeletePage/{$competitions[index]->getId()}/" class="btn btn-main btn-big btn-transparent"><i class="tf-ion-ios-trash-outline my-icon-size"></i></a>
                                                 </td>
+                                                {/if}
                                             </tr>
                                         {/section}
                                         </tbody

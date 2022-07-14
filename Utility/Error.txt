@@ -3643,3 +3643,19 @@ SQLSTATE[HY000]: General error: 2006 MySQL server has gone away
 #3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::update()
 #4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
 #5 {main}
+
+myinput don't setted
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::delete()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+password not setted
+#0 C:\xampp\htdocs\public_html\Livent\Control\CManageEvent.php(171): VDelete->getPassword()
+#1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::deletePage()
+#2 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#3 {main}
+
+you don't have authorization
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::delete()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#2 {main}
