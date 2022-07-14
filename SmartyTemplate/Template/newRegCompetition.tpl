@@ -43,21 +43,13 @@
             <br>
             <form method="post" class="text-left clearfix" action="/Livent/Competition/AddRegistration">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name"  placeholder="Nome">
+                    <input type="text" class="form-control" name="name"  placeholder="Nome" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="surname" placeholder="Cognome">
+                    <input type="text" class="form-control" name="surname" placeholder="Cognome" required>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control"  name="id" placeholder="Id dell'atleta" required>
-                </div>
-                <br>
-                <h3>Autenticazione:</h3>
-                <div class="form-group">
-                    <input type="email" name='email' class="form-control"  placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" name='password' class="form-control" placeholder="Password" required>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-main text-center">Iscrivi</button>

@@ -3,19 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/CManageCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageCompetition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/CManageResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4b13dc191826d6d1e053844f557fad3a7a7ee0e4_0.file.event.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4b13dc191826d6d1e053844f557fad3a7a7ee0e4_0.file.event.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4d912736163bb07ef7fd4b2551305976fdf51f6e_0.file.competition.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4d912736163bb07ef7fd4b2551305976fdf51f6e_0.file.competition.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/d6747fa5c32a1f14f0c3295537fa62313d730d58_0.file.organizerProfile.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/d6747fa5c32a1f14f0c3295537fa62313d730d58_0.file.organizerProfile.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/competition.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/competition.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/event.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/home.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/home.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/results.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/results.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageRegistration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FDb.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FDb.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/newRegCompetition.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/newRegCompetition.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VCompetition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VNewCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VNewCompetition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VNewRegCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VNewRegCompetition.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,10 +47,22 @@
       <recent name="C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.main">
     <configuration name="web" type="JavascriptDebugType" uri="http://localhost\Livent\">
       <method v="2" />
     </configuration>
+    <configuration name="main" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Control/main.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.web" />
+      <item itemvalue="PHP Script.main" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -128,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657805539865</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="changes">
+      <created>1657811303772</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657811303773</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

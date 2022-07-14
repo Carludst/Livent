@@ -20,20 +20,18 @@ class CManageRegistration
                 $view=new VNewRegCompetition();
                 $logged=FSession::getUserLogged();
                 $key=$view->getMyInput();
+                if(is_null($key)) throw new Exception('Competition is not specified');
                 $competition= FDbH::loadOne($key, "ECompetition");
                 $athlete= FDbH::loadOne($view->getId(), "EAthlete");
                 $event=FDbH::loadEventByCompetition($competition);
-                if((FSession::getUserLogged()->getType()=='Organizer' && $event->getOrganizer()===FSession::getUserLogged())||FSession::getUserLogged()->getType()=='User'){
-                    if($athlete->getName()===$view->getName() && $athlete->getSurname()===$view->getSurname()){
-                        $iscription=$view->addNewIscription($athlete->getName(),$athlete->getSurname(),$athlete->getBirthdate(),$athlete->getFamale(),$athlete->getTeam(),$athlete->getSport());
-                        if(self::authorizer($competition, $athlete)  && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
-                            if(!FCompetition::addRegistration($competition, $iscription, $logged))throw new Exception("you can't update a competition that don't exist");
-                        }
+                if(($logged->getType()=='Organizer' && $event->getOrganizer()->getId()==FSession::getUserLogged()->getId())||(FSession::getUserLogged()->getType()!='Administrator' && FSession::getUserLogged()->getType()!='Organizer')){
+                    if($athlete->getName()==$view->getName() && $athlete->getSurname()==$view->getSurname()){
+                        if(!FCompetition::addRegistration($competition, $athlete, $logged))throw new Exception("you can't add a registration in a competition that don't exist");
                     }else throw new Exception("nome, cognome e id dell'atleta inseriti non corrispondono, riprovare");
                 }else throw new Exception("you haven't the authorization to add a registration");
             }else throw new Exception('you have to be logged to add a registration');
         }catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La registrazione non è andata a buon fine, verificare di possedere le autorizazioni necessarie e di aver inserito i dati corretti");
         }
     }
 

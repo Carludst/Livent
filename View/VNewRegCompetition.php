@@ -12,6 +12,8 @@ class VNewRegCompetition extends View
 
     public function show()
     {
+        $assign = $this->assign;
+        $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
     }
 
