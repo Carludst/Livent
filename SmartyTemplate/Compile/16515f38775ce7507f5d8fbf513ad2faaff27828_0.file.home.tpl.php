@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-11 16:21:09
+/* Smarty version 4.1.1, created on 2022-07-13 11:13:17
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cc31d5a64b97_60517280',
+  'unifunc' => 'content_62ce8cadcd0fa3_33680966',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '16515f38775ce7507f5d8fbf513ad2faaff27828' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\home.tpl',
-      1 => 1657549174,
+      1 => 1657701761,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cc31d5a64b97_60517280 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62ce8cadcd0fa3_33680966 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -139,6 +139,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							<li><a href="typography.html">Errori</a></li>
 							<li><a href="/Livent/Graphics/">Imposta grafica</a></li>
 							<li><a href="/Livent/User/Search/">Gestione utenti</a></li>
+							<li><a href="/Livent/Athlete/NewPage/">Crea Atleta</a></li>
 						</ul>
 					</li>
 					<!-- / System -->

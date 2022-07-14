@@ -46,6 +46,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{$dir}/css/style.css">
+    <link rel="stylesheet" href="{$dir}/css/myStyle.css">
 
 </head>
 
@@ -221,8 +222,10 @@ FACEBOOK: https://www.facebook.com/themefisher
                                         <thead>
                                         <tr>
                                             <th>Nome Competizione</th>
+                                            <th>Distanza</th>
                                             <th>Genere</th>
                                             <th>Sport</th>
+                                            <th></th>
                                             <th></th>
                                         </tr>
                                         </thead>
@@ -230,15 +233,18 @@ FACEBOOK: https://www.facebook.com/themefisher
                                         {section name=index loop=$competitions}
                                             <tr>
                                                 <td>{$competitions[index]->getName()}</td>
+                                                <td>{$competitions[index]->getDistance()->toString()}</td>
                                                 <td>{$competitions[index]->getGender()}</td>
                                                 <td>{$competitions[index]->getSport()}</td>
                                                 <td class="text-right">
-                                                    <a href="" class="btn btn-main btn-small btn-round-full">Iscrizioni</a>
-                                                    <a href="" class="btn btn-main btn-small btn-round-full">Risultati</a>
+                                                    <a href="#!" class="btn btn-main btn-small btn-round-full">Visualizza</a>
+                                                </td>
+                                                <td>
+                                                    <a href="#!" class="btn btn-main btn-big btn-transparent"><i class="tf-ion-ios-trash-outline my-icon-size"></i></a>
                                                 </td>
                                             </tr>
                                         {/section}
-                                        </tbody>
+                                        </tbody
                                     </table>
                                 </div>
                             </div>
