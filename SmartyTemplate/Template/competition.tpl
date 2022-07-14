@@ -31,6 +31,7 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{$dir}/css/style.css">
+    <link rel="stylesheet" href="{$dir}/css/myStyle.css">
 
 </head>
 
@@ -126,7 +127,7 @@
     <div class="container">
         <div class="row mt-20">
             <div class="single-product-details">
-                <h2><b>{$name}</b></h2>
+                <h2><b>{$competition->getName()}</b></h2>
             </div>
         </div>
     </div>
@@ -148,11 +149,11 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>{$startDate->format('d-m-y H:i:s')}</td>
-                    <td>{$sport}</td>
-                    <td>{$gender}</td>
-                    <td>{$distance->toString()}</td><!--distance-->
-                    <td>{$description}</td>
+                    <td>{$competition->getDateTime()->format('d-m-y H:i:s')}</td>
+                    <td>{$competition->getSport()}</td>
+                    <td>{$competition->getGender()}</td>
+                    <td>{$competition->getDistance()->toString()}</td><!--distance-->
+                    <td>{$competition->getDescription()}</td>
                 </tr>
                 </tbody>
             </table>
@@ -161,6 +162,9 @@
             <h4>Atleti iscritti:</h4>
             <br>
             <form method="post" class="text-left clearfix" action="/Livent/Registration/Delete">
+                {if empty($competition->getRegistrations())}
+                    <h1 class="my-allert-page">Non ci sono ancora atleti iscritti</h1>
+                {else}
                 <table class="table">
                     <thead>
                     <tr>
@@ -169,7 +173,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {foreach from=$athletes item=athlete}
+                    {foreach from=$competition->getRegistrations() item=athlete}
                         <tr>
                             <td>{$athlete->getId()}</td>
                             <td>{$athlete->getName()}</td>
@@ -178,14 +182,16 @@
                     {/foreach}
                     </tbody>
                 </table>
+                {/if}
             </form>
+            <br>
             <br>
             <br>
             <table>
                 <thead>
                 <tr>
-                    <th><a href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a></th>
-                    <th><a href="/Livent/Result/NewPage/"><b>Visualizza i risultati</b></a></th>
+                    <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a></td>
+                    <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Result/NewPage/{$competition->getId()}/"><b>Risultati</b></a></td>
                 </tr>
                 </thead>
             </table>

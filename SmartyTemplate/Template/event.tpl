@@ -237,7 +237,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                                 <td>{$competitions[index]->getGender()}</td>
                                                 <td>{$competitions[index]->getSport()}</td>
                                                 <td class="text-right">
-                                                    <a href="#!" class="btn btn-main btn-small btn-round-full">Visualizza</a>
+                                                    <a href="/Livent/Competition/MainPage/{$competitions[index]->getId()}/" class="btn btn-main btn-small btn-round-full">Visualizza</a>
                                                 </td>
                                                 {if $user->getType() == 'Organizer' && $mood eq 'permit'}
                                                 <td>

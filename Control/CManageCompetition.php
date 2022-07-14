@@ -66,31 +66,23 @@ class CManageCompetition
     }
 
     public static function mainPage(){
-        if(FSession::isLogged()){
-            $user=FSession::getUserLogged();
-            $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
-        }
-        else{
-            $user=null;
-            $profileImg=null;
-        }
         try{
+            if(FSession::isLogged()){
+                $user=FSession::getUserLogged();
+                $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
+            }
+            else{
+                $user=null;
+                $profileImg=null;
+            }
             $view = new VCompetition();
             $key = (int)$view->getMyInput();
             if(FDbH::existOne($key,ECompetition::class)){
                 FSession::addChronology(ECompetition::class,$key);
                 $competition = FDbH::loadOne($key, ECompetition::class);
-                $name = $competition->getName();
-                //$eventImg=FDbH::loadMultiFile($event,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.2);
-                $athletes = $competition->getRegistrations();
-                $startDate = $competition->getDateTime();
-                $sport = $competition->getSport();
-                $distance = $competition->getDistance();
-                $gender = $competition->getGender();
-                $description = $competition->getDescription();
-                $view->show($user, $profileImg, $name, $athletes , $startDate, $sport ,$distance ,$gender,$description);
+                $view->show($user, $profileImg, $competition);
             }
-            else throw new Exception("l'evento non esiste");
+            else throw new Exception("la competizione non esiste");
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina delle competizioni non è andato a buon fine , verificare di possedere le autorizazioni necessarie");

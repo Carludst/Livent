@@ -222,8 +222,12 @@ FACEBOOK: https://www.facebook.com/themefisher
 								</div>
 							</div>
 							<div class="product-content">
-								<h4><a href="product-single.html">{$eventsOpen[i]->getName()}</a></h4>
-								<time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
+								<h4>{$eventsOpen[i]->getName()}</h4>
+								{if !empty($eventsOpen[i]->getCompetitions)}
+									<time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
+								{else}
+									<time>Data da definirsi</time>
+								{/if}
 							</div>
 						</div>
 					</div>
@@ -255,7 +259,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 								</div>
 							</div>
 							<div class="product-content">
-								<h4><a href="product-single.html">{$eventsFinished[i]->getName()}</a></h4>
+								<h4>{$eventsFinished[i]->getName()}</h4>
 								<time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
 							</div>
 						</div>

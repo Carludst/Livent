@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-14 09:08:16
+/* Smarty version 4.1.1, created on 2022-07-14 14:25:15
   from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cfdd00d3a2d8_70244426',
+  'unifunc' => 'content_62d0274b7c7ae6_77983104',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4d912736163bb07ef7fd4b2551305976fdf51f6e' => 
     array (
       0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl',
-      1 => 1657789692,
+      1 => 1657808623,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cfdd00d3a2d8_70244426 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d0274b7c7ae6_77983104 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,6 +61,8 @@ function content_62cfdd00d3a2d8_70244426 (Smarty_Internal_Template $_smarty_tpl)
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
 /css/style.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/css/myStyle.css">
 
 </head>
 
@@ -160,7 +162,7 @@ function content_62cfdd00d3a2d8_70244426 (Smarty_Internal_Template $_smarty_tpl)
     <div class="container">
         <div class="row mt-20">
             <div class="single-product-details">
-                <h2><b><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+                <h2><b><?php echo $_smarty_tpl->tpl_vars['competition']->value->getName();?>
 </b></h2>
             </div>
         </div>
@@ -183,15 +185,15 @@ function content_62cfdd00d3a2d8_70244426 (Smarty_Internal_Template $_smarty_tpl)
                 </thead>
                 <tbody>
                 <tr>
-                    <td><?php echo $_smarty_tpl->tpl_vars['startDate']->value->format('d-m-y H:i:s');?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['competition']->value->getDateTime()->format('d-m-y H:i:s');?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['sport']->value;?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['competition']->value->getSport();?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['gender']->value;?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['competition']->value->getGender();?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['distance']->value->toString();?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['competition']->value->getDistance()->toString();?>
 </td><!--distance-->
-                    <td><?php echo $_smarty_tpl->tpl_vars['description']->value;?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['competition']->value->getDescription();?>
 </td>
                 </tr>
                 </tbody>
@@ -201,6 +203,9 @@ function content_62cfdd00d3a2d8_70244426 (Smarty_Internal_Template $_smarty_tpl)
             <h4>Atleti iscritti:</h4>
             <br>
             <form method="post" class="text-left clearfix" action="/Livent/Registration/Delete">
+                <?php if (empty($_smarty_tpl->tpl_vars['competition']->value->getRegistrations())) {?>
+                    <h1 class="my-allert-page">Non ci sono ancora atleti iscritti</h1>
+                <?php } else { ?>
                 <table class="table">
                     <thead>
                     <tr>
@@ -210,7 +215,7 @@ function content_62cfdd00d3a2d8_70244426 (Smarty_Internal_Template $_smarty_tpl)
                     </thead>
                     <tbody>
                     <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['athletes']->value, 'athlete');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['competition']->value->getRegistrations(), 'athlete');
 $_smarty_tpl->tpl_vars['athlete']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['athlete']->value) {
 $_smarty_tpl->tpl_vars['athlete']->do_else = false;
@@ -229,14 +234,17 @@ I<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </tbody>
                 </table>
+                <?php }?>
             </form>
+            <br>
             <br>
             <br>
             <table>
                 <thead>
                 <tr>
-                    <th><a href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a></th>
-                    <th><a href="/Livent/Result/NewPage/"><b>Visualizza i risultati</b></a></th>
+                    <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a></td>
+                    <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Result/NewPage/<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
+/"><b>Risultati</b></a></td>
                 </tr>
                 </thead>
             </table>

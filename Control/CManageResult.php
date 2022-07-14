@@ -54,22 +54,23 @@ class CManageResult
     }
 
     public static function newPageResult(){
-        if(FSession::isLogged()){
-            $user=FSession::getUserLogged();
-            $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
-        }
-        else{
-            $user=null;
-            $profileImg=null;
-        }
         try{
+            if(FSession::isLogged()){
+                $user=FSession::getUserLogged();
+                $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
+            }
+            else{
+                $user=null;
+                $profileImg=null;
+            }
             $view = new VResult();
-            $viewcomp = new VCompetition();
-            $key = $viewcomp->getMyInput();
+            $key = $view->getMyInput();
             if(FDbH::existOne((int)$key,ECompetition::class)){
                 $competition = FDbH::loadOne($key, ECompetition::class);
-                $results=FCompetition::getClassification($competition);
-                $view->show($user, $profileImg,$results);
+                $registrations = $competition->getRegistrations();
+                $results = $competition->getClassification();
+                $organizer = FDbH::loadEventByCompetition($competition)->getOrganizer();
+                $view->show($user, $profileImg, $competition, $registrations, $results, $organizer);
             }
             else throw new Exception("l'evento non esiste");
         }

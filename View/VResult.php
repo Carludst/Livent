@@ -30,7 +30,7 @@ class VResult extends View
     }
 
     public function getPassword(){
-        if(!empty($_POST['password']))return $_POST['password'];
+        if(!empty($_POST['password']))return hash('sha3-256',$_POST['password']);
         else return null;
     }
 
@@ -46,12 +46,15 @@ class VResult extends View
         return $athlete;
     }
 
-    public function show(?EUser $user , ?String $profileImg, ?Array $results)
+    public function show(?EUser $user , ?String $profileImg, ECompetition $competition, ?Array $registration, ?Array $results, EUser $organizer)
     {
         $assign = $this->assign;
         $assign['user']=$user;
         $assign['profileImg']=$profileImg;
         $assign['results']=$results;
+        $assign['competition']=$competition;
+        $assign['registration']=$registration;
+        $assign['organizer']=$organizer;
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
     }

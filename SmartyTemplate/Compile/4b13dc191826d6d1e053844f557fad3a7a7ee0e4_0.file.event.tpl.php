@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-14 13:21:34
+/* Smarty version 4.1.1, created on 2022-07-14 14:27:11
   from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/event.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62d0185e0d5a70_56774205',
+  'unifunc' => 'content_62d027bf5fe682_29197849',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4b13dc191826d6d1e053844f557fad3a7a7ee0e4' => 
     array (
       0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/event.tpl',
-      1 => 1657793091,
+      1 => 1657808825,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62d0185e0d5a70_56774205 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d027bf5fe682_29197849 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -244,7 +244,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <p class="product-description mt-20"><?php echo $_smarty_tpl->tpl_vars['event']->value->getDescription();?>
 </p>
                     <?php if ($_smarty_tpl->tpl_vars['user']->value->getType() == 'Organizer' && $_smarty_tpl->tpl_vars['mood']->value == 'permit') {?>
-                        <a href="/Livent/Competition/UpdatePage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
+                        <a href="/Livent/Competition/NewPage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
 /" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
                     <?php }?>
                 </div>
@@ -293,7 +293,8 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
                                                 <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getSport();?>
 </td>
                                                 <td class="text-right">
-                                                    <a href="#!" class="btn btn-main btn-small btn-round-full">Visualizza</a>
+                                                    <a href="/Livent/Competition/MainPage/<?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+/" class="btn btn-main btn-small btn-round-full">Visualizza</a>
                                                 </td>
                                                 <?php if ($_smarty_tpl->tpl_vars['user']->value->getType() == 'Organizer' && $_smarty_tpl->tpl_vars['mood']->value == 'permit') {?>
                                                 <td>

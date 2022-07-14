@@ -33,7 +33,7 @@ class VNewCompetition extends View
         if(!empty($_POST['dateTime'])){
             $dateTime=str_replace('T',' ',$_POST['dateTime']);
             echo($dateTime);
-            return DateTime::createFromFormat('Y-m-d H:i:s',$dateTime);
+            return DateTime::createFromFormat('Y-m-d H:i',$dateTime);
         }
         else return null;
     }
