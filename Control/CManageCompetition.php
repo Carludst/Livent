@@ -87,7 +87,29 @@ class CManageCompetition
             else throw new Exception("l'evento non esiste");
         }
         catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andata a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina delle competizioni non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+        }
+    }
+
+    public static function deletePage(){
+        try{
+            $view=new VDelete();
+            $myinput=$view->getMyInput();
+            if(is_null($myinput))throw new Exception("myinput don't setted");
+            $logged=FSession::getUserLogged();
+            $competition=FDbH::loadOne($myinput,ECompetition::class);
+            if(self::authorizer($competition) && $view->getPassword()==$logged->getPassword() && $view->getEmail()==$logged->getEmail())
+            {
+                FDbH::deleteReference($competition->getId(),ECompetition::class);
+                $message='sei sicuro di voler cancellare la competizione? la cancellazione della competizione comporta anche la cancellazione di tutte le registrazioni e risultati della stessa , i dati non potranno essere recuperati';
+                $action='/Livent/Competition/Delete/'.$competition->getId().'/';
+                $return='/Livent/Competition/MainPage/'.$competition->getId().'/';
+                $what='Competizione';
+                $view->show($action,$what,$return,$message);
+            }
+        }
+        catch (Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di eliminazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
@@ -117,6 +139,22 @@ class CManageCompetition
             else throw new Exception("You don't have autorization");
         }
         catch(Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+        }
+    }
+
+    public static function newIscription(){
+        try{
+            $view=new VCompetition();
+            $logged=FSession::getUserLogged();
+            $key=$view->getMyInput();
+            $competition= FDbH::loadOne($key, "ECompetition");
+            $athlete= FDbH::loadOne($view->getId(), "EAthlete");
+            $iscription=$view->addNewIscription($athlete->getName(),$athlete->getSurname(),$athlete->getBirthdate(),$athlete->getFamale(),$athlete->getTeam(),$athlete->getSport());
+            if(self::authorizer($competition)  && $view->getEmail()==$logged->getEmail() && $view->getPassword()==$logged->getPassword()){
+                if(!FCompetition::addResult($competition, $iscription, "nd"))throw new Exception("you can't update a competition that don't exist");
+            }
+        }catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }

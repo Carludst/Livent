@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="finite le new">
+    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="add delate reference method">
+      <change afterPath="$PROJECT_DIR$/SmartyTemplate/Template/delete.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/VDelete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageAthlete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageAthlete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageCompetition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CSearch.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Foundation/FAthlete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FAthlete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foundation/FCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FCompetition.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Foundation/FDbH.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FDbH.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Foundation/FEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FEvent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Foundation/FUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/mainAthlete.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/css/myStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/css/myStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/smarty-4.1.1/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -35,6 +44,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template" />
@@ -55,6 +71,7 @@
       <updated>1657557356686</updated>
       <workItem from="1657557357720" duration="174000" />
       <workItem from="1657557549751" duration="2908000" />
+      <workItem from="1657776312309" duration="2714000" />
     </task>
     <task id="LOCAL-00001" summary="testo">
       <created>1657702048419</created>
@@ -84,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657725296985</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add delate reference method">
+      <created>1657728135077</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657728135077</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +130,7 @@
     <MESSAGE value="searchCompetition.tpl" />
     <MESSAGE value="newCompetition.tpl" />
     <MESSAGE value="finite le new" />
-    <option name="LAST_COMMIT_MESSAGE" value="finite le new" />
+    <MESSAGE value="add delate reference method" />
+    <option name="LAST_COMMIT_MESSAGE" value="add delate reference method" />
   </component>
 </project>

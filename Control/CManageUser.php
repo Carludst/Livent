@@ -5,7 +5,7 @@ class CManageUser
 
     private static function authorizer(EUser $user):bool{
 
-        if(FSession::isLogged() && FSession::getUserLogged()->getEmail()==$user->getEmail())throw new Exception("you must be an administrator to update an Athlete");
+        if(FSession::isLogged() && FSession::getUserLogged()->getId()!=$user->getId())throw new Exception("you must be an administrator to update an Athlete");
         return self::callLogin();
     }
 
@@ -239,7 +239,7 @@ class CManageUser
                 else{
                     $mood = 'search';
                 }
-                $users = FDbH::searchUser($username, $email);
+                $users = FDbH::searchUser($username, $email,NULL,'Administrator');
                 $img = FDbH::loadMultiFile($users, MappingPathFile::nameUserMain(), MappingPathFile::dirUserDefault(), MappingPathFile::nameUserMain(), 0.4);
                 $view->show($users, $img, $mood);
             }
@@ -250,7 +250,29 @@ class CManageUser
 
         catch (Exception $e) {
             CError::store($e, "La ricerca non è andata a buon fine");
-            return array();
+        }
+    }
+
+    public static function deletePage(){
+        try{
+            $view=new VDelete();
+            $myinput=$view->getMyInput();
+            if(is_null($myinput))throw new Exception("myinput don't setted");
+            if(CManageUser::callLogin())$logged=FSession::getUserLogged();
+            $user=FDbH::loadOne($myinput,EUser::class);
+            if((self::authorizer($user) || $logged->getType()=='Administrator')&& $view->getPassword()==$logged->getPassword() && $view->getEmail()==$logged->getEmail())
+            {
+                FDbH::deleteReference($user->getId(),EEvent::class);
+                if($user->getType()=='Organizer')$message="sei sicuro di voler cancellare l' utente ? la cancellazione di un utente organizzatore comporta anche la cancellazione di tutti gli eventi ad esso associati  , i dati non potranno essere recuperati";
+                else $message="sei sicuro di voler cancellare l'utente , i dati non potranno essere recuperati";
+                $action='/Livent/User/Delete/'.$user->getId().'/';
+                $return='/Livent/User/MainPage/'.$user->getId().'/';
+                $what='Utente';
+                $view->show($action,$what,$return,$message);
+            }
+        }
+        catch (Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di eliminazione del evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 

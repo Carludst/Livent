@@ -110,4 +110,7 @@ class CManageAthlete
         }
         else throw new Exception("you don't have autorization");
     }
+
+
+
 }

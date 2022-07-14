@@ -97,7 +97,7 @@ class FUser
     /**
      * @throws Exception
      */
-    public static function delateReference(int $key):bool
+    public static function deleteReference(int $key):bool
     {
         $events=FDb::delate(self::$table[2],FDb::where('idorganizer',$key));
         $result=FDb::update(self::$table[1],FDb::multiWhere(array('iduser','time'),array($key,'NULL'),array('=','<>')),array('time'=>'NULL'));
@@ -141,7 +141,7 @@ class FUser
         return EUser::class."/".$user->getId();
     }
 
-    public static function search(String|Null $username=NULL, String|Null $email=NULL)
+    public static function search(String|Null $username=NULL, String|Null $email=NULL , String|Null $type=NULL , String|Null $exceptType=Null)
     {
         $fields = array();
         $values = array();
@@ -150,7 +150,7 @@ class FUser
         $orderBy=array();
         $ascending=array();
 
-        if (is_null($username) && is_null($email)) {
+        if (is_null($username) && is_null($email) && is_null($type) && is_null($exceptType)) {
             $resultQ = FDb::exInterrogation(FDb::load(self::$table[0]));
             foreach ($resultQ as $c => $v) {
                 $result[$c] = self::getObjectByArray($v);
@@ -171,6 +171,16 @@ class FUser
                 $opWhere[] = 'LIKE';
                 $orderBy[]='email';
                 $ascending[]=true;
+            }
+            if(!is_null($type)){
+                $fields[] = 'type';
+                $values[] = $type;
+                $opWhere[] = '=';
+            }
+            if(!is_null($exceptType)){
+                $fields[] = 'type';
+                $values[] = $exceptType;
+                $opWhere[] = '<>';
             }
 
             $resultQ = FDb::exInterrogation(FDb::load(self::$table[0], FDb::multiWhere($fields, $values, 'AND', $opWhere)),$orderBy,$ascending);

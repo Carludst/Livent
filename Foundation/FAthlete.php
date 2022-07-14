@@ -114,7 +114,7 @@ class FAthlete {
         return FDb::delate(self::$table[0],self::whereKey($key));
     }
 
-    public static function delateReference(int $key):bool
+    public static function deleteReference(int $key):bool
     {
         $result=FDb::delate(self::$table[1],FDb::where('idathlete',$key));
         $athlete=self::deleteOne($key);

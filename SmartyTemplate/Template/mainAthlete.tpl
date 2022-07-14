@@ -195,9 +195,9 @@ FACEBOOK: https://www.facebook.com/themefisher
                         <br>
                         <table class="my-table" >
                             <tbody>
-                            <td><h5 class="my-td-trasparent" >Data di nascita : </h5><h4 class="inline">{$athlete->getBirthDate()->format("d/m/y")}</h4></td>
-                            <td><h5 class="my-td-trasparent" >Sport praticato : </h5><h4 class="inline">{$athlete->getSport()}</h4></td>
-                            <td><h5 class="my-td-trasparent" >Società : </h5><h4 class="inline">{$athlete->getTeam()}</h4></td>
+                            <td><h5 class="my-td-transparent" >Data di nascita : </h5><h4 class="inline">{$athlete->getBirthDate()->format("d/m/y")}</h4></td>
+                            <td><h5 class="my-td-transparent" >Sport praticato : </h5><h4 class="inline">{$athlete->getSport()}</h4></td>
+                            <td><h5 class="my-td-transparent" >Società : </h5><h4 class="inline">{$athlete->getTeam()}</h4></td>
                             </tbody>
                         </table>
                     </div>

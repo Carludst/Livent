@@ -3,24 +3,6 @@
 class CSearch
 {
 
-    public static function searchPageAthlete(){
-        try{
-            //Richiamare view search;
-        }
-        catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di ricerca degli atleti non è andata a buon fine");
-        }
-    }
-
-    public static function searchPageCompetition(){
-        try{
-            //Richiamare view search;
-        }
-        catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di ricerca delle competizione non è andata a buon fine");
-        }
-    }
-
     public static function searchAthlete()
     {
         try{

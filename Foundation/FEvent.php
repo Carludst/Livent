@@ -98,7 +98,7 @@ class FEvent
     /**
      * @throws Exception
      */
-    public static function delateReference(int $key):bool
+    public static function deleteReference(int $key):bool
     {
         $competition=FDb::delate(self::$table[1],FDb::where('idevent',$key));
         $event=self::deleteOne($key);

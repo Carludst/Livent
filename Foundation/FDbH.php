@@ -59,7 +59,7 @@ class FDbH {
         return $Fclass::deleteOne($key);
     }
 
-    public static function delateReference(int $key,String $Eclass):bool
+    public static function deleteReference(int $key,String $Eclass):bool
     {
         $Fclass = "F".substr($Eclass,1);
         return $Fclass::deleteReference($key);
@@ -496,8 +496,8 @@ class FDbH {
      * @param String|Null $username
      * @return array
      */
-    public static function searchUser(String|Null $username=NULL, String|Null $email=NULL  ){
-        return FUser::search($username,$email);
+    public static function searchUser(String|Null $username=NULL, String|Null $email=NULL ,String|Null $type=NULL , String|Null $exceptType=Null ){
+        return FUser::search($username,$email, $type , $exceptType);
     }
 
     /**
