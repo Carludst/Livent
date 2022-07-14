@@ -76,7 +76,7 @@ function routing():Array{
         'Signin'=>'CManageUser::signin',
         'Logout'=>'CManageUser::logout',
         'Update'=>'CManageUser::update',
-        'Delete'=>'CManageUser::delete',
+        'Delete'=>'CManageUser::delete()',
         'DeleteAdmin'=>'CManageUser::deleteAdmin()',
         'Search'=>'CManageUser::search'
     ];

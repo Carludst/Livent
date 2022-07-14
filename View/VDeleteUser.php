@@ -16,11 +16,13 @@ class VDeleteUser extends View
      * @return void
      * @throws SmartyException
      */
-    public function show(Array $users , ?Array $profileImg, String $mood)
+    public function show(Array $users , ?Array $img,EUser $user,String $profileImg, String $mood)
     {
         $assign = $this->assign;
-        $assign['users']=$users;
+        $assign['user']=$user;
         $assign['profileImg']=$profileImg;
+        $assign['users']=$users;
+        $assign['img']=$img;
         $assign['mood']=$mood;
         $assign['username']=$this->getUsername();
         $assign['email']=$this->getEmail();

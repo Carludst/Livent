@@ -56,14 +56,14 @@ FACEBOOK: https://www.facebook.com/themefisher
 <section class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-5 col-xs-12 col-sm-4">
                     <ul class="top-menu text-left list-inline">
                         <li class="dropdown ">
                             <a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
                         </li>
                     </ul>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-2 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
                     <a href="/Livent/">
@@ -82,7 +82,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-5 col-xs-12 col-sm-4">
                 <ul class="top-menu text-right list-inline">
                     <!-- Home -->
                     <li class="dropdown ">
@@ -173,11 +173,11 @@ FACEBOOK: https://www.facebook.com/themefisher
                             <div class="row">
                                 {section name=index loop=$users}
                                     <div class="col-md-12">
-                                        <a href="/Livent/User/DeleteAdmin/{$users[index]->getId()}/" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <a href="/Livent/User/DeletePage/{$users[index]->getId()}/" class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="d-flex w-100 justify-content-between">
                                                 <div class="row">
                                                     <div class="col-md-2">
-                                                        <img class="img-responsive" src="{$profileImg[index]}" alt="product-img" width="100" height="150" />
+                                                        <img class="img-responsive" src="{$img[index]}" alt="product-img" width="100" height="150" />
                                                     </div>
                                                     <div class="col-md-7">
                                                         <h3 class="mb-1"><b>{$users[index]->getUsername()}</b></h3>

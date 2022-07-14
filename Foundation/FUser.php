@@ -100,7 +100,7 @@ class FUser
     public static function deleteReference(int $key):bool
     {
         $events=FDb::delate(self::$table[2],FDb::where('idorganizer',$key));
-        $result=FDb::update(self::$table[1],FDb::multiWhere(array('iduser','time'),array($key,'NULL'),array('=','<>')),array('time'=>'NULL'));
+        $result=FDb::update(self::$table[1],FDb::multiWhere(array('iduser','time'),array($key,'NULL'),'AND',array('=','<>')),array('time'=>'NULL'));
         $user=self::deleteOne($key);
         return $user && $events ;
     }

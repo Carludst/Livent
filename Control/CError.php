@@ -55,8 +55,12 @@ class CError
     }
 
     public static function getFile(){
-        header("Location: ".FDbH::returnErrorPathFile());
-        header("Content-Type: txt");
+        header('Content-Disposition: attachment; filename="error.txt"');
+        header('Content-Type: text/plain');
+        header('Content-Length: ' . strlen(FDbH::readErrors()));
+        header('Connection: close');
+        header("Content-Type: txt/plain");
+        echo FDbH::readErrors();
     }
 
 }

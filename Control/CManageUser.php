@@ -5,7 +5,7 @@ class CManageUser
 
     private static function authorizer(EUser $user):bool{
 
-        if(FSession::isLogged() && FSession::getUserLogged()->getId()!=$user->getId())throw new Exception("you must be an administrator to update an Athlete");
+        if(FSession::isLogged() && FSession::getUserLogged()->getId()!=$user->getId())throw new Exception("you don't have authorization");
         return self::callLogin();
     }
 
@@ -129,11 +129,17 @@ class CManageUser
             $myinput=$view->getMyInput();
             if(is_null($myinput))throw new Exception("myinput don't setted");
             $user=FDbH::loadOne($myinput,EUser::class);
-            if((FSession::isLogged() && FSession::getUserLogged()->getType()=='Administrator'||self::authorizer($user))&& $user->getType()!='Administrator'){
-                FDbH::deleteReference(FSession::getUserLogged()->getId(),EUser::class);
-                self::logout();
+            if($user->getType()!='Administrator'){
+                if(FSession::isLogged() && FSession::getUserLogged()->getType()=='Administrator' && $view->getPassword()==FSession::getUserLogged()->getPassword() && $view->getEmail()==FSession::getUserLogged()->getEmail()){
+                    FDbH::deleteReference($user->getId(),EUser::class);
+                }
+                elseif(self::authorizer($user) && $view->getPassword()==FSession::getUserLogged()->getPassword() && $view->getEmail()==FSession::getUserLogged()->getEmail()){
+                    FDbH::deleteReference($user->getId(),EUser::class);
+                    self::logout();
+                }
+                else throw new Exception("credential wrong");
             }
-            else throw new Exception("you don't have authorization");
+            else throw new Exception("administrator can't deleted");
             header('Location: /Livent/');
         }
         catch(Exception $e){
@@ -233,6 +239,10 @@ class CManageUser
     {
         try {
             if(FSession::getUserLogged()->getType()=='Administrator'){
+
+                $user=FSession::getUserLogged();
+                $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
+
                 $view = new VDeleteUser();
 
                 $username = $view->getUsername();
@@ -246,7 +256,7 @@ class CManageUser
                 }
                 $users = FDbH::searchUser($username, $email,NULL,'Administrator');
                 $img = FDbH::loadMultiFile($users, MappingPathFile::nameUserMain(), MappingPathFile::dirUserDefault(), MappingPathFile::nameUserMain(), 0.4);
-                $view->show($users, $img, $mood);
+                $view->show($users, $img,$user,$profileImg, $mood);
             }
             else throw new Exception("you don't have authorization");
 
@@ -265,7 +275,7 @@ class CManageUser
             if(is_null($myinput))throw new Exception("myinput don't setted");
             if(CManageUser::callLogin())$logged=FSession::getUserLogged();
             $user=FDbH::loadOne($myinput,EUser::class);
-            if((self::authorizer($user) || $logged->getType()=='Administrator')&& $view->getPassword()==$logged->getPassword() && $view->getEmail()==$logged->getEmail())
+            if(($logged->getType()=='Administrator' || self::authorizer($user) ))
             {
                 if($user->getType()=='Organizer')$message="sei sicuro di voler cancellare l' utente ? la cancellazione di un utente organizzatore comporta anche la cancellazione di tutti gli eventi ad esso associati  , i dati non potranno essere recuperati";
                 else $message="sei sicuro di voler cancellare l'utente , i dati non potranno essere recuperati";
