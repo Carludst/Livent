@@ -125,11 +125,16 @@ class CManageUser
 
     public static function delete(){
         try{
-            if(self::callLogin()){
-                FDbH::deleteOne(FSession::getUserLogged()->getId(),EUser::class);
+            $view=new VDelete();
+            $myinput=$view->getMyInput();
+            if(is_null($myinput))throw new Exception("myinput don't setted");
+            $user=FDbH::loadOne($myinput,EUser::class);
+            if((FSession::isLogged() && FSession::getUserLogged()->getType()=='Administrator'||self::authorizer($user))&& $user->getType()!='Administrator'){
+                FDbH::deleteReference(FSession::getUserLogged()->getId(),EUser::class);
                 self::logout();
-                header('Location: /Livent/');
             }
+            else throw new Exception("you don't have authorization");
+            header('Location: /Livent/');
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione dell'utente non è andato a buon fine");

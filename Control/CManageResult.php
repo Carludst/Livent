@@ -37,6 +37,8 @@ class CManageResult
             if(self::authorizer($competition) && FSession::getUserLogged()->getEmail()==$view->getEmail() && FSession::getUserLogged()->getPassword()==$view->getPassword()){
                 if(!$competition->popResult($athlete))throw new Exception("deletion result is failed");
             }
+            else throw new Exception("you don't have authorization");
+            header('Location: /Livent/');
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione del risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");

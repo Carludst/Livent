@@ -56,6 +56,8 @@ class CManageRegistration
             if(self::authorizer($competition,$athlete) && FSession::getUserLogged()->getEmail()==$view->getEmail() && FSession::getUserLogged()->getPassword()==$view->getPassword()){
                 if(!$competition->popRegistration($athlete))throw new Exception("deletion registration/result is failed");
             }
+            else throw new Exception("you don't have authorization");
+            header('Location: /Livent/');
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione della registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");

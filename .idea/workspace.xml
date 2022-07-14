@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="deletePage">
+    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="delete">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageCompetition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageEvent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/CManageRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageRegistration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/CManageResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/routing.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +63,7 @@
       <updated>1657557356686</updated>
       <workItem from="1657557357720" duration="174000" />
       <workItem from="1657557549751" duration="2908000" />
-      <workItem from="1657776312309" duration="5023000" />
+      <workItem from="1657776312309" duration="8295000" />
     </task>
     <task id="LOCAL-00001" summary="testo">
       <created>1657702048419</created>
@@ -109,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657780794121</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="delete">
+      <created>1657781436729</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657781436729</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +145,7 @@
     <MESSAGE value="finite le new" />
     <MESSAGE value="add delate reference method" />
     <MESSAGE value="deletePage" />
-    <option name="LAST_COMMIT_MESSAGE" value="deletePage" />
+    <MESSAGE value="delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete" />
   </component>
 </project>

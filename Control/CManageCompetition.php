@@ -48,11 +48,17 @@ class CManageCompetition
         }
     }
 
-    public static function delete(ECompetition $competition){
+    public static function delete(){
         try{
-            if(self::authorizer($competition)){
-                FDbH::deleteOne($competition->getId(),ECompetition::class);
+            $view=new VDelete();
+            $myinput=$view->getMyInput();
+            if(is_null($myinput))throw new Exception("myinput don't setted");
+            $competition=FDbH::loadOne($myinput,ECompetition::class);
+            if(self::authorizer($competition) && $view->getPassword()==FSession::getUserLogged()->getPassword() && $view->getEmail()==FSession::getUserLogged()->getEmail()){
+                FDbH::deleteReference($competition->getId(),ECompetition::class);
             }
+            else throw new Exception("you don't have authorization");
+            header('Location: /Livent/');
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! L'eliminazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
@@ -96,9 +102,8 @@ class CManageCompetition
             $view=new VDelete();
             $myinput=$view->getMyInput();
             if(is_null($myinput))throw new Exception("myinput don't setted");
-            $logged=FSession::getUserLogged();
             $competition=FDbH::loadOne($myinput,ECompetition::class);
-            if(self::authorizer($competition) && $view->getPassword()==$logged->getPassword() && $view->getEmail()==$logged->getEmail())
+            if(self::authorizer($competition))
             {
                 $message='sei sicuro di voler cancellare la competizione? la cancellazione della competizione comporta anche la cancellazione di tutte le registrazioni e risultati della stessa , i dati non potranno essere recuperati';
                 $action='/Livent/Competition/Delete/'.$competition->getId().'/';

@@ -71,11 +71,17 @@ class CManageEvent
         }
     }
 
-    public static function delete(EEvent $event){
+    public static function delete(){
         try{
-            if(self::authorizer($event)||FSession::getUserLogged()->getType()=='Administator'){
-                FDbH::deleteOne($event->getId(),EEvent::class);
+            $view=new VDelete();
+            $myinput=$view->getMyInput();
+            if(is_null($myinput))throw new Exception("myinput don't setted");
+            $event=FDbH::loadOne($myinput,EEvent::class);
+            if(self::authorizer($event) && $view->getPassword()==FSession::getUserLogged()->getPassword() && $view->getEmail()==FSession::getUserLogged()->getEmail()){
+                FDbH::deleteReference($event->getId(),EEvent::class);
             }
+            else throw new Exception("you don't have authorization");
+            header('Location: /Livent/');
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");

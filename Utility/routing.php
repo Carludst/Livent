@@ -33,7 +33,8 @@ function routing():Array{
         'Delete'=>'CManageCompetition::delete()',
         'MainPage'=>'CManageCompetition::mainPage()',
         'NewPage'=>'CManageCompetition::newPage()',
-        'UpdatePage'=>'CManageCompetition::UpdatePage()',
+        'UpdatePage'=>'CManageCompetition::updatePage()',
+        'DeletePage'=>'CManageCompetition::deletePage()',
         'AddRegistration'=> 'CManageRegistration::addRegistration()',
         'AddResult'=>'CManageResult::addResult()',
         'SearchPage'=>'CSearch::searchPageCompetition',
@@ -47,6 +48,7 @@ function routing():Array{
         'MainPage'=>'CManageEvent::mainPage()',
         'UpdatePage'=>'CManageEvent::UpdatePage()',
         'NewPage'=>'CManageEvent::newPage',
+        'DeletePage'=>'CManageEvent::deletePage()',
         'SearchPage'=>'CSearch::searchPageEvent',
         'Search'=>'CSearch::searchEvent',
         'Chronology'=>$eventChronology
@@ -54,11 +56,13 @@ function routing():Array{
     //2 => 30
     $registration=[
         'NewPage'=>'CManageRegistration::newPageRegistration()',
+        'DeletePage'=>'CManageRegistration::deletePage()',
         'Delete'=>'CManageRegistration::deleteRegistration()'
     ];
     //2 => 32
     $result=[
         'NewPage'=>'CManageResult::newPageResult()',
+        'DeletePage'=>'CManageResult::deletePage()',
         'Delete'=>'CManageResult::delete()'
     ];
     //7 => 39
@@ -66,6 +70,7 @@ function routing():Array{
         'LoginPage'=>'CManageUser::loginPage',
         'SigninPage'=>'CManageUser::signinPage',
         'UpdatePage'=>'CManageUser::updatePage',
+        'DeletePage'=>'CManageUser::deletePage()',
         'ProfilePage'=>'CManageUser::profilePage',
         'Login'=>'CManageUser::login',
         'Signin'=>'CManageUser::signin',
