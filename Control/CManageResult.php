@@ -26,15 +26,20 @@ class CManageResult
     }
 
 
-    public static function delate(ECompetition $competition, EAthlete $athlete)
+    public static function delate()
     {
         try{
-            if(self::authorizer($competition)){
-                if(!$competition->popResult($athlete))throw new Exception("deletion registration/result is failed");
+            $view = new VDelete();
+            $keyCompetition=$view->getMyInputCompetition();
+            $keyAthlete=$view->getMyInputAthlete();
+            $competition = FDbH::loadOne($keyCompetition, ECompetition::class);
+            $athlete = FDbH::loadOne($keyAthlete, EAthlete::class);
+            if(self::authorizer($competition) && FSession::getUserLogged()->getEmail()==$view->getEmail() && FSession::getUserLogged()->getPassword()==$view->getPassword()){
+                if(!$competition->popResult($athlete))throw new Exception("deletion result is failed");
             }
         }
         catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione dei risultati/registrazioni non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione del risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
 
     }

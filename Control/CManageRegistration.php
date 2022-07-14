@@ -48,17 +48,17 @@ class CManageRegistration
     public static function deleteRegistration()
     {
         try{
-            $view = new VCompetition();
+            $view = new VDelete();
             $keyCompetition=$view->getMyInputCompetition();
             $keyAthlete=$view->getMyInputAthlete();
             $competition = FDbH::loadOne($keyCompetition, ECompetition::class);
             $athlete = FDbH::loadOne($keyAthlete, EAthlete::class);
-            if(self::authorizer($competition,$athlete)){
+            if(self::authorizer($competition,$athlete) && FSession::getUserLogged()->getEmail()==$view->getEmail() && FSession::getUserLogged()->getPassword()==$view->getPassword()){
                 if(!$competition->popRegistration($athlete))throw new Exception("deletion registration/result is failed");
             }
         }
         catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione dei risultati/registrazioni non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione della registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
 
     }
