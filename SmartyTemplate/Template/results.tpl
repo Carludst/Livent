@@ -16,7 +16,7 @@
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{$dir}/images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
 
     <!-- Themefisher Icon font -->
     <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
@@ -143,52 +143,51 @@
 <section class="single-product">
     <div class="container">
         <div class="row">
-            <form method="post" class="text-left clearfix" action="/Livent/Registration/Delete">
-                {if empty($results)}
-                    <h1 class="my-allert-page">Non ci sono ancora risultati</h1>
-                {else}
-                    <table class="table">
-                        <thead>
+            {if empty($results)}
+                <h1 class="my-allert-page">Non ci sono ancora risultati</h1>
+            {else}
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Atleta:</th>
+                        <th>Tempo:</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach from=$results item=result}
                         <tr>
-                            <th>Atleta:</th>
-                            <th>Tempo:</th>
+                            <td>{$result['athlete']->getName()} {$result['athlete']->getSurname()}</td>
+                            <td>{$result['time']->toString()}</td>
+                            <td><a href="/Livent/Result/DeletePage/{$result['athlete']->getId()}I{$competition->getId()}/" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
                         </tr>
-                        </thead>
-                        <tbody>
-                        {foreach from=$results item=result}
-                            <tr>
-                                <td>{$result['athlete']->getName()} {$result['athlete']->getSurname()}</td>
-                                <td>{$result['time']}</td>
-                                <td><a href="/Livent/Result/Delate/{$athlete->getId()}I{$competition->getId()}" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
-                            </tr>
-                        {/foreach}
-                        </tbody>
-                    </table>
-                {/if}
-            </form>
+                    {/foreach}
+                    </tbody>
+                </table>
+            {/if}
             <br>
             <br>
             {if $organizer->getId()==$user->getId() && !empty($registration)}
                 <h2 class="text-center">Aggiungi un risultato</h2>
                 <br>
-                <form method="post" class="text-left clearfix" action="/Livent/Competition/AddResult">
-                    <select class="form-control" name="athlete">
-                        {foreach from=$registration item=athlete}
-                            <option value="{$athlete->getId()}">{$athlete->getName()} {$athlete->getSurname()} ({$athlete->getId()})</option>
-                        {/foreach}
-                    </select>
-                    <br>
-                    <h4>Tempo:</h4>
-                    <div class="form-group">
-                        <input type="number" class="form-control"  name="time" placeholder="tempo dell'atleta" required>
-                    </div>
-                    <br>
+                <form method="post" class="text-left clearfix" action="/Livent/Competition/AddResult/{$competition->getId()}/">
                     <h3>Autenticazione:</h3>
                     <div class="form-group">
                         <input type="email" name='email' class="form-control"  placeholder="Email" required>
                     </div>
                     <div class="form-group">
                         <input type="password" name='password' class="form-control" placeholder="Password" required>
+                    </div>
+                    <br>
+                    <h4>Dati:</h4>
+                    <select class="form-control" name="athlete">
+                        {foreach from=$registration item=athlete}
+                            <option value="{$athlete->getId()}">{$athlete->getName()} {$athlete->getSurname()} ({$athlete->getId()})</option>
+                        {/foreach}
+                    </select>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" pattern="{$pattern}" class="form-control"  name="time" placeholder="hh:mm:ss" required>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-main text-center">Aggiungi</button>

@@ -16,7 +16,7 @@
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{$dir}/images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
 
     <!-- Themefisher Icon font -->
     <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
@@ -41,7 +41,7 @@
         <div class="row">
             <h2 class="text-center">Iscrivi un atleta</h2>
             <br>
-            <form method="post" class="text-left clearfix" action="/Livent/Competition/AddRegistration">
+            <form method="post" class="text-left clearfix" action="/Livent/Competition/AddRegistration/{$competition->getId()}/">
                 <div class="form-group">
                     <input type="text" class="form-control" name="name"  placeholder="Nome" required>
                 </div>

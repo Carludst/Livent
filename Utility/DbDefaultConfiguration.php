@@ -4,6 +4,6 @@
 $host = "localhost";
 $database = "livent";
 $username = "root";
-$password = "root";
+$password = "pippo";
 
 $data = new FDb($host, $database, $username, $password);

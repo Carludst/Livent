@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-14 10:44:04
+/* Smarty version 4.1.1, created on 2022-07-14 18:19:15
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\event.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cfd75451a106_34967401',
+  'unifunc' => 'content_62d04203ee5d80_93844944',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '62ffb3340a32b13e600461ac7c18768d8d7adcac' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\event.tpl',
-      1 => 1657788241,
+      1 => 1657815207,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cfd75451a106_34967401 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d04203ee5d80_93844944 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -226,8 +226,9 @@ FACEBOOK: https://www.facebook.com/themefisher
                                role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
                             <ul class="dropdown-menu">
                                 <li><a href="/Livent/Event/UpdatePage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
-/">Modifica Profilo</a></li>
-                                <li><a href="/Livent/Event/Delete/">Cancella Profilo</a></li>
+/">Modifica Evento</a></li>
+                                <li><a href="/Livent/Event/DeletePage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
+/">Cancella Evento</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -243,7 +244,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <p class="product-description mt-20"><?php echo $_smarty_tpl->tpl_vars['event']->value->getDescription();?>
 </p>
                     <?php if ($_smarty_tpl->tpl_vars['user']->value->getType() == 'Organizer' && $_smarty_tpl->tpl_vars['mood']->value == 'permit') {?>
-                        <a href="/Livent/Competition/UpdatePage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
+                        <a href="/Livent/Competition/NewPage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
 /" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
                     <?php }?>
                 </div>
@@ -292,11 +293,15 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
                                                 <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getSport();?>
 </td>
                                                 <td class="text-right">
-                                                    <a href="#!" class="btn btn-main btn-small btn-round-full">Visualizza</a>
+                                                    <a href="/Livent/Competition/MainPage/<?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+/" class="btn btn-main btn-small btn-round-full">Visualizza</a>
                                                 </td>
+                                                <?php if ($_smarty_tpl->tpl_vars['user']->value->getType() == 'Organizer' && $_smarty_tpl->tpl_vars['mood']->value == 'permit') {?>
                                                 <td>
-                                                    <a href="#!" class="btn btn-main btn-big btn-transparent"><i class="tf-ion-ios-trash-outline my-icon-size"></i></a>
+                                                    <a href="/Livent/Competition/DeletePage/<?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+/" class="btn btn-main btn-big btn-transparent"><i class="tf-ion-ios-trash-outline my-icon-size"></i></a>
                                                 </td>
+                                                <?php }?>
                                             </tr>
                                         <?php
 }

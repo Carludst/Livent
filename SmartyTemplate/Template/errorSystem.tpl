@@ -165,6 +165,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                 {else}
                 <!-- / Login -->
                 <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
+
                 <!-- / Login -->
                 {/if}
                 <!-- / .nav .navbar-nav .navbar-right -->

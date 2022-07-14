@@ -236,6 +236,9 @@ class FCompetition {
      */
     public static function addResult(ECompetition $competition, EAthlete $athlete, ETime $time): bool
     {
+        $where=self::whereResult($competition,$athlete);
+        $where['where']=$where['where'].' AND time IS NULL';
+        if(!FDb::exist(FDb::load(self::$table[1],$where)))throw new Exception("you can't add a result if don't exist registration");
         return FDb::update(self::$table[1],self::whereResult($competition,$athlete),self::getArrByObjResult($competition,$athlete,$time));
     }
 
@@ -262,7 +265,7 @@ class FCompetition {
      */
     public static function deleteRegistration(ECompetition $competition,EAthlete $athlete): bool
     {
-        return FDb::delate(self::$table[1],FDb::multiWhere(array('idcompetition','idathlete','time'),array((string)$competition->getId(),(string)$athlete->getId(),NULL),array('=','=','=')));
+        return FDb::delate(self::$table[1],FDb::multiWhere(array('idcompetition','idathlete','time'),array((string)$competition->getId(),(string)$athlete->getId(),NULL),'AND',array('=','=','IS')));
     }
 
     /**
@@ -273,7 +276,9 @@ class FCompetition {
      */
     public static function deleteResult(ECompetition $competition,EAthlete $athlete): bool
     {
-        return FDb::update(self::$table[1],FDb::multiWhere(array('idcompetition','idathlete','time'),array((string)$competition->getId(),(string)$athlete->getId(),NULL),array('=','=','<>')),array('time'=>'NULL'));
+        $where=FDb::multiWhere(array('idcompetition','idathlete'),array((string)$competition->getId(),(string)$athlete->getId()),'AND','=');
+        $where['where']=$where['where'].' AND time IS NOT NULL';
+        return FDb::update(self::$table[1],$where,array('time'=>'NULL'));
     }
 
     public static function existRegistration(ECompetition $competition,EAthlete $athlete):bool
@@ -320,7 +325,8 @@ class FCompetition {
 
      static function getRegistrations(ECompetition $competition): Array
     {
-        $where=FDb::multiWhere(array('idcompetition','time'),array((String)$competition->getId(),'NULL'));
+        $where=FDb::where('idcompetition',$competition->getId());
+        $where['where']=$where['where'].' AND time IS NULL';
         $query=FDb::load(self::$table[1],$where);
         $resultQ=FDb::exInterrogation($query);
         $result=array();

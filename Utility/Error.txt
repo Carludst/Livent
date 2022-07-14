@@ -28,3 +28,157 @@ credential wrong
 #0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::login()
 #1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
 #2 {main}
+
+my input not setted
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::newPageRegistration()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+my input not setted
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::newPageRegistration()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+invalid gender
+#0 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(29): FCompetition::addRegistration(Object(ECompetition), Object(EAthlete), Object(EUser))
+#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::addRegistration()
+#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#3 {main}
+
+competition just started
+#0 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(29): FCompetition::addRegistration(Object(ECompetition), Object(EAthlete), Object(EUser))
+#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::addRegistration()
+#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#3 {main}
+
+store error
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(254): FDb::store('result', Array)
+#1 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(29): FCompetition::addRegistration(Object(ECompetition), Object(EAthlete), Object(EUser))
+#2 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::addRegistration()
+#3 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#4 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(326): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''nuli'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''null'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''null'' at line 1
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(326): FDb::exInterrogation(Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
+#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+email not setted
+#0 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(60): VDelete->getEmail()
+#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::deleteRegistration()
+#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#3 {main}
+
+email not setted
+#0 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(60): VDelete->getEmail()
+#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::deleteRegistration()
+#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#3 {main}
+
+parametres multiWhere invalid
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(276): FDb::multiWhere(Array, Array, 'AND', Array)
+#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(355): FCompetition::deleteResult(Object(ECompetition), Object(EAthlete))
+#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(180): FDbH::deleteResult(Object(ECompetition), Object(EAthlete))
+#3 C:\xampp\htdocs\Livent\Control\CManageResult.php(47): ECompetition->popResult(Object(EAthlete))
+#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageResult::delete()
+#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#6 {main}
+
+deletion result is failed
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageResult::delete()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}

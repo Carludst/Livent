@@ -135,6 +135,7 @@ class FDb{
             $stmt->execute($query["bind"]);
 
 
+
             $num = $stmt->rowCount();
             if ($num == 0) {
                 $result= array();                                   //nessuna riga interessata -> return null

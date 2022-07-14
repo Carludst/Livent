@@ -30,6 +30,7 @@ class CManageRegistration
                     }else throw new Exception("nome, cognome e id dell'atleta inseriti non corrispondono, riprovare");
                 }else throw new Exception("you haven't the authorization to add a registration");
             }else throw new Exception('you have to be logged to add a registration');
+            header('Location: /Livent/Competition/MainPage/'.$competition->getId().'/');
         }catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La registrazione non è andata a buon fine, verificare di possedere le autorizazioni necessarie e di aver inserito i dati corretti");
         }
@@ -60,7 +61,7 @@ class CManageRegistration
                 if(!$competition->popRegistration($athlete))throw new Exception("deletion registration/result is failed");
             }
             else throw new Exception("you don't have authorization");
-            header('Location: /Livent/');
+            header('Location: /Livent/Competition/MainPage/'.$competition->getId().'/');
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione della registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
@@ -71,8 +72,19 @@ class CManageRegistration
 
     public static function newPageRegistration(){
         try{
-            $view=new VNewRegCompetition();
-            $view->show();
+            if(CManageUser::callLogin()) {
+                $view = new VNewRegCompetition();
+                $key = $view->getMyInput();
+                if (is_null($key)) throw new Exception('my input not setted');
+                $logged = FSession::getUserLogged();
+                $competition = FDbH::loadOne($key,ECompetition::class);
+                $event = FDbH::loadEventByCompetition($competition);
+                if (($logged->getType() == 'Organizer' && $event->getOrganizer()->getId() == FSession::getUserLogged()->getId()) || (FSession::getUserLogged()->getType() != 'Administrator' && FSession::getUserLogged()->getType() != 'Organizer')) {
+                    $view->show($competition);
+                } else throw new Exception("you don't have autorization");
+            }
+            else throw new Exception("you are not logged");
+
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizazzione della pagina per inserire una nuova registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");

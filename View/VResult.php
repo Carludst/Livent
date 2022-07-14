@@ -9,19 +9,29 @@ class VResult extends View
         parent::__construct();
     }
 
-    public function getName(){
-        if(!empty($_POST['name']))return $_POST['name'];
-        else return null;
+
+
+    public function show(?EUser $user , ?String $profileImg, ECompetition $competition, ?Array $registration, ?Array $results, EUser $organizer)
+    {
+        $assign = $this->assign;
+        $assign['user']=$user;
+        $assign['profileImg']=$profileImg;
+        $assign['results']=$results;
+        $assign['competition']=$competition;
+        $assign['registration']=$registration;
+        $assign['organizer']=$organizer;
+        $assign['pattern']='^(((([0-9]{1,2}:){1,2}[0-9]{1,2}(\.[0-9]*)?)|([0-9]*((\.|,)[0-9]*)?))|(DNS)|(DNF))$';
+        $this->smarty->assign($assign);
+        $this->smarty->display(self::$template);
     }
 
-    public function getSurname(){
-        if(!empty($_POST['surname']))return $_POST['surname'];
-        else return null;
-    }
 
-    public function getId(){
-        if(!empty($_POST['id']))return $_POST['id'];
-        else return null;
+    /**
+     * @throws Exception
+     */
+    public function getAthleteId():int{
+        if(!empty($_POST["athlete"]))return (int)$_POST["athlete"];
+        else throw new Exception();
     }
 
     public function getEmail(){
@@ -34,29 +44,12 @@ class VResult extends View
         else return null;
     }
 
+    /**
+     * @throws Exception
+     */
     public function getTime(){
-        if(!empty($_POST['time']))return $_POST['time'];
-        else return null;
-    }
-
-    public function addNewResult(string $name, string $surname, DateTime $birthdate, bool $famale, string $team = "", string $sport = ""): EAthlete
-    {
-        $id = self::getId();
-        $athlete = new EAthlete($name, $surname, $birthdate, $famale, $team, $sport, $id);
-        return $athlete;
-    }
-
-    public function show(?EUser $user , ?String $profileImg, ECompetition $competition, ?Array $registration, ?Array $results, EUser $organizer)
-    {
-        $assign = $this->assign;
-        $assign['user']=$user;
-        $assign['profileImg']=$profileImg;
-        $assign['results']=$results;
-        $assign['competition']=$competition;
-        $assign['registration']=$registration;
-        $assign['organizer']=$organizer;
-        $this->smarty->assign($assign);
-        $this->smarty->display(self::$template);
+        if(!empty($_POST['time']))return new ETime($_POST['time']);
+        else throw new Exception();
     }
 
 }

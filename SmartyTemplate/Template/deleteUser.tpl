@@ -116,26 +116,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </li>
                     <!-- / System -->
                     <!-- User -->
-                    <li class="dropdown cart-nav dropdown-slide" >
-                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
-                        <div class="dropdown-menu cart-dropdown center-element" >
-                            <!-- Cart Item -->
-                            <div class="media">
-                                <img class="media-object" src="{$profileImg}" alt="image" />
-                                <div class="media-body">
-                                    <h4 class="media-heading">{$user->getUsername()}</h4>
-                                    </br>
-                                    <h4 class="media-heading">{$user->getEmail()}</h4>
-                                </div>
-                            </div><!-- / Cart Item -->
-                            <!-- Cart Item -->
-                            <ul class="text-center cart-buttons">
-                                <li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
-                                <li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" >Logout</a></li>
-                            </ul>
-                        </div>
 
-                    </li>
                 <!-- / .nav .navbar-nav .navbar-right -->
             </div>
         </div>

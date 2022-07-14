@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-11 17:12:49
+/* Smarty version 4.1.1, created on 2022-07-14 18:42:20
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\organizerProfile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cc3df1e35f14_04249747',
+  'unifunc' => 'content_62d0476cee78c3_41702253',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fb60188b4e43ef7a119b4963e7a31796dfc51399' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\organizerProfile.tpl',
-      1 => 1657551080,
+      1 => 1657701761,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cc3df1e35f14_04249747 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d0476cee78c3_41702253 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -166,7 +166,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 </li>
                             <br>
                             <br>
-                            <li class="li"><a href="#!" class="btn btn-main btn-small btn-round-full">Nuovo Evento</a></li>
+                            <li class="li"><a href="/Livent/Event/NewPage/" class="btn btn-main btn-small btn-round-full">Nuovo Evento</a></li>
                         </ul>
 
                     </div>
@@ -214,8 +214,9 @@ for ($__section_i_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
                             <div class="product-content">
                                 <h4><?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
 </h4>
-                                <time><?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
+                                <?php if (!empty($_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetitions())) {?><time><?php echo $_smarty_tpl->tpl_vars['events']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d-m-y");?>
 </time>
+                                <?php } else { ?><time>data da stabile</time><?php }?>
                             </div>
                         </div>
                     </div>

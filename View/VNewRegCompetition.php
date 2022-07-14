@@ -10,9 +10,11 @@ class VNewRegCompetition extends View
         parent::__construct();
     }
 
-    public function show()
+    public function show(ECompetition $competition)
     {
         $assign = $this->assign;
+        $assign['competition']=$competition;
+
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
     }

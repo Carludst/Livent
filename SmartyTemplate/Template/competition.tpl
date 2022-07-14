@@ -16,7 +16,7 @@
     <meta name="generator" content="Themefisher Constra HTML Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{$dir}/images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
 
     <!-- Themefisher Icon font -->
     <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
@@ -161,36 +161,37 @@
             <br>
             <h4>Atleti iscritti:</h4>
             <br>
-            <form method="post" class="text-left clearfix" action="/Livent/Registration/Delete">
-                {if empty($competition->getRegistrations())}
-                    <h1 class="my-allert-page">Non ci sono ancora atleti iscritti</h1>
-                {else}
-                <table class="table">
-                    <thead>
+            {if empty($competition->getRegistrations())}
+                <h1 class="my-allert-page">Non ci sono ancora atleti iscritti</h1>
+            {else}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID atleta</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach from=$competition->getRegistrations() item=athlete}
                     <tr>
-                        <th>ID atleta</th>
-                        <th>Atleta</th>
+                        <td>{$athlete->getId()}</td>
+                        <td>{$athlete->getName()}</td>
+                        <td>{$athlete->getSurname()}</td>
+                        <td><a href="/Livent/Registration/DeletePage/{$athlete->getId()}I{$competition->getId()}/" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    {foreach from=$competition->getRegistrations() item=athlete}
-                        <tr>
-                            <td>{$athlete->getId()}</td>
-                            <td>{$athlete->getName()}</td>
-                            <td><a href="/Livent/Registration/Delate/{$athlete->getId()}I{$competition->getId()}" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
-                        </tr>
-                    {/foreach}
-                    </tbody>
-                </table>
-                {/if}
-            </form>
+                {/foreach}
+                </tbody>
+            </table>
+            {/if}
             <br>
             <br>
             <br>
             <table>
                 <thead>
                 <tr>
-                    <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Registration/NewPage/"><b>Iscrivi un nuovo atleta</b></a></td>
+                    <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Registration/NewPage/{$competition->getId()}/"><b>Iscrivi un nuovo atleta</b></a></td>
                     <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Result/NewPage/{$competition->getId()}/"><b>Risultati</b></a></td>
                 </tr>
                 </thead>

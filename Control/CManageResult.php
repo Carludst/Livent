@@ -17,14 +17,16 @@ class CManageResult
     public static function addResult(){
         try{
             $view=new VResult();
-            $viewcomp=new VCompetition();
-            $key=$viewcomp->getMyInput();
+            $key=$view->getMyInput();
+            $keyA=$view->getAthleteId();
             $competition= FDbH::loadOne($key, "ECompetition");
-            $athlete= FDbH::loadOne($view->getId(), "EAthlete");
-            $time= FDbH::loadOne($view->getTime(), "ETime");
+            $athlete= FDbH::loadOne($keyA, "EAthlete");
+            $time= $view->getTime();
             if(self::authorizer($competition)){
                 if(!$competition->addResult($athlete,$time))throw new Exception("loading result is failed");
             }
+            else throw new Exception("you don't have authorization");
+            header('Location: /Livent/Competition/MainPage/'.$competition->getId().'/');
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! L'inserimento del risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
@@ -33,7 +35,7 @@ class CManageResult
 
 
 
-    public static function delate()
+    public static function delete()
     {
         try{
             $view = new VDelete();
@@ -45,7 +47,7 @@ class CManageResult
                 if(!$competition->popResult($athlete))throw new Exception("deletion result is failed");
             }
             else throw new Exception("you don't have authorization");
-            header('Location: /Livent/');
+            header('Location: /Livent/Competition/MainPage/'.$competition->getId().'/');
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione del risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
@@ -76,6 +78,28 @@ class CManageResult
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina dell' evento non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+        }
+    }
+
+    public static function deletePage(){
+        try{
+            $view=new VDelete();
+            $myinputC=$view->getMyInputCompetition();
+            $myinputA=$view->getMyInputAthlete();
+            if(is_null($myinputA)||is_null($myinputC))throw new Exception("myinput don't setted");
+            $competition=FDbH::loadOne($myinputC,ECompetition::class);
+            $athlete=FDbH::loadOne($myinputA,EAthlete::class);
+            if(self::authorizer($competition))
+            {
+                $message='sei sicuro di voler cancellare il risultato ?  i dati non potranno essere recuperati';
+                $action='/Livent/Result/Delete/'.$athlete->getId().'I'.$competition->getId().'/';
+                $return='/Livent/Competition/MainPage/'.$competition->getId().'/';
+                $what='Risultato';
+                $view->show($action,$what,$return,$message);
+            }
+        }
+        catch (Exception $e){
+            CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina di eliminazione della registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
 
