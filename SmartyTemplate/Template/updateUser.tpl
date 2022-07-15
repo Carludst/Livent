@@ -73,10 +73,10 @@ FACEBOOK: https://www.facebook.com/themefisher
           <form method="post" class="text-left clearfix" action="/Livent/User/Update/" enctype="multipart/form-data">
             <h4 class="widget-title">Autentificazione</h4>
             <div class="form-group">
-              <input type="email" class="form-control" name="email" placeholder="Email">
+              <input type="email" class="form-control" name="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control"  name="password" placeholder="Password">
+              <input type="password" class="form-control"  name="password" placeholder="Password" required>
             </div>
             <h4 class="widget-title">Nuovi Dati</h4>
             <div class="form-group">
@@ -86,7 +86,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                   <input type="email" class="form-control" {if $user!=""}value="{$user->getEmail()}" {/if} name="newEmail" placeholder="Email">
               </div>
             <div class="form-group">
-              <input type="password" class="form-control"  name="newPassword" placeholder="Nuova password">
+              <input type="password" class="form-control" pattern="{$pattern}" name="newPassword" placeholder="Nuova password (almeno 6 caratteri)">
             </div>
             <div class="form-group">
               <input type="password" class="form-control"  name="confirmPassword" placeholder="Conferma password">

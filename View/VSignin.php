@@ -11,6 +11,7 @@ class VSignin extends View
     public function show()
     {
         $assign=$this->assign;
+        $assign['pattern']='.{6,}';
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
     }

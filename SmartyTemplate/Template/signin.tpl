@@ -31,7 +31,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <meta name="generator" content="Themefisher Constra HTML Template v1.0">
   
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{$dir}/images/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="{$logo}" />
   
   <!-- Themefisher Icon font -->
   <link rel="stylesheet" href="{$dir}/plugins/themefisher-font/style.css">
@@ -77,23 +77,23 @@ FACEBOOK: https://www.facebook.com/themefisher
             </select>
             <br>
             <div class="form-group">
-              <input type="text" class="form-control" name="username"  placeholder="Username">
+              <input type="text" class="form-control" name="username"  placeholder="Username" required>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" name="email" placeholder="Email">
+              <input type="email" class="form-control" name="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control"  name="password" placeholder="Password">
+              <input type="password" class="form-control" pattern="{$pattern}" name="password" placeholder="Password (almeno 6 caratteri)" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control"  name="confirmPassword" placeholder="Conferma password">
+              <input type="password" class="form-control"  name="confirmPassword" placeholder="Conferma password" required>
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-main text-center">Sign In</button>
             </div>
           </form>
           <p class="mt-20">Hai già un account ?<a href="login.html"> Login</a></p>
-          <p><a href="forget-password.html"> torna alla home</a></p>
+          <p><a href="/Livent/"> torna alla home</a></p>
         </div>
       </div>
     </div>

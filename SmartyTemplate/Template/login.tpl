@@ -72,10 +72,10 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <h2 class="text-center">Welcome</h2>
                     <form method="post" class="text-left clearfix" action="/Livent/User/Login/" >
                         <div class="form-group">
-                            <input type="email" name='email' class="form-control"  placeholder="Email">
+                            <input type="email" name='email' class="form-control"  placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name='password' class="form-control" placeholder="Password">
+                            <input type="password" name='password' class="form-control" placeholder="Password" required>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-main text-center" >Login</button>

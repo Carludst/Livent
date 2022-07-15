@@ -216,3 +216,21 @@ SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in you
 #3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSystem::HomePage()
 #4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
 #5 {main}
+
+Syntax error in template "file:C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\signin.tpl"  on line 86 "<input type="password" class="form-control" pattern=".{1,}" name="password" placeholder="Password" required>"  - Unexpected ",", expected one of: "}"
+#0 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templateparser.php(2819): Smarty_Internal_TemplateCompilerBase->trigger_template_error()
+#1 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templateparser.php(2880): Smarty_Internal_Templateparser->yy_syntax_error(34, ',')
+#2 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_smartytemplatecompiler.php(128): Smarty_Internal_Templateparser->doParse(34, ',')
+#3 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatecompilerbase.php(469): Smarty_Internal_SmartyTemplateCompiler->doCompile('<!-- \r\nTHEME: A...', true)
+#4 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatecompilerbase.php(395): Smarty_Internal_TemplateCompilerBase->compileTemplateSource(Object(Smarty_Internal_Template), false, NULL)
+#5 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_template_compiled.php(184): Smarty_Internal_TemplateCompilerBase->compileTemplate(Object(Smarty_Internal_Template))
+#6 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_template_compiled.php(141): Smarty_Template_Compiled->compileTemplateSource(Object(Smarty_Internal_Template))
+#7 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_template_compiled.php(105): Smarty_Template_Compiled->process(Object(Smarty_Internal_Template))
+#8 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_template.php(216): Smarty_Template_Compiled->render(Object(Smarty_Internal_Template))
+#9 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatebase.php(238): Smarty_Internal_Template->render(false, 1)
+#10 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatebase.php(134): Smarty_Internal_TemplateBase->_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#11 C:\xampp\htdocs\public_html\Livent\View\VSignin.php(15): Smarty_Internal_TemplateBase->display('signin.tpl')
+#12 C:\xampp\htdocs\public_html\Livent\Control\CManageUser.php(187): VSignin->show()
+#13 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::signinPage()
+#14 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#15 {main}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-07 19:32:42
+/* Smarty version 4.1.1, created on 2022-07-15 09:08:07
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c718bacf2ce3_35346839',
+  'unifunc' => 'content_62d11257037fb9_46999828',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5c306374df9cc05f529fef3b208e865c0e49be8f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\login.tpl',
-      1 => 1657138491,
+      1 => 1657868873,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c718bacf2ce3_35346839 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d11257037fb9_46999828 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -102,10 +102,10 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <h2 class="text-center">Welcome</h2>
                     <form method="post" class="text-left clearfix" action="/Livent/User/Login/" >
                         <div class="form-group">
-                            <input type="email" name='email' class="form-control"  placeholder="Email">
+                            <input type="email" name='email' class="form-control"  placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name='password' class="form-control" placeholder="Password">
+                            <input type="password" name='password' class="form-control" placeholder="Password" required>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-main text-center" >Login</button>

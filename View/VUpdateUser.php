@@ -13,6 +13,7 @@ class VUpdateUser extends View
     {
         $assign=$this->assign;
         $assign['user']=$user;
+        $assign['pattern']='.{6,}';
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
     }
