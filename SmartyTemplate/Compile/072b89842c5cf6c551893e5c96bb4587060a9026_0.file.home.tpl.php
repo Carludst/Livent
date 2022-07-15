@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-14 11:58:18
+/* Smarty version 4.1.1, created on 2022-07-15 07:11:15
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cfe8ba855671_74727710',
+  'unifunc' => 'content_62d0f6f35a8167_10147693',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '072b89842c5cf6c551893e5c96bb4587060a9026' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\home.tpl',
-      1 => 1657792669,
+      1 => 1657861871,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cfe8ba855671_74727710 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d0f6f35a8167_10147693 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -247,7 +247,7 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
 	<?php } else { ?>
 		<div class="container">
 				<div class="row">
-					<?php if (empty($_smarty_tpl->tpl_vars['eventsOpen']->value)) {?>
+					<?php if (!empty($_smarty_tpl->tpl_vars['eventsOpen']->value)) {?>
 						<div class="title text-center">
 							<h2>Eventi in programma</h2>
 						</div>
@@ -279,10 +279,14 @@ for ($__section_i_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 								</div>
 							</div>
 							<div class="product-content">
-								<h4><a href="product-single.html"><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
-</a></h4>
-								<time><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d/m/y");?>
+								<h4><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
+</h4>
+								<?php if (!empty($_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetitions)) {?>
+									<time><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d/m/y");?>
 </time>
+								<?php } else { ?>
+									<time>Data da definirsi</time>
+								<?php }?>
 							</div>
 						</div>
 					</div>
@@ -294,9 +298,9 @@ for ($__section_i_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 			</div>
 
 			<div class="row">
-				<?php if (empty($_smarty_tpl->tpl_vars['eventsFinished']->value)) {?>
+				<?php if (!empty($_smarty_tpl->tpl_vars['eventsFinished']->value)) {?>
 					<div class="title text-center">
-						<h2>Eventi terminati</h2>
+						<h2>Eventi terminati o in corso</h2>
 					</div>
 				<?php }?>
 			</div>
@@ -325,8 +329,8 @@ for ($__section_i_2_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 								</div>
 							</div>
 							<div class="product-content">
-								<h4><a href="product-single.html"><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
-</a></h4>
+								<h4><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
+</h4>
 								<time><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d/m/y");?>
 </time>
 							</div>

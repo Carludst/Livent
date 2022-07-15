@@ -198,7 +198,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 	{else}
 		<div class="container">
 				<div class="row">
-					{if empty($eventsOpen)}
+					{if !empty($eventsOpen)}
 						<div class="title text-center">
 							<h2>Eventi in programma</h2>
 						</div>
@@ -236,9 +236,9 @@ FACEBOOK: https://www.facebook.com/themefisher
 			</div>
 
 			<div class="row">
-				{if empty($eventsFinished)}
+				{if !empty($eventsFinished)}
 					<div class="title text-center">
-						<h2>Eventi terminati</h2>
+						<h2>Eventi terminati o in corso</h2>
 					</div>
 				{/if}
 			</div>

@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ac2d2ab-f4d5-4caa-a450-185d63b35ca7" name="Changes" comment="error">
+    <list default="true" id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="file Error.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/CManageRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageRegistration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/CManageResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foundation/FCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FCompetition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CSystem.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CSystem.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Foundation/FDb.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FDb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/16515f38775ce7507f5d8fbf513ad2faaff27828_0.file.home.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/16515f38775ce7507f5d8fbf513ad2faaff27828_0.file.home.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/190ac09b88142d18f46b39ab949a96bbd2253c1b_0.file.searchEvent.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/190ac09b88142d18f46b39ab949a96bbd2253c1b_0.file.searchEvent.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/59654fbecb042264d682cac5db71f1d712c21c97_0.file.deleteUser.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/59654fbecb042264d682cac5db71f1d712c21c97_0.file.deleteUser.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/62ffb3340a32b13e600461ac7c18768d8d7adcac_0.file.event.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/62ffb3340a32b13e600461ac7c18768d8d7adcac_0.file.event.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/fb60188b4e43ef7a119b4963e7a31796dfc51399_0.file.organizerProfile.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/fb60188b4e43ef7a119b4963e7a31796dfc51399_0.file.organizerProfile.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/competition.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/competition.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/deleteUser.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/deleteUser.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/errorSystem.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/errorSystem.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/newRegCompetition.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/newRegCompetition.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/results.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/results.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/072b89842c5cf6c551893e5c96bb4587060a9026_0.file.home.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/072b89842c5cf6c551893e5c96bb4587060a9026_0.file.home.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/14fd2cf14549505e88c2c27f39ca7ce1cedb5529_0.file.mainAthlete.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3_0.file.event.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/4fc5d5003ac5d02fb2357ee0e1afc71d4f3985f3_0.file.event.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/home.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/home.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VNewRegCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VNewRegCompetition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VResult.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,26 +38,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/public_html/Livent/SmartyTemplate/Template&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.web">
     <configuration name="web" type="JavascriptDebugType" uri="http://localhost\Livent\">
       <method v="2" />
     </configuration>
+    <configuration name="main" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Control/main.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.web" />
+      <item itemvalue="PHP Script.main" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8ac2d2ab-f4d5-4caa-a450-185d63b35ca7" name="Changes" comment="error" />
+      <changelist id="dcd8effd-fc1d-4719-bd93-0aa5c88d5ffe" name="Changes" comment="" />
       <created>1657557356686</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -78,7 +78,6 @@
       <workItem from="1657557357720" duration="174000" />
       <workItem from="1657557549751" duration="2908000" />
       <workItem from="1657776312309" duration="5023000" />
-      <workItem from="1657815152943" duration="7438000" />
     </task>
     <task id="LOCAL-00001" summary="testo">
       <created>1657702048419</created>
@@ -129,7 +128,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657780794121</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="changes">
+      <created>1657805539864</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657805539865</updated>
+    </task>
+    <task id="LOCAL-00009" summary="changes">
+      <created>1657811303772</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657811303773</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,7 +158,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="testo" />
@@ -154,6 +166,7 @@
     <MESSAGE value="finite le new" />
     <MESSAGE value="add delate reference method" />
     <MESSAGE value="deletePage" />
-    <option name="LAST_COMMIT_MESSAGE" value="deletePage" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
 </project>

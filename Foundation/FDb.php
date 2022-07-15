@@ -256,16 +256,7 @@ class FDb{
 
     }
 
-    /**
-     * Permit to make the clouse where with only one condition but between interrogation and attribute
-     * @param array $interrogation
-     * @param String $field
-     * @param String $op
-     * @return array
-     */
-    public static function nestedWhere(Array $interrogation , String $field='', String $op='EXISTS'){
 
-    }
 
     /**
      * -Method : create load condition

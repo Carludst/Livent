@@ -29,6 +29,11 @@ credential wrong
 #1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
 #2 {main}
 
+credential wrong
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::login()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
 my input not setted
 #0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::newPageRegistration()
 #1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
