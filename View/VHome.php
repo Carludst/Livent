@@ -19,16 +19,18 @@ class VHome extends View
      * @return void
      * @throws SmartyException
      */
-    public function show(?EUser $user , ?String $profileImg, Array $eventsOpen, Array $eventsFinished , Array $homeImg, Array $eventsOpenImg, Array $eventsFinishedImg)
+    public function show(?EUser $user , ?String $profileImg, Array $eventsOpen, Array $eventsFinished , Array $eventsRunning , Array $homeImg, Array $eventsOpenImg, Array $eventsFinishedImg, Array $eventsRunningImg)
     {
         $assign=$this->assign;
         $assign['user']=$user;
         $assign['profileImg']=$profileImg;
         $assign['eventsOpen']=$eventsOpen;
         $assign['eventsFinished']=$eventsFinished;
+        $assign['eventsRunning']=$eventsRunning;
         $assign['homeImg']=$homeImg;
         $assign['eventsOpenImg']=$eventsOpenImg;
         $assign['eventsFinishedImg']=$eventsFinishedImg;
+        $assign['eventsRunningImg']=$eventsRunningImg;
 
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);

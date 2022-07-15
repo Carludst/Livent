@@ -187,3 +187,32 @@ deletion result is failed
 #0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageResult::delete()
 #1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
 #2 {main}
+
+you don't have authorization
+#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::update()
+#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'livent.competitionsas' doesn't exist
+#0 C:\xampp\htdocs\public_html\Livent\Foundation\FEvent.php(207): FDb::exInterrogation(Array, Array, Array)
+#1 C:\xampp\htdocs\public_html\Livent\Foundation\FDbH.php(458): FEvent::search(true, NULL, NULL, NULL, NULL, Object(DateTime), NULL)
+#2 C:\xampp\htdocs\public_html\Livent\Control\CSystem.php(26): FDbH::searchEvent(true, NULL, NULL, NULL, NULL, Object(DateTime))
+#3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSystem::HomePage()
+#4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#5 {main}
+
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'livent.competitionsas' doesn't exist
+#0 C:\xampp\htdocs\public_html\Livent\Foundation\FEvent.php(207): FDb::exInterrogation(Array, Array, Array)
+#1 C:\xampp\htdocs\public_html\Livent\Foundation\FDbH.php(458): FEvent::search(true, NULL, NULL, NULL, NULL, Object(DateTime), NULL)
+#2 C:\xampp\htdocs\public_html\Livent\Control\CSystem.php(26): FDbH::searchEvent(true, NULL, NULL, NULL, NULL, Object(DateTime))
+#3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSystem::HomePage()
+#4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#5 {main}
+
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ANY  ( SELECT T.idevent FROM competitions AS T WHERE T.datetime > '22-07-15' ...' at line 1
+#0 C:\xampp\htdocs\public_html\Livent\Foundation\FEvent.php(210): FDb::exInterrogation(Array, Array, Array)
+#1 C:\xampp\htdocs\public_html\Livent\Foundation\FDbH.php(458): FEvent::search(true, NULL, NULL, NULL, Object(DateTime), Object(DateTime), NULL)
+#2 C:\xampp\htdocs\public_html\Livent\Control\CSystem.php(29): FDbH::searchEvent(true, NULL, NULL, NULL, Object(DateTime), Object(DateTime))
+#3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSystem::HomePage()
+#4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+#5 {main}

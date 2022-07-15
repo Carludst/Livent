@@ -454,8 +454,8 @@ class FDbH {
      * @param String $place
      * @return array
      */
-    public static function searchEvent(?bool $public=NULL ,?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL  , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL , ?String $sport=NULL){
-        return FEvent::search($public,$name,$organizer,$place,$startDateFrom,$startDateTo,$sport);
+    public static function searchEvent(?bool $public=NULL ,?String $name=NULL , ?EUser $organizer=NULL ,?String $place=NULL  , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL , ?String $sport=NULL , bool $running=false){
+        return FEvent::search($public,$name,$organizer,$place,$startDateFrom,$startDateTo,$sport,$running);
     }
 
     /**

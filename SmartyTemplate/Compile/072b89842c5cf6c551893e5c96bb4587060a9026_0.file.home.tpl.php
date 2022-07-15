@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-15 07:11:15
+/* Smarty version 4.1.1, created on 2022-07-15 08:43:33
   from 'C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62d0f6f35a8167_10147693',
+  'unifunc' => 'content_62d10c9520a744_80589923',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '072b89842c5cf6c551893e5c96bb4587060a9026' => 
     array (
       0 => 'C:\\xampp\\htdocs\\public_html\\Livent\\SmartyTemplate\\Template\\home.tpl',
-      1 => 1657861871,
+      1 => 1657867409,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62d0f6f35a8167_10147693 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d10c9520a744_80589923 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -242,7 +242,7 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
 
 
 <section class="products section bg-gray">
-	<?php if (empty($_smarty_tpl->tpl_vars['eventsOpen']->value) && empty($_smarty_tpl->tpl_vars['eventsFinished']->value)) {?>
+	<?php if (empty($_smarty_tpl->tpl_vars['eventsOpen']->value) && empty($_smarty_tpl->tpl_vars['eventsFinished']->value) && empty($_smarty_tpl->tpl_vars['eventsRunning']->value)) {?>
 		<h1 class="my-allert-page" > Non ci sono eventi </h1>
 	<?php } else { ?>
 		<div class="container">
@@ -281,8 +281,59 @@ for ($__section_i_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 							<div class="product-content">
 								<h4><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
 </h4>
-								<?php if (!empty($_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetitions)) {?>
+								<?php if (!empty($_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetitions())) {?>
 									<time><?php echo $_smarty_tpl->tpl_vars['eventsOpen']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d/m/y");?>
+</time>
+								<?php } else { ?>
+									<time>Data da definirsi</time>
+								<?php }?>
+							</div>
+						</div>
+					</div>
+				<?php
+}
+}
+?>
+
+			</div>
+
+			<div class="row">
+				<?php if (!empty($_smarty_tpl->tpl_vars['eventsRunning']->value)) {?>
+					<div class="title text-center">
+						<h2>Eventi in corso</h2>
+					</div>
+				<?php }?>
+			</div>
+
+
+			<div class="row">
+
+				<?php
+$__section_i_2_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['eventsRunning']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_i_2_total = $__section_i_2_loop;
+$_smarty_tpl->tpl_vars['__smarty_section_i'] = new Smarty_Variable(array());
+if ($__section_i_2_total !== 0) {
+for ($__section_i_2_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] = 0; $__section_i_2_iteration <= $__section_i_2_total; $__section_i_2_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']++){
+?>
+					<div class="col-md-4">
+						<div class="product-item">
+							<div class="product-thumb">
+								<img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['eventsRunningImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)];?>
+" alt="product-img" />
+								<div class="preview-meta">
+									<ul>
+										<li>
+											<a href="/Livent/Event/MainPage/<?php echo $_smarty_tpl->tpl_vars['eventsRunning']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getId();?>
+/" ><i class="tf-ion-ios-paper-outline"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="product-content">
+								<h4><?php echo $_smarty_tpl->tpl_vars['eventsRunning']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
+</h4>
+								<?php if (!empty($_smarty_tpl->tpl_vars['eventsRunning']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetitions())) {?>
+									<time><?php echo $_smarty_tpl->tpl_vars['eventsRunning']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d/m/y");?>
 </time>
 								<?php } else { ?>
 									<time>Data da definirsi</time>
@@ -300,7 +351,7 @@ for ($__section_i_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 			<div class="row">
 				<?php if (!empty($_smarty_tpl->tpl_vars['eventsFinished']->value)) {?>
 					<div class="title text-center">
-						<h2>Eventi terminati o in corso</h2>
+						<h2>Eventi terminati </h2>
 					</div>
 				<?php }?>
 			</div>
@@ -308,11 +359,11 @@ for ($__section_i_1_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 			<div class="row">
 
 				<?php
-$__section_i_2_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['eventsFinished']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_i_2_total = $__section_i_2_loop;
+$__section_i_3_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['eventsFinished']->value) ? count($_loop) : max(0, (int) $_loop));
+$__section_i_3_total = $__section_i_3_loop;
 $_smarty_tpl->tpl_vars['__smarty_section_i'] = new Smarty_Variable(array());
-if ($__section_i_2_total !== 0) {
-for ($__section_i_2_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] = 0; $__section_i_2_iteration <= $__section_i_2_total; $__section_i_2_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']++){
+if ($__section_i_3_total !== 0) {
+for ($__section_i_3_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] = 0; $__section_i_3_iteration <= $__section_i_3_total; $__section_i_3_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']++){
 ?>
 					<div class="col-md-4">
 						<div class="product-item">
@@ -331,8 +382,12 @@ for ($__section_i_2_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_i']-
 							<div class="product-content">
 								<h4><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getName();?>
 </h4>
-								<time><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d/m/y");?>
+								<?php if (!empty($_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetitions())) {?>
+									<time><?php echo $_smarty_tpl->tpl_vars['eventsFinished']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_i']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_i']->value['index'] : null)]->getCompetition(0)->getDateTime()->format("d/m/y");?>
 </time>
+								<?php } else { ?>
+									<time>Data da definirsi</time>
+								<?php }?>
 							</div>
 						</div>
 					</div>

@@ -193,7 +193,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 
 <section class="products section bg-gray">
-	{if empty($eventsOpen) && empty($eventsFinished)}
+	{if empty($eventsOpen) && empty($eventsFinished) && empty($eventsRunning)}
 		<h1 class="my-allert-page" > Non ci sono eventi </h1>
 	{else}
 		<div class="container">
@@ -223,8 +223,46 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</div>
 							<div class="product-content">
 								<h4>{$eventsOpen[i]->getName()}</h4>
-								{if !empty($eventsOpen[i]->getCompetitions)}
+								{if !empty($eventsOpen[i]->getCompetitions())}
 									<time>{$eventsOpen[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
+								{else}
+									<time>Data da definirsi</time>
+								{/if}
+							</div>
+						</div>
+					</div>
+				{/section}
+
+			</div>
+
+			<div class="row">
+				{if !empty($eventsRunning)}
+					<div class="title text-center">
+						<h2>Eventi in corso</h2>
+					</div>
+				{/if}
+			</div>
+
+
+			<div class="row">
+
+				{section name=i loop=$eventsRunning}
+					<div class="col-md-4">
+						<div class="product-item">
+							<div class="product-thumb">
+								<img class="img-responsive" src="{$eventsRunningImg[i]}" alt="product-img" />
+								<div class="preview-meta">
+									<ul>
+										<li>
+											<a href="/Livent/Event/MainPage/{$eventsRunning[i]->getId()}/" ><i class="tf-ion-ios-paper-outline"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="product-content">
+								<h4>{$eventsRunning[i]->getName()}</h4>
+								{if !empty($eventsRunning[i]->getCompetitions())}
+									<time>{$eventsRunning[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
 								{else}
 									<time>Data da definirsi</time>
 								{/if}
@@ -238,7 +276,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 			<div class="row">
 				{if !empty($eventsFinished)}
 					<div class="title text-center">
-						<h2>Eventi terminati o in corso</h2>
+						<h2>Eventi terminati </h2>
 					</div>
 				{/if}
 			</div>
@@ -260,7 +298,11 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</div>
 							<div class="product-content">
 								<h4>{$eventsFinished[i]->getName()}</h4>
-								<time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
+								{if !empty($eventsFinished[i]->getCompetitions())}
+									<time>{$eventsFinished[i]->getCompetition(0)->getDateTime()->format("d/m/y")}</time>
+								{else}
+									<time>Data da definirsi</time>
+								{/if}
 							</div>
 						</div>
 					</div>

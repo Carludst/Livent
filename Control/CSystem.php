@@ -23,16 +23,21 @@ class CSystem
             $homeImg=array();
             for($i=0;$i<count($homeImgName);$i++)$homeImg[]=array('file'=>FDbH::loadFile( MappingPathFile::dirHomeMain(),$homeImgName[$i]),'name'=>$homeImgName[$i]);
 
-            $eventsFinished=FDbH::searchEvent(true,NULL,NULL,NULL,NULL,new DateTime());
-            $eventsOpen=FDbH::searchEvent(true,NULL,NULL,NULL,new DateTime());
+            $ora=new DateTime();
+            $eventsFinished=FDbH::searchEvent(true,NULL,NULL,NULL,NULL,$ora);
+            $eventsOpen=FDbH::searchEvent(true,NULL,NULL,NULL,$ora);
+            $eventsRunning=FDbH::searchEvent(true,NULL,NULL,NULL,$ora , $ora,NULL,true);
+
             if(count($eventsFinished)>9) $eventsFinished=array_slice($eventsFinished,0,9);
             if(count($eventsOpen)>9) $eventsOpen=array_slice($eventsOpen,0,9);
+            if(count($eventsRunning)>9) $eventsOpen=array_slice($eventsOpen,0,9);
 
             $eventsFinishedImg=FDbH::loadMultiFile($eventsFinished,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.4);
             $eventsOpenImg=FDbH::loadMultiFile($eventsOpen,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.4);
+            $eventsRunningImg=FDbH::loadMultiFile($eventsRunning,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.4);
 
             $view=new VHome();
-            $view->show($user,$profileImg,$eventsOpen,$eventsFinished,$homeImg,$eventsOpenImg,$eventsFinishedImg);
+            $view->show($user,$profileImg,$eventsOpen,$eventsFinished,$eventsRunning,$homeImg,$eventsOpenImg,$eventsFinishedImg,$eventsRunningImg);
         }
         catch(Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizazzione della pagina home non è andata a buon fine");

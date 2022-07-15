@@ -140,7 +140,7 @@ class FEvent
         return $event::class."/".$event->getId();
     }
 
-    public static function search(?bool $public=NULL ,?String $name=NULL , ?EUser $user=NULL ,?String $place=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL , ?String $sport=NULL){
+    public static function search(?bool $public=NULL ,?String $name=NULL , ?EUser $user=NULL ,?String $place=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL , ?String $sport=NULL, bool $running=false){
         $fields=array();
         $values=array();
         $opWhere=array();
@@ -179,24 +179,37 @@ class FEvent
                 $opWhere[]='=';
             }
             if(!is_null($startDateFrom)){
-                $dateStart=FDb::opGroupMin(self::$table[1].' AS T','T.datetime',' WHERE T.idevent=idevent');
-                $fields[]='('.$dateStart['query'].')';
-                $values[]=$startDateFrom->format("y-m-d");
                 if(is_null($startDateTo)||$startDateFrom<$startDateTo)
                 {
-                    $opWhere[]='>=';
+                    $op='<';
                 }
-                else $opWhere[]='<=';
+                else $op='>';
+                $fields[]='idevent';
+                $values[]=FDb::load(self::$table[1].' AS T',FDb::where('T.datetime',$startDateFrom->format("y-m-d"),$op),'T.idevent');
+                if($running && !is_null($startDateTo) && $startDateFrom->format("y-m-d")==$startDateTo->format("y-m-d"))$opWhere[]=' = ANY ';
+                else $opWhere[]=' <> ALL ';
+                $fields[]='idevent';
+                $values[]=FDb::load(self::$table[1].' AS T','','T.idevent');
+                $opWhere[]= ' = ANY ';
+
             }
             if(!is_null($startDateTo)){
-                $dateStart=FDb::opGroupMin(self::$table[1].' AS T','T.datetime', ' WHERE T.idevent=idevent ');
-                $fields[]='('.$dateStart['query'].')';
-                $values[]=$startDateTo->format("y-m-d");
                 if(is_null($startDateFrom)||$startDateTo>$startDateFrom)
                 {
-                    $opWhere[]='<=';
+                    $op='>';
                 }
-                else $opWhere[]='>=';
+                else $op='<';
+
+                $fields[]='idevent';
+                $values[]=FDb::load(self::$table[1].' AS T',FDb::where('T.datetime',$startDateTo->format("y-m-d"),$op),'T.idevent');
+                if($running && !is_null($startDateFrom) && $startDateFrom->format("y-m-d")==$startDateTo->format("y-m-d"))$opWhere[]=' = ANY ';
+                else $opWhere[]=' <> ALL ';
+
+                if(is_null($startDateFrom)){
+                    $fields[]='idevent';
+                    $values[]=FDb::load(self::$table[1].' AS T','','T.idevent');
+                    $opWhere[]= ' = ANY ';
+                }
             }
             if(!is_null($sport)){
                 $fields[]='idevent';
