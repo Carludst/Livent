@@ -32,22 +32,11 @@ class CManageRegistration
             }else throw new Exception('you have to be logged to add a registration');
             header('Location: /Livent/Competition/MainPage/'.$competition->getId().'/');
         }catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La registrazione non è andata a buon fine, verificare di possedere le autorizazioni necessarie e di aver inserito i dati corretti");
+            CError::store($e,"ci scusiamo per il disaggio !!! La registrazione non è andata a buon fine, verificare di possedere le autorizazioni necessarie e di aver inserito i dati corretti , l'utente potrebbe essere già iscritto");
         }
     }
 
-    /*
-    public static function addRegistration(ECompetition $competition,EAthlete $athlete){
-        try{
-            if(CManageUser::callLogin()){
-                if(!$competition->addRegistration($athlete,FSession::getUserLogged()))throw new Exception("registration is failed");
-            }
-        }
-        catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! L'inserimento della registazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
-        }
-    }
-    */
+
 
     public static function deleteRegistration()
     {

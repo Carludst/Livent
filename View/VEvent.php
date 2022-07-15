@@ -15,7 +15,7 @@ class VEvent extends View
      * @return void
      * @throws SmartyException
      */
-    public function show(?EEvent $event , ?String $eventImg, ?EUser $user , ?String $profileImg, ?Array $competitions,?Array $contacts,String $mood)
+    public function show(?EEvent $event , ?String $eventImg, ?EUser $user , ?String $profileImg, ?Array $competitions,String $mood)
     {
         $assign = $this->assign;
         $assign['event'] = $event;
@@ -23,7 +23,6 @@ class VEvent extends View
         $assign['user']=$user;
         $assign['profileImg']=$profileImg;
         $assign['competitions'] = $competitions;
-        $assign['contacts'] = $contacts;
         $assign['mood']=$mood;
 
 

@@ -101,7 +101,7 @@
                                 <tbody>
                                 <tr>
                                     <td class="my-td-title"><h4>Data di nascita : </h4></td>
-                                    <td class="my-td"><input type="date" {if $athlete!=""}value="{$athlete->getBirthdate()->format("Y-m-d")}"{/if} name="date" class="form-control"></td>
+                                    <td class="my-td"><input type="date" {if $athlete!=""}value="{$athlete->getBirthdate()->format("Y-m-d")}"{/if} name="date" max="{$today}" class="form-control"></td>
                                 </tr>
                                 </tbody>
                             </table>

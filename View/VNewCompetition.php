@@ -12,6 +12,8 @@ class VNewCompetition extends View
     public function show(ECompetition|int $competition)
     {
         $assign=$this->assign;
+        $today=new DateTime();
+        $assign['today']=$today->format('Y-m-d H:i');
         if(is_int($competition)){
             $assign['idevent']=$competition;
             $assign['competition']='';

@@ -47,14 +47,7 @@ class CManageAthlete
     }
 
 
-    public static function delete(EAthlete $athlete){
-        try{
-            if(self::authorizer())FDbH::deleteOne($athlete->getId(),EAthlete::class);
-        }
-        catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! la cancellazione dei dati dell' atleta non è andata a buon fine , verificare di possedere le autorizazioni necessarie");
-        }
-    }
+    
 
 
 

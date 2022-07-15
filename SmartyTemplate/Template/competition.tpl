@@ -197,7 +197,7 @@
             <table>
                 <thead>
                 <tr>
-                    {if $mood=='permit' && ($user->getType()!='Organizer' || $user->getId()==$event->getOrganizer()->getId()) }
+                    {if $mood=='permit' && (($user->getType()!='Organizer'&& $user->getType()!='Administrator' )|| $user->getId()==$event->getOrganizer()->getId()) }
                         <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Registration/NewPage/{$competition->getId()}/"><b>Iscrivi un nuovo atleta</b></a></td>
                     {/if}
                     <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Result/NewPage/{$competition->getId()}/"><b>Risultati</b></a></td>

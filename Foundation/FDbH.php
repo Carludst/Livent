@@ -59,6 +59,12 @@ class FDbH {
         return $Fclass::deleteOne($key);
     }
 
+
+    /**
+     * @param int $key
+     * @param String $Eclass
+     * @return bool
+     */
     public static function deleteReference(int $key,String $Eclass):bool
     {
         $Fclass = "F".substr($Eclass,1);
@@ -264,6 +270,13 @@ class FDbH {
         return FDb::delate('file',FDb::multiWhere(array("path","name"),array($pathDB,$name)));
     }
 
+
+    /**
+     * @param String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath
+     * @param String $name
+     * @return bool
+     * @throws Exception
+     */
     public static function existFile(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath , String $name):bool
     {
         if(is_string($objPath))$pathDB=$objPath;
@@ -306,14 +319,6 @@ class FDbH {
         return FUser::login($email, $password );
     }
 
-    /**
-     * @param EComment $comment
-     * @return DateTime
-     */
-    public static function getDateTimeComment(EComment $comment):DateTime
-    {
-        return FComment::getDateTime($comment);
-    }
 
 
 
@@ -400,6 +405,10 @@ class FDbH {
     }
 
 
+    /**
+     * @param EUser $user
+     * @return array
+     */
     public static function getRegistrationUser(EUser $user ):Array
     {
         return FUser::getRegistration($user);
@@ -414,23 +423,8 @@ class FDbH {
         return FEvent::getCompetitions($event);
     }
 
-    /**
-     * @param EEvent $event
-     * @return array
-     */
-    public static function getContacts(EEvent $event):Array
-    {
-        return FEvent::getContacts($event);
-    }
 
-    /**
-     * @param EEvent $event
-     * @return array
-     */
-    public static function getComments(EEvent $event):Array
-    {
-        return FEvent::getComments($event);
-    }
+
 
     /**
      * @param ECompetition $competition
@@ -481,16 +475,7 @@ class FDbH {
         return FComment::search($containText,$user);
     }
 
-    /**
-     * @param String|Null $name
-     * @param String|Null $email
-     * @param String|Null $number
-     * @param EEvent|Null $event
-     * @return array
-     */
-    public static function searchContact(String|Null $name=NULL , String|Null $email=NULL , String|Null $number=NULL , EEvent|Null $event=NULL){
-        return FContact::search($name,$email,$number,$event);
-    }
+
 
     /**
      * @param String|Null $username

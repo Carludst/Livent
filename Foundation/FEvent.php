@@ -3,6 +3,11 @@ class FEvent
 {
     private static Array $table=array("event",'competitions');
 
+
+    /**
+     * @param EEvent $event
+     * @return array
+     */
     private static function getArrayByObject(EEvent $event):Array
     {
         $nome=$event->getName();
@@ -26,6 +31,11 @@ class FEvent
         return $fieldValue;
     }
 
+    /**
+     * @param array $event
+     * @return EEvent
+     * @throws Exception
+     */
     private static function getObjectByArray(Array $event):EEvent
     {
         $id=$event['idevent'];
@@ -38,6 +48,10 @@ class FEvent
         return new EEvent($name,$place,$organizer,(bool)$pubilc,$description,$id);
     }
 
+    /**
+     * @param int $key
+     * @return array
+     */
     private static function whereKey(int $key ):Array
     {
         return FDb::where('idevent',$key);
@@ -60,6 +74,12 @@ class FEvent
         $event->setId((int)FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'idevent'))[0]['max']);
     }
 
+
+    /**
+     * @param int $key
+     * @return EEvent|null
+     * @throws Exception
+     */
     public static function loadOne(int $key):?EEvent
     {
         $query=FDb::load(self::$table[0],self::whereKey($key));
@@ -69,11 +89,24 @@ class FEvent
         return self::getObjectByArray($arrayObject);
     }
 
+    /**
+     * @return EEvent|null
+     * @throws Exception
+     */
     public static function loadLastStore():?EEvent{
         $id=FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'idevent'))[0]['max'];
         return self::loadOne($id);
     }
 
+    /**
+     * @param String $fieldWhere
+     * @param String $valueWhere
+     * @param String $opWhere
+     * @param String|array $orderBy
+     * @param bool|array $ascending
+     * @return array
+     * @throws Exception
+     */
     public static function load(String $fieldWhere, String $valueWhere,String $opWhere="=",String|Array $orderBy="",bool|Array $ascending=true):Array{
         $where=FDb::where($fieldWhere,$valueWhere,$opWhere);
         $query=FDb::load(self::$table[0],$where);
@@ -85,11 +118,21 @@ class FEvent
         return $result;
     }
 
+    /**
+     * @param int $key
+     * @return bool
+     * @throws Exception
+     */
     public static function existOne(int $key):bool
     {
         return FDb::exist(FDb::load(self::$table[0],self::whereKey($key)));
     }
 
+    /**
+     * @param int $key
+     * @return bool
+     * @throws Exception
+     */
     public static function deleteOne(int $key):bool
     {
         return FDb::delate(self::$table[0],self::whereKey($key));
@@ -105,26 +148,31 @@ class FEvent
         return $competition && $event ;
     }
 
+    /**
+     * @param EEvent $event
+     * @return bool
+     * @throws Exception
+     */
     public static function updateOne(EEvent $event):bool
     {
         return FDb::update(self::$table[0],self::whereKey((String)$event->getId()),self::getArrayByObject($event));
     }
 
+    /**
+     * @param EEvent $event
+     * @return array
+     */
     public static function getCompetitions(EEvent $event):Array
     {
        return FCompetition::search($event);
     }
 
-    public static function getContacts(EEvent $event):Array
-    {
-        return FContact::load('idevent',$event->getId(),"=",'namecontact');
-    }
 
-    public static function getComments(EEvent $event):Array
-    {
-        return FComment::load('idevent',$event->getId(),'=','updated_at');
-    }
-
+    /**
+     * @param ECompetition $competition
+     * @return EEvent|null
+     * @throws Exception
+     */
     public static function loadByCompetition(ECompetition $competition):?EEvent
     {
         if(FDb::exist(FDb::load(self::$table[1],FDb::where('idcompetition',$competition->getId())))) {
@@ -135,11 +183,27 @@ class FEvent
         else return NULL;
     }
 
+    /**
+     * @param EEvent $event
+     * @return String
+     */
     public static function getPathFile(EEvent $event):String
     {
         return $event::class."/".$event->getId();
     }
 
+    /**
+     * @param bool|null $public
+     * @param String|null $name
+     * @param EUser|null $user
+     * @param String|null $place
+     * @param DateTime|null $startDateFrom
+     * @param DateTime|null $startDateTo
+     * @param String|null $sport
+     * @param bool $running
+     * @return array
+     * @throws Exception
+     */
     public static function search(?bool $public=NULL ,?String $name=NULL , ?EUser $user=NULL ,?String $place=NULL , ?DateTime $startDateFrom=NULL , ?DateTime $startDateTo=NULL , ?String $sport=NULL, bool $running=false){
         $fields=array();
         $values=array();

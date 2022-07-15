@@ -152,59 +152,7 @@ class EEvent{
     }
 
 
-    /**
-     * @return array
-     */
-    public function getContacts(): Array
-    {
-        return FDbH::getContacts($this);
-    }
 
-    public function getContact(int $index): ECompetition
-    {
-        $contacts=FDbH::getContacts($this);
-        return $contacts[$index];
-    }
-
-    /**
-     * @param array $newcontact
-     * @return void
-     */
-    public function setContacts(Array $newcontact): void
-    {
-        $competitionDelete=FDbH::getContacts($this);
-        foreach ($competitionDelete as $value){
-            FDbH::deleteOne($value->getId(),$value::class);
-        }
-        foreach ($newcontact as $value){
-            FDbH::store($value,$this->getId());
-        }
-
-    }
-
-    /**
-     * @param EContact $contact
-     * @return void
-     */
-    public function addContact(EContact $contact): void
-    {
-        FDbH::store($contact,$this->getId());
-    }
-
-
-    /**
-     * @param EContact|int $contact
-     * @return void
-     */
-    public function popContact(EContact|int $contact): void
-    {
-        if(is_int($contact)){
-            FDbH::deleteOne($this->getContact($contact)->getId(),$this->getContact($contact)::class);
-        }
-        else{
-            FDbH::deleteOne($contact->getId(),$contact::class);
-        }
-    }
 
 
     /**
@@ -225,32 +173,7 @@ class EEvent{
     }
 
 
-    public function getComments(): Array
-    {
-      return FDbH::getComments($this);
-    }
 
-    public function addComment(EComment $comment):void
-    {
-        FDbH::store($comment,$this->getId());
-    }
-
-    public function getComment(int $index):EComment
-    {
-        $comments=FDbH::getComments($this);
-        return $comments[$index];
-    }
-
-    public function popComment(EComment|int $comment):void
-    {
-        if(is_int($comment)){
-            FDbH::deleteOne($this->getComment($comment)->getId(),$this->getComment($comment)::class);
-        }
-        else{
-            FDbH::deleteOne($comment->getId(),$comment::class);
-        }
-
-    }
     /**
      * @return EUser
      */

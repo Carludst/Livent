@@ -43,16 +43,7 @@ class CSearch
         }
     }
 
-    public static function searchComment(String|Null $containText=NULL , EUser|NULL $user=NULL):array
-    {
-        try{
-            return FDbH::searchComment($containText,$user);
-        }
-        catch (Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La ricerca dei commenti non è andata a buon fine");
-            return array();
-        }
-    }
+
 
     public static function searchCompetition()
     {

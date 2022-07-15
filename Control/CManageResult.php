@@ -103,17 +103,5 @@ class CManageResult
         }
     }
 
-    /*
-    public static function newPage(?ECompetition $competition , ?EAthlete $athlete){
-        try{
-            if(self::authorizer($competition)){
-                if(!FDbH::existRegistration($competition,$athlete))throw new Exception('the athlete is not register to the competition');
-                //Richiama  VResult::show($result);
-            }
-        }
-        catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La visualizazzione della pagina per inserire un risultato non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
-        }
-    }
-    */
+
 }

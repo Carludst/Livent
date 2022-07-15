@@ -141,6 +141,7 @@ class CManageCompetition
         }
     }
 
+    /*
     public static function newIscription(){
         try{
             $view=new VCompetition();
@@ -156,5 +157,6 @@ class CManageCompetition
             CError::store($e,"ci scusiamo per il disaggio !!! La visualizzazione della pagina relativa alla creazione di una competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
         }
     }
+    */
 }
 

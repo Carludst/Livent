@@ -81,7 +81,7 @@
                         <br>
                         <div class="form-group">
                             <h4>Data e Ora di inizio: </h4>
-                            <input type="datetime-local" {if $competition!=""}value="{$competition->getDateTime()->format("Y-m-d H:i:s")}"{/if} class="form-control" name="dateTime">
+                            <input type="datetime-local" min="{$today}" {if $competition!=""}value="{$competition->getDateTime()->format("Y-m-d H:i:s")}"{/if}  class="form-control" name="dateTime">
                         </div>
                         <br>
                         <table>

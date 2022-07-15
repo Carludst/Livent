@@ -11,8 +11,10 @@ class VNewAthlete extends View
 
     public function show(EAthlete|null $athlete=NULL)
     {
+        $today=new DateTime();
         $assign=$this->assign;
         $assign['athlete']=$athlete;
+        $assign['today']=$today->format('Y-m-d');
         $this->smarty->assign($assign);
         $this->smarty->display(self::$template);
     }

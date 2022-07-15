@@ -473,4 +473,23 @@ class FDb{
         $query=$select." FROM ".$table.$where["where"].$groupBy;
         return array("query"=>$query,"bind"=>$where["bind"]);
     }
+
+    public static function setNull(String $table,String $attribute,Array $where){
+        try {
+            if(self::exist(self::load($table,$where))){
+                self::$pdoV->beginTransaction();
+                $arrayBind=$where["bind"];
+                $query = "UPDATE " . $table . " SET " .$attribute.'= NULL '.$where["where"] ;
+                $stmt = self::$pdoV->prepare($query);
+                $stmt->execute($arrayBind);
+                self::closeConnection();
+                return true;
+            }
+            else return false;
+        }
+        catch (PDOException $e){
+            self::$pdoV->rollBack();
+            throw new Exception('update error');
+        }
+    }
 }

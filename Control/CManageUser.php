@@ -150,6 +150,7 @@ class CManageUser
         }
     }
 
+    /*
     public static function deleteAdmin(){
         try{
             if(self::callLogin()){
@@ -163,16 +164,9 @@ class CManageUser
             CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione dell'utente non è andato a buon fine");
         }
     }
+    */
 
-    public static function setProfileImage(String $href , EUser $user){
-        try{
-            if(FDbH::existFile($user,MappingPathFile::nameUserMain()))FDbH::updateFile($user,MappingPathFile::nameUserMain(),$href,'type',2);
-            else FDbH::storeFile($user,MappingPathFile::nameUserMain(),$href,'type',2);
-        }
-        catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! il file non è stato salvato , verificare di possedere le autorizazioni necessarie");
-        }
-    }
+
 
     public static function loginPage(){
         try{

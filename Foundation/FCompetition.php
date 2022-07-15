@@ -278,7 +278,7 @@ class FCompetition {
     {
         $where=FDb::multiWhere(array('idcompetition','idathlete'),array((string)$competition->getId(),(string)$athlete->getId()),'AND','=');
         $where['where']=$where['where'].' AND time IS NOT NULL';
-        return FDb::update(self::$table[1],$where,array('time'=>'NULL'));
+        return FDb::setNull(self::$table[1],'time',$where);
     }
 
     public static function existRegistration(ECompetition $competition,EAthlete $athlete):bool

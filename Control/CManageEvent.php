@@ -88,17 +88,7 @@ class CManageEvent
         }
     }
 
-    public static function setImageFront(String $href , EEvent $event){
-        try{
-            if(self::authorizer($event)){
-                if(FDbH::existFile($event,MappingPathFile::nameEventMain()))FDbH::updateFile($event,MappingPathFile::nameEventMain(),$href,'type',2);
-                else FDbH::storeFile($event,MappingPathFile::nameEventMain(),$href,'type',2);
-            }
-        }
-        catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! il file non è stato salvato , verificare di possedere le autorizazioni necessarie");
-        }
-    }
+
 
     public static function mainPage(){
         try{
@@ -121,8 +111,7 @@ class CManageEvent
                 $eventImg=FDbH::loadMultiFile($event,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.2);
                 $id = $event->getId();
                 $competitions = $event->getCompetitions();
-                $contacts=$event->getContacts();
-                $view->show($event, $eventImg, $user, $profileImg, $competitions,$contacts,$mood);
+                $view->show($event, $eventImg, $user, $profileImg, $competitions,$mood);
             }
 
             else throw new Exception("l'evento non esiste");

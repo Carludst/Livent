@@ -4,39 +4,242 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ac2d2ab-f4d5-4caa-a450-185d63b35ca7" name="Changes" comment="error">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_19_25_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2022_19_25__Changes_.xml" beforeDir="false" />
+    <list default="true" id="8ac2d2ab-f4d5-4caa-a450-185d63b35ca7" name="Changes" comment="primo test">
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageAthlete.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageAthlete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageComment.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/CManageCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageCompetition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageCompetitors.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageEvent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/CManageRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageRegistration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CManageResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageResult.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/CManageUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CManageUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Control/CSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CSearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/Control/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entity/EComment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entity/EContact.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entity/EEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Entity/EEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FComment.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Foundation/FCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FCompetition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FContact.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Foundation/FDb.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FDb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foundation/FUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/16515f38775ce7507f5d8fbf513ad2faaff27828_0.file.home.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/16515f38775ce7507f5d8fbf513ad2faaff27828_0.file.home.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/190ac09b88142d18f46b39ab949a96bbd2253c1b_0.file.searchEvent.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/190ac09b88142d18f46b39ab949a96bbd2253c1b_0.file.searchEvent.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/2c850d949292bc414ce84fd64929f250fd58bf19_0.file.setGraphic.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/2c850d949292bc414ce84fd64929f250fd58bf19_0.file.setGraphic.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/5c4dfb3e01026a73ec6da914d9502c24123ee7d6_0.file.searchAthlete.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/5c4dfb3e01026a73ec6da914d9502c24123ee7d6_0.file.searchAthlete.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/96b18aa90e1d20b5b01ca3a481f54a35af1a28c6_0.file.login.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/96b18aa90e1d20b5b01ca3a481f54a35af1a28c6_0.file.login.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/aed54a8bf85c43f95f55c201208b93d36b4ee6b3_0.file.updateUser.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/aed54a8bf85c43f95f55c201208b93d36b4ee6b3_0.file.updateUser.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/b993a2a198c1b66bd09e76c2d6a40f5d7446bc84_0.file.searchCompetition.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/b993a2a198c1b66bd09e76c2d6a40f5d7446bc84_0.file.searchCompetition.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Compile/c2cc3e072f74be744f6d65d9d290a1fdabe2b60e_0.file.userProfile.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Compile/c2cc3e072f74be744f6d65d9d290a1fdabe2b60e_0.file.userProfile.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FDbH.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FDbH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foundation/FEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/Foundation/FEvent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/competition.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/competition.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/errorSystem.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/errorSystem.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/results.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/results.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/searchAthlete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/searchAthlete.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/searchCompetition.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/searchCompetition.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/searchEvent.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/searchEvent.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/userProfile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/userProfile.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/newAthlete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/newAthlete.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/Template/newCompetition.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/SmartyTemplate/Template/newCompetition.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/about/about.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/about/awards-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/avater.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/backgrounds/bg-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/backgrounds/coming-soon-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/avater-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/avater-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/avater-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/avater-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/blog-post-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/blog-post-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/blog-post-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/blog-post-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/blog-post-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/blog-post-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/post-thumb-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/post-thumb-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/post-thumb-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/post-thumb-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/post-thumb-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/post-thumb-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/blog/post-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/cart/cart-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/cart/cart-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/cart/cart-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/category/category-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/category/category-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/category/category-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/header-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/modal-product.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/product-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/product-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/product-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/product-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/product-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/product-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/product-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/product-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/product-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/products/single-product.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/single-products/product-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/single-products/product-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/single-products/product-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/single-products/product-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/single-products/product-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/single-products/product-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/shop/verified.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/slider/slider-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/slider/slider-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/slider/slider-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/team/team-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/team/team-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartyTemplate/images/team/team-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/NewAthlete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/NewCompetition.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/NewEvent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/address.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/alerts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/blog-full-width.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/blog-grid.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/blog-left-sidebar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/blog-right-sidebar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/blog-single.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/checkout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/coming-soon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/confirmation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/contact.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/css/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/css/home.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/css/style.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/empty-cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/error.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/faq.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/forget-password.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/about/about.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/about/awards-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/avater.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/backgrounds/bg-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/backgrounds/coming-soon-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/avater-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/avater-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/avater-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/avater-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/blog-post-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/blog-post-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/blog-post-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/blog-post-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/blog-post-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/blog-post-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/post-thumb-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/post-thumb-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/post-thumb-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/post-thumb-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/post-thumb-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/post-thumb-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/blog/post-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/cart/cart-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/cart/cart-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/cart/cart-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/category/category-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/category/category-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/category/category-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/header-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/modal-product.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/product-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/product-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/product-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/product-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/product-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/product-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/product-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/product-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/product-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/products/single-product.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/single-products/product-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/single-products/product-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/single-products/product-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/single-products/product-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/single-products/product-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/single-products/product-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/shop/verified.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/slider/slider-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/slider/slider-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/slider/slider-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/team/team-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/team/team-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/images/team/team-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/mainAthlete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/order.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/animate/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap-touchspin/demo/demo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap-touchspin/demo/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap-touchspin/demo/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap-touchspin/src/jquery.bootstrap-touchspin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap-touchspin/src/jquery.bootstrap-touchspin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/bootstrap/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/ekko-lightbox/dist/ekko-lightbox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/ekko-lightbox/dist/ekko-lightbox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/ekko-lightbox/dist/ekko-lightbox.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/ekko-lightbox/dist/ekko-lightbox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/google-map/gmap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/google-map/images/marker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/instafeed/instafeed.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/jquery/dist/core.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/jquery/dist/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/jquery/dist/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/jquery/dist/jquery.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/jquery/dist/jquery.slim.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/jquery/dist/jquery.slim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/jquery/dist/jquery.slim.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/slick/README.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/slick/ajax-loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/slick/fonts/slick.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/slick/fonts/slick.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/slick/fonts/slick.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/slick/fonts/slick.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/slick/slick-animation.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/slick/slick-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/slick/slick.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/slick/slick.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/smooth-scroll/dist/js/smooth-scroll.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/smooth-scroll/dist/js/smooth-scroll.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/smooth-scroll/dist/js/smooth-scroll.polyfills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/smooth-scroll/dist/js/smooth-scroll.polyfills.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/syo-timer/build/jquery.syotimer.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/themefisher-font/Read Me.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/themefisher-font/demo-files/demo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/themefisher-font/demo-files/demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/themefisher-font/demo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/themefisher-font/fonts/themefisher-font.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/themefisher-font/fonts/themefisher-font.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/themefisher-font/fonts/themefisher-font.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/themefisher-font/fonts/themefisher-font.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/themefisher-font/selection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/plugins/themefisher-font/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/pricing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/product-single.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/profile-details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/purchase-confirmation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/searchAthlete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/setGraphic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/shop-sidebar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/shop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/signin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/signinAviato.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/typography.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Template/updateUser.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/DbDefaultConfiguration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utility/Error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Error.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utility/routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/routing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VCompetition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VSearchAthlete.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VSearchAthlete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/VSetGraphicPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VSetGraphicPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VNewAthlete.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VNewAthlete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/VNewCompetition.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/VNewCompetition.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +252,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Control/CFrontController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -149,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657780794121</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="primo test">
+      <created>1657891965780</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657891965780</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +392,7 @@
     <MESSAGE value="finite le new" />
     <MESSAGE value="add delate reference method" />
     <MESSAGE value="deletePage" />
-    <option name="LAST_COMMIT_MESSAGE" value="deletePage" />
+    <MESSAGE value="primo test" />
+    <option name="LAST_COMMIT_MESSAGE" value="primo test" />
   </component>
 </project>
