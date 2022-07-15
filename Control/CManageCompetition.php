@@ -42,6 +42,7 @@ class CManageCompetition
                 $id=FDbH::loadLastStore(ECompetition::class)->getId();
                 header('Location: /Livent/Competition/MainPage/'.$id.'/');
             }
+            else throw new Exception('you are not authorized');
         }
         catch (Exception $e){
             CError::store($e,"ci scusiamo per il disaggio !!! La creazione della competizione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
@@ -80,7 +81,8 @@ class CManageCompetition
             if(FDbH::existOne($key,ECompetition::class)){
                 FSession::addChronology(ECompetition::class,$key);
                 $competition = FDbH::loadOne($key, ECompetition::class);
-                $view->show($user, $profileImg, $competition);
+                $event=FDbH::loadEventByCompetition($competition);
+                $view->show($user, $profileImg, $competition,$event);
             }
             else throw new Exception("la competizione non esiste");
         }

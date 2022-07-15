@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-10 13:47:16
+/* Smarty version 4.1.1, created on 2022-07-15 10:54:32
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\searchAthlete.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cabc44b9f198_56471659',
+  'unifunc' => 'content_62d12b48cbdb78_52800910',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5c4dfb3e01026a73ec6da914d9502c24123ee7d6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\searchAthlete.tpl',
-      1 => 1657181798,
+      1 => 1657875264,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cabc44b9f198_56471659 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d12b48cbdb78_52800910 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -124,10 +124,10 @@ FACEBOOK: https://www.facebook.com/themefisher
 							<option <?php if ($_smarty_tpl->tpl_vars['sport']->value == 'Pattinaggio sul ghiaccio') {?>selected<?php }?>>Pattinaggio sul ghiaccio</option>
                         </select>
 						</br>
-						<select class="form-control">
+						<select class="form-control" name="gender">
 							<option>No Selected</option>
-							<option <?php if ($_smarty_tpl->tpl_vars['sport']->value == 'M') {?>selected<?php }?>>Uomo</option>
-							<option <?php if ($_smarty_tpl->tpl_vars['sport']->value == 'F') {?>selected<?php }?>>Donna</option>
+							<option <?php if ($_smarty_tpl->tpl_vars['gender']->value == 'M') {?>selected<?php }?> value="M">Uomo</option>
+							<option <?php if ($_smarty_tpl->tpl_vars['gender']->value == 'F') {?>selected<?php }?> value="F">Donna</option>
 						</select>
 						</br>
 						<div class="input-group-sm mb-3" style="width: 100%">
@@ -166,7 +166,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							</table>
 						</div>
 						<br>
-						<button type="submit"  class="btn btn-primary" style="width: 260px">Cerca</button>
+						<button type="submit"  class="btn btn-main btn-small btn-round" style="width: 260px">Cerca</button>
                     </form>
 	            </div>
 			</div>
@@ -218,7 +218,7 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
 										</div>
 										<div class="col-md-1">
 											</br></br>
-											<a href="/Livent/Athlete/Chronology/Delate/<?php ob_start();
+											<a href="/Livent/Athlete/Chronology/Delete/<?php ob_start();
 echo (isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null);
 $_prefixVariable1 = ob_get_clean();
 echo $_prefixVariable1;?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-10 16:27:53
+/* Smarty version 4.1.1, created on 2022-07-15 12:32:19
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\updateUser.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cae1e984a212_90460927',
+  'unifunc' => 'content_62d14233dbcca4_26645382',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'aed54a8bf85c43f95f55c201208b93d36b4ee6b3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\updateUser.tpl',
-      1 => 1657462479,
+      1 => 1657870143,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cae1e984a212_90460927 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d14233dbcca4_26645382 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -103,10 +103,10 @@ FACEBOOK: https://www.facebook.com/themefisher
           <form method="post" class="text-left clearfix" action="/Livent/User/Update/" enctype="multipart/form-data">
             <h4 class="widget-title">Autentificazione</h4>
             <div class="form-group">
-              <input type="email" class="form-control" name="email" placeholder="Email">
+              <input type="email" class="form-control" name="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control"  name="password" placeholder="Password">
+              <input type="password" class="form-control"  name="password" placeholder="Password" required>
             </div>
             <h4 class="widget-title">Nuovi Dati</h4>
             <div class="form-group">
@@ -118,7 +118,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 " <?php }?> name="newEmail" placeholder="Email">
               </div>
             <div class="form-group">
-              <input type="password" class="form-control"  name="newPassword" placeholder="Nuova password">
+              <input type="password" class="form-control" pattern="<?php echo $_smarty_tpl->tpl_vars['pattern']->value;?>
+" name="newPassword" placeholder="Nuova password (almeno 6 caratteri)">
             </div>
             <div class="form-group">
               <input type="password" class="form-control"  name="confirmPassword" placeholder="Conferma password">

@@ -175,6 +175,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 </section>
 <!-- End Top Header Bar -->
 
+{if $errors!=''}
 <section class="user-dashboard page-wrapper">
     <div class="container">
         <div class="row">
@@ -185,7 +186,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                 </ul>
                 <div class="dashboard-wrapper">
                     <div class="media-body">
-                        <p>
+                        <p >
                             {$errors}
                         </p>
                     </div>
@@ -194,6 +195,10 @@ FACEBOOK: https://www.facebook.com/themefisher
         </div>
     </div>
 </section>
+{else}
+    <br><br>
+    <h1 class="my-allert-page" > Non ci sono errori o violazioni </h1>
+{/if}
 
 
 <!--

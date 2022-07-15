@@ -118,13 +118,14 @@ class FUser
     public static function getRegistration(EUser $user ):Array
     {
         $where=FDb::where('iduser',$user->getId());
+        $where['where']=  $where['where'].' AND time IS  NULL';
         $query=FDb::load(self::$table[1],$where);
         $resultQ=FDb::exInterrogation($query);
         $result=array();
         foreach ($resultQ as $c=>$v){
             $competition=FCompetition::loadOne($v["idcompetition"]);
             $athlete=FAthlete::loadOne($v['idathlete']);
-            $result[$competition]=$athlete;
+            $result[]=array('competition'=>$competition,'athlete'=>$athlete);
         }
         return $result;
     }

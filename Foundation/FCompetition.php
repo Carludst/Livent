@@ -113,7 +113,7 @@ class FCompetition {
         $orderBy=array();
         $ascending=array();
 
-        if(is_null($event)&& is_null($name) && is_null($gender) && is_null($sport) && is_null($distanceFrom) && is_null($distanceTo)){
+        if(is_null($event)&& is_null($name) && is_null($gender) && is_null($sport) && is_null($dateFrom) && is_null($dateTo) && is_null($distanceFrom) && is_null($distanceTo)){
             $resultQ=FDb::exInterrogation(FDb::load(self::$table[0]));
             foreach ($resultQ as $c=>$v){
                 $result[$c]=self::getObjectByArray($v);
@@ -302,7 +302,8 @@ class FCompetition {
 
     public static function getClassification(ECompetition $competition): Array
     {
-        $where=FDb::multiWhere(array('idcompetition','time','time'),array((String)$competition->getId(),'NULL','0'),"AND",array("=","<>",">"));
+        $where=FDb::multiWhere(array('idcompetition','time'),array((String)$competition->getId(),'0'),"AND",array("=",">"));
+        $where['where']=$where['where'].' AND time IS NOT NULL';
         $query=FDb::load(self::$table[1],$where);
         $resultQ=FDb::exInterrogation($query,"time");
         $result=array();
@@ -311,7 +312,8 @@ class FCompetition {
             $time=new ETime((float)$v["time"]);
             $result[]=array('athlete'=>$athlete,'time'=>$time);
         }
-        $where1=FDb::multiWhere(array('idcompetition','time'),array((String)$competition->getId(),'NULL'),"AND",array("=","<>"));
+        $where1=FDb::where('idcompetition',(String)$competition->getId());
+        $where1['where']=$where1['where'].' AND time<=0 AND time IS NOT NULL';
         $query1=FDb::load(self::$table[1],$where1);
         $resultQ1=FDb::exInterrogation($query1);
         foreach ($resultQ1 as $c=>$v){
@@ -326,7 +328,6 @@ class FCompetition {
      static function getRegistrations(ECompetition $competition): Array
     {
         $where=FDb::where('idcompetition',$competition->getId());
-        $where['where']=$where['where'].' AND time IS NULL';
         $query=FDb::load(self::$table[1],$where);
         $resultQ=FDb::exInterrogation($query);
         $result=array();

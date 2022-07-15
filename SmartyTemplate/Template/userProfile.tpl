@@ -168,8 +168,8 @@ FACEBOOK: https://www.facebook.com/themefisher
                                                 <td><a href="/Livent/Athlete/MainPage/{$athletes[index]->getId()}">{$athletes[index]->getName()} {$athletes[index]->getSurname()} ({$athletes[index]->getId()})</a></td>
                                                 <td><a href="/Livent/Event/MainPage/{$events[index]->getId()}">{$events[index]->getName()}</a></td>
                                                 <td><a href="/Livent/Competition/MainPage/{$competitions[index]->getId()}">{$competitions[index]->getName()} ({$competitions[index]->getSport()})</a></td>
-                                                <td>{$competitions[index]->getDataTime()->format("d/m/Y")}}</td>
-                                                <td><a href="/Livent/Registration/Delete/" class="btn btn-main btn-small btn-round-full">Cancella Iscrizioni</a></td>
+                                                <td>{$competitions[index]->getDateTime()->format("d/m/Y")}</td>
+                                                <td><a href="/Livent/Registration/DeletePage/{$athletes[index]->getId()}I{$competitions[index]->getId()}/" class="btn btn-main btn-small btn-round-full">Cancella Iscrizioni</a></td>
                                             </tr>
                                         {/section}
                                         </tbody>

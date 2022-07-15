@@ -20,7 +20,9 @@ class VSearchAthlete extends View
         $assign['sport']=$this->getSport();
         $assign['dateMin']=$this->getMinDate();
         $assign['dateMax']=$this->getMaxDate();
-        $assign['gender']=$this->getGender();
+        if($this->getGender())$assign['gender']='F';
+        elseif(!is_null($this->getGender()))$assign['gender']='M';
+        else $assign['gender']='';
         $assign['team']=$this->getTeam();
 
 
@@ -70,7 +72,7 @@ class VSearchAthlete extends View
         if(!empty($_GET['gender'])){
             if($_GET['gender']=='F')return true;
             elseif($_GET['gender']=='M') return false;
-            else throw new Exception('value not allowed');
+            else return null;
         }
         else return null;
     }

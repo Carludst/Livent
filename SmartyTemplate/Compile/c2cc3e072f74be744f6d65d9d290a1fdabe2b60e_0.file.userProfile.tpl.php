@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-14 09:54:28
+/* Smarty version 4.1.1, created on 2022-07-15 12:10:33
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\userProfile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cfcbb453ad71_94221453',
+  'unifunc' => 'content_62d13d19268631_25095778',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c2cc3e072f74be744f6d65d9d290a1fdabe2b60e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\userProfile.tpl',
-      1 => 1657702241,
+      1 => 1657879831,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cfcbb453ad71_94221453 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d13d19268631_25095778 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -216,9 +216,11 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
 "><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getName();?>
  (<?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getSport();?>
 )</a></td>
-                                                <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getDataTime()->format("d/m/Y");?>
-}</td>
-                                                <td><a href="/Livent/Registration/Delete/" class="btn btn-main btn-small btn-round-full">Cancella Iscrizioni</a></td>
+                                                <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getDateTime()->format("d/m/Y");?>
+</td>
+                                                <td><a href="/Livent/Registration/DeletePage/<?php echo $_smarty_tpl->tpl_vars['athletes']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+I<?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+/" class="btn btn-main btn-small btn-round-full">Cancella Iscrizioni</a></td>
                                             </tr>
                                         <?php
 }

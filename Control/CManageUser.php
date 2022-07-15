@@ -98,7 +98,10 @@ class CManageUser
                     if(!is_null($view->getPathFile()) && !is_null($view->getTypeFile())){
                         $dir=$view->getPathFile();
                         $type=$view->getTypeFile();
-                        FDbH::storeFile($logged,MappingPathFile::nameUserMain(),$dir,$type,true);
+                        if(!FDbH::existFile($logged,MappingPathFile::nameUserMain())){
+                            FDbH::storeFile($logged,MappingPathFile::nameUserMain(),$dir,$type,true);
+                        }
+                        else FDbH::updateFile($logged,MappingPathFile::nameUserMain(),$dir,$type,true);
                     }
                     if(!is_null($view->getNewPassword())&& $view->getNewPassword()==$view->getConfirmPassword() ){
                         $logged->setPassword($view->getNewPassword());
@@ -220,8 +223,12 @@ class CManageUser
                 else{
                     $view = new VUserProfile();
                     $registration = FDbH::getRegistrationUser($user);
-                    $competition = array_keys($registration);
-                    $athletes = array_values($registration);
+                    $competition=array();
+                    $athletes=array();
+                    for($i=0;$i<count($registration);$i++){
+                        $competition[]=$registration[$i]['competition'];
+                        $athletes[]=$registration[$i]['athlete'];
+                    }
                     $events = FDbH::loadEventByCompetition($competition);
                     $profileImg=FDbH::loadMultiFile($user,MappingPathFile::nameUserMain(),MappingPathFile::dirUserDefault(),MappingPathFile::nameUserMain(),0.2);
                     $view->showProfile($user, $profileImg,$competition, $athletes, $events );

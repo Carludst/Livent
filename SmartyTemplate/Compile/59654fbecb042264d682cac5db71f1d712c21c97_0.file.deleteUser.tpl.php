@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-14 12:21:04
+/* Smarty version 4.1.1, created on 2022-07-15 15:31:13
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\deleteUser.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cfee104c4d92_43822917',
+  'unifunc' => 'content_62d16c21679242_08251657',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59654fbecb042264d682cac5db71f1d712c21c97' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\deleteUser.tpl',
-      1 => 1657794061,
+      1 => 1657891534,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cfee104c4d92_43822917 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d16c21679242_08251657 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -87,14 +87,14 @@ FACEBOOK: https://www.facebook.com/themefisher
 <section class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-5 col-xs-12 col-sm-4">
                     <ul class="top-menu text-left list-inline">
                         <li class="dropdown ">
                             <a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
                         </li>
                     </ul>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-2 col-xs-12 col-sm-4">
                 <!-- Site Logo -->
                 <div class="logo text-center">
                     <a href="/Livent/">
@@ -113,7 +113,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-4">
+            <div class="col-md-5 col-xs-12 col-sm-4">
                 <ul class="top-menu text-right list-inline">
                     <!-- Home -->
                     <li class="dropdown ">
@@ -193,12 +193,12 @@ if ($__section_index_0_total !== 0) {
 for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] = 0; $__section_index_0_iteration <= $__section_index_0_total; $__section_index_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']++){
 ?>
                                     <div class="col-md-12">
-                                        <a href="/Livent/User/DeleteAdmin/<?php echo $_smarty_tpl->tpl_vars['users']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
+                                        <a href="/Livent/User/DeletePage/<?php echo $_smarty_tpl->tpl_vars['users']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
 /" class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="d-flex w-100 justify-content-between">
                                                 <div class="row">
                                                     <div class="col-md-2">
-                                                        <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)];?>
+                                                        <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['img']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)];?>
 " alt="product-img" width="100" height="150" />
                                                     </div>
                                                     <div class="col-md-7">

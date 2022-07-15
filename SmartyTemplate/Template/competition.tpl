@@ -127,7 +127,7 @@
     <div class="container">
         <div class="row mt-20">
             <div class="single-product-details">
-                <h2><b>{$competition->getName()}</b></h2>
+                <h2><b>{$competition->getName()} ({$competition->getSport()})</b></h2>
             </div>
         </div>
     </div>
@@ -140,6 +140,7 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th><p><b>Evento:</b></p></th>
                     <th><p><b>Inizio:</b></p></th>
                     <th><p><b>Sport:</b></p></th>
                     <th><p><b>Genere:</b>  </p></th>
@@ -149,6 +150,7 @@
                 </thead>
                 <tbody>
                 <tr>
+                    <td>{$event->getName()}</td>
                     <td>{$competition->getDateTime()->format('d-m-y H:i:s')}</td>
                     <td>{$competition->getSport()}</td>
                     <td>{$competition->getGender()}</td>
@@ -170,7 +172,9 @@
                     <th>ID atleta</th>
                     <th>Nome</th>
                     <th>Cognome</th>
-                    <th></th>
+                    {if $user->getId()==$event->getOrganizer()->getId()}
+                        <th></th>
+                    {/if}
                 </tr>
                 </thead>
                 <tbody>
@@ -179,7 +183,9 @@
                         <td>{$athlete->getId()}</td>
                         <td>{$athlete->getName()}</td>
                         <td>{$athlete->getSurname()}</td>
-                        <td><a href="/Livent/Registration/DeletePage/{$athlete->getId()}I{$competition->getId()}/" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
+                        {if $user->getId()==$event->getOrganizer()->getId()}
+                            <td><a href="/Livent/Registration/DeletePage/{$athlete->getId()}I{$competition->getId()}/" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
+                        {/if}
                     </tr>
                 {/foreach}
                 </tbody>
@@ -191,7 +197,9 @@
             <table>
                 <thead>
                 <tr>
-                    <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Registration/NewPage/{$competition->getId()}/"><b>Iscrivi un nuovo atleta</b></a></td>
+                    {if $mood=='permit' && ($user->getType()!='Organizer' || $user->getId()==$event->getOrganizer()->getId()) }
+                        <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Registration/NewPage/{$competition->getId()}/"><b>Iscrivi un nuovo atleta</b></a></td>
+                    {/if}
                     <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Result/NewPage/{$competition->getId()}/"><b>Risultati</b></a></td>
                 </tr>
                 </thead>

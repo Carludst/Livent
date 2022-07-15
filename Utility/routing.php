@@ -4,6 +4,10 @@ function routing():Array{
         'Delete'=>'CSearch::popEventChronology()'
     ];
 
+    $competitionChronology=[
+        'Delete'=>'CSearch::popCompetitionChronology()'
+    ];
+
     $athleteChronology=[
         'Delete'=>'CSearch::popAthleteChronology()'
     ];
@@ -38,7 +42,8 @@ function routing():Array{
         'AddRegistration'=> 'CManageRegistration::addRegistration()',
         'AddResult'=>'CManageResult::addResult()',
         'SearchPage'=>'CSearch::searchPageCompetition',
-        'Search'=>'CSearch::searchCompetition'
+        'Search'=>'CSearch::searchCompetition',
+        'Chronology'=>$competitionChronology
     ];
     //7 => 28
     $event=[

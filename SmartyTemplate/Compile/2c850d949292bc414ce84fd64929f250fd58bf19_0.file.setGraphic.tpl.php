@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-11 10:11:56
+/* Smarty version 4.1.1, created on 2022-07-15 15:02:55
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\setGraphic.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62cbdb4cb69d24_49298437',
+  'unifunc' => 'content_62d1657f1a7434_50380071',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2c850d949292bc414ce84fd64929f250fd58bf19' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\setGraphic.tpl',
-      1 => 1657464057,
+      1 => 1657889942,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62cbdb4cb69d24_49298437 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d1657f1a7434_50380071 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -83,18 +83,16 @@ FACEBOOK: https://www.facebook.com/themefisher
 
 <body id="body">
 
-<!-- Start Top Header Bar -->
 <section class="top-header">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-xs-12 col-sm-4">
-				<ul class="top-menu text-left list-inline">
-					<li class="dropdown ">
-						<a href="/Livent/User/Logout/"><i class="tf-ion-android-person" ></i>Logout</a>
-					</li>
-				</ul>
+			<div class="col-md-5 col-xs-12 col-sm-4">
+				<div class="contact-number">
+					<i class="tf-ion-ios-telephone"></i>
+					<span>0129- 12323-123123</span>
+				</div>
 			</div>
-			<div class="col-md-4 col-xs-12 col-sm-4">
+			<div class="col-md-2 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
 				<div class="logo text-center">
 					<a href="/Livent/">
@@ -113,7 +111,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					</a>
 				</div>
 			</div>
-			<div class="col-md-4 col-xs-12 col-sm-4">
+			<div class="col-md-5 col-xs-12 col-sm-4">
 				<ul class="top-menu text-right list-inline">
 					<!-- Home -->
 					<li class="dropdown ">
@@ -121,7 +119,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 					</li>
 					<!-- / Home -->
 					<!-- / Search -->
-					<li class="dropdown dropdown-slide">
+					<li class="dropdown dropdown-slide ">
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
 						   role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-search"></i> Search<span
 									class="tf-ion-ios-arrow-down"></span></a>
@@ -139,15 +137,45 @@ FACEBOOK: https://www.facebook.com/themefisher
 									class="tf-ion-ios-arrow-down"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="typography.html">Errori</a></li>
-							<li><a href="buttons.html">Imposta grafica</a></li>
-							<li><a href="alerts.html">Gestione utenti</a></li>
+							<li><a href="/Livent/Graphics/">Imposta grafica</a></li>
+							<li><a href="/Livent/User/Search/">Gestione utenti</a></li>
 						</ul>
 					</li>
 					<!-- / System -->
+					<!-- User -->
+					<li class="dropdown cart-nav dropdown-slide" >
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="image" /></a>
+						<div class="dropdown-menu cart-dropdown center-element" >
+							<!-- Cart Item -->
+							<div class="media">
+								<img class="media-object" src="<?php echo $_smarty_tpl->tpl_vars['profileImg']->value;?>
+" alt="image" />
+								<div class="media-body">
+									<h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getUsername();?>
+</h4>
+									</br>
+									<h4 class="media-heading"><?php echo $_smarty_tpl->tpl_vars['user']->value->getEmail();?>
+</h4>
+								</div>
+							</div><!-- / Cart Item -->
+							<!-- Cart Item -->
+							<ul class="text-center cart-buttons">
+								<li><a href="/Livent/User/UpdatePage/"  class="btn btn-small btn-solid-border">Aggiorna</a></li>
+								<li><a href="/Livent/User/Logout/" class="btn btn-small btn-solid-border" >Logout</a></li>
+							</ul>
+						</div>
+
+					</li><!-- / User -->
+				</ul>
+
+
+				<!-- / .nav .navbar-nav .navbar-right -->
 			</div>
 		</div>
 	</div>
 </section>
+<!-- End Top Header Bar -->
 
 
 
@@ -173,7 +201,8 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
 					<p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1"><?php echo $_smarty_tpl->tpl_vars['homeImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]['name'];?>
 </p>
 					<h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">La bellezza dello sport     <br> è la condivisione.     </h1>
-					<a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Elimina</a>
+					<a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="/Livent/Graphics/HomeImg/Delate/<?php echo $_smarty_tpl->tpl_vars['homeImg']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]['name'];?>
+/">Elimina</a>
 				</div>
 			</div>
 		</div>
@@ -187,10 +216,10 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
 	<table class="my-table">
 		<tbody>
 		<td>
-			<input  class="btn-solid-border center-element" name="nameHomeImg" accept="image/png, image/jpeg" type="file">
+			<input  class="btn-solid-border center-element" name="imageHome"  accept="image/png, image/jpeg" type="file">
 		</td>
 		<td>
-			<input type="text" class=" text-center center-element " placeholder="nome">
+			<input type="text" name="nameHomeImg" class=" text-center center-element " placeholder="nome">
 		</td>
 		<td>
 			<button type="submit" class="btn btn-main text-center center-element btn-solid-border">Carica</button>

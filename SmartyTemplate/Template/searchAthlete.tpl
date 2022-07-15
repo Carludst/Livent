@@ -94,10 +94,10 @@ FACEBOOK: https://www.facebook.com/themefisher
 							<option {if $sport=='Pattinaggio sul ghiaccio'}selected{/if}>Pattinaggio sul ghiaccio</option>
                         </select>
 						</br>
-						<select class="form-control">
+						<select class="form-control" name="gender">
 							<option>No Selected</option>
-							<option {if $sport=='M'}selected{/if}>Uomo</option>
-							<option {if $sport=='F'}selected{/if}>Donna</option>
+							<option {if $gender=='M'}selected{/if} value="M">Uomo</option>
+							<option {if $gender=='F'}selected{/if} value="F">Donna</option>
 						</select>
 						</br>
 						<div class="input-group-sm mb-3" style="width: 100%">
@@ -171,7 +171,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 										</div>
 										<div class="col-md-1">
 											</br></br>
-											<a href="/Livent/Athlete/Chronology/Delate/{{$smarty.section.index.index}}/" class="remove"><i class="tf-ion-close"></i></a>
+											<a href="/Livent/Athlete/Chronology/Delete/{{$smarty.section.index.index}}/" class="remove"><i class="tf-ion-close"></i></a>
 										</div>
 									{/section}
 								</div>

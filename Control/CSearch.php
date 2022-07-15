@@ -67,6 +67,7 @@ class CSearch
             $distanceFrom=$view->getMinDistance();
             $distanceTo=$view->getMaxDistance();
 
+
             if($view->getMood() && FSession::isLogged()){
                 $keys=FSession::getChronology(ECompetition::class);
                 $competitions=array();

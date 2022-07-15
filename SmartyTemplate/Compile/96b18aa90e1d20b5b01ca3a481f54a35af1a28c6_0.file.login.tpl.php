@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-07 12:09:27
+/* Smarty version 4.1.1, created on 2022-07-15 11:13:56
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c6b0d7d31919_57470329',
+  'unifunc' => 'content_62d12fd4d38114_73707597',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '96b18aa90e1d20b5b01ca3a481f54a35af1a28c6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\login.tpl',
-      1 => 1657181798,
+      1 => 1657870143,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c6b0d7d31919_57470329 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d12fd4d38114_73707597 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -102,10 +102,10 @@ FACEBOOK: https://www.facebook.com/themefisher
                     <h2 class="text-center">Welcome</h2>
                     <form method="post" class="text-left clearfix" action="/Livent/User/Login/" >
                         <div class="form-group">
-                            <input type="email" name='email' class="form-control"  placeholder="Email">
+                            <input type="email" name='email' class="form-control"  placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name='password' class="form-control" placeholder="Password">
+                            <input type="password" name='password' class="form-control" placeholder="Password" required>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-main text-center" >Login</button>

@@ -113,7 +113,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 									<td class="my-td-title" style="width: 40px"><h5>min : </h5></td>
 									<td class="my-td">
 										<span class="input-number">
-											<input type="number" id="disMin" name="minDistance" step="0.1" {if $distanceMin!=''}value={$distanceMin->getValue()} {/if}  min="0" data-digits="2"  onload="setDistanceMin()" onchange="setDistanceMin()"/>
+											<input type="number" id="disMin" name="minDistance" step="0.01" {if $distanceMin!=''}value={$distanceMin->getValue()} {/if}  min="0" data-digits="2"  onload="setDistanceMin()" onchange="setDistanceMin()"/>
 										</span>
 									</td>
 									<td class="my-td"> Km</td>
@@ -122,7 +122,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 									<td class="my-td-title"><h5>max : </h5></td>
 									<td class="my-td">
 										<span class="input-number">
-											<input type="number" id="disMax" name="maxDistance" step="0.1" {if $distanceMax!=''}value={$distanceMax->getValue()} {/if} min="0" data-digits="2" onload="setDistanceMax()" onchange="setDistanceMax()"/>
+											<input type="number" id="disMax" name="maxDistance" step="0.01" {if $distanceMax!=''}value={$distanceMax->getValue()} {/if} min="0" data-digits="2" onload="setDistanceMax()" onchange="setDistanceMax()"/>
 										</span>
 									</td>
 									<td class="my-td"> Km</td>
@@ -134,7 +134,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 							<table class="my-table">
 								<tbody>
 								<tr>
-									<h4 class="my-widget-title">Data di nascita</h4>
+									<h4 class="my-widget-title">Data</h4>
 								</tr>
 								<tr>
 									<td class="my-td-title" style="width: 40px"><h5>min : </h5></td>
@@ -189,7 +189,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 										</div>
 										<div class="col-md-1">
 											</br></br>
-											<a href="/Livent/Competition/Chronology/Delate/{{$smarty.section.index.index}}/" class="remove"><i class="tf-ion-close"></i></a>
+											<a href="/Livent/Competition/Chronology/Delete/{{$smarty.section.index.index}}/" class="remove"><i class="tf-ion-close"></i></a>
 										</div>
 										<br>
 									{/section}

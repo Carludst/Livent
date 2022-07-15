@@ -64,7 +64,7 @@ class CManageRegistration
             header('Location: /Livent/Competition/MainPage/'.$competition->getId().'/');
         }
         catch(Exception $e){
-            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione della registrazione non è andato a buon fine , verificare di possedere le autorizazioni necessarie");
+            CError::store($e,"ci scusiamo per il disaggio !!! La cancellazione della registrazione non è andato a buon fine controllare se non è già associato un risultato , verificare di possedere le autorizazioni necessarie");
         }
 
     }
@@ -80,7 +80,10 @@ class CManageRegistration
                 $competition = FDbH::loadOne($key,ECompetition::class);
                 $event = FDbH::loadEventByCompetition($competition);
                 if (($logged->getType() == 'Organizer' && $event->getOrganizer()->getId() == FSession::getUserLogged()->getId()) || (FSession::getUserLogged()->getType() != 'Administrator' && FSession::getUserLogged()->getType() != 'Organizer')) {
-                    $view->show($competition);
+                    if($competition->getDateTime()>new DateTime()){
+                        $view->show($competition);
+                    }
+                    else throw new Exception("l'evento è terminato");
                 } else throw new Exception("you don't have autorization");
             }
             else throw new Exception("you are not logged");

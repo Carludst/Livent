@@ -29,6 +29,7 @@ class VSetGraphicPage extends View
     }
 
     public function getNameHomeImg():?String{
+        var_dump($_POST);
         return $_POST['nameHomeImg'] ?? null;
     }
 

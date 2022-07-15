@@ -151,7 +151,9 @@
                     <tr>
                         <th>Atleta:</th>
                         <th>Tempo:</th>
-                        <th></th>
+                        {if $user->getId()==$organizer->getId()}
+                            <th></th>
+                        {/if}
                     </tr>
                     </thead>
                     <tbody>
@@ -159,7 +161,9 @@
                         <tr>
                             <td>{$result['athlete']->getName()} {$result['athlete']->getSurname()}</td>
                             <td>{$result['time']->toString()}</td>
-                            <td><a href="/Livent/Result/DeletePage/{$result['athlete']->getId()}I{$competition->getId()}/" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
+                            {if $user->getId()==$organizer->getId()}
+                                <td><a href="/Livent/Result/DeletePage/{$result['athlete']->getId()}I{$competition->getId()}/" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
+                            {/if}
                         </tr>
                     {/foreach}
                     </tbody>

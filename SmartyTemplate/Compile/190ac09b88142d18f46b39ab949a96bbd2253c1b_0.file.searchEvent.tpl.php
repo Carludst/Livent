@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-14 18:46:19
+/* Smarty version 4.1.1, created on 2022-07-15 10:38:27
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\searchEvent.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62d0485b434ec6_36078693',
+  'unifunc' => 'content_62d12783da0620_46793531',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '190ac09b88142d18f46b39ab949a96bbd2253c1b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\searchEvent.tpl',
-      1 => 1657785286,
+      1 => 1657874302,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62d0485b434ec6_36078693 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d12783da0620_46793531 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -203,7 +203,7 @@ for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_
                                         </div>
                                         <div class="col-md-1">
                                             </br></br>
-                                            <a href="/Livent/Event/Chronology/Delate/<?php echo (isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null);?>
+                                            <a href="/Livent/Event/Chronology/Delete/<?php echo (isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null);?>
 /" class="remove"><i class="tf-ion-close"></i></a>
                                         </div>
                                     <?php

@@ -49,7 +49,6 @@ class FDb{
         }
         catch (PDOException $e)
         {
-            echo($e->getMessage());
             self::getPdo()->rollBack();
             throw new Exception('store error');
         }
@@ -81,6 +80,7 @@ class FDb{
         }
 
     }
+
 
     /**
      * @param String $table work table
@@ -115,17 +115,48 @@ class FDb{
             self::$pdoV->rollBack();
             throw new Exception('update error');
         }
-
     }
 
-    /**
-     * -Method  : allows to execute a generic query  (used for interrogation)
-     * @param String $query interrogation to execute
-     * @param String|array $orderBy attribute to sort by
-     * @param bool|array $ascending order type (ascending/decreasing)
-     * @return array|null result of the query (null can be also due by an error)
-     * @throws Exception see the orderBy method exception
-     */
+
+
+    /*
+   public static function update(String $table,Array $where,Array $fieldValue):?bool
+   {
+       try {
+           if(self::exist(self::load($table,$where))){
+               self::$pdoV->beginTransaction();
+               $arrayBind=$where["bind"];
+               $fields=array_keys($fieldValue);
+               $values=array_values($fieldValue);
+               $clouse=$fields[0]."=".$values[0];
+               for($i=1;$i<count($fields);$i++){
+                   $clouse=$clouse.",".$fields[$i]."=".$values[$i]." ";
+               }
+               $query = "UPDATE " . $table . " SET " . $clouse.$where["where"] ;
+               $stmt = self::$pdoV->prepare($query);
+               $stmt->execute($arrayBind);
+               self::closeConnection();
+               return true;
+           }
+           else return false;
+       }
+       catch (PDOException $e){
+           self::$pdoV->rollBack();
+           throw new Exception($e->getMessage());
+       }
+
+   }
+    */
+
+
+   /**
+    * -Method  : allows to execute a generic query  (used for interrogation)
+    * @param String $query interrogation to execute
+    * @param String|array $orderBy attribute to sort by
+    * @param bool|array $ascending order type (ascending/decreasing)
+    * @return array|null result of the query (null can be also due by an error)
+    * @throws Exception see the orderBy method exception
+    */
     public static function exInterrogation(Array $query,String|Array $orderBy="",bool|Array $ascending=true):?array{
         try{
             self::$pdoV->beginTransaction();
@@ -152,7 +183,7 @@ class FDb{
         }
         catch (PDOException $e) {
             self::$pdoV->rollBack();
-            throw new Exception($e->getMessage());
+            throw new Exception('exInterrogation error');
         }
 
     }
