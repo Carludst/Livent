@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-14 18:42:20
+/* Smarty version 4.1.1, created on 2022-07-16 04:46:53
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\organizerProfile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62d0476cee78c3_41702253',
+  'unifunc' => 'content_62d2269df001d6_35852241',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fb60188b4e43ef7a119b4963e7a31796dfc51399' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\organizerProfile.tpl',
-      1 => 1657701761,
+      1 => 1657939611,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62d0476cee78c3_41702253 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d2269df001d6_35852241 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -153,7 +153,8 @@ FACEBOOK: https://www.facebook.com/themefisher
                                    role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/Livent/User/UpdatePage/">Modifica Profilo</a></li>
-                                    <li><a href="/Livent/User/Delete/">Cancella Profilo</a></li>
+                                    <li><a href="/Livent/User/DeletePage/<?php echo $_smarty_tpl->tpl_vars['user']->value->getId();?>
+/">Cancella Profilo</a></li>
                                 </ul>
                             </li>
                         </ul>

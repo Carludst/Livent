@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-16 11:34:14
-  from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl' */
+/* Smarty version 4.1.1, created on 2022-07-16 06:53:50
+  from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\competition.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62d2a236f2ae50_43790564',
+  'unifunc' => 'content_62d2445edbc122_19817824',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '4d912736163bb07ef7fd4b2551305976fdf51f6e' => 
+    '22685b3b92813bf2d84f1b084dbd84b7f47c1abf' => 
     array (
-      0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl',
-      1 => 1657971252,
+      0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\competition.tpl',
+      1 => 1657947226,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62d2a236f2ae50_43790564 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d2445edbc122_19817824 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -216,7 +216,7 @@ function content_62d2a236f2ae50_43790564 (Smarty_Internal_Template $_smarty_tpl)
                     <th>ID atleta</th>
                     <th>Nome</th>
                     <th>Cognome</th>
-                    <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId()) {?>
+                    <?php if ($_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId()) {?>
                         <th></th>
                     <?php }?>
                 </tr>
@@ -235,7 +235,7 @@ $_smarty_tpl->tpl_vars['athlete']->do_else = false;
 </td>
                         <td><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getSurname();?>
 </td>
-                        <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId()) {?>
+                        <?php if ($_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId()) {?>
                             <td><a href="/Livent/Registration/DeletePage/<?php echo $_smarty_tpl->tpl_vars['athlete']->value->getId();?>
 I<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
 /" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
@@ -253,11 +253,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <table>
                 <thead>
                 <tr>
-                    <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId()) {?>
+                    <?php if ($_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId()) {?>
                         <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Competition/UpdatePage/<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
 /"><b>Modifica Competizione</b></a></td>
                     <?php }?>
-                    <?php if ($_smarty_tpl->tpl_vars['mood']->value == 'permit' && (('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() != 'Organizer' && $_smarty_tpl->tpl_vars['user']->value->getType() != 'Administrator') || '' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId())) {?>
+                    <?php if ($_smarty_tpl->tpl_vars['mood']->value == 'permit' && (($_smarty_tpl->tpl_vars['user']->value->getType() != 'Organizer' && $_smarty_tpl->tpl_vars['user']->value->getType() != 'Administrator') || $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId())) {?>
                         <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Registration/NewPage/<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
 /"><b>Iscrivi un nuovo atleta</b></a></td>
                     <?php }?>

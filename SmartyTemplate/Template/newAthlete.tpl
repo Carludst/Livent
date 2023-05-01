@@ -109,7 +109,7 @@
                         <br>
                         <div>
                             <h4>Seleziona il genere:</h4>
-                            <input type="radio" name="gender" {if $athlete!="" && !$athlete->getFamale()} checked="checked"{/if} value="man"/><b> M</b>
+                            <input type="radio" name="gender" {if $athlete =="" || !$athlete->getFamale()} checked="checked"{/if} value="man"/><b> M</b>
                             <input type="radio" name="gender" {if $athlete!="" && $athlete->getFamale()} checked="checked"{/if} value="woman"/><b> F</b>
                         </div>
                         <br>

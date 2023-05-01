@@ -19,16 +19,9 @@ function routing():Array{
         'MainPage'=>'CManageAthlete::mainPage()',
         'NewPage'=> 'CManageAthlete::newPage',
         'UpdatePage'=>'CManageAthlete::UpdatePage()',
-        'GetResult'=> 'CManageRegistration::getResultAthlete()',
+        //'GetResult'=> 'CManageRegistration::getResultAthlete()',
         'Search'=> 'Csearch::searchAthlete',
         'Chronology'=>$athleteChronology
-    ];
-    //4 => 12
-    $comment=[
-        'Update'=>'CManageComment::update',
-        'Create'=>'CManageComment::create',
-        'Delete'=>'CManageComment::delete()',
-        'Search'=>'Csearch::searchComment'
     ];
     //9 => 21
     $competition=[
@@ -41,7 +34,7 @@ function routing():Array{
         'DeletePage'=>'CManageCompetition::deletePage()',
         'AddRegistration'=> 'CManageRegistration::addRegistration()',
         'AddResult'=>'CManageResult::addResult()',
-        'SearchPage'=>'CSearch::searchPageCompetition',
+        //'SearchPage'=>'CSearch::searchPageCompetition',
         'Search'=>'CSearch::searchCompetition',
         'Chronology'=>$competitionChronology
     ];
@@ -54,7 +47,7 @@ function routing():Array{
         'UpdatePage'=>'CManageEvent::UpdatePage()',
         'NewPage'=>'CManageEvent::newPage',
         'DeletePage'=>'CManageEvent::deletePage()',
-        'SearchPage'=>'CSearch::searchPageEvent',
+        //'SearchPage'=>'CSearch::searchPageEvent',
         'Search'=>'CSearch::searchEvent',
         'Chronology'=>$eventChronology
     ];
@@ -82,7 +75,7 @@ function routing():Array{
         'Logout'=>'CManageUser::logout',
         'Update'=>'CManageUser::update',
         'Delete'=>'CManageUser::delete()',
-        'DeleteAdmin'=>'CManageUser::deleteAdmin()',
+        //'DeleteAdmin'=>'CManageUser::deleteAdmin()',
         'Search'=>'CManageUser::search'
     ];
     //3 => 42
@@ -120,7 +113,6 @@ function routing():Array{
     //1 =>43
     $controller=[
         'Athlete'=>$athlete,
-        'Comment'=>$comment,
         'Competition'=>$competition,
         'Event'=>$event,
         'Registration'=>$registration,

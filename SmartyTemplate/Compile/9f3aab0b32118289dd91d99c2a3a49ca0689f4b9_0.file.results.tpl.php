@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-16 11:34:14
-  from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl' */
+/* Smarty version 4.1.1, created on 2022-07-16 11:26:27
+  from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/results.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62d2a236f2ae50_43790564',
+  'unifunc' => 'content_62d2a063ae22b7_06225053',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '4d912736163bb07ef7fd4b2551305976fdf51f6e' => 
+    '9f3aab0b32118289dd91d99c2a3a49ca0689f4b9' => 
     array (
-      0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/competition.tpl',
-      1 => 1657971252,
+      0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/results.tpl',
+      1 => 1657970776,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62d2a236f2ae50_43790564 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d2a063ae22b7_06225053 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,6 +61,7 @@ function content_62d2a236f2ae50_43790564 (Smarty_Internal_Template $_smarty_tpl)
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
 /css/style.css">
+
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
 /css/myStyle.css">
 
@@ -158,114 +159,108 @@ function content_62d2a236f2ae50_43790564 (Smarty_Internal_Template $_smarty_tpl)
 </section>
 <!-- End Top Header Bar -->
 
-<section class="single-product">
+<section class="page-header">
     <div class="container">
-        <div class="row mt-20">
-            <div class="single-product-details">
-                <h2><b><?php echo $_smarty_tpl->tpl_vars['competition']->value->getName();?>
- (<?php echo $_smarty_tpl->tpl_vars['competition']->value->getSport();?>
-)</b></h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <h1 class="page-name text-uppercase">risultati <?php echo $_smarty_tpl->tpl_vars['competition']->value->getName();?>
+</h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/Livent/Competition/MainPage/<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
+/">Competizione</a></li>
+                        <li class="active">Risultati</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
-    <br>
+</section>
+
+<section class="single-product">
     <div class="container">
         <div class="row">
-            <h3><b>Informazioni:</b></h3>
-            <br>
-            <br>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th><p><b>Evento:</b></p></th>
-                    <th><p><b>Inizio:</b></p></th>
-                    <th><p><b>Sport:</b></p></th>
-                    <th><p><b>Genere:</b>  </p></th>
-                    <th><p><b>Distanza:</b></p></th>
-                    <th><p><b>Descrizione:</b></p></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><a href="/Livent/Event/MainPage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
-/"><?php echo $_smarty_tpl->tpl_vars['event']->value->getName();?>
-</a></td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['competition']->value->getDateTime()->format('d-m-y H:i:s');?>
-</td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['competition']->value->getSport();?>
-</td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['competition']->value->getGender();?>
-</td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['competition']->value->getDistance()->toString();?>
-</td><!--distance-->
-                    <td><?php echo $_smarty_tpl->tpl_vars['competition']->value->getDescription();?>
-</td>
-                </tr>
-                </tbody>
-            </table>
-            <br>
-            <br>
-            <h4>Atleti iscritti:</h4>
-            <br>
-            <?php if (empty($_smarty_tpl->tpl_vars['competition']->value->getRegistrations())) {?>
-                <h1 class="my-allert-page">Non ci sono ancora atleti iscritti</h1>
+            <?php if (empty($_smarty_tpl->tpl_vars['results']->value)) {?>
+                <h1 class="my-allert-page">Non ci sono ancora risultati</h1>
             <?php } else { ?>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>ID atleta</th>
-                    <th>Nome</th>
-                    <th>Cognome</th>
-                    <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId()) {?>
-                        <th></th>
-                    <?php }?>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['competition']->value->getRegistrations(), 'athlete');
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Atleta:</th>
+                        <th>Tempo:</th>
+                        <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['organizer']->value->getId()) {?>
+                            <th></th>
+                        <?php }?>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['results']->value, 'result');
+$_smarty_tpl->tpl_vars['result']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['result']->value) {
+$_smarty_tpl->tpl_vars['result']->do_else = false;
+?>
+                        <tr>
+                            <td><?php echo $_smarty_tpl->tpl_vars['result']->value['athlete']->getName();?>
+ <?php echo $_smarty_tpl->tpl_vars['result']->value['athlete']->getSurname();?>
+</td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['result']->value['time']->toString();?>
+</td>
+                            <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['organizer']->value->getId()) {?>
+                                <td><a href="/Livent/Result/DeletePage/<?php echo $_smarty_tpl->tpl_vars['result']->value['athlete']->getId();?>
+I<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
+/" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
+                            <?php }?>
+                        </tr>
+                    <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                    </tbody>
+                </table>
+            <?php }?>
+            <br>
+            <br>
+            <?php if ('' != $_smarty_tpl->tpl_vars['user']->value) {?>
+                <?php if ($_smarty_tpl->tpl_vars['organizer']->value->getId() == $_smarty_tpl->tpl_vars['user']->value->getId() && !empty($_smarty_tpl->tpl_vars['registration']->value)) {?>
+                    <h2 class="text-center">Aggiungi un risultato</h2>
+                    <br>
+                    <form method="post" class="text-left clearfix" action="/Livent/Competition/AddResult/<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
+/">
+                        <h3>Autenticazione:</h3>
+                        <div class="form-group">
+                            <input type="email" name='email' class="form-control"  placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name='password' class="form-control" placeholder="Password" required>
+                        </div>
+                        <br>
+                        <h4>Dati:</h4>
+                        <select class="form-control" name="athlete">
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['registration']->value, 'athlete');
 $_smarty_tpl->tpl_vars['athlete']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['athlete']->value) {
 $_smarty_tpl->tpl_vars['athlete']->do_else = false;
 ?>
-                    <tr>
-                        <td><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getId();?>
-</td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getName();?>
-</td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getSurname();?>
-</td>
-                        <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId()) {?>
-                            <td><a href="/Livent/Registration/DeletePage/<?php echo $_smarty_tpl->tpl_vars['athlete']->value->getId();?>
-I<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
-/" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
-                        <?php }?>
-                    </tr>
-                <?php
+                                <option value="<?php echo $_smarty_tpl->tpl_vars['athlete']->value->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['athlete']->value->getName();?>
+ <?php echo $_smarty_tpl->tpl_vars['athlete']->value->getSurname();?>
+ (<?php echo $_smarty_tpl->tpl_vars['athlete']->value->getId();?>
+)</option>
+                            <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                </tbody>
-            </table>
+                        </select>
+                        <br>
+                        <div class="form-group">
+                            <input type="text" pattern="<?php echo $_smarty_tpl->tpl_vars['pattern']->value;?>
+" class="form-control"  name="time" placeholder="hh:mm:ss" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-main text-center">Aggiungi</button>
+                    </form>
+                <?php }?>
             <?php }?>
-            <br>
-            <br>
-            <br>
-            <table>
-                <thead>
-                <tr>
-                    <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId()) {?>
-                        <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Competition/UpdatePage/<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
-/"><b>Modifica Competizione</b></a></td>
-                    <?php }?>
-                    <?php if ($_smarty_tpl->tpl_vars['mood']->value == 'permit' && (('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() != 'Organizer' && $_smarty_tpl->tpl_vars['user']->value->getType() != 'Administrator') || '' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getId() == $_smarty_tpl->tpl_vars['event']->value->getOrganizer()->getId())) {?>
-                        <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Registration/NewPage/<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
-/"><b>Iscrivi un nuovo atleta</b></a></td>
-                    <?php }?>
-                    <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Result/NewPage/<?php echo $_smarty_tpl->tpl_vars['competition']->value->getId();?>
-/"><b>Risultati</b></a></td>
-                </tr>
-                </thead>
-            </table>
         </div>
     </div>
 </section>

@@ -151,7 +151,7 @@
                     <tr>
                         <th>Atleta:</th>
                         <th>Tempo:</th>
-                        {if $user->getId()==$organizer->getId()}
+                        {if '' != $user && $user->getId()==$organizer->getId()}
                             <th></th>
                         {/if}
                     </tr>
@@ -161,7 +161,7 @@
                         <tr>
                             <td>{$result['athlete']->getName()} {$result['athlete']->getSurname()}</td>
                             <td>{$result['time']->toString()}</td>
-                            {if $user->getId()==$organizer->getId()}
+                            {if '' != $user && $user->getId()==$organizer->getId()}
                                 <td><a href="/Livent/Result/DeletePage/{$result['athlete']->getId()}I{$competition->getId()}/" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
                             {/if}
                         </tr>
@@ -171,31 +171,33 @@
             {/if}
             <br>
             <br>
-            {if $organizer->getId()==$user->getId() && !empty($registration)}
-                <h2 class="text-center">Aggiungi un risultato</h2>
-                <br>
-                <form method="post" class="text-left clearfix" action="/Livent/Competition/AddResult/{$competition->getId()}/">
-                    <h3>Autenticazione:</h3>
-                    <div class="form-group">
-                        <input type="email" name='email' class="form-control"  placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name='password' class="form-control" placeholder="Password" required>
-                    </div>
+            {if '' != $user}
+                {if $organizer->getId()==$user->getId() && !empty($registration)}
+                    <h2 class="text-center">Aggiungi un risultato</h2>
                     <br>
-                    <h4>Dati:</h4>
-                    <select class="form-control" name="athlete">
-                        {foreach from=$registration item=athlete}
-                            <option value="{$athlete->getId()}">{$athlete->getName()} {$athlete->getSurname()} ({$athlete->getId()})</option>
-                        {/foreach}
-                    </select>
-                    <br>
-                    <div class="form-group">
-                        <input type="text" pattern="{$pattern}" class="form-control"  name="time" placeholder="hh:mm:ss" required>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-main text-center">Aggiungi</button>
-                </form>
+                    <form method="post" class="text-left clearfix" action="/Livent/Competition/AddResult/{$competition->getId()}/">
+                        <h3>Autenticazione:</h3>
+                        <div class="form-group">
+                            <input type="email" name='email' class="form-control"  placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name='password' class="form-control" placeholder="Password" required>
+                        </div>
+                        <br>
+                        <h4>Dati:</h4>
+                        <select class="form-control" name="athlete">
+                            {foreach from=$registration item=athlete}
+                                <option value="{$athlete->getId()}">{$athlete->getName()} {$athlete->getSurname()} ({$athlete->getId()})</option>
+                            {/foreach}
+                        </select>
+                        <br>
+                        <div class="form-group">
+                            <input type="text" pattern="{$pattern}" class="form-control"  name="time" placeholder="hh:mm:ss" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-main text-center">Aggiungi</button>
+                    </form>
+                {/if}
             {/if}
         </div>
     </div>

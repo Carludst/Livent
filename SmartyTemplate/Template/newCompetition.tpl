@@ -101,7 +101,7 @@
                         </table>
                         <br>
                         <h4>Genere:</h4>
-                        <select class="form-control" name="gender">
+                        <select class="form-control" name="gender" >
                             <option {if $competition!="" && $competition->getGender()=='M/F'}selected{/if}>Uomo e Donna</option>
                             <option {if $competition!="" && $competition->getGender()=='M'}selected{/if}>Uomo</option>
                             <option {if $competition!="" && $competition->getGender()=='F'}selected{/if}>Donna</option>

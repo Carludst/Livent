@@ -1,236 +1,126 @@
 
 
-you must be an administrator to update an Athlete
-#0 C:\xampp\htdocs\public_html\Livent\Control\CManageUser.php(272): CManageUser::authorizer(Object(EUser))
-#1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::deletePage()
-#2 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
-#3 {main}
-
-password not setted
-#0 C:\xampp\htdocs\public_html\Livent\Control\CManageUser.php(272): VDelete->getPassword()
-#1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::deletePage()
-#2 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
-#3 {main}
-
-password not setted
-#0 C:\xampp\htdocs\public_html\Livent\Control\CManageUser.php(272): VDelete->getPassword()
-#1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::deletePage()
-#2 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
-#3 {main}
-
-password not setted
-#0 C:\xampp\htdocs\public_html\Livent\Control\CManageUser.php(272): VDelete->getPassword()
-#1 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::deletePage()
-#2 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
-#3 {main}
-
-credential wrong
-#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::login()
-#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+name home image don't seted
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CSystem::setHomeImg()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
 #2 {main}
 
-credential wrong
-#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::login()
-#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+name home image don't seted
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CSystem::setHomeImg()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
 #2 {main}
 
-my input not setted
+name home image don't seted
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CSystem::setHomeImg()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+name home image don't seted
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CSystem::setHomeImg()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+name home image don't seted
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CSystem::setHomeImg()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+name home image don't seted
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CSystem::setHomeImg()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+you don't have autorization
 #0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::newPageRegistration()
 #1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
 #2 {main}
 
-my input not setted
-#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::newPageRegistration()
+You don't have authorization
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageAthlete::update()
 #1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
 #2 {main}
 
-invalid gender
-#0 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(29): FCompetition::addRegistration(Object(ECompetition), Object(EAthlete), Object(EUser))
-#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::addRegistration()
-#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#3 {main}
+deletion registration/result is failed
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::deleteRegistration()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}
 
-competition just started
-#0 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(29): FCompetition::addRegistration(Object(ECompetition), Object(EAthlete), Object(EUser))
-#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::addRegistration()
-#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#3 {main}
+deletion registration/result is failed
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::deleteRegistration()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}
 
 store error
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(254): FDb::store('result', Array)
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(257): FDb::store('result', Array)
 #1 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(29): FCompetition::addRegistration(Object(ECompetition), Object(EAthlete), Object(EUser))
 #2 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::addRegistration()
 #3 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
 #4 {main}
 
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
+store error
+#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(257): FDb::store('result', Array)
+#1 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(29): FCompetition::addRegistration(Object(ECompetition), Object(EAthlete), Object(EUser))
+#2 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::addRegistration()
+#3 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#4 {main}
 
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(326): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NULL'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''nuli'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''null'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(325): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''null'' at line 1
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(326): FDb::exInterrogation(Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(389): FCompetition::getRegistrations(Object(ECompetition))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(188): FDbH::getRegistrationsCompetition(Object(ECompetition))
-#3 C:\xampp\htdocs\Livent\Control\CManageCompetition.php(84): ECompetition->getRegistrations()
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageCompetition::mainPage()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-email not setted
-#0 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(60): VDelete->getEmail()
-#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::deleteRegistration()
-#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#3 {main}
-
-email not setted
-#0 C:\xampp\htdocs\Livent\Control\CManageRegistration.php(60): VDelete->getEmail()
-#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::deleteRegistration()
-#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#3 {main}
-
-parametres multiWhere invalid
-#0 C:\xampp\htdocs\Livent\Foundation\FCompetition.php(276): FDb::multiWhere(Array, Array, 'AND', Array)
-#1 C:\xampp\htdocs\Livent\Foundation\FDbH.php(355): FCompetition::deleteResult(Object(ECompetition), Object(EAthlete))
-#2 C:\xampp\htdocs\Livent\Entity\ECompetition.php(180): FDbH::deleteResult(Object(ECompetition), Object(EAthlete))
-#3 C:\xampp\htdocs\Livent\Control\CManageResult.php(47): ECompetition->popResult(Object(EAthlete))
-#4 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageResult::delete()
-#5 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
-#6 {main}
-
-deletion result is failed
-#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageResult::delete()
+deletion registration/result is failed
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::deleteRegistration()
 #1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
 #2 {main}
 
-you don't have authorization
-#0 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageEvent::update()
-#1 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
+myinput don't setted
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::delete()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
 #2 {main}
 
-SQLSTATE[42S02]: Base table or view not found: 1146 Table 'livent.competitionsas' doesn't exist
-#0 C:\xampp\htdocs\public_html\Livent\Foundation\FEvent.php(207): FDb::exInterrogation(Array, Array, Array)
-#1 C:\xampp\htdocs\public_html\Livent\Foundation\FDbH.php(458): FEvent::search(true, NULL, NULL, NULL, NULL, Object(DateTime), NULL)
-#2 C:\xampp\htdocs\public_html\Livent\Control\CSystem.php(26): FDbH::searchEvent(true, NULL, NULL, NULL, NULL, Object(DateTime))
-#3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSystem::HomePage()
-#4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
-#5 {main}
+myinput don't setted
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::deletePage()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}
 
-SQLSTATE[42S02]: Base table or view not found: 1146 Table 'livent.competitionsas' doesn't exist
-#0 C:\xampp\htdocs\public_html\Livent\Foundation\FEvent.php(207): FDb::exInterrogation(Array, Array, Array)
-#1 C:\xampp\htdocs\public_html\Livent\Foundation\FDbH.php(458): FEvent::search(true, NULL, NULL, NULL, NULL, Object(DateTime), NULL)
-#2 C:\xampp\htdocs\public_html\Livent\Control\CSystem.php(26): FDbH::searchEvent(true, NULL, NULL, NULL, NULL, Object(DateTime))
-#3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSystem::HomePage()
-#4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
-#5 {main}
+you are not logged
+#0 C:\xampp\htdocs\Livent\Control\CManageUser.php(141): CManageUser::logout()
+#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::delete()
+#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#3 {main}
 
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ANY  ( SELECT T.idevent FROM competitions AS T WHERE T.datetime > '22-07-15' ...' at line 1
-#0 C:\xampp\htdocs\public_html\Livent\Foundation\FEvent.php(210): FDb::exInterrogation(Array, Array, Array)
-#1 C:\xampp\htdocs\public_html\Livent\Foundation\FDbH.php(458): FEvent::search(true, NULL, NULL, NULL, Object(DateTime), Object(DateTime), NULL)
-#2 C:\xampp\htdocs\public_html\Livent\Control\CSystem.php(29): FDbH::searchEvent(true, NULL, NULL, NULL, Object(DateTime), Object(DateTime))
-#3 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CSystem::HomePage()
-#4 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
-#5 {main}
+you are not logged
+#0 C:\xampp\htdocs\Livent\Control\CManageUser.php(141): CManageUser::logout()
+#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::delete()
+#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#3 {main}
 
-Syntax error in template "file:C:\xampp\htdocs\public_html\Livent\SmartyTemplate\Template\signin.tpl"  on line 86 "<input type="password" class="form-control" pattern=".{1,}" name="password" placeholder="Password" required>"  - Unexpected ",", expected one of: "}"
-#0 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templateparser.php(2819): Smarty_Internal_TemplateCompilerBase->trigger_template_error()
-#1 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templateparser.php(2880): Smarty_Internal_Templateparser->yy_syntax_error(34, ',')
-#2 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_smartytemplatecompiler.php(128): Smarty_Internal_Templateparser->doParse(34, ',')
-#3 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatecompilerbase.php(469): Smarty_Internal_SmartyTemplateCompiler->doCompile('<!-- \r\nTHEME: A...', true)
-#4 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatecompilerbase.php(395): Smarty_Internal_TemplateCompilerBase->compileTemplateSource(Object(Smarty_Internal_Template), false, NULL)
-#5 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_template_compiled.php(184): Smarty_Internal_TemplateCompilerBase->compileTemplate(Object(Smarty_Internal_Template))
-#6 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_template_compiled.php(141): Smarty_Template_Compiled->compileTemplateSource(Object(Smarty_Internal_Template))
-#7 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_template_compiled.php(105): Smarty_Template_Compiled->process(Object(Smarty_Internal_Template))
-#8 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_template.php(216): Smarty_Template_Compiled->render(Object(Smarty_Internal_Template))
-#9 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatebase.php(238): Smarty_Internal_Template->render(false, 1)
-#10 C:\xampp\htdocs\public_html\Livent\smarty-4.1.1\libs\sysplugins\smarty_internal_templatebase.php(134): Smarty_Internal_TemplateBase->_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
-#11 C:\xampp\htdocs\public_html\Livent\View\VSignin.php(15): Smarty_Internal_TemplateBase->display('signin.tpl')
-#12 C:\xampp\htdocs\public_html\Livent\Control\CManageUser.php(187): VSignin->show()
-#13 C:\xampp\htdocs\public_html\Livent\Control\CFrontController.php(56): CManageUser::signinPage()
-#14 C:\xampp\htdocs\public_html\Livent\index.php(5): CFrontController::run()
-#15 {main}
+you are not logged
+#0 C:\xampp\htdocs\Livent\Control\CManageUser.php(141): CManageUser::logout()
+#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::delete()
+#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#3 {main}
+
+you are not logged
+#0 C:\xampp\htdocs\Livent\Control\CManageUser.php(141): CManageUser::logout()
+#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::delete()
+#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#3 {main}
+
+you are not logged
+#0 C:\xampp\htdocs\Livent\Control\CManageUser.php(141): CManageUser::logout()
+#1 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageUser::delete()
+#2 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#3 {main}
+
+nome, cognome e id dell'atleta inseriti non corrispondono, riprovare
+#0 C:\xampp\htdocs\Livent\Control\CFrontController.php(56): CManageRegistration::addRegistration()
+#1 C:\xampp\htdocs\Livent\index.php(5): CFrontController::run()
+#2 {main}
+
+you aren't logged
+#0 /Applications/MAMP/htdocs/Livent/Control/CManageEvent.php(109): FSession::getUserLogged()
+#1 /Applications/MAMP/htdocs/Livent/Control/CFrontController.php(56): CManageEvent::mainPage()
+#2 /Applications/MAMP/htdocs/Livent/index.php(5): CFrontController::run()
+#3 {main}
+
+you don't have autorization
+#0 /Applications/MAMP/htdocs/Livent/Control/CFrontController.php(56): CManageAthlete::newPage()
+#1 /Applications/MAMP/htdocs/Livent/index.php(5): CFrontController::run()
+#2 {main}

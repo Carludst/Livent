@@ -2,7 +2,7 @@
 
 class VDelete extends View
 {
-    private static String $template='delete.tpl';
+    private static $template='delete.tpl';
 
     public function __construct()
     {

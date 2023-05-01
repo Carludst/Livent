@@ -150,7 +150,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>{$event->getName()}</td>
+                    <td><a href="/Livent/Event/MainPage/{$event->getId()}/">{$event->getName()}</a></td>
                     <td>{$competition->getDateTime()->format('d-m-y H:i:s')}</td>
                     <td>{$competition->getSport()}</td>
                     <td>{$competition->getGender()}</td>
@@ -172,7 +172,7 @@
                     <th>ID atleta</th>
                     <th>Nome</th>
                     <th>Cognome</th>
-                    {if $user->getId()==$event->getOrganizer()->getId()}
+                    {if '' != $user && $user->getId()==$event->getOrganizer()->getId()}
                         <th></th>
                     {/if}
                 </tr>
@@ -183,7 +183,7 @@
                         <td>{$athlete->getId()}</td>
                         <td>{$athlete->getName()}</td>
                         <td>{$athlete->getSurname()}</td>
-                        {if $user->getId()==$event->getOrganizer()->getId()}
+                        {if '' != $user && $user->getId()==$event->getOrganizer()->getId()}
                             <td><a href="/Livent/Registration/DeletePage/{$athlete->getId()}I{$competition->getId()}/" class="btn btn-main btn-small btn-round-full">Elimina</a></td>
                         {/if}
                     </tr>
@@ -197,7 +197,10 @@
             <table>
                 <thead>
                 <tr>
-                    {if $mood=='permit' && (($user->getType()!='Organizer'&& $user->getType()!='Administrator' )|| $user->getId()==$event->getOrganizer()->getId()) }
+                    {if '' != $user && $user->getId()==$event->getOrganizer()->getId()}
+                        <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Competition/UpdatePage/{$competition->getId()}/"><b>Modifica Competizione</b></a></td>
+                    {/if}
+                    {if $mood=='permit' && (('' != $user && $user->getType()!='Organizer'&& $user->getType()!='Administrator' )|| '' != $user && $user->getId()==$event->getOrganizer()->getId()) }
                         <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Registration/NewPage/{$competition->getId()}/"><b>Iscrivi un nuovo atleta</b></a></td>
                     {/if}
                     <td class="my-td"><a class="btn btn-main text-center" href="/Livent/Result/NewPage/{$competition->getId()}/"><b>Risultati</b></a></td>

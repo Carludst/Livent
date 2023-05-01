@@ -143,7 +143,14 @@ class FEvent
      */
     public static function deleteReference(int $key):bool
     {
-        $competition=FDb::delate(self::$table[1],FDb::where('idevent',$key));
+        $obj=self::loadOne($key);
+        FDbH::deleteDirectory($obj);
+        $comp=FCompetition::load('idevent',$key);
+        $competition=true;
+        foreach ($comp as $c){
+            $bool=FCompetition::deleteReference($c->getId());
+            $competition=$competition && $bool;
+        }
         $event=self::deleteOne($key);
         return $competition && $event ;
     }

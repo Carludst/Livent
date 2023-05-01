@@ -10,7 +10,8 @@ class FAthlete {
         $name=$athlete->getName();
         $surname=$athlete->getSurname();
         $birthdate=$athlete->getBirthdate()->format("y-m-d");
-        $famale=$athlete->getFamale();
+        if($athlete->getFamale())$famale=1;
+        else $famale=0;
         $team=$athlete->getTeam();
         $sport=$athlete->getSport();
         $update_at=$dateTime->format("Y-m-d H:i:s");
@@ -50,7 +51,7 @@ class FAthlete {
     {
         $dateTime=new DateTime();
         $created_at=$dateTime->format("Y-m-d H:i:s");
-        $fieldValue=self::getArrayByObject($athlete,true);
+        $fieldValue=self::getArrayByObject($athlete);
         $fieldValue['created_at']=$created_at;
         FDb::store(self::$table[0],$fieldValue);
         $athlete->setId((int)FDb::exInterrogation(FDb::opGroupMax(self::$table[0],'idathlete'))[0]['max']);

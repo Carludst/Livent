@@ -101,7 +101,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </li>
                     <!-- / Search -->
                     <!-- / System -->
-                    {if '' != $user && $user->getType() eq 'Administrator'}
+                    {if ('' != $user && ($user->getType() eq 'Administrator'))}
                     <li class="dropdown dropdown-slide">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                            role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-ios-settings-strong"></i> System<span
@@ -136,7 +136,7 @@ FACEBOOK: https://www.facebook.com/themefisher
 
                     </li><!-- / User -->
 
-                    {elseif '' != $user }
+                    {elseif '' != $user}
                     <li class="dropdown cart-nav dropdown-slide" >
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img class="avatar" src="{$profileImg}" alt="image" /></a>
                         <div class="dropdown-menu cart-dropdown">
@@ -161,7 +161,6 @@ FACEBOOK: https://www.facebook.com/themefisher
 
                     </li><!-- / User -->
                 </ul>
-
                 {else}
                 <!-- / Login -->
                 <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
@@ -179,7 +178,7 @@ FACEBOOK: https://www.facebook.com/themefisher
         <div class="row mt-20">
             <div class="col-md-4">
                 <img class="img-responsive" src="{$eventImg}" alt="product-img" />
-                {if $user->getType() == 'Organizer' && $mood eq 'permit'}
+                {if '' != $user && $user->getType() == 'Organizer' && $mood eq 'permit'}
                     <ul class="top-menu">
                         <li class="dropdown dropdown-slide ">
                             <a href="#!" class="dropdown-toggle btn btn-transparent mt-20" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
@@ -198,7 +197,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                     {if !empty($event->getCompetitions())}<p class="product-price"><time>{$event->getCompetition(0)->getDateTime()->format("d-m-y")}</time></p>
                     {else}<p class="product-price"><time>data da stabilire</time>{/if}
                     <p class="product-description mt-20">{$event->getDescription()}</p>
-                    {if $user->getType() == 'Organizer' && $mood eq 'permit'}
+                    {if '' != $user && $user->getType() == 'Organizer' && $mood eq 'permit'}
                         <a href="/Livent/Competition/NewPage/{$event->getId()}/" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
                     {/if}
                 </div>
@@ -239,7 +238,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                                 <td class="text-right">
                                                     <a href="/Livent/Competition/MainPage/{$competitions[index]->getId()}/" class="btn btn-main btn-small btn-round-full">Visualizza</a>
                                                 </td>
-                                                {if $user->getType() == 'Organizer' && $mood eq 'permit'}
+                                                {if '' != $user && $user->getType() == 'Organizer' && $mood eq 'permit'}
                                                 <td>
                                                     <a href="/Livent/Competition/DeletePage/{$competitions[index]->getId()}/" class="btn btn-main btn-big btn-transparent"><i class="tf-ion-ios-trash-outline my-icon-size"></i></a>
                                                 </td>

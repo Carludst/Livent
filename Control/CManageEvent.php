@@ -106,7 +106,7 @@ class CManageEvent
             if(FDbH::existOne($key,EEvent::class)){
                 FSession::addChronology(EEvent::class,$key);
                 $event = FDbH::loadOne($key, EEvent::class);
-                if($event->getOrganizer()->getId()==FSession::getUserLogged()->getId())$mood='permit';
+                if(FSession::isLogged() && $event->getOrganizer()->getId()==FSession::getUserLogged()->getId())$mood='permit';
                 else $mood='noPermit';
                 $eventImg=FDbH::loadMultiFile($event,MappingPathFile::nameEventMain(),MappingPathFile::dirEventDefault(),MappingPathFile::nameEventMain(),0.2);
                 $id = $event->getId();

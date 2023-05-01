@@ -80,7 +80,7 @@
                         <br>
                         <br>
                         <div>
-                            <input type="radio" name="public?" value="public" {if $event!="" && $event->getPublic()}checked{/if}/><b>Pubblico</b>
+                            <input type="radio" name="public?" value="public" {if $event =="" || $event->getPublic()}checked{/if}/><b>Pubblico</b>
                             <input type="radio" name="public?" value="private" {if $event!="" && !$event->getPublic()}checked{/if}/><b>Privato</b>
                         </div>
                         <br>

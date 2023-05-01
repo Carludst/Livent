@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-06 16:43:07
+/* Smarty version 4.1.1, created on 2022-07-16 04:34:51
   from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\signin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c59f7ba9a2a2_44395432',
+  'unifunc' => 'content_62d223cb55cc52_82747664',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e0af142075b65c50c0b9b33484b13ee485d91538' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\signin.tpl',
-      1 => 1657118435,
+      1 => 1657870143,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c59f7ba9a2a2_44395432 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d223cb55cc52_82747664 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- 
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -107,23 +107,24 @@ FACEBOOK: https://www.facebook.com/themefisher
             </select>
             <br>
             <div class="form-group">
-              <input type="text" class="form-control" name="username"  placeholder="Username">
+              <input type="text" class="form-control" name="username"  placeholder="Username" required>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" name="email" placeholder="Email">
+              <input type="email" class="form-control" name="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control"  name="password" placeholder="Password">
+              <input type="password" class="form-control" pattern="<?php echo $_smarty_tpl->tpl_vars['pattern']->value;?>
+" name="password" placeholder="Password (almeno 6 caratteri)" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control"  name="confirmPassword" placeholder="Conferma password">
+              <input type="password" class="form-control"  name="confirmPassword" placeholder="Conferma password" required>
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-main text-center">Sign In</button>
             </div>
           </form>
           <p class="mt-20">Hai già un account ?<a href="login.html"> Login</a></p>
-          <p><a href="forget-password.html"> torna alla home</a></p>
+          <p><a href="/Livent/"> torna alla home</a></p>
         </div>
       </div>
     </div>
@@ -136,35 +137,43 @@ FACEBOOK: https://www.facebook.com/themefisher
     
     <!-- Main jQuery -->
     <?php echo '<script'; ?>
- src="plugins/jquery/dist/jquery.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/jquery/dist/jquery.min.js"><?php echo '</script'; ?>
 >
     <!-- Bootstrap 3.1 -->
     <?php echo '<script'; ?>
- src="plugins/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
     <!-- Bootstrap Touchpin -->
     <?php echo '<script'; ?>
- src="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"><?php echo '</script'; ?>
 >
     <!-- Instagram Feed Js -->
     <?php echo '<script'; ?>
- src="plugins/instafeed/instafeed.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/instafeed/instafeed.min.js"><?php echo '</script'; ?>
 >
     <!-- Video Lightbox Plugin -->
     <?php echo '<script'; ?>
- src="plugins/ekko-lightbox/dist/ekko-lightbox.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/ekko-lightbox/dist/ekko-lightbox.min.js"><?php echo '</script'; ?>
 >
     <!-- Count Down Js -->
     <?php echo '<script'; ?>
- src="plugins/syo-timer/build/jquery.syotimer.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/syo-timer/build/jquery.syotimer.min.js"><?php echo '</script'; ?>
 >
 
     <!-- slick Carousel -->
     <?php echo '<script'; ?>
- src="plugins/slick/slick.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="plugins/slick/slick-animation.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/plugins/slick/slick-animation.min.js"><?php echo '</script'; ?>
 >
 
     <!-- Google Mapl -->
@@ -177,7 +186,8 @@ FACEBOOK: https://www.facebook.com/themefisher
 
     <!-- Main Js File -->
     <?php echo '<script'; ?>
- src="js/script.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['dir']->value;?>
+/js/script.js"><?php echo '</script'; ?>
 >
     
 

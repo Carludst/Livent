@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-16 11:20:25
-  from '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/event.tpl' */
+/* Smarty version 4.1.1, created on 2022-07-15 14:46:54
+  from 'C:\xampp\htdocs\Livent\SmartyTemplate\Template\errorSystem.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62d29ef9e09d72_64094375',
+  'unifunc' => 'content_62d161be96f143_14367059',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '4b13dc191826d6d1e053844f557fad3a7a7ee0e4' => 
+    '9bfbf741fd7b8b7de93b87f9d18547d5c0c2714e' => 
     array (
-      0 => '/Applications/MAMP/htdocs/Livent/SmartyTemplate/Template/event.tpl',
-      1 => 1657970423,
+      0 => 'C:\\xampp\\htdocs\\Livent\\SmartyTemplate\\Template\\errorSystem.tpl',
+      1 => 1657889213,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62d29ef9e09d72_64094375 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62d161be96f143_14367059 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--
 THEME: Aviato | E-commerce template
 VERSION: 1.0.0
@@ -132,13 +132,13 @@ FACEBOOK: https://www.facebook.com/themefisher
                     </li>
                     <!-- / Search -->
                     <!-- / System -->
-                    <?php if (('' != $_smarty_tpl->tpl_vars['user']->value && ($_smarty_tpl->tpl_vars['user']->value->getType() == 'Administrator'))) {?>
+                    <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() == 'Administrator') {?>
                     <li class="dropdown dropdown-slide">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
                            role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-ios-settings-strong"></i> System<span
                                     class="tf-ion-ios-arrow-down"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="typography.html">Errori</a></li>
+                            <li><a href="/Livent/Error/">Errori</a></li>
                             <li><a href="/Livent/Graphics/">Imposta grafica</a></li>
                             <li><a href="/Livent/User/Search/">Gestione utenti</a></li>
                             <li><a href="/Livent/Athlete/NewPage/">Crea Atleta</a></li>
@@ -200,9 +200,11 @@ FACEBOOK: https://www.facebook.com/themefisher
 
                     </li><!-- / User -->
                 </ul>
+
                 <?php } else { ?>
                 <!-- / Login -->
                 <a href="/Livent/User/LoginPage/"><i class="tf-ion-android-person"></i> Login</a>
+
                 <!-- / Login -->
                 <?php }?>
                 <!-- / .nav .navbar-nav .navbar-right -->
@@ -212,111 +214,36 @@ FACEBOOK: https://www.facebook.com/themefisher
 </section>
 <!-- End Top Header Bar -->
 
-<section class="single-product">
+<?php if ($_smarty_tpl->tpl_vars['errors']->value != '') {?>
+<section class="user-dashboard page-wrapper">
     <div class="container">
-        <div class="row mt-20">
-            <div class="col-md-4">
-                <img class="img-responsive" src="<?php echo $_smarty_tpl->tpl_vars['eventImg']->value;?>
-" alt="product-img" />
-                <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() == 'Organizer' && $_smarty_tpl->tpl_vars['mood']->value == 'permit') {?>
-                    <ul class="top-menu">
-                        <li class="dropdown dropdown-slide ">
-                            <a href="#!" class="dropdown-toggle btn btn-transparent mt-20" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-                               role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/Livent/Event/UpdatePage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
-/">Modifica Evento</a></li>
-                                <li><a href="/Livent/Event/DeletePage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
-/">Cancella Evento</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                <?php }?>
-            </div>
-            <div class="col-md-7">
-                <div class="single-product-details">
-                    <h2><?php echo $_smarty_tpl->tpl_vars['event']->value->getName();?>
-</h2>
-                    <?php if (!empty($_smarty_tpl->tpl_vars['event']->value->getCompetitions())) {?><p class="product-price"><time><?php echo $_smarty_tpl->tpl_vars['event']->value->getCompetition(0)->getDateTime()->format("d-m-y");?>
-</time></p>
-                    <?php } else { ?><p class="product-price"><time>data da stabilire</time><?php }?>
-                    <p class="product-description mt-20"><?php echo $_smarty_tpl->tpl_vars['event']->value->getDescription();?>
-</p>
-                    <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() == 'Organizer' && $_smarty_tpl->tpl_vars['mood']->value == 'permit') {?>
-                        <a href="/Livent/Competition/NewPage/<?php echo $_smarty_tpl->tpl_vars['event']->value->getId();?>
-/" class="btn btn-main btn-small btn-round-full">Nuova Competizione</a>
-                    <?php }?>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-inline dashboard-menu text-center">
+                    <li><a href="/Livent/Error/Delete/" class="btn btn-main btn-medium">Cancella</a></li>
+                    <li><a href="/Livent/Error/Download/" class="btn btn-main btn-medium">Download</a></li>
+                </ul>
+                <div class="dashboard-wrapper">
+                    <div class="media-body">
+                        <p >
+                            <?php echo $_smarty_tpl->tpl_vars['errors']->value;?>
+
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <?php if (empty($_smarty_tpl->tpl_vars['competitions']->value)) {?>
-                    <br>
-                    <br>
-                    <h1 class="my-allert-page">Non ci sono competizioni</h1>
-                <?php } else { ?>
-                    <div class="media">
-                        <div class="dashboard-wrapper dashboard-user-profile">
-                            <div class="dashboard-wrapper user-dashboard">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th>Nome Competizione</th>
-                                            <th>Distanza</th>
-                                            <th>Genere</th>
-                                            <th>Sport</th>
-                                            <th></th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php
-$__section_index_0_loop = (is_array(@$_loop=$_smarty_tpl->tpl_vars['competitions']->value) ? count($_loop) : max(0, (int) $_loop));
-$__section_index_0_total = $__section_index_0_loop;
-$_smarty_tpl->tpl_vars['__smarty_section_index'] = new Smarty_Variable(array());
-if ($__section_index_0_total !== 0) {
-for ($__section_index_0_iteration = 1, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] = 0; $__section_index_0_iteration <= $__section_index_0_total; $__section_index_0_iteration++, $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']++){
-?>
-                                            <tr>
-                                                <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getName();?>
-</td>
-                                                <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getDistance()->toString();?>
-</td>
-                                                <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getGender();?>
-</td>
-                                                <td><?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getSport();?>
-</td>
-                                                <td class="text-right">
-                                                    <a href="/Livent/Competition/MainPage/<?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
-/" class="btn btn-main btn-small btn-round-full">Visualizza</a>
-                                                </td>
-                                                <?php if ('' != $_smarty_tpl->tpl_vars['user']->value && $_smarty_tpl->tpl_vars['user']->value->getType() == 'Organizer' && $_smarty_tpl->tpl_vars['mood']->value == 'permit') {?>
-                                                <td>
-                                                    <a href="/Livent/Competition/DeletePage/<?php echo $_smarty_tpl->tpl_vars['competitions']->value[(isset($_smarty_tpl->tpl_vars['__smarty_section_index']->value['index']) ? $_smarty_tpl->tpl_vars['__smarty_section_index']->value['index'] : null)]->getId();?>
-/" class="btn btn-main btn-big btn-transparent"><i class="tf-ion-ios-trash-outline my-icon-size"></i></a>
-                                                </td>
-                                                <?php }?>
-                                            </tr>
-                                        <?php
-}
-}
-?>
-                                        </tbody
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php }?>
-            </div>
-        </div>
-    </div>
 </section>
+<?php } else { ?>
+    <br><br>
+    <h1 class="my-allert-page" > Non ci sono errori o violazioni </h1>
+<?php }?>
+
+
+<!--
+Start Call To Action
+==================================== -->
 
 <!--
 Essential Scripts
@@ -381,5 +308,6 @@ Essential Scripts
 
 
 </body>
-</html><?php }
+</html>
+<?php }
 }

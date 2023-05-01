@@ -273,6 +273,23 @@ class FDbH {
 
     /**
      * @param String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath
+     * @return bool
+     * @throws Exception
+     */
+    public static function deleteDirectory(String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath ): bool
+    {
+        if(is_string($objPath))$pathDB=$objPath;
+        else{
+            $Eclass = get_class($objPath);
+            $Fclass = "F".substr($Eclass,1);
+            $pathDB=$Fclass::getPathFile($objPath);
+        }
+        return FDb::delate('file',FDb::where("path",$pathDB));
+    }
+
+
+    /**
+     * @param String|EAthlete|EUser|EComment|ECompetition|EContact|EEvent $objPath
      * @param String $name
      * @return bool
      * @throws Exception

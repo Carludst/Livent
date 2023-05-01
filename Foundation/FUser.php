@@ -99,10 +99,16 @@ class FUser
      */
     public static function deleteReference(int $key):bool
     {
-        $events=FDb::delate(self::$table[2],FDb::where('idorganizer',$key));
-        $result=FDb::update(self::$table[1],FDb::multiWhere(array('iduser','time'),array($key,'NULL'),'AND',array('=','<>')),array('time'=>'NULL'));
+        $obj=self::loadOne($key);
+        FDbH::deleteDirectory($obj);
+        $eventRef=FEvent::load('idorganizer',$key);
+        $events=true;
+        foreach ($eventRef as $item){
+            $bool=FEvent::deleteReference($item->getID());
+            $events=$events && $bool;
+        }
         $user=self::deleteOne($key);
-        return $user && $events ;
+        return $user && $events  ;
     }
 
     /**

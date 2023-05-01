@@ -121,7 +121,7 @@ FACEBOOK: https://www.facebook.com/themefisher
                                    role="button" aria-haspopup="true" aria-expanded="false"><i class="tf-ion-android-settings"></i> impostazioni</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/Livent/User/UpdatePage/">Modifica Profilo</a></li>
-                                    <li><a href="/Livent/User/Delete/">Cancella Profilo</a></li>
+                                    <li><a href="/Livent/User/DeletePage/{$user->getId()}/">Cancella Profilo</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -165,9 +165,9 @@ FACEBOOK: https://www.facebook.com/themefisher
                                         <tbody>
                                         {section name=index loop=$athletes}
                                             <tr>
-                                                <td><a href="/Livent/Athlete/MainPage/{$athletes[index]->getId()}">{$athletes[index]->getName()} {$athletes[index]->getSurname()} ({$athletes[index]->getId()})</a></td>
-                                                <td><a href="/Livent/Event/MainPage/{$events[index]->getId()}">{$events[index]->getName()}</a></td>
-                                                <td><a href="/Livent/Competition/MainPage/{$competitions[index]->getId()}">{$competitions[index]->getName()} ({$competitions[index]->getSport()})</a></td>
+                                                <td><a href="/Livent/Athlete/MainPage/{$athletes[index]->getId()}/">{$athletes[index]->getName()} {$athletes[index]->getSurname()} ({$athletes[index]->getId()})</a></td>
+                                                <td><a href="/Livent/Event/MainPage/{$events[index]->getId()}/">{$events[index]->getName()}</a></td>
+                                                <td><a href="/Livent/Competition/MainPage/{$competitions[index]->getId()}/">{$competitions[index]->getName()} ({$competitions[index]->getSport()})</a></td>
                                                 <td>{$competitions[index]->getDateTime()->format("d/m/Y")}</td>
                                                 <td><a href="/Livent/Registration/DeletePage/{$athletes[index]->getId()}I{$competitions[index]->getId()}/" class="btn btn-main btn-small btn-round-full">Cancella Iscrizioni</a></td>
                                             </tr>

@@ -94,6 +94,7 @@ class FCompetition {
 
     public static function deleteReference(int $key):bool
     {
+        FDb::setNull(self::$table[1],'time',FDb::where('idcompetition',$key));
         $result=FDb::delate(self::$table[1],FDb::where('idcompetition',$key));
         $competition=self::deleteOne($key);
         return $result && $competition;
